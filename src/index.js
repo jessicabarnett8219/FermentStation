@@ -1,8 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/FermentStation';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from "react-router-dom"
+import FermentStation from './components/FermentStation'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+    <Router>
+        <FermentStation />
+    </Router>
+    , document.getElementById('root'))
 
 
