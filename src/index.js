@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './FermentStation';
+import App from './components/FermentStation';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
