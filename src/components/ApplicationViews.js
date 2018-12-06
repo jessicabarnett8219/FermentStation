@@ -6,10 +6,13 @@ class ApplicationViews extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello</h1>
-        <button className='ui button' role='button'>Click Here</button>
-      </div>
+      <React.Fragment>
+        <h1>FermentStation</h1>
+
+      </React.Fragment>
+
+
+
     )
   }
 }
