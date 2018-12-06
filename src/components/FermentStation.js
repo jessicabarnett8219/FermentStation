@@ -2,15 +2,13 @@ import React, { Component } from "react"
 import ApplicationViews from "./ApplicationViews"
 
 
-
 class FermentStation extends Component {
   render() {
     return (
-      <ApplicationViews />
+        <ApplicationViews />
     )
   }
 }
-
 export default FermentStation
 
 

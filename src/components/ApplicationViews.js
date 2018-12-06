@@ -19,28 +19,25 @@ class ApplicationViews extends Component {
           return <MainMenu />
         }} />
         <Route path="/welcome" render={props => {
-            return <WelcomeScreen />
-        }}/>
+          return <WelcomeScreen />
+        }} />
         <Route path="/new-batch" render={props => {
           return <NewBatchForm />
         }} />
-        <Route exact path="/batches" />
-        }}/>
-        <Route path="/batches/bottled" render={props => {
+        <Route path="/bottled-list" render={props => {
           return <BottledBatchesList />
-        }}/>
-        <Route path="/batches/brewing" render={props => {
+        }} />
+        <Route path="/brewing-list" render={props => {
           return <BrewingBatchesList />
-        }}/>
-        <Route path="/batches/past" render={props => {
+        }} />
+        <Route path="/past-list" render={props => {
           return <PastBatchesList />
-        }}/>
-        <Route path="/batches/1" render={props => {
+        }} />
+        <Route path="/batches/:batchId(\d+)" render={props => {
           return <BatchDetail />
-        }}/>
+        }} />
+
       </React.Fragment>
-
-
 
     )
   }

@@ -6,11 +6,12 @@ import RegistrationForm from "./RegistrationForm";
 class WelcomeScreen extends Component {
   render() {
     return(
-      <div>
+
+      <div className="grid">
         <h1>Welcome to FermentStation</h1>
         <LoginForm />
         <RegistrationForm />
-      </div>
+        </div>
     )
   }
 }
