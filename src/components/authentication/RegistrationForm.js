@@ -1,14 +1,14 @@
 import { Route, Redirect } from "react-router-dom"
 import React, { Component } from "react"
 
-class LoginForm extends Component {
+class RegistrationForm extends Component {
   render() {
     return(
       <div>
-        <h3>Login Form</h3>
+        <h3>Registration Form</h3>
       </div>
     )
   }
 }
 
-export default LoginForm
+export default RegistrationForm
