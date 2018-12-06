@@ -7,6 +7,8 @@ import BottledBatchesList from "./batch/list/BottledBatchesList"
 import PastBatchesList from "./batch/list/PastBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/BatchDetail";
+import BottleForm from "./batch/form/BottleForm"
+import SampleForm from "./batch/form/SampleForm";
 
 
 
@@ -36,6 +38,12 @@ class ApplicationViews extends Component {
         <Route path="/batches/:batchId(\d+)" render={props => {
           return <BatchDetail />
         }} />
+        <Route path="/bottle-batch" render={props => {
+          return <BottleForm />
+        }} />
+        <Route path="/sample-batch" render={props => {
+          return <SampleForm />
+        }}/>
 
       </React.Fragment>
 
