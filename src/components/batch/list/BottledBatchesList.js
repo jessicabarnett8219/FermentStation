@@ -1,15 +1,36 @@
 import React, { Component } from "react"
-import BottledDetail from "../detail/BottledDetail"
+import { Grid, Button, Header, List } from 'semantic-ui-react'
+
 
 class BottledBatchesList extends Component {
   render() {
-    return(
-      <div>
-        <h3>Bottled Batches List Here</h3>
-        <button onClick={() => {
-          return <BottledDetail />
-        }}>See More</button>
-      </div>
+    return (
+      <Grid columns={1} padded={true}>
+        <Grid.Column>
+          <Header as="h1" textAlign="center">Batches - Bottled</Header>
+          <List divided>
+            <List.Item>
+              <List.Content floated='right'>
+                <Button>Details</Button>
+              </List.Content>
+              <List.Content><Header size="medium">My First Ferment <Header.Subheader>Bottled Since: 12/05/18</Header.Subheader></Header></List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content floated='right'>
+                <Button>Details</Button>
+              </List.Content>
+              <List.Content><Header size="medium">Grape Soda <Header.Subheader>Bottled Since: 12/20/18</Header.Subheader></Header></List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content floated='right'>
+                <Button>Details</Button>
+              </List.Content>
+              <List.Content><Header size="medium">Ginger Blueberry <Header.Subheader>Bottled Since: 12/20/18</Header.Subheader></Header></List.Content>
+            </List.Item>
+
+          </List>
+        </Grid.Column>
+      </Grid>
     )
   }
 }

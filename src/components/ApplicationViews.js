@@ -35,7 +35,7 @@ class ApplicationViews extends Component {
         <Route path="/past-list" render={props => {
           return <PastBatchesList />
         }} />
-        <Route path="/batches/:batchId(\d+)" render={props => {
+        <Route path="/batches/1" render={props => {
           return <BatchDetail />
         }} />
         <Route path="/bottle-batch" render={props => {
