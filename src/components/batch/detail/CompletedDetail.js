@@ -19,11 +19,23 @@ class CompletedDetail extends Component {
             </List.Item>
 
             <List.Item>
-              <List.Content><Header size="medium">Completed Since</Header>{this.props.completeDate}</List.Content>
+              <List.Content><Header size="medium">Started On</Header>{this.props.startDate}</List.Content>
             </List.Item>
 
             <List.Item>
-              <List.Content><Header size="medium">Ingredients</Header>{this.props.ingredients}</List.Content>
+              <List.Content><Header size="medium">Bottled On</Header>{this.props.bottleDate}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Completed On</Header>{this.props.completeDate}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Starter Ingredients</Header>{this.props.starterIngredients}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Bottle Ingredients</Header>{this.props.bottleIngredients}</List.Content>
             </List.Item>
 
             <List.Item>

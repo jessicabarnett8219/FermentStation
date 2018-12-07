@@ -26,16 +26,16 @@ class BatchDetail extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <BrewingDetail name={this.state.batch.name} type={this.state.batch.type} startDate={this.state.batch.startDate} ingredients={this.state.batch.ingredients} batchId={this.state.batch.id} />
+          <BrewingDetail name={this.state.batch.name} type={this.state.batch.typeId} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate}/>
         )
       } else if (this.state.batch.status === 2) {
         return (
-          <BottledDetail name={this.state.batch.name} type={this.state.batch.type} bottleDate={this.state.batch.bottleDate} ingredients={this.state.batch.ingredients} batchId={this.state.batch.id}/>
+          <BottledDetail name={this.state.batch.name} type={this.state.batch.typeId} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} startDate={this.state.batch.startDate}batchId={this.state.batch.id} completeDate={this.state.batch.completeDate}/>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
-          <CompletedDetail name={this.state.batch.name} type={this.state.batch.type} completeDate={this.state.batch.completeDate} ingredients={this.state.batch.ingredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review}/>
+          <CompletedDetail name={this.state.batch.name} type={this.state.batch.typeId} completeDate={this.state.batch.completeDate} startDate={this.state.batch.startDate} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review}/>
         )
       }
     }

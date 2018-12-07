@@ -23,7 +23,11 @@ class BrewingDetail extends Component {
             </List.Item>
 
             <List.Item>
-              <List.Content><Header size="medium">Ingredients</Header>{this.props.ingredients}</List.Content>
+              <List.Content><Header size="medium">Expected Bottle Date</Header>{this.props.bottleDate}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Starter Ingredients</Header>{this.props.starterIngredients}</List.Content>
             </List.Item>
 
           </List>

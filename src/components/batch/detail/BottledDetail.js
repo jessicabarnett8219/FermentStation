@@ -19,11 +19,23 @@ class BottledDetail extends Component {
             </List.Item>
 
             <List.Item>
+              <List.Content><Header size="medium">Started On</Header>{this.props.startDate}</List.Content>
+            </List.Item>
+
+            <List.Item>
               <List.Content><Header size="medium">Bottled Since</Header>{this.props.bottleDate}</List.Content>
             </List.Item>
 
             <List.Item>
-              <List.Content><Header size="medium">Ingredients</Header>{this.props.ingredients}</List.Content>
+              <List.Content><Header size="medium">Expected Completion Date</Header>{this.props.completeDate}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Starter Ingredients</Header>{this.props.starterIngredients}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Content><Header size="medium">Bottle Ingredients</Header>{this.props.bottleIngredients}</List.Content>
             </List.Item>
 
           </List>
