@@ -5,7 +5,10 @@ import ApplicationViews from "./ApplicationViews"
 class FermentStation extends Component {
   render() {
     return (
-        <ApplicationViews />
+
+      <ApplicationViews />
+
+
     )
   }
 }

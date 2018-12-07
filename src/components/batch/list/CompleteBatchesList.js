@@ -4,15 +4,14 @@ import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
 
 
-class BrewingBatchesList extends Component {
+class PastBatchesList extends Component {
 
   state = {
     batches: []
   }
 
-
   componentDidMount() {
-    APIManager.getAllEntries("batches", "/?user=1&status=1")
+    APIManager.getAllEntries("batches", "/?user=1&status=3")
       .then(batches => this.setState({ batches: batches }))
   }
 
@@ -20,7 +19,7 @@ class BrewingBatchesList extends Component {
     return (
       <Grid columns={1} padded>
         <Grid.Column>
-          <Header as="h1" textAlign="center">Now Brewing</Header>
+          <Header as="h1" textAlign="center">Completed Batches</Header>
           <List divided>
             {
               this.state.batches.map(batch => {
@@ -30,7 +29,7 @@ class BrewingBatchesList extends Component {
                   </List.Content>
                   <List.Content>
                     <Header size="medium">{batch.name}
-                    <Header.Subheader>Brewing Since: {batch.startDate}</Header.Subheader>
+                    <Header.Subheader>Completed On: {batch.completeDate}</Header.Subheader>
                     </Header>
                   </List.Content>
                 </List.Item>
@@ -43,4 +42,4 @@ class BrewingBatchesList extends Component {
     )
   }
 }
-export default BrewingBatchesList
+export default PastBatchesList
