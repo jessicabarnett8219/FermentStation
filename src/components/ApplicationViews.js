@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import React, { Component } from "react"
 import MainMenu from "./navigation/dashboard/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
@@ -14,26 +14,56 @@ import ReviewForm from "./batch/form/ReviewForm";
 
 class ApplicationViews extends Component {
 
+  isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
+
   render() {
     return (
       <React.Fragment>
         <Route exact path="/" render={props => {
-          return <MainMenu />
+          if(this.isAuthenticated()) {
+            return <MainMenu />
+          } else {
+            return <Redirect to="/welcome" />
+          }
         }} />
         <Route path="/welcome" render={props => {
-          return <WelcomeScreen />
+          return <WelcomeScreen {...props}/>
         }} />
         <Route path="/new-batch" render={props => {
-          return <NewBatchForm />
+          if(this.isAuthenticated()) {
+            return <NewBatchForm />
+          } else {
+            return <Redirect to="/welcome" />
+          }
         }} />
         <Route path="/bottled-list" render={props => {
-          return <BottledBatchesList />
+          if(this.isAuthenticated()) {
+            return <BottledBatchesList />
+          } else {
+            return <Redirect to="/welcome" />
+          }
         }} />
         <Route path="/brewing-list" render={props => {
-          return <BrewingBatchesList />
+          if(this.isAuthenticated()) {
+            return <BrewingBatchesList />
+          } else {
+            return <Redirect to="/welcome" />
+          }
         }} />
         <Route path="/completed-list" render={props => {
-          return <PastBatchesList />
+          if(this.isAuthenticated()) {
+            return <PastBatchesList />
+          } else {
+            return <Redirect to="/welcome" />
+          }
+        }} />
+        <Route exact path="/batches" render={props => {
+          if(this.isAuthenticated()) {
+            return (
+            <div></div>)
+          } else {
+            return <Redirect to="/welcome" />
+          }
         }} />
         <Route path="/batches/:batchId(\d+)" component={BatchDetail}/>
         <Route path="/bottle/:batchId(\d+)" component={BottleForm}/>
