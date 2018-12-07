@@ -27,7 +27,7 @@ class BrewingBatchesList extends Component {
               this.state.batches.map(batch => {
                 return <List.Item key={batch.id}>
                   <List.Content floated='right'>
-                    <Link to={`/batches/${batch.id}`}><Button>Details</Button></Link>
+                    <Link to={`/batches/${batch.id}`} batchId={batch.id} {...this.props}><Button>Details</Button></Link>
                   </List.Content>
                   <List.Content>
                     <Header size="medium">{batch.name}

@@ -9,11 +9,11 @@ import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
 import SampleForm from "./batch/form/ReviewForm";
+// import APIManager from "./modules/APIManager"
 
 
 
 class ApplicationViews extends Component {
-
 
   render() {
     return (
@@ -36,9 +36,7 @@ class ApplicationViews extends Component {
         <Route path="/completed-list" render={props => {
           return <PastBatchesList />
         }} />
-        <Route path="/batches/:batchId(\d+)" render={props => {
-          return <BatchDetail />
-        }} />
+        <Route path="/batches/:batchId(\d+)" component={BatchDetail}/>
         <Route path="/bottle-batch" render={props => {
           return <BottleForm />
         }} />

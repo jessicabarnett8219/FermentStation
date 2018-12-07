@@ -16,38 +16,37 @@ class BatchDetail extends Component {
     ingredients: ""
   }
 
-  componentDidMount () {
-    APIManager.getEntry("batches", `${this.props.batchId}`)
-    .then(batch => {
-      this.setState({
-        batchName: batch.name,
-        startDate: batch.startDate,
-        type: batch.type,
-        status: batch.status,
-        ingredients: batch.ingredients
-      }, () => console.log(this.state))
-    })
 
+  componentDidMount () {
+    const {batchId} = this.props.match.params
+    APIManager.getEntry("batches", batchId)
+    .then(batch => this.setState({
+      batchName: batch.name,
+      startDate: batch.startDate,
+      type: batch.type,
+      ingredients: batch.ingredients
+    }))
   }
 
   render() {
+
     return (
       <Grid columns={1} padded={true}>
         <Grid.Column>
           <Header as="h1" textAlign="center">Batch Details</Header>
           <List>
             <List.Item>
-              <List.Content ><Header size="medium">Name</Header>Grape Soda</List.Content>
+              <List.Content ><Header size="medium">Name</Header>{this.state.batchName}</List.Content>
             </List.Item>
 
             <List.Item>
-              <List.Content><Header size="medium">Type</Header>Water Kefir</List.Content>
+              <List.Content><Header size="medium">Type</Header>{this.state.type}</List.Content>
             </List.Item>
             <List.Item>
-              <List.Content><Header size="medium">Brewing Since</Header>12/05/2017</List.Content>
+              <List.Content><Header size="medium">Brewing Since</Header>{this.state.startDate}</List.Content>
             </List.Item>
             <List.Item>
-              <List.Content><Header size="medium">Ingredients</Header>2 cups palm sugar</List.Content>
+              <List.Content><Header size="medium">Ingredients</Header>{this.state.ingredients}</List.Content>
             </List.Item>
           </List>
           <Button fluid>Bottle Batch</Button>
