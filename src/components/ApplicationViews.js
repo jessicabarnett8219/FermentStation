@@ -4,15 +4,16 @@ import MainMenu from "./navigation/dashboard/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
 import BrewingBatchesList from "./batch/list/BrewingBatchesList"
 import BottledBatchesList from "./batch/list/BottledBatchesList"
-import PastBatchesList from "./batch/list/PastBatchesList"
+import PastBatchesList from "./batch/list/CompleteBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
-import SampleForm from "./batch/form/SampleForm";
+import SampleForm from "./batch/form/ReviewForm";
 
 
 
 class ApplicationViews extends Component {
+
 
   render() {
     return (
@@ -32,10 +33,10 @@ class ApplicationViews extends Component {
         <Route path="/brewing-list" render={props => {
           return <BrewingBatchesList />
         }} />
-        <Route path="/past-list" render={props => {
+        <Route path="/completed-list" render={props => {
           return <PastBatchesList />
         }} />
-        <Route path="/batches/1" render={props => {
+        <Route path="/batches/:batchId(\d+)" render={props => {
           return <BatchDetail />
         }} />
         <Route path="/bottle-batch" render={props => {
