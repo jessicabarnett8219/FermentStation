@@ -21,7 +21,7 @@ class ApplicationViews extends Component {
           return <MainMenu />
         }} />
         <Route path="/welcome" render={props => {
-          return <WelcomeScreen />
+          return <WelcomeScreen {...props}/>
         }} />
         <Route path="/new-batch" render={props => {
           return <NewBatchForm />
