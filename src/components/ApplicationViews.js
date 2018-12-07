@@ -21,7 +21,7 @@ class ApplicationViews extends Component {
       <React.Fragment>
         <Route exact path="/" render={props => {
           if(this.isAuthenticated()) {
-            return <MainMenu />
+            return <MainMenu {...props}/>
           } else {
             return <Redirect to="/welcome" />
           }

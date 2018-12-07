@@ -14,6 +14,13 @@ class MainMenu extends Component {
           <Link to="/brewing-list"><Button >View Now-Brewing</Button></Link>
           <Link to="/bottled-list"><Button >View Bottled</Button></Link>
           <Link to="/completed-list"><Button >View Completed</Button></Link>
+          <Link to="/completed-list"><Button >View Completed</Button></Link>
+          <Button onClick={
+            () => {
+              sessionStorage.clear() || localStorage.clear()
+              this.props.history.push("/welcome")
+            }
+          }>Logout</Button>
         </Button.Group>
       </div>
     )

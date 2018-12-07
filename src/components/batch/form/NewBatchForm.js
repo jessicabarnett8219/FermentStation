@@ -3,6 +3,16 @@ import { Grid, Form, Button, Header } from 'semantic-ui-react'
 
 
 class NewBatchForm extends Component {
+
+  state = {
+    currentUser: ""
+  }
+
+  componentDidMount() {
+    let currentUserId = sessionStorage.getItem("userId") || localStorage.getItem("userId")
+    console.log(currentUserId)
+  }
+
   render() {
     return (
       <Grid columns={1} padded={true}>
