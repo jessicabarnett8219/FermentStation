@@ -76,11 +76,3 @@ class ApplicationViews extends Component {
 }
 
 export default ApplicationViews
-
-{/* <Route exact path="/news" render={(props) => {
-          if (this.isAuthenticated()) {
-            return <NewsList getAllUsers={this.getAllUsers} getCurrentUser={this.getCurrentUser} />
-          } else {
-            return <Redirect to="/welcome" />
-          }
-        }} /> */}

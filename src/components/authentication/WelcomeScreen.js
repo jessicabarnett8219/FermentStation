@@ -3,6 +3,8 @@ import LoginForm from "./LoginForm"
 // import RegistrationForm from "./RegistrationForm";
 import { Header, Grid, Divider, Button } from 'semantic-ui-react'
 import APIManager from "../../modules/APIManager"
+import RegistrationForm from "./RegistrationForm"
+import "./WelcomeScreen.css"
 
 
 
@@ -11,7 +13,8 @@ class WelcomeScreen extends Component {
   state = {
     loginEmail: "",
     loginPassword: "",
-    remember: ""
+    remember: "",
+    hideForm: true
   }
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
@@ -45,6 +48,13 @@ handleLogin = (evt) => {
   }
 }
 
+toggleNewForm = () => {
+  const currentState = this.state.hideForm;
+  this.setState({
+    hideForm: !currentState,
+  });
+}
+
   render() {
     return(
       <Grid container columns={1} padded={true}>
@@ -53,7 +63,12 @@ handleLogin = (evt) => {
         <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props}/>
         <Divider />
         <Header size="small" textAlign="center">New here?</Header>
-        <Button>Create an Account</Button>
+        <Button onClick={
+          () => {
+            this.toggleNewForm()
+          }
+        }>Create an Account</Button>
+        <RegistrationForm hideForm={this.state.hideForm}/>
         </Grid.Column>
       </Grid>
 
