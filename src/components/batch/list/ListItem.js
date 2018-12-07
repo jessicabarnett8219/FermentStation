@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List } from 'semantic-ui-react'
+import { Button, Header, List } from 'semantic-ui-react'
 import { Link } from "react-router-dom"
 
 

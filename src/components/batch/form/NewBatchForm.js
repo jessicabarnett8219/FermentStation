@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Form, Label, Button, Header } from 'semantic-ui-react'
+import { Grid, Form, Button, Header } from 'semantic-ui-react'
 
 
 class NewBatchForm extends Component {

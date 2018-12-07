@@ -10,10 +10,10 @@ class MainMenu extends Component {
       <Grid columns={1} padded={true}>
         <Grid.Column>
           <Header as="h1" textAlign="center">Welcome, Wally</Header>
-          <Link to="/new-batch"><Button fluid>Start a New Batch</Button></Link>
-          <Link to="/brewing-list"><Button fluid>View Now-Brewing</Button></Link>
-          <Link to="/bottled-list"><Button fluid>View Bottled</Button></Link>
-          <Link to="/completed-list"><Button fluid>View Completed</Button></Link>
+          <Link to="/new-batch"><Button >Start a New Batch</Button></Link>
+          <Link to="/brewing-list"><Button >View Now-Brewing</Button></Link>
+          <Link to="/bottled-list"><Button >View Bottled</Button></Link>
+          <Link to="/completed-list"><Button >View Completed</Button></Link>
         </Grid.Column>
       </Grid>
     )

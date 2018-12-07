@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, Item, List } from 'semantic-ui-react'
+import { Grid, Button, Header, List } from 'semantic-ui-react'
 import APIManager from "../../modules/APIManager"
+import { Link } from "react-router-dom"
 
 
 
@@ -19,12 +20,13 @@ class BatchDetail extends Component {
 
   componentDidMount () {
     const {batchId} = this.props.match.params
-    APIManager.getEntry("batches", batchId)
+    APIManager.getEntry("batches", batchId, "/?_expand=type")
     .then(batch => this.setState({
       batchName: batch.name,
       startDate: batch.startDate,
-      type: batch.type,
-      ingredients: batch.ingredients
+      type: batch.type.name,
+      ingredients: batch.ingredients,
+      batchId: batch.id
     }))
   }
 
@@ -49,9 +51,18 @@ class BatchDetail extends Component {
               <List.Content><Header size="medium">Ingredients</Header>{this.state.ingredients}</List.Content>
             </List.Item>
           </List>
-          <Button fluid>Bottle Batch</Button>
-          <Button fluid>Edit Batch</Button>
-          <Button fluid>Delete Batch</Button>
+          <Grid.Row>
+            <Link to={`/bottle/${this.state.batchId}`}><Button>Bottle Batch</Button></Link>
+          </Grid.Row>
+          <Grid.Row>
+          <Link to={`/review/${this.state.batchId}`}><Button>Review Batch</Button></Link>
+          </Grid.Row>
+          <Grid.Row>
+            <Button>Edit Batch</Button>
+          </Grid.Row>
+          <Grid.Row>
+            <Button>Delete Batch</Button>
+          </Grid.Row>
         </Grid.Column>
       </Grid>
     )

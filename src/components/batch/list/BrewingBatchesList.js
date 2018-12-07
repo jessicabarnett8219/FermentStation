@@ -1,8 +1,7 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, ListItem } from 'semantic-ui-react'
+import { Grid, Button, Header, List } from 'semantic-ui-react'
 import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
-import BatchDetail from "../BatchDetail";
 
 
 class BrewingBatchesList extends Component {
@@ -27,7 +26,7 @@ class BrewingBatchesList extends Component {
               this.state.batches.map(batch => {
                 return <List.Item key={batch.id}>
                   <List.Content floated='right'>
-                    <Link to={`/batches/${batch.id}`} batchId={batch.id} {...this.props}><Button>Details</Button></Link>
+                    <Link to={`/batches/${batch.id}`} {...this.props}><Button>Details</Button></Link>
                   </List.Content>
                   <List.Content>
                     <Header size="medium">{batch.name}
@@ -45,5 +44,3 @@ class BrewingBatchesList extends Component {
   }
 }
 export default BrewingBatchesList
-
-{/* <Link className="nav-link" to={`/animals/${this.props.animal.id}`}>Details</Link> */}

@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom"
+import { Route } from "react-router-dom"
 import React, { Component } from "react"
 import MainMenu from "./navigation/dashboard/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
@@ -8,8 +8,7 @@ import PastBatchesList from "./batch/list/CompleteBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
-import SampleForm from "./batch/form/ReviewForm";
-// import APIManager from "./modules/APIManager"
+import ReviewForm from "./batch/form/ReviewForm";
 
 
 
@@ -37,12 +36,8 @@ class ApplicationViews extends Component {
           return <PastBatchesList />
         }} />
         <Route path="/batches/:batchId(\d+)" component={BatchDetail}/>
-        <Route path="/bottle-batch" render={props => {
-          return <BottleForm />
-        }} />
-        <Route path="/sample-batch" render={props => {
-          return <SampleForm />
-        }}/>
+        <Route path="/bottle/:batchId(\d+)" component={BottleForm}/>
+        <Route path="/review/:batchId(\d+)" component={ReviewForm}/>
 
       </React.Fragment>
 
