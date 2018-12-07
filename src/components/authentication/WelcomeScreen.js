@@ -4,6 +4,7 @@ import RegistrationForm from "./RegistrationForm";
 import { Header, Grid, Divider } from 'semantic-ui-react'
 
 
+
 class WelcomeScreen extends Component {
   render() {
     return(
