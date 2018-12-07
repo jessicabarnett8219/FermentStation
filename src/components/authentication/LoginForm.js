@@ -8,12 +8,12 @@ class LoginForm extends Component {
     return (
       <div>
         <Form>
-          <Form.Input id="loginEmail" fluid label="Email" type="text" onChange={
+          <Form.Input id="loginEmail" fluid placeholder="Email" type="text" onChange={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
           } />
-          <Form.Input id="loginPassword" fluid label="Password" type="text" onChange={
+          <Form.Input id="loginPassword" fluid placeholder="Password" type="text" onChange={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
