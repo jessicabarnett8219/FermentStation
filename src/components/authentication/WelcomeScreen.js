@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import LoginForm from "./LoginForm"
-import RegistrationForm from "./RegistrationForm";
-import { Header, Grid, Divider } from 'semantic-ui-react'
+// import RegistrationForm from "./RegistrationForm";
+import { Header, Grid, Divider, Button } from 'semantic-ui-react'
 
 
 
@@ -13,7 +13,8 @@ class WelcomeScreen extends Component {
       <Header as="h1" textAlign="center">FermentStation</Header>
         <LoginForm />
         <Divider />
-        <RegistrationForm />
+        <Header size="small" textAlign="center">New here?</Header>
+        <Button>Create an Account</Button>
         </Grid.Column>
       </Grid>
 
