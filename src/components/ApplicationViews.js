@@ -6,7 +6,7 @@ import BrewingBatchesList from "./batch/list/BrewingBatchesList"
 import BottledBatchesList from "./batch/list/BottledBatchesList"
 import PastBatchesList from "./batch/list/CompleteBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
-import BatchDetail from "./batch/BatchDetail";
+import BatchDetail from "./batch/detail/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
 import ReviewForm from "./batch/form/ReviewForm";
 
