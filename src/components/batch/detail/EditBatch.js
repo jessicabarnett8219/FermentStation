@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
+import EditBrewing from "./brewing/BrewingEdit"
+import BrewingEdit from "./brewing/BrewingEdit";
 
 
 class EditBatch extends Component {
@@ -63,28 +65,7 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <div>
-            <Form>
-            <Form.Input id="editName" fluid label="Batch Name" type="text" defaultValue={this.state.batch.name} onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-
-            <Form.Input id="editStartDate" fluid label="Start Date" type="date" selected={this.state.batch.startDate} onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-
-            <Form.Input id="editBottleDate" selected={this.state.batch.bottleDate}fluid label="Expected Bottling Date" type="date" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-            <Form.Input id="editstarterIngredients" defaultValue={this.state.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-            </Form>
-            <Button onClick={() => {
-              this.handleSave()
-            }}>Save</Button>
-            <Button>Cancel</Button>
-          </div>
+          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} batch={this.state.batch}/>
         )
       } else if (this.state.batch.status === 2) {
         return (
