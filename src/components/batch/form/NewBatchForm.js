@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Form, Button, Header } from 'semantic-ui-react'
+import { Grid, Form, Button, Header, Radio } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 
 
@@ -48,6 +48,9 @@ class NewBatchForm extends Component {
   handleSave = () => {
     let newBatch = this.constructNewBatch()
     APIManager.addEntry("batches", newBatch)
+    .then(() => {
+      this.props.history.push("/")
+    })
   }
 
   render() {
@@ -68,17 +71,19 @@ class NewBatchForm extends Component {
               (evt) => { this.handleFieldChange(evt) }
             } />
 
-            <Form.Group id="status" inline onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            }>
+            <Form.Group id="status" inline>
               <label>Ferment Type</label>
-              <Form.Radio label="Water Kefir" value="Water Kefir" />
-              <Form.Radio label="Kombucha" value="Kombucha" />
+              <Form.Radio label="Water Kefir" value="Water Kefir" checked />
+              <Form.Radio control={Radio} label="Kombucha" value="Kombucha"/>
             </Form.Group>
             <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
               (evt) => { this.handleFieldChange(evt) }
             } />
-            <Button>Cancel</Button>
+            <Button onClick={
+              () => {
+                this.props.history.push("/")
+              }
+            }>Cancel</Button>
             <Button onClick={() => {
               this.handleSave()
             }}>Save</Button>
