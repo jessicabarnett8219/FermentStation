@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List } from 'semantic-ui-react'
+import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 
 
@@ -30,59 +30,84 @@ class EditBatch extends Component {
 
   }
 
-  render() {
-    return(
-      <div>
-        <h1>Edit Page</h1>
-      </div>
-    )
-    // if (this.state.initialized === true) {
-    //   if (this.state.batch.status === 1) {
-    //     return (
-    //       <div>
-    //       <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} />
-    //       <Grid.Row>
-    //         <Button>Edit Batch</Button>
-    //       </Grid.Row>
-    //       <Grid.Row>
-    //         <Button>Delete Batch</Button>
-    //       </Grid.Row>
-    //       </div>
-    //     )
-    //   } else if (this.state.batch.status === 2) {
-    //     return (
-    //       <div>
-    //       <BottledDetail name={this.state.batch.name} type={this.state.batch.type.name} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} startDate={this.state.batch.startDate} batchId={this.state.batch.id} completeDate={this.state.batch.completeDate} />
+  handleFieldChange = (evt) => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
 
-    //       <Grid.Row>
-    //         <Button>Edit Batch</Button>
-    //       </Grid.Row>
-    //       <Grid.Row>
-    //         <Button>Delete Batch</Button>
-    //       </Grid.Row>
-    //       </div>
-    //     )
-    //   }
-    //   else if (this.state.batch.status === 3) {
-    //     return (
-    //       <div>
-    //       <CompletedDetail name={this.state.batch.name} type={this.state.batch.type.name} completeDate={this.state.batch.completeDate} startDate={this.state.batch.startDate} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review} />
-    //       <Grid.Row>
-    //         <Button>Edit Batch</Button>
-    //       </Grid.Row>
-    //       <Grid.Row>
-    //         <Button>Delete Batch</Button>
-    //       </Grid.Row>
-    //       </div>
-    //     )
-    //   }
-    // }
-    // else {
-    //   return (
-    //     <div>
-    //     </div>
-    //   )
-    // }
+  constructEditedBatch = () => {
+    let newBatch = {
+      name: this.state.editName,
+      typeId: 1,
+      review: this.state.editReview,
+      startDate: this.state.editStartDate,
+      bottleDate: this.state.editBottleDate,
+      completeDate: this.state.editCompleteDate,
+      starterIngredients: this.state.editStarterIngredients,
+      bottleIngredients: this.state.editBottleIngredients
+    }
+    return newBatch
+  }
+
+  handleSave = () => {
+    let editedBatch = this.constructEditedBatch()
+    APIManager.editEntry("batches", this.state.batch.id, editedBatch)
+      .then((editedBatch) => {
+        return editedBatch.id
+      })
+
+  }
+
+  render() {
+    if (this.state.initialized === true) {
+      if (this.state.batch.status === 1) {
+        return (
+          <div>
+            <Form>
+            <Form.Input id="editName" fluid label="Batch Name" type="text" defaultValue={this.state.batch.name} onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+
+            <Form.Input id="editStartDate" fluid label="Start Date" type="date" selected={this.state.batch.startDate} onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+
+            <Form.Input id="editBottleDate" selected={this.state.batch.bottleDate}fluid label="Expected Bottling Date" type="date" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+            <Form.Input id="editstarterIngredients" defaultValue={this.state.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+            </Form>
+            <Button onClick={() => {
+              this.handleSave()
+            }}>Save</Button>
+            <Button>Cancel</Button>
+          </div>
+        )
+      } else if (this.state.batch.status === 2) {
+        return (
+          <div>
+            <h1>Edit Bottled</h1>
+          </div>
+        )
+      }
+      else if (this.state.batch.status === 3) {
+        return (
+          <div>
+            <h1>Edit Complete</h1>
+          </div>
+        )
+      }
+    }
+    else {
+      return (
+        <div>
+        </div>
+      )
+    }
+
   }
 
 

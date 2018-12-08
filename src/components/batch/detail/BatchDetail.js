@@ -33,7 +33,7 @@ class BatchDetail extends Component {
         return (
           <div>
           <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} />
-          <Link to={`/batches/edit/${this.state.batch.id}`}><Button
+          <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><Button
            >Edit Batch</Button></Link>
           <Grid.Row>
             <Button>Delete Batch</Button>
