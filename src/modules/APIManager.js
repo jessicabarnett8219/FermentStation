@@ -36,6 +36,9 @@ const APIManager = {
       },
       body: JSON.stringify(editedEntry)
     })
+    .then((returns) => {
+      console.log(returns)
+    })
   }
 }
 

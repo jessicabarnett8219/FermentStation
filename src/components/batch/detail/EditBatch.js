@@ -55,8 +55,8 @@ class EditBatch extends Component {
   handleSave = () => {
     let editedBatch = this.constructEditedBatch()
     APIManager.editEntry("batches", this.state.batch.id, editedBatch)
-      .then((editedBatch) => {
-        return editedBatch.id
+      .then(() => {
+        this.props.history.push(`/batches/${this.state.batch.id}`)
       })
 
   }
