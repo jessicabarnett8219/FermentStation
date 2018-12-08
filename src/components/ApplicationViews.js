@@ -31,7 +31,7 @@ class ApplicationViews extends Component {
         }} />
         <Route path="/new-batch" render={props => {
           if(this.isAuthenticated()) {
-            return <NewBatchForm />
+            return <NewBatchForm {...props}/>
           } else {
             return <Redirect to="/welcome" />
           }
