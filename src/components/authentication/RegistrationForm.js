@@ -6,9 +6,12 @@ import "./WelcomeScreen.css"
 
 class RegistrationForm extends Component {
 
+
+
   render() {
     return (
       <div>
+
         <Form className={this.props.hideForm ? "hideForm" : null}>
           <Form.Input fluid id="firstName" placeholder="First Name" type="text" onChange={(evt) => {
             this.props.handleFieldChange(evt)

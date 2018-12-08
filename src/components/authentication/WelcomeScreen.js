@@ -20,7 +20,6 @@ class WelcomeScreen extends Component {
   }
 
 
-
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
     const stateToChange = {}
@@ -63,8 +62,25 @@ class WelcomeScreen extends Component {
   }
 
   handleRegistration = () => {
-    const newUser = this.constructNewUser()
-    APIManager.addEntry("users", newUser)
+    if (this.state.registerEmail === "" || this.state.firstName === "" || this.state.lastName === "" || this.state.registerPassword === "") {
+      alert("No fields should be left blank")
+    } else if (this.state.registerEmail.includes("@")) {
+      APIManager.getAllEntries("users", `/?email=${this.state.registerEmail}`)
+        .then((returns) => {
+          if (returns.length > 0) {
+            alert("Tht email is already. Please use another email")
+          } else {
+            const newUser = this.constructNewUser()
+            APIManager.addEntry("users", newUser)
+              .then(() => {
+                alert("You are now registered! Please log in")
+                this.props.history.push("/")
+              })
+          }
+        })
+    } else {
+      alert("Please enter a valid email")
+    }
   }
 
   toggleNewForm = () => {
@@ -87,7 +103,7 @@ class WelcomeScreen extends Component {
               this.toggleNewForm()
             }
           }>Create an Account</Button>
-          <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration}/>
+          <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration} {...this.props}/>
         </Grid.Column>
       </Grid>
 
