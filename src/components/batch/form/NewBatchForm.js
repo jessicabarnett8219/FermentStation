@@ -1,36 +1,88 @@
 import React, { Component } from "react"
 import { Grid, Form, Button, Header } from 'semantic-ui-react'
+import APIManager from "../../../modules/APIManager"
 
 
 class NewBatchForm extends Component {
 
   state = {
-    currentUser: ""
+    currentUser: "",
+    batchName: "",
+    startDate: "",
+    expBottlingDate: "",
+    type: "",
+    starterIngredients: ""
   }
 
   componentDidMount() {
     let currentUserId = sessionStorage.getItem("userId") || localStorage.getItem("userId")
-    console.log(currentUserId)
+    this.setState({ currentUser: currentUserId })
+  }
+
+  handleFieldChange = (evt) => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+    console.log(this.state)
+  }
+
+  constructNewBatch = () => {
+    let newBatch = {
+      name: this.state.batchName,
+      userId: this.state.currentUser,
+      typeId: 1,
+      rating: null,
+      review: null,
+      startDate: this.state.startDate,
+      bottleDate: this.state.expBottlingDate,
+      completeDate: null,
+      batchAmount: null,
+      batchAmountUnit: null,
+      status: 1,
+      starterIngredients: this.state.starterIngredients,
+      bottleIngredients: null
+    }
+    return newBatch
+  }
+
+  handleSave = () => {
+    let newBatch = this.constructNewBatch()
+    APIManager.addEntry("batches", newBatch)
   }
 
   render() {
     return (
       <Grid columns={1} padded={true}>
-      <Grid.Column>
-        <Header as="h1" textAlign="center">Start a New Batch</Header>
-        <Form>
-          <Form.Input fluid label="Batch Name" type="text" />
-          <Form.Input fluid label="Expected Bottling Date" type="date" />
-          <Form.Group inline>
-            <label>Ferment Type</label>
-            <Form.Radio label="Water Kefir" />
-            <Form.Radio label="Kombucha" />
-          </Form.Group>
-          <Form.Input label="Amount" type="text" />
-          <Form.Input label="Ingredients" type="text" />
-          <Button>Cancel</Button>
-          <Button>Save</Button>
-        </Form>
+        <Grid.Column>
+          <Header as="h1" textAlign="center">Start a New Batch</Header>
+          <Form>
+            <Form.Input id="batchName" fluid label="Batch Name" type="text" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+
+            <Form.Input id="startDate" fluid label="Start Date" type="date" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+
+            <Form.Input id="expBottlingDate" fluid label="Expected Bottling Date" type="date" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+
+            <Form.Group id="status" inline onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            }>
+              <label>Ferment Type</label>
+              <Form.Radio label="Water Kefir" value="Water Kefir" />
+              <Form.Radio label="Kombucha" value="Kombucha" />
+            </Form.Group>
+            <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } />
+            <Button>Cancel</Button>
+            <Button onClick={() => {
+              this.handleSave()
+            }}>Save</Button>
+          </Form>
         </Grid.Column>
       </Grid>
     )
