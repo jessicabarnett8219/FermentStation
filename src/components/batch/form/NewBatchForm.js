@@ -23,7 +23,6 @@ class NewBatchForm extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
-    console.log(this.state)
   }
 
   constructNewBatch = () => {
@@ -48,47 +47,51 @@ class NewBatchForm extends Component {
   handleSave = () => {
     let newBatch = this.constructNewBatch()
     APIManager.addEntry("batches", newBatch)
-    .then(() => {
-      this.props.history.push("/")
-    })
-  }
+      .then((newBatch) => {
+        return newBatch.id
+      })
+      .then((batchId) => {
+        this.props.history.push(`/batches/${batchId}`)
+      })
+
+    }
 
   render() {
-    return (
-      <Grid columns={1} padded={true}>
-        <Grid.Column>
-          <Header as="h1" textAlign="center">Start a New Batch</Header>
-          <Form>
-            <Form.Input id="batchName" fluid label="Batch Name" type="text" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+          return(
+      <Grid columns = { 1} padded = { true} >
+              <Grid.Column>
+                <Header as="h1" textAlign="center">Start a New Batch</Header>
+                <Form>
+                  <Form.Input id="batchName" fluid label="Batch Name" type="text" onChange={
+                    (evt) => { this.handleFieldChange(evt) }
+                  } />
 
-            <Form.Input id="startDate" fluid label="Start Date" type="date" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+                  <Form.Input id="startDate" fluid label="Start Date" type="date" onChange={
+                    (evt) => { this.handleFieldChange(evt) }
+                  } />
 
-            <Form.Input id="expBottlingDate" fluid label="Expected Bottling Date" type="date" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+                  <Form.Input id="expBottlingDate" fluid label="Expected Bottling Date" type="date" onChange={
+                    (evt) => { this.handleFieldChange(evt) }
+                  } />
 
-            <Form.Group id="status" inline>
-              <label>Ferment Type</label>
-              <Form.Radio label="Water Kefir" value="Water Kefir" checked />
-              <Form.Radio control={Radio} label="Kombucha" value="Kombucha"/>
-            </Form.Group>
-            <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-            <Button onClick={
-              () => {
-                this.props.history.push("/")
-              }
-            }>Cancel</Button>
-            <Button onClick={() => {
-              this.handleSave()
-            }}>Save</Button>
-          </Form>
-        </Grid.Column>
+                  <Form.Group id="status" inline>
+                    <label>Ferment Type</label>
+                    <Form.Radio label="Water Kefir" value="Water Kefir" checked />
+                    <Form.Radio control={Radio} label="Kombucha" value="Kombucha" />
+                  </Form.Group>
+                  <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
+                    (evt) => { this.handleFieldChange(evt) }
+                  } />
+                  <Button onClick={
+                    () => {
+                      this.props.history.push("/")
+                    }
+                  }>Cancel</Button>
+                  <Button onClick={() => {
+                    this.handleSave()
+                  }}>Save</Button>
+                </Form>
+              </Grid.Column>
       </Grid>
     )
   }
