@@ -47,12 +47,6 @@ class CompletedDetail extends Component {
             </List.Item>
 
           </List>
-          <Grid.Row>
-            <Button>Edit Batch</Button>
-          </Grid.Row>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
         </Grid.Column>
       </Grid>
     )

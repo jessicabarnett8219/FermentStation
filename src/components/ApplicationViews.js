@@ -9,6 +9,7 @@ import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/detail/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
 import ReviewForm from "./batch/form/ReviewForm";
+import EditBatch from "./batch/detail/EditBatch"
 
 
 
@@ -66,6 +67,7 @@ class ApplicationViews extends Component {
           }
         }} />
         <Route path="/batches/:batchId(\d+)" component={BatchDetail}/>
+        <Route path="/batches/edit/:batchId(\d+)" component={EditBatch}/>
         <Route path="/bottle/:batchId(\d+)" component={BottleForm}/>
         <Route path="/review/:batchId(\d+)" component={ReviewForm}/>
 
