@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Grid, Form, Button, Header, Label } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 
-// TODO fix amount unit issue, have radio buttons and amounts dynamically populate
+// TODO have radio buttons and amount options dynamically populate from the database
 
 class NewBatchForm extends Component {
 
@@ -14,7 +14,7 @@ class NewBatchForm extends Component {
     type: 2,
     starterIngredients: "",
     batchAmount: "",
-    batchAmountUnit: ""
+    measurement: ""
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class NewBatchForm extends Component {
 
   handleFieldChangeRadio = (evt) => {
     let targetValue = evt.target.value
-    this.setState({type: +targetValue})
+    this.setState({ type: +targetValue })
   }
 
   constructNewBatch = () => {
@@ -44,7 +44,7 @@ class NewBatchForm extends Component {
       bottleDate: this.state.expBottlingDate,
       completeDate: null,
       batchAmount: this.state.batchAmount,
-      batchAmountUnit: this.state.batchAmountUnit,
+      measurementId: +this.state.measurement,
       status: 1,
       starterIngredients: this.state.starterIngredients,
       bottleIngredients: null
@@ -81,25 +81,29 @@ class NewBatchForm extends Component {
             <Form.Input id="expBottlingDate" fluid label="Expected Bottling Date" type="date" onChange={
               (evt) => { this.handleFieldChange(evt) }
             } />
-            <Form.Group >
+
               <label>Type</label>
               <label htmlFor="waterKefir">Water Kefir</label>
               <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
                 this.handleFieldChangeRadio(evt)
-                }}/>
+              }} />
               <label htmlFor="kombucha">Kombucha</label>
               <input type="radio" name="type" value={1} onChange={(evt) => {
                 this.handleFieldChangeRadio(evt)
-                }}/>
-            </Form.Group>
+              }} />
+
 
             <label>Amount</label>
-            <Form.Input id="batchAmount" type="text" placeholder="2" onChange={
+            <Form.Input id="batchAmount" type="text" placeholder="enter a number" onChange={
               (evt) => { this.handleFieldChange(evt) }
             } />
-            <Form.Select id="batchAmountUnit" type="select" options={[{ text: "cups", value: "cups" }, { text: "ounces", value: "ounces" }]} defaultValue="cups" onChange={
+            <select id="measurement" onChange={
               (evt) => { this.handleFieldChange(evt) }
-            } />
+            } >
+              <option value={1}>Cups</option>
+              <option value={2}>Ounces</option>
+            </select>
+
 
 
             <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
