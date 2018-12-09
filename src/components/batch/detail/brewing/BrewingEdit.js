@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List , Form} from 'semantic-ui-react'
+import { Grid, Button, Header, List, Form , Input} from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
-// TODO Fix on Change issue
+// TODO Fix on Change issue, bug with input not saving on dates is fixed when taking out Semantic UI component
 class BrewingEdit extends Component {
 
 
@@ -21,13 +21,16 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <Form.Input id="editStartDate" fluid label="Start Date" type="date" selected={this.props.batch.startDate} onChange={
+          <label for="editStartDate">Start Date</label>
+          <input type="date" id="editStartDate" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <Form.Input id="editBottleDate" selected={this.props.batch.bottleDate} fluid label="Expected Bottling Date" type="date" onChange={
+          <label for="editBottleDate">Expected Bottling Date</label>
+          <input type="date" id="editBottleDate" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
+
           <Form.Input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />

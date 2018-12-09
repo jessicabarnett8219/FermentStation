@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { Button, Grid, Header } from 'semantic-ui-react'
-import "../MainMenu.css"
+import "./MainMenu.css"
 
 class MainMenu extends Component {
 
