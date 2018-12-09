@@ -42,12 +42,6 @@ class BottledDetail extends Component {
           <Grid.Row>
             <Link to={`/review/${this.props.batchId}`}><Button>Review Batch</Button></Link>
           </Grid.Row>
-          <Grid.Row>
-            <Button>Edit Batch</Button>
-          </Grid.Row>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
         </Grid.Column>
       </Grid>
     )

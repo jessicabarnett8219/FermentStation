@@ -34,12 +34,6 @@ class BrewingDetail extends Component {
           <Grid.Row>
             <Link to={`/bottle/${this.props.batchId}`}><Button>Bottle Batch</Button></Link>
           </Grid.Row>
-          <Grid.Row>
-            <Button>Edit Batch</Button>
-          </Grid.Row>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
         </Grid.Column>
       </Grid>
     )
