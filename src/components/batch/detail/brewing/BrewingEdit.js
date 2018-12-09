@@ -2,16 +2,10 @@ import React, { Component } from "react"
 import { Grid, Button, Header, List, Form , Input} from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
-// TODO Fix on Change issue, bug with input not saving on dates is fixed when taking out Semantic UI component
+// TODO Fix date pre-population issue
+
 class BrewingEdit extends Component {
 
-
-  state = {
-    editName: "",
-    editStartDate: "",
-    editBottleDate: "",
-    editStarterIngredients: ""
-  }
 
   render() {
     return (
@@ -21,12 +15,12 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label for="editStartDate">Start Date</label>
+          <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label for="editBottleDate">Expected Bottling Date</label>
+          <label htmlFor="editBottleDate">Expected Bottling Date</label>
           <input type="date" id="editBottleDate" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
