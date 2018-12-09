@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
-import EditBrewing from "./brewing/BrewingEdit"
 import BrewingEdit from "./brewing/BrewingEdit";
+
+// TODO fix date input value issue - prepopulating and saving
 
 
 class EditBatch extends Component {
@@ -26,7 +27,7 @@ class EditBatch extends Component {
     this.setState({ currentUser: currentUserId }, () => {
       APIManager.getEntry("batches", batchId, "?_expand=type")
         .then(batchObj => {
-          this.setState({ batch: batchObj }, () => this.setState({ initialized: true }, () => console.log(this.state)))
+          this.setState({ batch: batchObj }, () => this.setState({ initialized: true }))
         })
     })
 

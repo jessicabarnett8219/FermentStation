@@ -32,40 +32,40 @@ class BatchDetail extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-          <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} />
-          <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><Button
-           >Edit Batch</Button></Link>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
+            <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} />
+            <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><Button
+            >Edit Batch</Button></Link>
+            <Grid.Row>
+              <Button>Delete Batch</Button>
+            </Grid.Row>
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-          <BottledDetail name={this.state.batch.name} type={this.state.batch.type.name} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} startDate={this.state.batch.startDate} batchId={this.state.batch.id} completeDate={this.state.batch.completeDate} />
+            <BottledDetail name={this.state.batch.name} type={this.state.batch.type.name} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} startDate={this.state.batch.startDate} batchId={this.state.batch.id} completeDate={this.state.batch.completeDate} />
 
-          <Grid.Row>
-          <Link to={`/batches/edit/${this.state.batch.id}`}><Button
-           >Edit Batch</Button></Link>
-          </Grid.Row>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
+            <Grid.Row>
+              <Link to={`/batches/edit/${this.state.batch.id}`}><Button
+              >Edit Batch</Button></Link>
+            </Grid.Row>
+            <Grid.Row>
+              <Button>Delete Batch</Button>
+            </Grid.Row>
           </div>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
           <div>
-          <CompletedDetail name={this.state.batch.name} type={this.state.batch.type.name} completeDate={this.state.batch.completeDate} startDate={this.state.batch.startDate} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review} />
-          <Grid.Row>
-            <Link to={`/batches/edit/${this.state.batch.id}`}><Button
-           >Edit Batch</Button></Link>
-          </Grid.Row>
-          <Grid.Row>
-            <Button>Delete Batch</Button>
-          </Grid.Row>
+            <CompletedDetail name={this.state.batch.name} type={this.state.batch.type.name} completeDate={this.state.batch.completeDate} startDate={this.state.batch.startDate} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review} />
+            <Grid.Row>
+              <Link to={`/batches/edit/${this.state.batch.id}`}><Button
+              >Edit Batch</Button></Link>
+            </Grid.Row>
+            <Grid.Row>
+              <Button>Delete Batch</Button>
+            </Grid.Row>
           </div>
         )
       }
