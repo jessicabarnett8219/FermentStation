@@ -4,7 +4,7 @@ import MainMenu from "./navigation/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
 import BrewingBatchesList from "./batch/list/BrewingBatchesList"
 import BottledBatchesList from "./batch/list/BottledBatchesList"
-import PastBatchesList from "./batch/list/CompleteBatchesList"
+import CompletedBatchesList from "./batch/list/CompletedBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
 import BatchDetail from "./batch/detail/BatchDetail";
 import BottleForm from "./batch/form/BottleForm"
@@ -53,7 +53,7 @@ class ApplicationViews extends Component {
         }} />
         <Route path="/completed-list" render={props => {
           if (this.isAuthenticated()) {
-            return <PastBatchesList />
+            return <CompletedBatchesList />
           } else {
             return <Redirect to="/welcome" />
           }

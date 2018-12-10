@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, Form, Input, FormField } from 'semantic-ui-react'
+import { Button, Form, FormField } from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
 // TODO fix radio pre-population
