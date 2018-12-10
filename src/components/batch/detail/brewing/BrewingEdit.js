@@ -15,6 +15,16 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
+          <label>Type</label>
+              <label htmlFor="waterKefir">Water Kefir</label>
+              <input type="radio" name="editType" value={2} defaultChecked onChange={(evt) => {
+                this.props.handleFieldChangeRadio(evt)
+              }} />
+              <label htmlFor="kombucha">Kombucha</label>
+              <input type="radio" name="editType" value={1} onChange={(evt) => {
+                this.props.handleFieldChangeRadio(evt)
+              }} />
+
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" onChange={
             (evt) => { this.props.handleFieldChange(evt) }

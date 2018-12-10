@@ -13,6 +13,7 @@ class EditBatch extends Component {
     initialized: false,
     currentUser: "",
     editName: "",
+    editType: "",
     editStartDate: "",
     editBottleDate: "",
     editCompleteDate: "",
@@ -30,13 +31,14 @@ class EditBatch extends Component {
           this.setState({
             batch: batchObj,
             editName: batchObj.name,
+            editType: batchObj.typeId,
             editStartDate: batchObj.startDate,
             editBottleDate: batchObj.bottleDate,
             editStarterIngredients: batchObj.starterIngredients,
             editCompleteDate: batchObj.completeDate,
             editBottleIngredients: batchObj.bottleIngredients,
             editReview: batchObj.review
-          }, () => this.setState({ initialized: true }))
+          }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
     })
 
@@ -48,10 +50,15 @@ class EditBatch extends Component {
     this.setState(stateToChange)
   }
 
+  handleFieldChangeRadio = (evt) => {
+    let targetValue = evt.target.value
+    this.setState({ editType: +targetValue })
+  }
+
   constructEditedBatch = () => {
-    let newBatch = {
+    let editedBatch = {
       name: this.state.editName,
-      typeId: 1,
+      typeId: this.state.editType,
       review: this.state.editReview,
       startDate: this.state.editStartDate,
       bottleDate: this.state.editBottleDate,
@@ -59,7 +66,7 @@ class EditBatch extends Component {
       starterIngredients: this.state.editStarterIngredients,
       bottleIngredients: this.state.editBottleIngredients
     }
-    return newBatch
+    return editedBatch
   }
 
   handleSave = () => {
@@ -75,7 +82,7 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} batch={this.state.batch} />
+          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
         )
       } else if (this.state.batch.status === 2) {
         return (
