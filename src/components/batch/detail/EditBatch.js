@@ -19,7 +19,9 @@ class EditBatch extends Component {
     editCompleteDate: "",
     editStarterIngredients: "",
     editBottleIngredients: "",
-    editReview: ""
+    editReview: "",
+    editAmount: "",
+    editMeasurement: ""
   }
 
   componentDidMount() {
@@ -37,7 +39,9 @@ class EditBatch extends Component {
             editStarterIngredients: batchObj.starterIngredients,
             editCompleteDate: batchObj.completeDate,
             editBottleIngredients: batchObj.bottleIngredients,
-            editReview: batchObj.review
+            editReview: batchObj.review,
+            editAmount: batchObj.batchAmount,
+            editMeasurement: batchObj.measurement
           }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
     })
@@ -48,6 +52,7 @@ class EditBatch extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+    console.log(evt.target.id)
   }
 
   handleFieldChangeRadio = (evt) => {
@@ -64,7 +69,9 @@ class EditBatch extends Component {
       bottleDate: this.state.editBottleDate,
       completeDate: this.state.editCompleteDate,
       starterIngredients: this.state.editStarterIngredients,
-      bottleIngredients: this.state.editBottleIngredients
+      bottleIngredients: this.state.editBottleIngredients,
+      batchAmount: this.state.editAmount,
+      measurement: this.state.editMeasurement
     }
     return editedBatch
   }
