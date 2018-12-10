@@ -14,7 +14,7 @@ class NewBatchForm extends Component {
     type: 2,
     starterIngredients: "",
     batchAmount: "",
-    measurement: ""
+    measurement: "cups"
   }
 
   componentDidMount() {
@@ -44,7 +44,7 @@ class NewBatchForm extends Component {
       bottleDate: this.state.expBottlingDate,
       completeDate: null,
       batchAmount: this.state.batchAmount,
-      measurementId: +this.state.measurement,
+      measurement: this.state.measurement,
       status: 1,
       starterIngredients: this.state.starterIngredients,
       bottleIngredients: null
@@ -94,14 +94,14 @@ class NewBatchForm extends Component {
 
 
             <label>Amount</label>
-            <Form.Input id="batchAmount" type="text" placeholder="enter a number" onChange={
+            <Form.Input id="batchAmount" type="text" placeholder="enter a number" onClick={
               (evt) => { this.handleFieldChange(evt) }
             } />
             <select id="measurement" onChange={
               (evt) => { this.handleFieldChange(evt) }
             } >
-              <option value={1}>Cups</option>
-              <option value={2}>Ounces</option>
+              <option value="cups">Cups</option>
+              <option value="ounces">Ounces</option>
             </select>
 
 
