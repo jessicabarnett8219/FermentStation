@@ -1,7 +1,9 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
+// import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 import BrewingEdit from "./brewing/BrewingEdit";
+import BottledEdit from "./bottled/BottledEdit";
+import CompletedEdit from "./complete/CompletedEdit"
 
 // TODO fix date input value issue - prepopulating and saving
 
@@ -13,12 +15,16 @@ class EditBatch extends Component {
     initialized: false,
     currentUser: "",
     editName: "",
+    editType: "",
     editStartDate: "",
     editBottleDate: "",
     editCompleteDate: "",
     editStarterIngredients: "",
     editBottleIngredients: "",
-    editReview: ""
+    editReview: "",
+    editAmount: "",
+    editMeasurement: "",
+    editRating: ""
   }
 
   componentDidMount() {
@@ -30,13 +36,17 @@ class EditBatch extends Component {
           this.setState({
             batch: batchObj,
             editName: batchObj.name,
+            editType: batchObj.typeId,
             editStartDate: batchObj.startDate,
             editBottleDate: batchObj.bottleDate,
             editStarterIngredients: batchObj.starterIngredients,
             editCompleteDate: batchObj.completeDate,
             editBottleIngredients: batchObj.bottleIngredients,
-            editReview: batchObj.review
-          }, () => this.setState({ initialized: true }))
+            editReview: batchObj.review,
+            editAmount: batchObj.batchAmount,
+            editMeasurement: batchObj.measurement,
+            editRating: batchObj.rating
+          }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
     })
 
@@ -46,20 +56,34 @@ class EditBatch extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+    console.log(evt.target.id)
+  }
+
+  handleFieldChangeRadio = (evt) => {
+    let targetValue = evt.target.value
+    this.setState({ editType: +targetValue })
+  }
+
+  handleFieldChangeRating = (evt) => {
+    let targetValue = evt.target.value
+    this.setState({ editRating: targetValue })
   }
 
   constructEditedBatch = () => {
-    let newBatch = {
+    let editedBatch = {
       name: this.state.editName,
-      typeId: 1,
+      typeId: this.state.editType,
       review: this.state.editReview,
       startDate: this.state.editStartDate,
       bottleDate: this.state.editBottleDate,
       completeDate: this.state.editCompleteDate,
       starterIngredients: this.state.editStarterIngredients,
-      bottleIngredients: this.state.editBottleIngredients
+      bottleIngredients: this.state.editBottleIngredients,
+      batchAmount: this.state.editAmount,
+      measurement: this.state.editMeasurement,
+      rating: this.state.editRating
     }
-    return newBatch
+    return editedBatch
   }
 
   handleSave = () => {
@@ -75,20 +99,16 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} batch={this.state.batch} />
+          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
         )
       } else if (this.state.batch.status === 2) {
         return (
-          <div>
-            <h1>Edit Bottled</h1>
-          </div>
+          <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
         )
       }
       else if (this.state.batch.status === 3) {
         return (
-          <div>
-            <h1>Edit Complete</h1>
-          </div>
+          <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating}/>
         )
       }
     }

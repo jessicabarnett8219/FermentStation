@@ -31,6 +31,10 @@ class BottledDetail extends Component {
             </List.Item>
 
             <List.Item>
+              <List.Content><Header size="medium">Amount</Header>{`${this.props.amount} ${this.props.measurement}`}</List.Content>
+            </List.Item>
+
+            <List.Item>
               <List.Content><Header size="medium">Starter Ingredients</Header>{this.props.starterIngredients}</List.Content>
             </List.Item>
 
