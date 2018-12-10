@@ -7,16 +7,18 @@ import APIManager from "../../../modules/APIManager"
 class BrewingBatchesList extends Component {
 
   state = {
-    batches: []
+    batches: [],
+    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
   }
 
-
   componentDidMount() {
-    APIManager.getAllEntries("batches", "/?user=1&status=1")
-      .then(batches => this.setState({ batches: batches }))
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1`)
+      .then(batches =>
+        this.setState({ batches: batches }))
   }
 
   render() {
+
     return (
       <Grid columns={1} padded>
         <Grid.Column>
@@ -30,7 +32,7 @@ class BrewingBatchesList extends Component {
                   </List.Content>
                   <List.Content>
                     <Header size="medium">{batch.name}
-                    <Header.Subheader>Brewing Since: {batch.startDate}</Header.Subheader>
+                      <Header.Subheader>Brewing Since: {batch.startDate}</Header.Subheader>
                     </Header>
                   </List.Content>
                 </List.Item>
@@ -41,6 +43,8 @@ class BrewingBatchesList extends Component {
         </Grid.Column>
       </Grid>
     )
+
+
   }
 }
 export default BrewingBatchesList

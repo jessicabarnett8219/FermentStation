@@ -7,12 +7,14 @@ import APIManager from "../../../modules/APIManager"
 
 class BottledBatchesList extends Component {
   state = {
-    batches: []
+    batches: [],
+    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", "/?user=1&status=2")
-      .then(batches => this.setState({ batches: batches }))
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2`)
+      .then(batches =>
+        this.setState({ batches: batches }))
   }
 
   render() {

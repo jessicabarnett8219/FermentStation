@@ -13,6 +13,8 @@ class BatchDetail extends Component {
     batch: "",
     initialized: false,
     currentUser: "",
+    batchId: "",
+    status: ""
   }
 
   componentDidMount() {
@@ -21,11 +23,24 @@ class BatchDetail extends Component {
     this.setState({ currentUser: currentUserId }, () => {
       APIManager.getEntry("batches", batchId, "?_expand=type")
         .then(batchObj => {
-          this.setState({ batch: batchObj }, () => this.setState({ initialized: true }, () => console.log(this.state)))
+          this.setState({ batch: batchObj, batchId: batchId, status: batchObj.status }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
     })
-
   }
+
+  handleDelete = () => {
+    APIManager.deleteEntry("batches", this.state.batchId)
+    .then(() => {
+      if(this.state.status === 1) {
+        this.props.history.push("/brewing-list")
+      } else if (this.state.status === 2) {
+        this.props.history.push("/bottled-list")
+      } else {
+        this.props.history.push("/completed-list")
+      }
+    })
+  }
+
 
   render() {
     if (this.state.initialized === true) {
@@ -36,7 +51,20 @@ class BatchDetail extends Component {
             <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><Button
             >Edit Batch</Button></Link>
             <Grid.Row>
-              <Button>Delete Batch</Button>
+              <Button onClick={() => {
+                this.handleDelete()
+              }}>Delete Batch</Button>
+            </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
             </Grid.Row>
           </div>
         )
@@ -50,7 +78,20 @@ class BatchDetail extends Component {
               >Edit Batch</Button></Link>
             </Grid.Row>
             <Grid.Row>
-              <Button>Delete Batch</Button>
+              <Button onClick={() => {
+                this.handleDelete()
+              }}>Delete Batch</Button>
+            </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
             </Grid.Row>
           </div>
         )
@@ -64,7 +105,20 @@ class BatchDetail extends Component {
               >Edit Batch</Button></Link>
             </Grid.Row>
             <Grid.Row>
-              <Button>Delete Batch</Button>
+              <Button onClick={() => {
+                this.handleDelete()
+              }}>Delete Batch</Button>
+            </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
             </Grid.Row>
           </div>
         )
