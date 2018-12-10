@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List } from 'semantic-ui-react'
+import { Grid, Button } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 import BrewingDetail from "./brewing/BrewingDetail"
 import { Link } from "react-router-dom"

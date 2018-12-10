@@ -11,8 +11,7 @@ class MainMenu extends Component {
         <Header as="h1" textAlign="center">Welcome, Wally</Header>
         <Button.Group vertical>
           <Link to="/new-batch"><Button className="MainMenu-btn">Start a New Batch</Button></Link>
-          <Link to="/brewing-list"><Button >View Now-Brewing</Button></Link>
-          <Link to="/bottled-list"><Button >View Bottled</Button></Link>
+          <Link to="/in-progress-list"><Button >View In-Progress</Button></Link>
           <Link to="/completed-list"><Button >View Completed</Button></Link>
           <Button onClick={
             () => {

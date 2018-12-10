@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List } from 'semantic-ui-react'
+import { Grid, Header, List } from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
 class CompletedDetail extends Component {
