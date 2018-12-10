@@ -2,8 +2,6 @@ import { Route, Redirect } from "react-router-dom"
 import React, { Component } from "react"
 import MainMenu from "./navigation/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
-import BrewingBatchesList from "./batch/list/BrewingBatchesList"
-import BottledBatchesList from "./batch/list/BottledBatchesList"
 import InProgressBatchesList from "./batch/list/InProgressBatchesList"
 import CompletedBatchesList from "./batch/list/CompletedBatchesList"
 import NewBatchForm from "./batch/form/NewBatchForm"
@@ -35,20 +33,6 @@ class ApplicationViews extends Component {
         <Route path="/new-batch" render={props => {
           if (this.isAuthenticated()) {
             return <NewBatchForm {...props} />
-          } else {
-            return <Redirect to="/welcome" />
-          }
-        }} />
-        <Route path="/bottled-list" render={props => {
-          if (this.isAuthenticated()) {
-            return <BottledBatchesList />
-          } else {
-            return <Redirect to="/welcome" />
-          }
-        }} />
-        <Route path="/brewing-list" render={props => {
-          if (this.isAuthenticated()) {
-            return <BrewingBatchesList />
           } else {
             return <Redirect to="/welcome" />
           }

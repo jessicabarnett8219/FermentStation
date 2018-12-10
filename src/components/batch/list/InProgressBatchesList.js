@@ -14,11 +14,9 @@ class InProgressBatchesList extends Component {
   componentDidMount() {
     APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}`)
       .then(usersBatches => {
-       return usersBatches.filter(batch => {
-          return batch.status === 1 || batch.status === 2
-        })
+       return usersBatches.filter(batch => batch.status === 1 || batch.status === 2)
       })
-      .then(filteredBatches => this.setState({batches: filteredBatches}))
+      .then((filteredBatches) => this.setState({batches: filteredBatches}))
   }
 
   render() {
@@ -52,7 +50,6 @@ class InProgressBatchesList extends Component {
                   </List.Content>
                 </List.Item>
                 }
-
               })
             }
           </List>
