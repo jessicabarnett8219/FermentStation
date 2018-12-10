@@ -19,7 +19,7 @@ class BatchDetail extends Component {
     const { batchId } = this.props.match.params
     const currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     this.setState({ currentUser: currentUserId }, () => {
-      APIManager.getEntry("batches", batchId, "?_expand=type")
+      APIManager.getEntry("batches", batchId, "?_expand=type&_expand=measurement")
         .then(batchObj => {
           this.setState({ batch: batchObj }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
@@ -32,7 +32,7 @@ class BatchDetail extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-            <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} />
+            <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} amount={this.state.batch.batchAmount} measurement={this.state.batch.measurement.name}/>
             <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><Button
             >Edit Batch</Button></Link>
             <Grid.Row>

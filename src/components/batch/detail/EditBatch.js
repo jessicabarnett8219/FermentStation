@@ -27,7 +27,16 @@ class EditBatch extends Component {
     this.setState({ currentUser: currentUserId }, () => {
       APIManager.getEntry("batches", batchId, "?_expand=type")
         .then(batchObj => {
-          this.setState({ batch: batchObj }, () => this.setState({ initialized: true }))
+          this.setState({
+            batch: batchObj,
+            editName: batchObj.name,
+            editStartDate: batchObj.startDate,
+            editBottleDate: batchObj.bottleDate,
+            editStarterIngredients: batchObj.starterIngredients,
+            editCompleteDate: batchObj.completeDate,
+            editBottleIngredients: batchObj.bottleIngredients,
+            editReview: batchObj.review
+          }, () => this.setState({ initialized: true }))
         })
     })
 
@@ -66,7 +75,7 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} batch={this.state.batch}/>
+          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} batch={this.state.batch} />
         )
       } else if (this.state.batch.status === 2) {
         return (
