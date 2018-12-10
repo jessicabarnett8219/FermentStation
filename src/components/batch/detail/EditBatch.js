@@ -1,7 +1,9 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
+// import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 import BrewingEdit from "./brewing/BrewingEdit";
+import BottledEdit from "./bottled/BottledEdit";
+import CompletedEdit from "./complete/CompletedEdit"
 
 // TODO fix date input value issue - prepopulating and saving
 
@@ -21,7 +23,8 @@ class EditBatch extends Component {
     editBottleIngredients: "",
     editReview: "",
     editAmount: "",
-    editMeasurement: ""
+    editMeasurement: "",
+    editRating: ""
   }
 
   componentDidMount() {
@@ -41,7 +44,8 @@ class EditBatch extends Component {
             editBottleIngredients: batchObj.bottleIngredients,
             editReview: batchObj.review,
             editAmount: batchObj.batchAmount,
-            editMeasurement: batchObj.measurement
+            editMeasurement: batchObj.measurement,
+            editRating: batchObj.rating
           }, () => this.setState({ initialized: true }, () => console.log(this.state)))
         })
     })
@@ -60,6 +64,11 @@ class EditBatch extends Component {
     this.setState({ editType: +targetValue })
   }
 
+  handleFieldChangeRating = (evt) => {
+    let targetValue = evt.target.value
+    this.setState({ editRating: targetValue })
+  }
+
   constructEditedBatch = () => {
     let editedBatch = {
       name: this.state.editName,
@@ -71,7 +80,8 @@ class EditBatch extends Component {
       starterIngredients: this.state.editStarterIngredients,
       bottleIngredients: this.state.editBottleIngredients,
       batchAmount: this.state.editAmount,
-      measurement: this.state.editMeasurement
+      measurement: this.state.editMeasurement,
+      rating: this.state.editRating
     }
     return editedBatch
   }
@@ -93,16 +103,12 @@ class EditBatch extends Component {
         )
       } else if (this.state.batch.status === 2) {
         return (
-          <div>
-            <h1>Edit Bottled</h1>
-          </div>
+          <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
         )
       }
       else if (this.state.batch.status === 3) {
         return (
-          <div>
-            <h1>Edit Complete</h1>
-          </div>
+          <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating}/>
         )
       }
     }

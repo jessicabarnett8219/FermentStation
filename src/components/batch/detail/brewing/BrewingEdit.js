@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, Form, Input } from 'semantic-ui-react'
+import { Grid, Button, Header, List, Form, Input, FormField } from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
-// TODO Fix date pre-population issue
+// TODO fix radio pre-population
 
 class BrewingEdit extends Component {
 
@@ -15,23 +15,25 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label>Type</label>
-          <label htmlFor="waterKefir">Water Kefir</label>
-          <input type="radio" name="editType" value={2} defaultChecked onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
-          }} />
-          <label htmlFor="kombucha">Kombucha</label>
-          <input type="radio" name="editType" value={1} onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
-          }} />
+          <FormField>
+            <label>Type</label>
+            <label htmlFor="waterKefir">Water Kefir</label>
+            <input type="radio" name="editType" value={2} onChange={(evt) => {
+              this.props.handleFieldChangeRadio(evt)
+            }} />
+            <label htmlFor="kombucha">Kombucha</label>
+            <input type="radio" name="editType" value={1} onChange={(evt) => {
+              this.props.handleFieldChangeRadio(evt)
+            }} />
+          </FormField>
 
           <label htmlFor="editStartDate">Start Date</label>
-          <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate}onChange={
+          <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <label htmlFor="editBottleDate">Expected Bottling Date</label>
-          <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate}onChange={
+          <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
