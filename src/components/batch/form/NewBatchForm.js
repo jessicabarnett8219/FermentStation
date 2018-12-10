@@ -38,16 +38,16 @@ class NewBatchForm extends Component {
       name: this.state.name,
       userId: this.state.currentUser,
       typeId: this.state.type,
-      rating: null,
-      review: null,
+      rating: "",
+      review: "",
       startDate: this.state.startDate,
       bottleDate: this.state.expBottlingDate,
-      completeDate: null,
+      completeDate: "",
       batchAmount: this.state.batchAmount,
       measurement: this.state.measurement,
       status: 1,
       starterIngredients: this.state.starterIngredients,
-      bottleIngredients: null
+      bottleIngredients: ""
     }
     return newBatch
   }

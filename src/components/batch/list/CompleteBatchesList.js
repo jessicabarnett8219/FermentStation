@@ -7,12 +7,14 @@ import APIManager from "../../../modules/APIManager"
 class PastBatchesList extends Component {
 
   state = {
-    batches: []
+    batches: [],
+    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", "/?user=1&status=3")
-      .then(batches => this.setState({ batches: batches }))
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=3`)
+      .then(batches =>
+        this.setState({ batches: batches }))
   }
 
   render() {

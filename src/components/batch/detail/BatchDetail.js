@@ -55,6 +55,17 @@ class BatchDetail extends Component {
                 this.handleDelete()
               }}>Delete Batch</Button>
             </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
+            </Grid.Row>
           </div>
         )
       } else if (this.state.batch.status === 2) {
@@ -71,6 +82,17 @@ class BatchDetail extends Component {
                 this.handleDelete()
               }}>Delete Batch</Button>
             </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
+            </Grid.Row>
           </div>
         )
       }
@@ -86,6 +108,17 @@ class BatchDetail extends Component {
               <Button onClick={() => {
                 this.handleDelete()
               }}>Delete Batch</Button>
+            </Grid.Row>
+            <Grid.Row>
+              <Button onClick={() => {
+                if(this.state.status === 1) {
+                  this.props.history.push("/brewing-list")
+                } else if (this.state.status === 2) {
+                  this.props.history.push("/bottled-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to Batch List</Button>
             </Grid.Row>
           </div>
         )
