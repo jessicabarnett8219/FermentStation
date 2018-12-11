@@ -1,44 +1,33 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
+import BrewingBatchesList from "./BrewingBatchesList"
+import BottledBatchesList from "./BottledBatchesList"
 
 class InProgressBatchesList extends Component {
   state = {
-    batches: [],
+    brewingBatches: [],
+    bottledBatches: [],
     currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1&_sort=startDate&_order=asc`)
       .then(usersBatches => {
-        return usersBatches.filter(batch => batch.status === 1 || batch.status === 2)
+        this.setState({brewingBatches: usersBatches})
       })
-      .then((filteredBatches) => this.setState({ batches: filteredBatches }))
+      APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2&_sort=startDate&_order=asc`)
+      .then(usersBatches => {
+        this.setState({bottledBatches: usersBatches})
+      })
   }
 
   render() {
     return (
       <div>
         <h1>In-Progress Batches</h1>
-        {
-          this.state.batches.map(batch => {
-            if (batch.status === 1) {
-              return <dl key={batch.id}>
-                <dt>{batch.name}</dt>
-                <dd>Brewing Since: {batch.startDate}</dd>
-                <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
-                <hr></hr>
-              </dl>
-            } else if (batch.status === 2) {
-              return <dl key={batch.id}>
-                <dt>{batch.name}</dt>
-                <dd>Bottled Since: {batch.bottleDate}</dd>
-                <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
-                <hr></hr>
-              </dl>
-            }
-          })
-        }
+        <BrewingBatchesList batches={this.state.brewingBatches}/>
+        <BottledBatchesList batches={this.state.bottledBatches}/>
       </div>
     )
   }
