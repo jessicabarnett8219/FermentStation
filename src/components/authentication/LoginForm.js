@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Form, Button } from 'semantic-ui-react'
 // import APIManager from "../../modules/APIManager"
 
 class LoginForm extends Component {
@@ -7,28 +6,27 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <Form>
-          <Form.Input id="loginEmail" fluid placeholder="Email" type="text" onChange={
+          <input id="loginEmail" placeholder="Email" type="text" onChange={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
           } />
-          <Form.Input id="loginPassword" fluid placeholder="Password" type="text" onChange={
+          <input id="loginPassword" placeholder="Password" type="text" onChange={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
           } />
-          <Form.Input id="remember" label="Remember Me" type="checkbox" onClick={
+          <label htmlFor="remember">Remember Me</label>
+          <input id="remember" type="checkbox" onClick={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
           }/>
-          <Button onClick={
+          <button onClick={
             (evt) => {
               this.props.handleLogin(evt)
             }
-          }>Login</Button>
-        </Form>
+          }>Login</button>
       </div>
     )
   }

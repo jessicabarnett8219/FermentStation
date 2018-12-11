@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Grid, Form, Button, Header, Label } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 
 // TODO have radio buttons and amount options dynamically populate from the database
@@ -66,62 +65,58 @@ class NewBatchForm extends Component {
 
   render() {
     return (
-      <Grid columns={1} padded={true} >
-        <Grid.Column>
-          <Header as="h1" textAlign="center">Start a New Batch</Header>
-          <Form>
-            <Form.Input id="name" fluid label="Batch Name" type="text" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+      <div>
+        <h1>Start a New Batch</h1>
+        <div>
+          <input id="name" placeholder="name" type="text" onChange={
+            (evt) => { this.handleFieldChange(evt) }
+          } />
 
-            <Form.Input id="startDate" fluid label="Start Date" type="date" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+          <label htmlFor="startDate">Start Date</label>
+          <input id="startDate" type="date" onChange={
+            (evt) => { this.handleFieldChange(evt) }
+          } />
 
-            <Form.Input id="expBottlingDate" fluid label="Expected Bottling Date" type="date" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
+          <label htmlFor="expBottlingDate">Expected Bottling Date</label>
+          <input id="expBottlingDate" type="date" onChange={
+            (evt) => { this.handleFieldChange(evt) }
+          } />
 
-              <label>Type</label>
-              <label htmlFor="waterKefir">Water Kefir</label>
-              <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
-                this.handleFieldChangeRadio(evt)
-              }} />
-              <label htmlFor="kombucha">Kombucha</label>
-              <input type="radio" name="type" value={1} onChange={(evt) => {
-                this.handleFieldChangeRadio(evt)
-              }} />
+          <label>Type</label>
+          <label htmlFor="waterKefir">Water Kefir</label>
+          <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
+            this.handleFieldChangeRadio(evt)
+          }} />
+          <label htmlFor="kombucha">Kombucha</label>
+          <input type="radio" name="type" value={1} onChange={(evt) => {
+            this.handleFieldChangeRadio(evt)
+          }} />
 
+          <label>Amount</label>
+          <input id="batchAmount" type="text" placeholder="enter a number" onClick={
+            (evt) => { this.handleFieldChange(evt) }
+          } />
+          <select id="measurement" onChange={
+            (evt) => { this.handleFieldChange(evt) }
+          } >
+            <option value="cups">Cups</option>
+            <option value="ounces">Ounces</option>
+          </select>
 
-            <label>Amount</label>
-            <Form.Input id="batchAmount" type="text" placeholder="enter a number" onClick={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-            <select id="measurement" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } >
-              <option value="cups">Cups</option>
-              <option value="ounces">Ounces</option>
-            </select>
+          <input id="starterIngredients" placeholder="Starter Ingredients" type="text" onChange={
+            (evt) => { this.handleFieldChange(evt) }
+          } />
+        </div>
 
-
-
-            <Form.Input id="starterIngredients" label="Starter Ingredients" type="text" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            } />
-
-
-            <Button onClick={
-              () => {
-                this.props.history.push("/")
-              }
-            }>Cancel</Button>
-            <Button onClick={() => {
-              this.handleSave()
-            }}>Save</Button>
-          </Form>
-        </Grid.Column>
-      </Grid>
+        <button onClick={
+          () => {
+            this.props.history.push("/")
+          }
+        }>Cancel</button>
+        <button onClick={() => {
+          this.handleSave()
+        }}>Save</button>
+      </div>
     )
   }
 }

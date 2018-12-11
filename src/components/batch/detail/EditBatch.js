@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-// import { Grid, Button, Header, List, Form } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
 import BrewingEdit from "./brewing/BrewingEdit";
 import BottledEdit from "./bottled/BottledEdit";
-import CompletedEdit from "./complete/CompletedEdit"
+import CompletedEdit from "./completed/CompletedEdit"
 
 // TODO fix date input value issue - prepopulating and saving
 

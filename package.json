@@ -8,9 +8,8 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "semantic-ui": "^2.4.2",
-    "semantic-ui-react": "^0.83.0",
-    "styled-components": "^4.1.2"
+    "styled-components": "^4.1.2",
+    "turretcss": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

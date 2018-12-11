@@ -1,8 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Form, Button, Header } from 'semantic-ui-react'
-import "../../FermentStation.css"
 import APIManager from "../../../modules/APIManager"
-
 
 class BottleForm extends Component {
 
@@ -15,14 +12,14 @@ class BottleForm extends Component {
   }
 
   componentDidMount() {
-    const {batchId} = this.props.match.params
-    this.setState({batchId: batchId})
+    const { batchId } = this.props.match.params
+    this.setState({ batchId: batchId })
     APIManager.getEntry("batches", batchId)
-    .then(batch => {
-      this.setState({
-        batch: batch
+      .then(batch => {
+        this.setState({
+          batch: batch
+        })
       })
-    })
   }
 
   handleFieldChange = (evt) => {
@@ -53,31 +50,33 @@ class BottleForm extends Component {
 
   render() {
     return (
-      <Grid columns={1} padded={true}>
-        <Grid.Column>
-            <Header as="h1" textAlign="center">Bottle {this.state.batchName}<Header.Subheader>Brewing Since: {this.state.batch.startDate}</Header.Subheader></Header>
-            <Form>
-              <Form.Input fluid label="Bottling Date" type="date" id="bottleDate" onChange={(evt) => {
-                this.handleFieldChange(evt)
-              }}/>
-              <Form.Input fluid label="Expected Completion Date" type="date" id="completeDate" onChange={(evt) => {
-                this.handleFieldChange(evt)
-              }}/>
-              <Form.Input label="Bottle Ingredients" type="text" id="bottleIngredients" onChange={(evt) => {
-                this.handleFieldChange(evt)
-              }}/>
-              <Button onClick={
-              () => {
-                this.props.history.push(`/batches/${this.state.batchId}`)
-              }
-            }>Cancel</Button>
-              <Button onClick={() => {
-                this.handleSave()
-              }}>Save</Button>
-            </Form>
-        </Grid.Column>
-      </Grid>
-        )
-      }
-    }
+      <div>
+        <h1>Bottle {this.state.batchName}</h1>
+        <h4>Brewing Since: {this.state.batch.startDate}</h4>
+        <div>
+          <label htmlFor="bottleDate">Bottle Date</label>
+          <input type="date" id="bottleDate" onChange={(evt) => {
+            this.handleFieldChange(evt)
+          }} />
+          <label htmlFor="completeDate">Expected Completion Date</label>
+          <input type="date" id="completeDate" onChange={(evt) => {
+            this.handleFieldChange(evt)
+          }} />
+          <label htmlFor="bottleIngredients">Bottle Ingredients</label>
+          <input type="text" id="bottleIngredients" onChange={(evt) => {
+            this.handleFieldChange(evt)
+          }} />
+          <button onClick={
+            () => {
+              this.props.history.push(`/batches/${this.state.batchId}`)
+            }
+          }>Cancel</button>
+          <button onClick={() => {
+            this.handleSave()
+          }}>Save</button>
+        </div>
+      </div>
+    )
+  }
+}
 export default BottleForm

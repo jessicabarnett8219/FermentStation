@@ -1,21 +1,19 @@
 import React, { Component } from "react"
-import { Grid, Button, Header, List, Form, Input, FormField } from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
 // TODO fix radio pre-population
 
 class BrewingEdit extends Component {
 
-
   render() {
     return (
       <div>
-        <Form>
-          <Form.Input id="editName" fluid label="Batch Name" type="text" defaultValue={this.props.batch.name} onChange={
+        <div>
+          <input id="editName" placeholder="Batch Name" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <FormField>
+          <div>
             <label>Type</label>
             <label htmlFor="waterKefir">Water Kefir</label>
             <input type="radio" name="editType" value={2} onChange={(evt) => {
@@ -25,7 +23,7 @@ class BrewingEdit extends Component {
             <input type="radio" name="editType" value={1} onChange={(evt) => {
               this.props.handleFieldChangeRadio(evt)
             }} />
-          </FormField>
+          </div>
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -38,7 +36,7 @@ class BrewingEdit extends Component {
           } />
 
           <label>Amount</label>
-          <Form.Input id="editAmount" type="text" defaultValue={this.props.batch.batchAmount} onChange={
+          <input id="editAmount" type="text" defaultValue={this.props.batch.batchAmount} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
@@ -49,14 +47,14 @@ class BrewingEdit extends Component {
             <option value="ounces">Ounces</option>
           </select>
 
-          <Form.Input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
+          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-        </Form>
-        <Button onClick={() => {
+        </div>
+        <button onClick={() => {
           this.props.handleSave()
-        }}>Save</Button>
-        <Button>Cancel</Button>
+        }}>Save</button>
+        <button>Cancel</button>
       </div>
     )
 

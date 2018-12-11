@@ -1,58 +1,23 @@
 import React, { Component } from "react"
-import { Grid, Header, List } from 'semantic-ui-react'
 // import { Link } from "react-router-dom"
 
 class CompletedDetail extends Component {
 
   render() {
     return (
-      <Grid columns={1} padded={true}>
-        <Grid.Column>
-          <Header as="h1" textAlign="center">Batch Details</Header>
-          <List>
-            <List.Item>
-              <List.Content ><Header size="medium">Name</Header>{this.props.name}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Type</Header>{this.props.type}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Started On</Header>{this.props.startDate}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Bottled On</Header>{this.props.bottleDate}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Completed On</Header>{this.props.completeDate}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Amount</Header>{`${this.props.amount} ${this.props.measurement}`}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Starter Ingredients</Header>{this.props.starterIngredients}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Bottle Ingredients</Header>{this.props.bottleIngredients}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Rating</Header>{this.props.rating}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Content><Header size="medium">Review</Header>{this.props.review}</List.Content>
-            </List.Item>
-
-          </List>
-        </Grid.Column>
-      </Grid>
+      <div>
+          <h1>Batch Details</h1>
+              <h4>Name {this.props.name}</h4>
+              <h4>Type {this.props.type}</h4>
+              <h4>Started On {this.props.startDate}</h4>
+              <h4>Bottled On {this.props.bottleDate}</h4>
+              <h4>Completed On {this.props.completeDate}</h4>
+              <h4>Amount {`${this.props.amount} ${this.props.measurement}`}</h4>
+              <h4>Starter Ingredients {this.props.starterIngredients}</h4>
+              <h4>Bottle Ingredients {this.props.bottleIngredients}</h4>
+              <h4>Rating {this.props.rating}</h4>
+              <h4>Review {this.props.review}</h4>
+      </div>
     )
 
   }

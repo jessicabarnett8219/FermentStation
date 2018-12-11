@@ -1,8 +1,5 @@
 import React, { Component } from "react"
-import { Grid, Form, Button, Header } from 'semantic-ui-react'
 import APIManager from "../../../modules/APIManager"
-
-
 
 class ReviewForm extends Component {
   state = {
@@ -56,11 +53,12 @@ class ReviewForm extends Component {
 
   render() {
     return (
-      <Grid columns={1} padded={true}>
-        <Grid.Column>
-          <Header as="h1" textAlign="center">Review {this.state.batchName}<Header.Subheader>Bottled Since: {this.state.bottleDate}</Header.Subheader></Header>
-          <Form>
-            <Form.Input fluid label="Completion Date" type="date" id="completeDate" onChange={(evt) => {
+      <div>
+          <h1>Review {this.state.batchName}</h1>
+          <h4>Bottled Since: {this.state.bottleDate}</h4>
+          <div>
+          <label htmlFor="completeDate">Completion Date</label>
+            <input type="date" id="completeDate" onChange={(evt) => {
               this.handleFieldChange(evt)
             }} />
 
@@ -74,20 +72,19 @@ class ReviewForm extends Component {
               this.handleFieldChangeRadio(evt)
             }} />
 
-            <Form.Input label="Review" type="text" id="review" onChange={(evt) => {
+            <input placeholder="Review" type="text" id="review" onChange={(evt) => {
               this.handleFieldChange(evt)
             }} />
-            <Button onClick={
+            <button onClick={
               () => {
                 this.props.history.push(`/batches/${this.state.batchId}`)
               }
-            }>Cancel</Button>
-            <Button onClick={() => {
+            }>Cancel</button>
+            <button onClick={() => {
               this.handleSave()
-            }}>Save</Button>
-          </Form>
-        </Grid.Column>
-      </Grid>
+            }}>Save</button>
+          </div>
+      </div>
     )
   }
 }
