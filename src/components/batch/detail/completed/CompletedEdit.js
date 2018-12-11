@@ -9,21 +9,20 @@ class CompletedEdit extends Component {
   render() {
     return (
       <div>
+        <h1>Edit Batch</h1>
         <div>
-          <input id="editName" placeholder="Batch Name" type="text" defaultValue={this.props.batch.name} onChange={
+          <label htmlFor="editName">Name</label>
+          <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <div>
-            <label>Type</label>
-            <label htmlFor="waterKefir">Water Kefir</label>
             <input type="radio" name="editType" value={2} onChange={(evt) => {
               this.props.handleFieldChangeRadio(evt)
-            }} />
-            <label htmlFor="kombucha">Kombucha</label>
+            }} />Water Kefir <br></br>
             <input type="radio" name="editType" value={1} onChange={(evt) => {
               this.props.handleFieldChangeRadio(evt)
-            }} />
+            }} />Kombucha <br></br>
           </div>
 
           <label htmlFor="editStartDate">Start Date</label>
@@ -62,18 +61,16 @@ class CompletedEdit extends Component {
           } />
 
           <div>
-            <label>Type</label>
-            <label htmlFor="positive">Positive</label>
             <input type="radio" name="positive" value="positive" onChange={(evt) => {
               this.props.handleFieldChangeRating(evt)
-            }} />
-            <label htmlFor="negative">Negative</label>
+            }} />positive <br></br>
             <input type="radio" name="negative" value="negative" onChange={(evt) => {
               this.props.handleFieldChangeRating(evt)
-            }} />
+            }} />negative <br></br>
           </div>
 
-          <input id="editReview" defaultValue={this.props.batch.review} placeholder="Review" type="text" onChange={
+          <label htmlFor="editReview">Review</label>
+          <input id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 

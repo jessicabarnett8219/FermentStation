@@ -5,19 +5,25 @@ class CompletedDetail extends Component {
 
   render() {
     return (
-      <div>
-          <h1>Batch Details</h1>
-              <h4>Name {this.props.name}</h4>
-              <h4>Type {this.props.type}</h4>
-              <h4>Started On {this.props.startDate}</h4>
-              <h4>Bottled On {this.props.bottleDate}</h4>
-              <h4>Completed On {this.props.completeDate}</h4>
-              <h4>Amount {`${this.props.amount} ${this.props.measurement}`}</h4>
-              <h4>Starter Ingredients {this.props.starterIngredients}</h4>
-              <h4>Bottle Ingredients {this.props.bottleIngredients}</h4>
-              <h4>Rating {this.props.rating}</h4>
-              <h4>Review {this.props.review}</h4>
-      </div>
+      <dl>
+        <h1>Batch Details</h1>
+        <dt>Name </dt>
+        <dd>{this.props.name}</dd>
+        <dt>Type</dt>
+        <dd>{this.props.type}</dd>
+        <dt>Started On</dt>
+        <dd>{this.props.startDate}</dd>
+        <dt>Bottled On</dt>
+        <dd>{this.props.bottleDate}</dd>
+        <dt>Completed On</dt>
+        <dd>{this.props.completeDate}</dd>
+        <dt>Amount</dt>
+        <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+        <dt>Starter Ingredients </dt>
+        <dd>{this.props.starterIngredients}</dd>
+        <dt>Bottle Ingredients</dt>
+        <dd>{this.props.bottleIngredients}</dd>
+      </dl>
     )
 
   }

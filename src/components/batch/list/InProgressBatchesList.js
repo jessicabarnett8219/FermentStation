@@ -20,25 +20,25 @@ class InProgressBatchesList extends Component {
     return (
       <div>
         <h1>In-Progress Batches</h1>
-        <div>
           {
             this.state.batches.map(batch => {
               if (batch.status === 1) {
-                return <div key={batch.id}>
-                  <h3>{batch.name}</h3>
-                  <p>Brewing Since: {batch.startDate}</p>
+                return <dl key={batch.id}>
+                  <dt>{batch.name}</dt>
+                  <dd>Brewing Since: {batch.startDate}</dd>
                   <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
-                </div>
+                  <hr></hr>
+                </dl>
               } else if (batch.status === 2) {
-                return <div key={batch.id}>
-                  <h3>{batch.name}</h3>
-                  <p>Bottled Since: {batch.bottleDate}</p>
+                return <dl key={batch.id}>
+                  <dt>{batch.name}</dt>
+                  <dd>Bottled Since: {batch.bottleDate}</dd>
                   <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
-                </div>
+                  <hr></hr>
+                </dl>
               }
             })
           }
-        </div>
       </div>
     )
   }
