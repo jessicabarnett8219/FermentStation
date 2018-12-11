@@ -5,9 +5,10 @@ class CompletedDetail extends Component {
   render() {
     return (
       <div>
+        <h1 className="text-align-center padding-vertical-m no-margin">Batch Details</h1>
+      <div className="container">
         <dl>
-          <h1>Batch Details</h1>
-          <dt>Name </dt>
+          <dt className="display-inline-block">Name </dt>
           <dd>{this.props.name}</dd>
           <dt>Type</dt>
           <dd>{this.props.type.name}</dd>
@@ -40,6 +41,7 @@ class CompletedDetail extends Component {
             this.props.history.push("/completed-list")
           }
         }}>Back to Batch List</button> */}
+      </div>
       </div>
     )
 
