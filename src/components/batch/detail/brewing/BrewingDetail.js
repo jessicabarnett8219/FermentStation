@@ -6,7 +6,7 @@ class BrewingDetail extends Component {
   render() {
     console.log(this.props)
     return (
-      <dl>
+      <dl key={this.props.id}>
         <h1>Batch Details</h1>
         <dt>Name </dt>
         <dd>{this.props.name}</dd>
@@ -21,6 +21,23 @@ class BrewingDetail extends Component {
         <dt>Starter Ingredients </dt>
         <dd>{this.props.starterIngredients}</dd>
         <Link to={`/bottle/${this.props.id}`}><button>Bottle Batch</button></Link>
+
+        <Link to={`/batches/edit/${this.props.id}`}><button
+        >Edit Batch</button></Link>
+
+        <button onClick={() => {
+          this.props.handleDelete()
+        }}>Delete Batch</button>
+
+        <button onClick={() => {
+          if (this.props.status === 1) {
+            this.props.history.push("/in-progress-list")
+          } else if (this.props.status === 2) {
+            this.props.history.push("/in-progress-list")
+          } else {
+            this.props.history.push("/completed-list")
+          }
+        }}>Back to Batch List</button>
       </dl>
     )
 

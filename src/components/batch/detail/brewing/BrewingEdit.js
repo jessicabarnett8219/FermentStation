@@ -53,9 +53,9 @@ class BrewingEdit extends Component {
         <button onClick={() => {
           this.props.handleSave()
         }}>Save</button>
-        <button onClick={
+        <button onClick={ () => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
-        }>Cancel</button>
+        }}>Cancel</button>
       </div>
     )
 

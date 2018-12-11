@@ -1,29 +1,44 @@
 import React, { Component } from "react"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 class CompletedDetail extends Component {
-
   render() {
     return (
-      <dl>
-        <h1>Batch Details</h1>
-        <dt>Name </dt>
-        <dd>{this.props.batch.name}</dd>
-        <dt>Type</dt>
-        <dd>{this.props.batch.type}</dd>
-        <dt>Started On</dt>
-        <dd>{this.props.batch.startDate}</dd>
-        <dt>Bottled On</dt>
-        <dd>{this.props.batch.bottleDate}</dd>
-        <dt>Completed On</dt>
-        <dd>{this.props.batch.completeDate}</dd>
-        <dt>Amount</dt>
-        <dd>{`${this.props.batch.amount} ${this.props.batch.measurement}`}</dd>
-        <dt>Starter Ingredients </dt>
-        <dd>{this.props.batch.starterIngredients}</dd>
-        <dt>Bottle Ingredients</dt>
-        <dd>{this.props.batch.bottleIngredients}</dd>
-      </dl>
+      <div>
+        <dl>
+          <h1>Batch Details</h1>
+          <dt>Name </dt>
+          <dd>{this.props.name}</dd>
+          <dt>Type</dt>
+          <dd>{this.props.type}</dd>
+          <dt>Started On</dt>
+          <dd>{this.props.startDate}</dd>
+          <dt>Bottled On</dt>
+          <dd>{this.props.bottleDate}</dd>
+          <dt>Completed On</dt>
+          <dd>{this.props.completeDate}</dd>
+          <dt>Amount</dt>
+          <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+          <dt>Starter Ingredients </dt>
+          <dd>{this.props.starterIngredients}</dd>
+          <dt>Bottle Ingredients</dt>
+          <dd>{this.props.bottleIngredients}</dd>
+        </dl>
+        <Link to={`/batches/edit/${this.props.id}`}><button
+        >Edit Batch</button></Link>
+        <button onClick={() => {
+          this.props.handleDelete()
+        }}>Delete Batch</button>
+        <button onClick={() => {
+          if (this.state.status === 1) {
+            this.props.history.push("/in-progress-list")
+          } else if (this.state.status === 2) {
+            this.props.history.push("/in-progress-list")
+          } else {
+            this.props.history.push("/completed-list")
+          }
+        }}>Back to Batch List</button>
+      </div>
     )
 
   }
