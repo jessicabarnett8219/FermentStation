@@ -62,17 +62,15 @@ class ReviewForm extends Component {
               this.handleFieldChange(evt)
             }} />
 
-            <label>Rating</label>
-            <label htmlFor="positive">Positive</label>
             <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
-            }} />
-            <label htmlFor="negative">Negative</label>
+            }} />Positive <br></br>
             <input type="radio" name="rating" value="negative" onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
-            }} />
+            }} />Negative <br></br>
 
-            <input placeholder="Review" type="text" id="review" onChange={(evt) => {
+            <label htmlFor="review">Review</label>
+            <input type="text" id="review" onChange={(evt) => {
               this.handleFieldChange(evt)
             }} />
             <button onClick={

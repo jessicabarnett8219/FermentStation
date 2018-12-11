@@ -22,11 +22,12 @@ class PastBatchesList extends Component {
         <h1>Completed Batches</h1>
         {
           this.state.batches.map(batch => {
-            return <div key={batch.id}>
-              <h3>{batch.name}</h3>
-              <p>Completed On: {batch.completeDate}</p>
+            return <dl key={batch.id}>
+              <dt>{batch.name}</dt>
+              <dd>Completed On: {batch.completeDate}</dd>
               <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
-            </div>
+              <hr></hr>
+            </dl>
           })
         }
       </div>

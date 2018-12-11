@@ -101,7 +101,8 @@ class NewBatchForm extends Component {
             <option value="ounces">Ounces</option>
           </select>
 
-          <input id="starterIngredients" placeholder="Starter Ingredients" type="text" onChange={
+          <label htmlFor="starterIngredients">Starter Ingredients</label>
+          <input id="starterIngredients" type="text" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
         </div>

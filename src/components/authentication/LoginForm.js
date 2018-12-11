@@ -16,12 +16,11 @@ class LoginForm extends Component {
               this.props.handleFieldChange(evt)
             }
           } />
-          <label htmlFor="remember">Remember Me</label>
           <input id="remember" type="checkbox" onClick={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
-          }/>
+          }/>Remember Me <br></br>
           <button onClick={
             (evt) => {
               this.props.handleLogin(evt)

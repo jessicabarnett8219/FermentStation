@@ -5,28 +5,28 @@ class BottledDetail extends Component {
 
   render() {
     return (
-      <div>
-          <h1>Batch Details</h1>
+      <dl>
+        <h1>Batch Details</h1>
+        <dt>Name </dt>
+        <dd>{this.props.name}</dd>
+        <dt>Type</dt>
+        <dd>{this.props.type}</dd>
+        <dt>Started On</dt>
+        <dd>{this.props.startDate}</dd>
+        <dt>Bottled Since</dt>
+        <dd>{this.props.bottleDate}</dd>
+        <dt>Expected Completion Date</dt>
+        <dd>{this.props.completeDate}</dd>
+        <dt>Amount</dt>
+        <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+        <dt>Starter Ingredients </dt>
+        <dd>{this.props.starterIngredients}</dd>
+        <dt>Bottle Ingredients</dt>
+        <dd>{this.props.bottleIngredients}</dd>
 
-              <h4>Name {this.props.name}</h4>
+        <Link to={`/review/${this.props.batchId}`}><button>Review Batch</button></Link>
 
-              <h4>Type {this.props.type}</h4>
-
-              <h4>Started On {this.props.startDate}</h4>
-
-              <h4>Bottled Since {this.props.bottleDate}</h4>
-
-              <h4>Expected Completion Date {this.props.completeDate}</h4>
-
-              <h4>Amount {`${this.props.amount} ${this.props.measurement}`}</h4>
-
-              <h4>Starter Ingredients {this.props.starterIngredients}</h4>
-
-              <h4>Bottle Ingredients {this.props.bottleIngredients}</h4>
-
-            <Link to={`/review/${this.props.batchId}`}><button>Review Batch</button></Link>
-
-      </div>
+      </dl>
     )
 
   }

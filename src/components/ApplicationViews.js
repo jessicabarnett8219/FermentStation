@@ -19,7 +19,7 @@ class ApplicationViews extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="page-container">
         <Route exact path="/" render={props => {
           if (this.isAuthenticated()) {
             return <MainMenu {...props} />
@@ -65,7 +65,7 @@ class ApplicationViews extends Component {
         <Route path="/bottle/:batchId(\d+)" component={BottleForm} />
         <Route path="/review/:batchId(\d+)" component={ReviewForm} />
 
-      </React.Fragment>
+     </div>
 
     )
   }
