@@ -55,11 +55,11 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
         </div>
-        <button onClick={() => {
+        <button className="button info" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
 
-        <button onClick={() => {
+        <button className="button button-border info" onClick={() => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
         }}>
           Cancel</button>

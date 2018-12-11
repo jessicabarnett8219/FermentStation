@@ -25,11 +25,13 @@ class CompletedDetail extends Component {
           <dd>{this.props.bottleIngredients}</dd>
         </dl>
         <Link to={`/batches/edit/${this.props.id}`}><button
-        >Edit Batch</button></Link>
-        <button onClick={() => {
+        className="button button-square button-icon info"><i className="fas fa-pen"></i></button></Link>
+
+        <button className="button button-square button-icon info" onClick={() => {
           this.props.handleDelete()
-        }}>Delete Batch</button>
-        <button onClick={() => {
+        }}><i className="fas fa-trash"></i></button>
+
+        {/* <button onClick={() => {
           if (this.props.status === 1) {
             this.props.history.push("/in-progress-list")
           } else if (this.props.status === 2) {
@@ -37,7 +39,7 @@ class CompletedDetail extends Component {
           } else {
             this.props.history.push("/completed-list")
           }
-        }}>Back to Batch List</button>
+        }}>Back to Batch List</button> */}
       </div>
     )
 

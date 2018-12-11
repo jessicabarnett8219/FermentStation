@@ -24,16 +24,16 @@ class BottledDetail extends Component {
         <dt>Bottle Ingredients</dt>
         <dd>{this.props.bottleIngredients}</dd>
 
-        <Link to={`/review/${this.props.id}`}><button>Review Batch</button></Link>
+        <Link to={`/review/${this.props.id}`}><button className="button info" >Review Batch</button></Link>
 
-        <Link to={`/batches/edit/${this.props.id}`}><button
-        >Edit Batch</button></Link>
+        <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
+        ><i className="fas fa-pen"></i></button></Link>
 
-        <button onClick={() => {
+        <button className="button button-square button-icon info" onClick={() => {
           this.props.handleDelete()
-        }}>Delete Batch</button>
+        }}><i className="fas fa-trash"></i></button>
 
-        <button onClick={() => {
+        {/* <button className="button info" onClick={() => {
           if (this.props.status === 1) {
             this.props.history.push("/in-progress-list")
           } else if (this.props.status === 2) {
@@ -41,7 +41,7 @@ class BottledDetail extends Component {
           } else {
             this.props.history.push("/completed-list")
           }
-        }}>Back to Batch List</button>
+        }}>Back to Batch List</button> */}
 
       </dl>
     )

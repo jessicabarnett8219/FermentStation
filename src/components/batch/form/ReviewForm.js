@@ -73,12 +73,12 @@ class ReviewForm extends Component {
             <input type="text" id="review" onChange={(evt) => {
               this.handleFieldChange(evt)
             }} />
-            <button onClick={
+            <button className="button button-border info" onClick={
               () => {
                 this.props.history.push(`/batches/${this.state.batchId}`)
               }
             }>Cancel</button>
-            <button onClick={() => {
+            <button className="button info" onClick={() => {
               this.handleSave()
             }}>Save</button>
           </div>

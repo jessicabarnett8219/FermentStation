@@ -35,3 +35,8 @@ code {
 .hideForm {
   display: none;
 }
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}

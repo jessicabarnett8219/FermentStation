@@ -71,11 +71,11 @@ class CompletedEdit extends Component {
           } />
 
         </div>
-        <button onClick={() => {
+        <button className="button info" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
 
-        <button onClick={() => {
+        <button className="button border-button info" onClick={() => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
         }}>Cancel</button>
       </div>

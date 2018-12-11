@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
+// import NavBar from "./../../navigation/NavBar"
+
 
 
 class PastBatchesList extends Component {
@@ -25,7 +27,7 @@ class PastBatchesList extends Component {
             return <dl key={batch.id}>
               <dt>{batch.name}</dt>
               <dd>Completed On: {batch.completeDate}</dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button>Details</button></Link>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
               <hr></hr>
             </dl>
           })
