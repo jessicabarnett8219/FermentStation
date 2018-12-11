@@ -46,7 +46,7 @@ class EditBatch extends Component {
             editMeasurement: batchObj.measurement,
             editRating: batchObj.rating,
             initialized: true
-          }, () => console.log(this.state))
+          })
         })
     })
   }

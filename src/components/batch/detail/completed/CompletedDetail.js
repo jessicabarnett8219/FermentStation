@@ -10,7 +10,7 @@ class CompletedDetail extends Component {
           <dt>Name </dt>
           <dd>{this.props.name}</dd>
           <dt>Type</dt>
-          <dd>{this.props.type}</dd>
+          <dd>{this.props.type.name}</dd>
           <dt>Started On</dt>
           <dd>{this.props.startDate}</dd>
           <dt>Bottled On</dt>
@@ -18,7 +18,7 @@ class CompletedDetail extends Component {
           <dt>Completed On</dt>
           <dd>{this.props.completeDate}</dd>
           <dt>Amount</dt>
-          <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+          <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
           <dt>Starter Ingredients </dt>
           <dd>{this.props.starterIngredients}</dd>
           <dt>Bottle Ingredients</dt>
@@ -30,9 +30,9 @@ class CompletedDetail extends Component {
           this.props.handleDelete()
         }}>Delete Batch</button>
         <button onClick={() => {
-          if (this.state.status === 1) {
+          if (this.props.status === 1) {
             this.props.history.push("/in-progress-list")
-          } else if (this.state.status === 2) {
+          } else if (this.props.status === 2) {
             this.props.history.push("/in-progress-list")
           } else {
             this.props.history.push("/completed-list")

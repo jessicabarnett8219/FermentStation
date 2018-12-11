@@ -20,7 +20,7 @@ class BatchDetail extends Component {
     this.setState({ currentUser: currentUserId }, () => {
       APIManager.getEntry("batches", batchId, "?_expand=type")
         .then(batchObj => {
-          this.setState({ batch: batchObj, initialized: true}, () => console.log(this.state))
+          this.setState({ batch: batchObj, initialized: true})
         })
     })
   }
@@ -44,20 +44,20 @@ class BatchDetail extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-            <BrewingDetail {...this.state.batch} handleDelete={this.handleDelete}/>
+            <BrewingDetail {...this.state.batch} handleDelete={this.handleDelete} {...this.props}/>
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-            <BottledDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete}/>
+            <BottledDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props}/>
           </div>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
           <div>
-            <CompletedDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete}/>
+            <CompletedDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props}/>
           </div>
         )
       }

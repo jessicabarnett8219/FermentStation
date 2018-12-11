@@ -17,7 +17,7 @@ class BrewingDetail extends Component {
         <dt>Expected Bottling Date</dt>
         <dd>{this.props.bottleDate}</dd>
         <dt>Amount</dt>
-        <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+        <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
         <dt>Starter Ingredients </dt>
         <dd>{this.props.starterIngredients}</dd>
         <Link to={`/bottle/${this.props.id}`}><button>Bottle Batch</button></Link>
