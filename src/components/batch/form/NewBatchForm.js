@@ -68,7 +68,8 @@ class NewBatchForm extends Component {
       <div>
         <h1>Start a New Batch</h1>
         <div>
-          <input id="name" placeholder="name" type="text" onChange={
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -82,17 +83,14 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <label>Type</label>
-          <label htmlFor="waterKefir">Water Kefir</label>
           <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
             this.handleFieldChangeRadio(evt)
-          }} />
-          <label htmlFor="kombucha">Kombucha</label>
+          }} />Water Kefir <br></br>
           <input type="radio" name="type" value={1} onChange={(evt) => {
             this.handleFieldChangeRadio(evt)
-          }} />
+          }} />Kombucha <br></br>
 
-          <label>Amount</label>
+          <label htmlFor="batchAmount">Amount</label>
           <input id="batchAmount" type="text" placeholder="enter a number" onClick={
             (evt) => { this.handleFieldChange(evt) }
           } />
