@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import LoginForm from "./LoginForm"
-// import RegistrationForm from "./RegistrationForm";
 import APIManager from "../../modules/APIManager"
 import RegistrationForm from "./RegistrationForm"
 
