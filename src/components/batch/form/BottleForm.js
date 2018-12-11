@@ -71,6 +71,7 @@ class BottleForm extends Component {
               this.props.history.push(`/batches/${this.state.batchId}`)
             }
           }>Cancel</button>
+
           <button onClick={() => {
             this.handleSave()
           }}>Save</button>
