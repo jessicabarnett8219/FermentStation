@@ -11,7 +11,7 @@ class PastBatchesList extends Component {
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=3`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=3&_sort=completeDate&_order=desc`)
       .then(batches =>
         this.setState({ batches: batches }))
   }
