@@ -9,11 +9,9 @@ import CompletedDetail from "./completed/CompletedDetail"
 class BatchDetail extends Component {
 
   state = {
-    batch: "",
+    batch: {},
     initialized: false,
     currentUser: "",
-    batchId: "",
-    status: ""
   }
 
   componentDidMount() {
@@ -22,22 +20,22 @@ class BatchDetail extends Component {
     this.setState({ currentUser: currentUserId }, () => {
       APIManager.getEntry("batches", batchId, "?_expand=type")
         .then(batchObj => {
-          this.setState({ batch: batchObj, batchId: batchId, status: batchObj.status }, () => this.setState({ initialized: true }, () => console.log(this.state)))
+          this.setState({ batch: batchObj, initialized: true}, () => console.log(this.state))
         })
     })
   }
 
   handleDelete = () => {
-    APIManager.deleteEntry("batches", this.state.batchId)
-    .then(() => {
-      if(this.state.status === 1) {
-        this.props.history.push("/brewing-list")
-      } else if (this.state.status === 2) {
-        this.props.history.push("/bottled-list")
-      } else {
-        this.props.history.push("/completed-list")
-      }
-    })
+    APIManager.deleteEntry("batches", this.state.batch.id)
+      .then(() => {
+        if (this.state.batch.status === 1) {
+          this.props.history.push("/brewing-list")
+        } else if (this.state.batch.status === 2) {
+          this.props.history.push("/bottled-list")
+        } else {
+          this.props.history.push("/completed-list")
+        }
+      })
   }
 
 
@@ -46,63 +44,67 @@ class BatchDetail extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-            <BrewingDetail name={this.state.batch.name} type={this.state.batch.type.name} startDate={this.state.batch.startDate} starterIngredients={this.state.batch.starterIngredients} batchId={this.state.batch.id} bottleDate={this.state.batch.bottleDate} amount={this.state.batch.batchAmount} measurement={this.state.batch.measurement}/>
-            <Link to={`/batches/edit/${this.state.batch.id}`} batch={this.state.batch}><button
+            <BrewingDetail {...this.state.batch}/>
+
+            <Link to={`/batches/edit/${this.state.batch.id}`}><button
             >Edit Batch</button></Link>
-              <button onClick={() => {
-                this.handleDelete()
-              }}>Delete Batch</button>
-              <button onClick={() => {
-                if(this.state.status === 1) {
-                  this.props.history.push("/brewing-list")
-                } else if (this.state.status === 2) {
-                  this.props.history.push("/bottled-list")
-                } else {
-                  this.props.history.push("/completed-list")
-                }
-              }}>Back to Batch List</button>
+
+            <button onClick={() => {
+              this.handleDelete()
+            }}>Delete Batch</button>
+            <button onClick={() => {
+              if (this.state.batch.status === 1) {
+                this.props.history.push("/in-progress-list")
+              } else if (this.state.batch.status === 2) {
+                this.props.history.push("/in-progress-list")
+              } else {
+                this.props.history.push("/completed-list")
+              }
+            }}>Back to Batch List</button>
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-            <BottledDetail name={this.state.batch.name} type={this.state.batch.type.name} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} startDate={this.state.batch.startDate} batchId={this.state.batch.id} completeDate={this.state.batch.completeDate} amount={this.state.batch.batchAmount} measurement={this.state.batch.measurement}/>
+            <BottledDetail batch={this.state.batch} {...this.props}/>
 
-              <Link to={`/batches/edit/${this.state.batch.id}`}><button
-              >Edit Batch</button></Link>
-              <button onClick={() => {
-                this.handleDelete()
-              }}>Delete Batch</button>
-              <button onClick={() => {
-                if(this.state.status === 1) {
-                  this.props.history.push("/brewing-list")
-                } else if (this.state.status === 2) {
-                  this.props.history.push("/bottled-list")
-                } else {
-                  this.props.history.push("/completed-list")
-                }
-              }}>Back to Batch List</button>
+            <Link to={`/batches/edit/${this.state.batch.id}`}><button
+            >Edit Batch</button></Link>
+
+
+            <button onClick={() => {
+              this.handleDelete()
+            }}>Delete Batch</button>
+            <button onClick={() => {
+              if (this.state.batch.status === 1) {
+                this.props.history.push("/in-progress-list")
+              } else if (this.state.batch.status === 2) {
+                this.props.history.push("/in-progress-list")
+              } else {
+                this.props.history.push("/completed-list")
+              }
+            }}>Back to Batch List</button>
           </div>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
           <div>
-            <CompletedDetail name={this.state.batch.name} type={this.state.batch.type.name} completeDate={this.state.batch.completeDate} startDate={this.state.batch.startDate} bottleDate={this.state.batch.bottleDate} starterIngredients={this.state.batch.starterIngredients} bottleIngredients={this.state.batch.bottleIngredients} batchId={this.state.batch.id} rating={this.state.batch.rating} review={this.state.batch.review} amount={this.state.batch.batchAmount} measurement={this.state.batch.measurement}/>
-              <Link to={`/batches/edit/${this.state.batch.id}`}><button
-              >Edit Batch</button></Link>
-              <button onClick={() => {
-                this.handleDelete()
-              }}>Delete Batch</button>
-              <button onClick={() => {
-                if(this.state.status === 1) {
-                  this.props.history.push("/brewing-list")
-                } else if (this.state.status === 2) {
-                  this.props.history.push("/bottled-list")
-                } else {
-                  this.props.history.push("/completed-list")
-                }
-              }}>Back to Batch List</button>
+            <CompletedDetail batch={this.state.batch} {...this.props}/>
+            <Link to={`/batches/edit/${this.state.batch.id}`}><button
+            >Edit Batch</button></Link>
+            <button onClick={() => {
+              this.handleDelete()
+            }}>Delete Batch</button>
+            <button onClick={() => {
+              if (this.state.batch.status === 1) {
+                this.props.history.push("/in-progress-list")
+              } else if (this.state.batch.status === 2) {
+                this.props.history.push("/in-progress-list")
+              } else {
+                this.props.history.push("/completed-list")
+              }
+            }}>Back to Batch List</button>
           </div>
         )
       }
