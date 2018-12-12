@@ -65,6 +65,7 @@ class EditBatch extends Component {
 
   handleFieldChangeRating = (evt) => {
     let targetValue = evt.target.value
+    console.log(targetValue)
     this.setState({ editRating: targetValue })
   }
 
