@@ -16,7 +16,8 @@ class BottledEdit extends Component {
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-          <BatchTypeEditForm batchType={this.props.batch.typeId} />
+          <BatchTypeEditForm batchType={this.props.batch.typeId} typeOptions={this.props.typeOptions}/>
+
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -37,7 +38,7 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label class="select" for="editMeasurement">
+          <label className="select" htmlFor="editMeasurement">
             <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
               (evt) => { this.props.handleFieldChange(evt) }
             } >
@@ -56,7 +57,7 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div className="flex justify-content-center">
+          <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={() => {
               this.props.history.push(`/batches/${this.props.batch.id}`)
             }}>

@@ -26,28 +26,18 @@ class BottledDetail extends Component {
             <dd>{this.props.starterIngredients}</dd>
             <dt>Bottle Ingredients</dt>
             <dd>{this.props.bottleIngredients}</dd>
-
-            <div className="flex justify-content-center">
-              <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
-              ><i className="fas fa-pen"></i></button></Link>
-
-              <button className="button button-square button-icon info" onClick={() => {
-                this.props.handleDelete()
-              }}><i className="fas fa-trash"></i></button>
-              <Link to={`/review/${this.props.id}`}><button className="button info" >Review Batch</button></Link>
-            </div>
-
-            {/* <button className="button button-secondary" onClick={() => {
-          if (this.props.status === 1) {
-            this.props.history.push("/in-progress-list")
-          } else if (this.props.status === 2) {
-            this.props.history.push("/in-progress-list")
-          } else {
-            this.props.history.push("/completed-list")
-          }
-        }}>Back to List</button> */}
-
           </dl>
+
+          <div className="flex justify-content-center">
+            <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
+            ><i className="fas fa-pen"></i></button></Link>
+
+            <button className="button button-square button-icon info" onClick={() => {
+              this.props.handleDelete()
+            }}><i className="fas fa-trash"></i></button>
+
+            <Link to={`/review/${this.props.id}`}><button className="button info" >Review Batch</button></Link>
+          </div>
         </div>
       </div>
     )

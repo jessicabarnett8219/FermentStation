@@ -13,7 +13,8 @@ class WelcomeScreen extends Component {
     registerPassword: "",
     firstName: "",
     lastName: "",
-    hideForm: true
+    hideForm: true,
+    hideButton: false
   }
 
 
@@ -87,6 +88,13 @@ class WelcomeScreen extends Component {
     });
   }
 
+  toggleRegisterBtn = () => {
+    const currentState = this.state.showButton;
+    this.setState({
+      showButton: !currentState
+    })
+  }
+
   render() {
     return (
       <div className="flex-column align-items-center">
@@ -94,15 +102,18 @@ class WelcomeScreen extends Component {
         <div class="container color-info flex-column align-items-center">
           <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
 
-            <h5 className="text-align-center">New here?</h5>
-            <div className="flex justify-content-center">
-            <button className="button info" onClick={
+          <h5 className="text-align-center">New here?</h5>
+          <div className="flex justify-content-center">
+            <button className="button info showButton" onClick={
               () => {
                 this.toggleNewForm()
+                this.toggleRegisterBtn()
               }
             }>Create an Account</button>
+          </div>
+          <div className="flex justify-content-center">
             <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration} {...this.props} />
-            </div>
+          </div>
         </div>
       </div>
     )

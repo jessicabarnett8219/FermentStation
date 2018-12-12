@@ -1,8 +1,5 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "../../BatchTypeEditForm";
-// import { Link } from "react-router-dom"
-
-// TODO fix radio pre-population
 
 class BrewingEdit extends Component {
 
@@ -16,7 +13,7 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <BatchTypeEditForm batchType={this.props.batch.typeId} />
+          <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio} typeOptions={this.props.typeOptions} />
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -33,7 +30,7 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label class="select" for="editMeasurement">
+          <label className="select" htmlFor="editMeasurement">
             <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
               (evt) => { this.props.handleFieldChange(evt) }
             } >
@@ -47,7 +44,7 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div className="flex justify-content-center">
+          <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={() => {
               this.props.history.push(`/batches/${this.props.batch.id}`)
             }}>Cancel</button>
@@ -55,8 +52,6 @@ class BrewingEdit extends Component {
               this.props.handleSave()
             }}>Save</button>
           </div>
-
-
         </div>
       </div>
     )

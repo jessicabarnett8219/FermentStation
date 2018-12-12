@@ -44,14 +44,6 @@ class ApplicationViews extends Component {
             return <Redirect to="/welcome" />
           }
         }} />
-        <Route exact path="/batches" render={props => {
-          if (this.isAuthenticated()) {
-            return (
-              <div></div>)
-          } else {
-            return <Redirect to="/welcome" />
-          }
-        }} />
         <Route path="/in-progress-list" render={props => {
           if (this.isAuthenticated()) {
             return <InProgressBatchesList />

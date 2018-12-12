@@ -23,7 +23,7 @@ class BrewingDetail extends Component {
             <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
             <dt>Starter Ingredients </dt>
             <dd>{this.props.starterIngredients}</dd>
-
+            </dl>
             <div className="flex justify-content-center">
 
               <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
@@ -35,16 +35,6 @@ class BrewingDetail extends Component {
 
               <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
             </div>
-            {/* <button className="button button-secondary" onClick={() => {
-          if (this.props.status === 1) {
-            this.props.history.push("/in-progress-list")
-          } else if (this.props.status === 2) {
-            this.props.history.push("/in-progress-list")
-          } else {
-            this.props.history.push("/completed-list")
-          }
-        }}>Back to List</button> */}
-          </dl>
         </div>
       </div>
     )

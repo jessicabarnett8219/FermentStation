@@ -17,7 +17,7 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio} />
+          <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio} typeOptions={this.props.typeOptions}/>
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -39,7 +39,7 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label class="select" for="editMeasurement">
+          <label className="select" htmlFor="editMeasurement">
             <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
               (evt) => { this.props.handleFieldChange(evt) }
             } >
