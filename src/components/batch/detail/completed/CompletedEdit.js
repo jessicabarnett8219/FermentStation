@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "../../BatchTypeEditForm";
+import BatchRatingEditForm from "../../BatchRatingEditForm"
 
 // import { Link } from "react-router-dom"
-
-// TODO fix radio pre-population
 
 class CompletedEdit extends Component {
 
@@ -18,8 +17,7 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <BatchTypeEditForm batchType={this.props.batch.typeId} />
-
+          <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio}/>
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -48,20 +46,17 @@ class CompletedEdit extends Component {
             <option value="ounces">Ounces</option>
           </select>
 
-          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} placeholder="Starter Ingredients" type="text" onChange={
+          <label htmlFor="editStarterIngredients">Starter Ingredients</label>
+          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} placeholder="Bottle Ingredients" type="text" onChange={
+          <label htmlFor="editBottleIngredients">Bottle Ingredients</label>
+          <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <input type="radio" name="editRating" value="negative" onChange={(evt) => {
-            this.props.handleFieldChangeRating(evt)
-          }} /><i className="fas fa-thumbs-down fa-2x"></i>
-          <input type="radio" name="editRating" value="positive" defaultChecked onChange={(evt) => {
-            this.props.handleFieldChangeRating(evt)
-          }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
+          <BatchRatingEditForm rating={this.props.batch.rating} handleFieldChangeRating={this.props.handleFieldChangeRating}/>
 
           <label htmlFor="editReview">Review</label>
           <input id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
