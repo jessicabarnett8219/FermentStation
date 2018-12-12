@@ -54,8 +54,8 @@ class ReviewForm extends Component {
   render() {
     return (
       <div >
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Review Batch</h1>
-        <div className="container">
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Review Batch</h1>
+        <div className="container color-info">
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <p className="text-align-center">Bottled Since: {this.state.bottleDate}</p>
           <label htmlFor="completeDate">Completion Date</label>
@@ -63,7 +63,7 @@ class ReviewForm extends Component {
             this.handleFieldChange(evt)
           }} />
 
-          <div className="margin-vertical-s">
+          <div className="margin-vertical-m text-align-center">
             <input type="radio" name="rating" value="negative" onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
             }} /><i className="fas fa-thumbs-down fa-2x margin-right-m"></i>
@@ -72,18 +72,21 @@ class ReviewForm extends Component {
             }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
           </div>
 
+
           <label htmlFor="review">Review</label>
           <input type="text" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <button className="button button-border button-secondary" onClick={
+          <div className="flex justify-content-center">
+          <button className="button button-border info margin-top-xxs" onClick={
             () => {
               this.props.history.push(`/batches/${this.state.batchId}`)
             }
           }>Cancel</button>
-          <button className="button button-secondary" onClick={() => {
+          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
             this.handleSave()
           }}>Save</button>
+          </div>
         </div>
       </div>
     )

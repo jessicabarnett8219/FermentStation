@@ -10,8 +10,8 @@ class BottledEdit extends Component {
   render() {
     return (
       <div >
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Edit Batch</h1>
-        <div className="container">
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Edit Batch</h1>
+        <div className="container color-info">
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -37,29 +37,36 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
-            (evt) => { this.props.handleFieldChange(evt) }
-          } >
-            <option value="cups">Cups</option>
-            <option value="ounces">Ounces</option>
-          </select>
+          <label class="select" for="editMeasurement">
+            <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
+              (evt) => { this.props.handleFieldChange(evt) }
+            } >
+              <option value="cups">Cups</option>
+              <option value="ounces">Ounces</option>
+            </select>
+          </label>
 
+          <label htmlFor="editStarterIngredients">Starter Ingredients</label>
           <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
+          <label htmlFor="editBottleIngredients">Bottle Ingredients</label>
           <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} label="Bottle Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <button className="button button-secondary" onClick={() => {
-            this.props.handleSave()
-          }}>Save</button>
+          <div className="flex justify-content-center">
+            <button className="button info button-border margin-top-xxs" onClick={() => {
+              this.props.history.push(`/batches/${this.props.batch.id}`)
+            }}>
+              Cancel</button>
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              this.props.handleSave()
+            }}>Save</button>
 
-          <button className="button button-border button-secondary" onClick={() => {
-            this.props.history.push(`/batches/${this.props.batch.id}`)
-          }}>
-            Cancel</button>
+
+          </div>
         </div>
       </div>
     )

@@ -51,10 +51,10 @@ class BottleForm extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Bottle a Batch</h1>
-        <div className="container">
-          <h3>{this.state.batch.name}</h3>
-          <h4>Brewing Since: {this.state.batch.startDate}</h4>
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Bottle a Batch</h1>
+        <div className="container color-info">
+          <h3 className="text-align-center">{this.state.batch.name}</h3>
+          <h4 className="text-align-center">Brewing Since: {this.state.batch.startDate}</h4>
           <label htmlFor="bottleDate">Bottle Date</label>
           <input type="date" id="bottleDate" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -64,18 +64,21 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <input type="text" id="bottleIngredients" onChange={(evt) => {
+          <input type="text" placeholder="ex. orange juice, vanilla beans" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <button className="button button-border button-secondary" onClick={
-            () => {
-              this.props.history.push(`/batches/${this.state.batchId}`)
-            }
-          }>Cancel</button>
 
-          <button className="button button-secondary" onClick={() => {
-            this.handleSave()
-          }}>Save</button>
+          <div className="flex justify-content-center">
+            <button className="button info button-border margin-top-xxs" onClick={
+              () => {
+                this.props.history.push(`/batches/${this.state.batchId}`)
+              }
+            }>Cancel</button>
+
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              this.handleSave()
+            }}>Save</button>
+          </div>
         </div>
       </div>
     )
