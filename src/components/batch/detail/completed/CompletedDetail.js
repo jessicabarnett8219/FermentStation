@@ -6,8 +6,8 @@ class CompletedDetail extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Batch Details</h1>
-      <div className="container">
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Batch Details</h1>
+      <div className="container color-info">
         <dl>
           <dt className="display-inline-block">Name </dt>
           <dd>{this.props.name}</dd>
@@ -31,14 +31,15 @@ class CompletedDetail extends Component {
           <dd>{this.props.review}</dd>
 
         </dl>
+        <div className="flex justify-content-center">
         <Link to={`/batches/edit/${this.props.id}`}><button
-        className="button button-square button-icon button-secondary"><i className="fas fa-pen"></i></button></Link>
+        className="button button-square button-icon info"><i className="fas fa-pen"></i></button></Link>
 
-        <button className="button button-square button-icon button-secondary" onClick={() => {
+        <button className="button button-square button-icon info" onClick={() => {
           this.props.handleDelete()
         }}><i className="fas fa-trash"></i></button>
 
-        <button className="button button-secondary" onClick={() => {
+        <button className="button info" onClick={() => {
           if (this.props.status === 1) {
             this.props.history.push("/in-progress-list")
           } else if (this.props.status === 2) {
@@ -47,6 +48,7 @@ class CompletedDetail extends Component {
             this.props.history.push("/completed-list")
           }
         }}>Back to List</button>
+        </div>
       </div>
       </div>
     )
