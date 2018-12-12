@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-
+// import NavBar from "../../navigation/NavBar"
 // TODO have radio buttons and amount options dynamically populate from the database
 
 class NewBatchForm extends Component {
@@ -107,12 +107,12 @@ class NewBatchForm extends Component {
           } />
         </div>
 
-        <button onClick={
+        <button className="button button-border info" onClick={
           () => {
             this.props.history.push("/")
           }
         }>Cancel</button>
-        <button onClick={() => {
+        <button className="button info" onClick={() => {
           this.handleSave()
         }}>Save</button>
       </div>

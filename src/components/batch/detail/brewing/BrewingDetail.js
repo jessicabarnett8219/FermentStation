@@ -6,7 +6,7 @@ class BrewingDetail extends Component {
   render() {
     console.log(this.props)
     return (
-      <dl>
+      <dl key={this.props.id}>
         <h1>Batch Details</h1>
         <dt>Name </dt>
         <dd>{this.props.name}</dd>
@@ -17,10 +17,27 @@ class BrewingDetail extends Component {
         <dt>Expected Bottling Date</dt>
         <dd>{this.props.bottleDate}</dd>
         <dt>Amount</dt>
-        <dd>{`${this.props.amount} ${this.props.measurement}`}</dd>
+        <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
         <dt>Starter Ingredients </dt>
         <dd>{this.props.starterIngredients}</dd>
-        <Link to={`/bottle/${this.props.id}`}><button>Bottle Batch</button></Link>
+        <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
+
+        <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
+        ><i className="fas fa-pen"></i></button></Link>
+
+        <button className="button info button-square button-icon" onClick={() => {
+          this.props.handleDelete()
+        }}><i className="fas fa-trash"></i></button>
+
+        {/* <button className="button info" onClick={() => {
+          if (this.props.status === 1) {
+            this.props.history.push("/in-progress-list")
+          } else if (this.props.status === 2) {
+            this.props.history.push("/in-progress-list")
+          } else {
+            this.props.history.push("/completed-list")
+          }
+        }}>Back to List</button> */}
       </dl>
     )
 

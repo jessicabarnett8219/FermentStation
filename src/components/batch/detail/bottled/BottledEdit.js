@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import BatchTypeEditForm from "../../BatchTypeEditForm";
+
 // import { Link } from "react-router-dom"
 
 // TODO fix radio pre-population
@@ -15,14 +17,8 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div>
-            <input type="radio" name="editType" value={2} onChange={(evt) => {
-              this.props.handleFieldChangeRadio(evt)
-            }} />Water Kefir <br></br>
-            <input type="radio" name="editType" value={1} onChange={(evt) => {
-              this.props.handleFieldChangeRadio(evt)
-            }} />Kombucha <br></br>
-          </div>
+          <BatchTypeEditForm batchType={this.props.batch.typeId} />
+
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -59,10 +55,11 @@ class BottledEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
         </div>
-        <button onClick={() => {
+        <button className="button info" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
-        <button onClick={() => {
+
+        <button className="button button-border info" onClick={() => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
         }}>
           Cancel</button>

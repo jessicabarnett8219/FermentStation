@@ -44,11 +44,11 @@ class EditBatch extends Component {
             editReview: batchObj.review,
             editAmount: batchObj.batchAmount,
             editMeasurement: batchObj.measurement,
-            editRating: batchObj.rating
-          }, () => this.setState({ initialized: true }, () => console.log(this.state)))
+            editRating: batchObj.rating,
+            initialized: true
+          })
         })
     })
-
   }
 
   handleFieldChange = (evt) => {

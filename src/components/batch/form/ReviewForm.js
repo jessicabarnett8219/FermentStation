@@ -54,34 +54,35 @@ class ReviewForm extends Component {
   render() {
     return (
       <div>
-          <h1>Review {this.state.batchName}</h1>
-          <h4>Bottled Since: {this.state.bottleDate}</h4>
-          <div>
+        <h1>Review {this.state.batchName}</h1>
+        <h4>Bottled Since: {this.state.bottleDate}</h4>
+        <div>
           <label htmlFor="completeDate">Completion Date</label>
-            <input type="date" id="completeDate" onChange={(evt) => {
-              this.handleFieldChange(evt)
-            }} />
+          <input type="date" id="completeDate" onChange={(evt) => {
+            this.handleFieldChange(evt)
+          }} />
 
-            <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />Positive <br></br>
-            <input type="radio" name="rating" value="negative" onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />Negative <br></br>
+          <input type="radio" name="rating" value="negative" onChange={(evt) => {
+            this.handleFieldChangeRadio(evt)
+          }} /><i className="fas fa-thumbs-down fa-2x"></i>
+          <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
+            this.handleFieldChangeRadio(evt)
+          }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
 
-            <label htmlFor="review">Review</label>
-            <input type="text" id="review" onChange={(evt) => {
-              this.handleFieldChange(evt)
-            }} />
-            <button onClick={
-              () => {
-                this.props.history.push(`/batches/${this.state.batchId}`)
-              }
-            }>Cancel</button>
-            <button onClick={() => {
-              this.handleSave()
-            }}>Save</button>
-          </div>
+
+          <label htmlFor="review">Review</label>
+          <input type="text" id="review" onChange={(evt) => {
+            this.handleFieldChange(evt)
+          }} />
+          <button className="button button-border info" onClick={
+            () => {
+              this.props.history.push(`/batches/${this.state.batchId}`)
+            }
+          }>Cancel</button>
+          <button className="button info" onClick={() => {
+            this.handleSave()
+          }}>Save</button>
+        </div>
       </div>
     )
   }

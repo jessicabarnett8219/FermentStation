@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import BatchTypeEditForm from "../../BatchTypeEditForm";
+
 // import { Link } from "react-router-dom"
 
 // TODO fix radio pre-population
@@ -16,14 +18,8 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div>
-            <input type="radio" name="editType" value={2} onChange={(evt) => {
-              this.props.handleFieldChangeRadio(evt)
-            }} />Water Kefir <br></br>
-            <input type="radio" name="editType" value={1} onChange={(evt) => {
-              this.props.handleFieldChangeRadio(evt)
-            }} />Kombucha <br></br>
-          </div>
+          <BatchTypeEditForm batchType={this.props.batch.typeId} />
+
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -60,14 +56,12 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div>
-            <input type="radio" name="positive" value="positive" onChange={(evt) => {
-              this.props.handleFieldChangeRating(evt)
-            }} />positive <br></br>
-            <input type="radio" name="negative" value="negative" onChange={(evt) => {
-              this.props.handleFieldChangeRating(evt)
-            }} />negative <br></br>
-          </div>
+          <input type="radio" name="editRating" value="negative" onChange={(evt) => {
+            this.props.handleFieldChangeRating(evt)
+          }} /><i className="fas fa-thumbs-down fa-2x"></i>
+          <input type="radio" name="editRating" value="positive" defaultChecked onChange={(evt) => {
+            this.props.handleFieldChangeRating(evt)
+          }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
 
           <label htmlFor="editReview">Review</label>
           <input id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
@@ -75,10 +69,13 @@ class CompletedEdit extends Component {
           } />
 
         </div>
-        <button onClick={() => {
+        <button className="button info" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
-        <button>Cancel</button>
+
+        <button className="button border-button info" onClick={() => {
+          this.props.history.push(`/batches/${this.props.batch.id}`)
+        }}>Cancel</button>
       </div>
     )
 

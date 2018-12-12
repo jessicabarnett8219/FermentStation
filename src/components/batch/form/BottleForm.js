@@ -66,12 +66,13 @@ class BottleForm extends Component {
           <input type="text" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <button onClick={
+          <button className="button button-border info" onClick={
             () => {
               this.props.history.push(`/batches/${this.state.batchId}`)
             }
           }>Cancel</button>
-          <button onClick={() => {
+
+          <button className="button info" onClick={() => {
             this.handleSave()
           }}>Save</button>
         </div>
