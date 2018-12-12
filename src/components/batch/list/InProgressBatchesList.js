@@ -27,9 +27,11 @@ class InProgressBatchesList extends Component {
     return (
 
         <div>
-          <h1>In-Progress Batches</h1>
+          <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">In-Progress Batches</h1>
+          <div className="container">
           <BrewingBatchesList batches={this.state.brewingBatches} />
           <BottledBatchesList batches={this.state.bottledBatches} />
+        </div>
         </div>
     )
   }

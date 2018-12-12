@@ -51,9 +51,10 @@ class BottleForm extends Component {
   render() {
     return (
       <div>
-        <h1>Bottle {this.state.batchName}</h1>
-        <h4>Brewing Since: {this.state.batch.startDate}</h4>
-        <div>
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Bottle a Batch</h1>
+        <div className="container">
+          <h3>{this.state.batch.name}</h3>
+          <h4>Brewing Since: {this.state.batch.startDate}</h4>
           <label htmlFor="bottleDate">Bottle Date</label>
           <input type="date" id="bottleDate" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -66,13 +67,13 @@ class BottleForm extends Component {
           <input type="text" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <button className="button button-border info" onClick={
+          <button className="button button-border button-secondary" onClick={
             () => {
               this.props.history.push(`/batches/${this.state.batchId}`)
             }
           }>Cancel</button>
 
-          <button className="button info" onClick={() => {
+          <button className="button button-secondary" onClick={() => {
             this.handleSave()
           }}>Save</button>
         </div>

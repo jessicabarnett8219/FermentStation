@@ -10,7 +10,7 @@ class BottledBatchesList extends Component {
             return <dl key={batch.id}>
               <dt>{batch.name}</dt>
               <dd>Bottled Since: {batch.bottleDate}</dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-secondary button-xs">Details</button></Link>
               <hr></hr>
             </dl>
           })

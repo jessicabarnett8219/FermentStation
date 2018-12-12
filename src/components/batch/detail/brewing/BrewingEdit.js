@@ -9,8 +9,8 @@ class BrewingEdit extends Component {
   render() {
     return (
       <div>
-        <h1>Edit Batch</h1>
-        <div>
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Edit Batch</h1>
+        <div className="container">
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -43,14 +43,15 @@ class BrewingEdit extends Component {
           <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-        </div>
-        <button onClick={() => {
+
+        <button className="button button-secondary" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
 
-        <button onClick={ () => {
+        <button className="button button-border button-secondary" onClick={ () => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
         }}>Cancel</button>
+        </div>
       </div>
     )
 

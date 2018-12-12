@@ -53,33 +53,35 @@ class ReviewForm extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Review {this.state.batchName}</h1>
-        <h4>Bottled Since: {this.state.bottleDate}</h4>
-        <div>
+      <div >
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Review Batch</h1>
+        <div className="container">
+          <h3 className="text-align-center">{this.state.batch.name}</h3>
+          <p className="text-align-center">Bottled Since: {this.state.bottleDate}</p>
           <label htmlFor="completeDate">Completion Date</label>
           <input type="date" id="completeDate" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
-          <input type="radio" name="rating" value="negative" onChange={(evt) => {
-            this.handleFieldChangeRadio(evt)
-          }} /><i className="fas fa-thumbs-down fa-2x"></i>
-          <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
-            this.handleFieldChangeRadio(evt)
-          }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
-
+          <div className="margin-vertical-s">
+            <input type="radio" name="rating" value="negative" onChange={(evt) => {
+              this.handleFieldChangeRadio(evt)
+            }} /><i className="fas fa-thumbs-down fa-2x margin-right-m"></i>
+            <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
+              this.handleFieldChangeRadio(evt)
+            }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
+          </div>
 
           <label htmlFor="review">Review</label>
           <input type="text" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <button className="button button-border info" onClick={
+          <button className="button button-border button-secondary" onClick={
             () => {
               this.props.history.push(`/batches/${this.state.batchId}`)
             }
           }>Cancel</button>
-          <button className="button info" onClick={() => {
+          <button className="button button-secondary" onClick={() => {
             this.handleSave()
           }}>Save</button>
         </div>

@@ -6,26 +6,31 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-          <input id="loginEmail" placeholder="Email" type="text" onChange={
+        <input id="loginEmail" placeholder="Email" type="text" onChange={
+          (evt) => {
+            this.props.handleFieldChange(evt)
+          }
+        } />
+        <input id="loginPassword" placeholder="Password" type="text" onChange={
+          (evt) => {
+            this.props.handleFieldChange(evt)
+          }
+        } />
+        <label className="control checkbox">
+          <input type="checkbox" name="checkbox" id="remember" className="color-secondary" onClick={
             (evt) => {
               this.props.handleFieldChange(evt)
             }
           } />
-          <input id="loginPassword" placeholder="Password" type="text" onChange={
-            (evt) => {
-              this.props.handleFieldChange(evt)
-            }
-          } />
-          <input id="remember" type="checkbox" onClick={
-            (evt) => {
-              this.props.handleFieldChange(evt)
-            }
-          }/>Remember Me <br></br>
-          <button onClick={
-            (evt) => {
-              this.props.handleLogin(evt)
-            }
-          }>Login</button>
+          <span className="control-indicator"></span>
+          <span className="control-label">Remember Me</span>
+        </label>
+
+        <button className="button button-secondary" onClick={
+          (evt) => {
+            this.props.handleLogin(evt)
+          }
+        }>Login</button>
       </div>
     )
   }

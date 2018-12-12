@@ -10,8 +10,8 @@ class CompletedEdit extends Component {
   render() {
     return (
       <div>
-        <h1>Edit Batch</h1>
-        <div>
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Edit Batch</h1>
+        <div className="container">
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -63,14 +63,15 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-        </div>
-        <button className="button info" onClick={() => {
+
+        <button className="button button-secondary" onClick={() => {
           this.props.handleSave()
         }}>Save</button>
 
-        <button className="button border-button info" onClick={() => {
+        <button className="button button-border button-secondary" onClick={() => {
           this.props.history.push(`/batches/${this.props.batch.id}`)
         }}>Cancel</button>
+        </div>
       </div>
     )
 
