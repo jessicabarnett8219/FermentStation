@@ -34,18 +34,20 @@ class BottledDetail extends Component {
               <button className="button button-square button-icon info" onClick={() => {
                 this.props.handleDelete()
               }}><i className="fas fa-trash"></i></button>
-              <Link to={`/review/${this.props.id}`}><button className="button info" >Review Batch</button></Link>
-            </div>
 
-            {/* <button className="button button-secondary" onClick={() => {
-          if (this.props.status === 1) {
-            this.props.history.push("/in-progress-list")
-          } else if (this.props.status === 2) {
-            this.props.history.push("/in-progress-list")
-          } else {
-            this.props.history.push("/completed-list")
-          }
-        }}>Back to List</button> */}
+              <Link to={`/review/${this.props.id}`}><button className="button info" >Review Batch</button></Link>
+
+
+              <button className="button info" onClick={() => {
+                if (this.props.status === 1) {
+                  this.props.history.push("/in-progress-list")
+                } else if (this.props.status === 2) {
+                  this.props.history.push("/in-progress-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to List</button>
+            </div>
 
           </dl>
         </div>

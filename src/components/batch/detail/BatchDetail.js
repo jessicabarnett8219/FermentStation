@@ -29,9 +29,9 @@ class BatchDetail extends Component {
     APIManager.deleteEntry("batches", this.state.batch.id)
       .then(() => {
         if (this.state.batch.status === 1) {
-          this.props.history.push("/brewing-list")
+          this.props.history.push("/in-progress-list")
         } else if (this.state.batch.status === 2) {
-          this.props.history.push("/bottled-list")
+          this.props.history.push("/in-progress-list")
         } else {
           this.props.history.push("/completed-list")
         }

@@ -34,16 +34,17 @@ class BrewingDetail extends Component {
               }}><i className="fas fa-trash"></i></button>
 
               <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
+
+              <button className="button info" onClick={() => {
+                if (this.props.status === 1) {
+                  this.props.history.push("/in-progress-list")
+                } else if (this.props.status === 2) {
+                  this.props.history.push("/in-progress-list")
+                } else {
+                  this.props.history.push("/completed-list")
+                }
+              }}>Back to List</button>
             </div>
-            {/* <button className="button button-secondary" onClick={() => {
-          if (this.props.status === 1) {
-            this.props.history.push("/in-progress-list")
-          } else if (this.props.status === 2) {
-            this.props.history.push("/in-progress-list")
-          } else {
-            this.props.history.push("/completed-list")
-          }
-        }}>Back to List</button> */}
           </dl>
         </div>
       </div>

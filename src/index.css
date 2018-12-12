@@ -21,6 +21,10 @@ code {
   display: none;
 }
 
+.hideButton {
+  display: none;
+}
+
 .fa-thumbs-up, .fa-thumbs-down {
   color: hsl(200, 100%, 40%);
 }
