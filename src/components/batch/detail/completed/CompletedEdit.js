@@ -56,14 +56,12 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div>
-            <input type="radio" name="positive" value="positive" onChange={(evt) => {
-              this.props.handleFieldChangeRating(evt)
-            }} />positive <br></br>
-            <input type="radio" name="negative" value="negative" onChange={(evt) => {
-              this.props.handleFieldChangeRating(evt)
-            }} />negative <br></br>
-          </div>
+          <input type="radio" name="editRating" value="negative" onChange={(evt) => {
+            this.props.handleFieldChangeRating(evt)
+          }} /><i className="fas fa-thumbs-down fa-2x"></i>
+          <input type="radio" name="editRating" value="positive" defaultChecked onChange={(evt) => {
+            this.props.handleFieldChangeRating(evt)
+          }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
 
           <label htmlFor="editReview">Review</label>
           <input id="editReview" defaultValue={this.props.batch.review} type="text" onChange={

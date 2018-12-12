@@ -24,6 +24,11 @@ class CompletedDetail extends Component {
           <dd>{this.props.starterIngredients}</dd>
           <dt>Bottle Ingredients</dt>
           <dd>{this.props.bottleIngredients}</dd>
+          <dt>Rating</dt>
+          <dd>{this.props.rating}</dd>
+          <dt>Review</dt>
+          <dd>{this.props.review}</dd>
+
         </dl>
         <Link to={`/batches/edit/${this.props.id}`}><button
         className="button button-square button-icon info"><i className="fas fa-pen"></i></button></Link>
