@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
+import Moment from 'react-moment';
+
 // import NavBar from "./../../navigation/NavBar"
 
 
@@ -27,7 +29,7 @@ class PastBatchesList extends Component {
           this.state.batches.map(batch => {
             return <dl key={batch.id}>
               <dt>{batch.name}</dt>
-              <dd>Completed On: {batch.completeDate}</dd>
+              <dd>Completed On: <Moment format="MMMM Do, YYYY">{batch.completeDate}</Moment></dd>
               <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-secondary button-xs">Details</button></Link>
               <hr></hr>
             </dl>

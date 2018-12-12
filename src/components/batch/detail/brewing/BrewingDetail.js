@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import Moment from 'react-moment';
+
 
 class BrewingDetail extends Component {
 
@@ -14,9 +16,9 @@ class BrewingDetail extends Component {
             <dt>Type</dt>
             <dd>{this.props.type.name}</dd>
             <dt>Started On</dt>
-            <dd>{this.props.startDate}</dd>
+            <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
             <dt>Expected Bottling Date</dt>
-            <dd>{this.props.bottleDate}</dd>
+            <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
             <dt>Amount</dt>
             <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
             <dt>Starter Ingredients </dt>
