@@ -13,12 +13,19 @@ class NewBatchForm extends Component {
     type: 2,
     starterIngredients: "",
     batchAmount: "",
-    measurement: "cups"
+    measurement: "cups",
+    typeOptions: []
   }
 
   componentDidMount() {
     let currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     this.setState({ currentUser: currentUserId })
+    APIManager.getAllEntries("types")
+      .then((types) => {
+        this.setState({
+          typeOptions: types
+        })
+      })
   }
 
   handleFieldChange = (evt) => {
@@ -83,12 +90,22 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
-            this.handleFieldChangeRadio(evt)
-          }} />Water Kefir <br></br>
-          <input type="radio" name="type" value={1} onChange={(evt) => {
-            this.handleFieldChangeRadio(evt)
-          }} />Kombucha <br></br>
+           {
+            this.state.typeOptions.map(option => {
+              return <div key={option.id}>
+              <input type="radio" name="type" value={option.id} onChange={(evt) => {
+                this.handleFieldChangeRadio(evt)
+              }} />{option.name}<br></br>
+              </div>
+            })
+          }
+            {/* <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
+              this.handleFieldChangeRadio(evt)
+            }} />Water Kefir <br></br>
+            <input type="radio" name="type" value={1} onChange={(evt) => {
+              this.handleFieldChangeRadio(evt)
+            }} />Kombucha <br></br> */}
+
 
           <label htmlFor="batchAmount">Amount</label>
           <input id="batchAmount" type="text" placeholder="enter a number" onClick={

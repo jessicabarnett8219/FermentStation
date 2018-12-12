@@ -23,7 +23,8 @@ class EditBatch extends Component {
     editReview: "",
     editAmount: "",
     editMeasurement: "",
-    editRating: ""
+    editRating: "",
+    typeOptions: []
   }
 
   componentDidMount() {
@@ -48,6 +49,10 @@ class EditBatch extends Component {
             initialized: true
           })
         })
+    })
+    APIManager.getAllEntries("types")
+    .then((types) => {
+      this.setState({typeOptions: types})
     })
   }
 
@@ -99,16 +104,16 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
-          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} typeOptions={this.state.typeOptions} {...this.props}/>
         )
       } else if (this.state.batch.status === 2) {
         return (
-          <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+          <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} typeOptions={this.state.typeOptions} {...this.props}/>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
-          <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props}/>
+          <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} typeOptions={this.state.typeOptions} {...this.props}/>
         )
       }
     }

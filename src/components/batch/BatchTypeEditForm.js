@@ -7,6 +7,9 @@ class BatchTypeEditForm extends Component {
     if (this.props.batchType === 1) {
       return (
         <div>
+          {
+            this.props
+          }
           <input type="radio" name="editType" value={2} onChange={(evt) => {
             this.props.handleFieldChangeRadio(evt)
           }} />Water Kefir <br></br>
