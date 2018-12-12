@@ -16,7 +16,8 @@ class BottledEdit extends Component {
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-          <BatchTypeEditForm batchType={this.props.batch.typeId} />
+          <BatchTypeEditForm batchType={this.props.batch.typeId} typeOptions={this.props.typeOptions}/>
+
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }

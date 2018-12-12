@@ -13,8 +13,8 @@ class NewBatchForm extends Component {
     type: 2,
     starterIngredients: "",
     batchAmount: "",
-    measurement: "cups",
-    typeOptions: []
+    measurement: "",
+    typeOptions: [],
   }
 
   componentDidMount() {
@@ -24,6 +24,12 @@ class NewBatchForm extends Component {
       .then((types) => {
         this.setState({
           typeOptions: types
+        })
+      })
+    APIManager.getAllEntries("measurements")
+      .then((measurements) => {
+        this.setState({
+          measurementOptions: measurements
         })
       })
   }
@@ -90,33 +96,26 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-           {
+          {
             this.state.typeOptions.map(option => {
               return <div key={option.id}>
-              <input type="radio" name="type" value={option.id} onChange={(evt) => {
-                this.handleFieldChangeRadio(evt)
-              }} />{option.name}<br></br>
+                <input type="radio" name="type" value={option.id} onChange={(evt) => {
+                  this.handleFieldChangeRadio(evt)
+                }} />{option.name}<br></br>
               </div>
             })
           }
-            {/* <input type="radio" name="type" value={2} defaultChecked onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />Water Kefir <br></br>
-            <input type="radio" name="type" value={1} onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />Kombucha <br></br> */}
-
 
           <label htmlFor="batchAmount">Amount</label>
           <input id="batchAmount" type="text" placeholder="enter a number" onClick={
             (evt) => { this.handleFieldChange(evt) }
           } />
-          <label class="select" for="measurement">
-            <select id="measurement" onChange={
+
+          <label className="select" htmlFor="measurement">
+            <select id="measurement" name="measurement" onChange={
               (evt) => { this.handleFieldChange(evt) }
-            } >
-              <option value="cups">Cups</option>
-              <option value="ounces">Ounces</option>
+            }><option value="cups">cups</option>
+            <option value="ounces">ounces</option>
             </select>
           </label>
 
