@@ -25,12 +25,13 @@ class LoginForm extends Component {
           <span className="control-indicator"></span>
           <span className="control-label">Remember Me</span>
         </label>
-
-        <button className="button button-secondary" onClick={
-          (evt) => {
-            this.props.handleLogin(evt)
-          }
-        }>Login</button>
+        <div className="flex justify-content-center">
+          <button className="button info" onClick={
+            (evt) => {
+              this.props.handleLogin(evt)
+            }
+          }>Login</button>
+        </div>
       </div>
     )
   }

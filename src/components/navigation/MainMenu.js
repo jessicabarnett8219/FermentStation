@@ -10,17 +10,22 @@ class MainMenu extends Component {
     return (
       <div className="text-align-center">
         <h1 className="padding-vertical-s color-info">Welcome!</h1>
-        <div className="background-info no-margin padding-vertical-l">
-          <Link to="/new-batch" className="link display-title">Start a New Batch</Link>
-        </div>
 
+        <Link to="/new-batch" className="link display-title">
+          <div className="background-info no-margin padding-vertical-l">
+            Start a New Batch</div>
+        </Link>
 
-        <div className="background-info-600 no-margin padding-vertical-l flex-1-0-auto">
-          <Link to="/in-progress-list" className="link display-title">In-Progress</Link>
+        <Link to="/in-progress-list" className="link display-title">
+          <div className="background-info-600 no-margin padding-vertical-l flex-1-0-auto">
+            In-Progress
         </div>
-        <div className="background-info-700 no-margin padding-vertical-l flex-1-0-auto">
-          <Link to="/completed-list" className="link display-title">Completed</Link>
-        </div>
+        </Link>
+
+        <Link to="/completed-list" className="link display-title">
+          <div className="background-info-700 no-margin padding-vertical-l flex-1-0-auto">
+            Completed</div>
+        </Link>
 
 
         <div className="background-info-800 no-margin padding-vertical-l color-white">
@@ -32,7 +37,7 @@ class MainMenu extends Component {
           }>Logout</button>
         </div>
 
-      </div>
+      </div >
     )
   }
 }

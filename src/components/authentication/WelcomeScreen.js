@@ -89,18 +89,20 @@ class WelcomeScreen extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">FermentStation</h1>
-        <div class="container">
+      <div className="flex-column align-items-center">
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">FermentStation</h1>
+        <div class="container color-info flex-column align-items-center">
           <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
 
-          <h5>New here?</h5>
-          <button className="button button-secondary" onClick={
-            () => {
-              this.toggleNewForm()
-            }
-          }>Create an Account</button>
-          <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration} {...this.props} />
+            <h5 className="text-align-center">New here?</h5>
+            <div className="flex justify-content-center">
+            <button className="button info" onClick={
+              () => {
+                this.toggleNewForm()
+              }
+            }>Create an Account</button>
+            <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration} {...this.props} />
+            </div>
         </div>
       </div>
     )
