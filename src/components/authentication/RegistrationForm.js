@@ -18,7 +18,7 @@ class RegistrationForm extends Component {
           <input id="registerPassword" placeholder="Password" type="text" onChange={(evt) => {
             this.props.handleFieldChange(evt)
           }} />
-          <button onClick={(evt) => {
+          <button className="button button-secondary" onClick={(evt) => {
             this.props.handleRegistration(evt)
           }}>Register</button>
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import Moment from 'react-moment';
 
 class BrewingBatchesList extends Component {
   render() {
@@ -9,8 +10,8 @@ class BrewingBatchesList extends Component {
           this.props.batches.map(batch => {
             return <dl key={batch.id}>
               <dt>{batch.name}</dt>
-              <dd>Brewing Since: {batch.startDate}</dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
+              <dd>Bottled Since: <Moment format="MMMM Do, YYYY">{batch.startDate}</Moment></dd>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-secondary button-xs">Details</button></Link>
               <hr></hr>
             </dl>
           })

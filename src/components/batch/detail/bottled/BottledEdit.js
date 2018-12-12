@@ -9,17 +9,14 @@ class BottledEdit extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Edit Batch</h1>
-        <div>
+      <div >
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Edit Batch</h1>
+        <div className="container">
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-
           <BatchTypeEditForm batchType={this.props.batch.typeId} />
-
-
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -54,15 +51,16 @@ class BottledEdit extends Component {
           <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} label="Bottle Ingredients" type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-        </div>
-        <button className="button info" onClick={() => {
-          this.props.handleSave()
-        }}>Save</button>
 
-        <button className="button button-border info" onClick={() => {
-          this.props.history.push(`/batches/${this.props.batch.id}`)
-        }}>
-          Cancel</button>
+          <button className="button button-secondary" onClick={() => {
+            this.props.handleSave()
+          }}>Save</button>
+
+          <button className="button button-border button-secondary" onClick={() => {
+            this.props.history.push(`/batches/${this.props.batch.id}`)
+          }}>
+            Cancel</button>
+        </div>
       </div>
     )
 

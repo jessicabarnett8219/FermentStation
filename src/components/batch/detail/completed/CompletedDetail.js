@@ -1,11 +1,12 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import Moment from 'react-moment';
 
 class CompletedDetail extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center padding-vertical-m no-margin">Batch Details</h1>
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Batch Details</h1>
       <div className="container">
         <dl>
           <dt className="display-inline-block">Name </dt>
@@ -13,11 +14,11 @@ class CompletedDetail extends Component {
           <dt>Type</dt>
           <dd>{this.props.type.name}</dd>
           <dt>Started On</dt>
-          <dd>{this.props.startDate}</dd>
+          <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
           <dt>Bottled On</dt>
-          <dd>{this.props.bottleDate}</dd>
+          <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
           <dt>Completed On</dt>
-          <dd>{this.props.completeDate}</dd>
+          <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
           <dt>Amount</dt>
           <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
           <dt>Starter Ingredients </dt>
@@ -31,13 +32,13 @@ class CompletedDetail extends Component {
 
         </dl>
         <Link to={`/batches/edit/${this.props.id}`}><button
-        className="button button-square button-icon info"><i className="fas fa-pen"></i></button></Link>
+        className="button button-square button-icon button-secondary"><i className="fas fa-pen"></i></button></Link>
 
-        <button className="button button-square button-icon info" onClick={() => {
+        <button className="button button-square button-icon button-secondary" onClick={() => {
           this.props.handleDelete()
         }}><i className="fas fa-trash"></i></button>
 
-        {/* <button onClick={() => {
+        <button className="button button-secondary" onClick={() => {
           if (this.props.status === 1) {
             this.props.history.push("/in-progress-list")
           } else if (this.props.status === 2) {
@@ -45,7 +46,7 @@ class CompletedDetail extends Component {
           } else {
             this.props.history.push("/completed-list")
           }
-        }}>Back to Batch List</button> */}
+        }}>Back to List</button>
       </div>
       </div>
     )
