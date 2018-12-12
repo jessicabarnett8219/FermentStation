@@ -6,7 +6,7 @@ class BatchRatingEditForm extends Component {
   render() {
     if (this.props.rating === "positive") {
       return (
-        <div>
+        <div className="margin-vertical-m text-align-center">
           <input type="radio" name="editRating" value="negative" onChange={(evt) => {
             this.props.handleFieldChangeRating(evt)
           }} /><i className="fas fa-thumbs-down fa-2x"></i>
@@ -18,7 +18,7 @@ class BatchRatingEditForm extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="margin-vertical-m text-align-center">
           <input type="radio" name="editRating" defaultChecked value="negative" onChange={(evt) => {
             this.props.handleFieldChangeRating(evt)
           }} /><i className="fas fa-thumbs-down fa-2x"></i>

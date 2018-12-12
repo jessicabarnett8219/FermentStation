@@ -66,8 +66,8 @@ class NewBatchForm extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">Start a New Batch</h1>
-        <div className="container">
+        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Start a New Batch</h1>
+        <div className="container color-info">
           <label htmlFor="name">Name</label>
           <input id="name" type="text" onChange={
             (evt) => { this.handleFieldChange(evt) }
@@ -95,12 +95,12 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
           <label class="select" for="measurement">
-          <select id="measurement" onChange={
-            (evt) => { this.handleFieldChange(evt) }
-          } >
-            <option value="cups">Cups</option>
-            <option value="ounces">Ounces</option>
-          </select>
+            <select id="measurement" onChange={
+              (evt) => { this.handleFieldChange(evt) }
+            } >
+              <option value="cups">Cups</option>
+              <option value="ounces">Ounces</option>
+            </select>
           </label>
 
           <label htmlFor="starterIngredients">Starter Ingredients</label>
@@ -108,15 +108,16 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-
-          <button className="button button-secondary button-border" onClick={
-            () => {
-              this.props.history.push("/")
-            }
-          }>Cancel</button>
-          <button className="button button-secondary" onClick={() => {
-            this.handleSave()
-          }}>Save</button>
+          <div className="flex justify-content-center">
+            <button className="button info button-border margin-top-xxs" onClick={
+              () => {
+                this.props.history.push("/")
+              }
+            }>Cancel</button>
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              this.handleSave()
+            }}>Save</button>
+          </div>
         </div>
       </div>
     )

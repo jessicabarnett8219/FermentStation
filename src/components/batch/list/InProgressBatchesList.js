@@ -27,8 +27,8 @@ class InProgressBatchesList extends Component {
     return (
 
         <div>
-          <h1 className="text-align-center no-margin-top padding-vertical-m background-secondary color-white">In-Progress Batches</h1>
-          <div className="container">
+          <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">In-Progress Batches</h1>
+          <div className="container color-info">
           <BrewingBatchesList batches={this.state.brewingBatches} />
           <BottledBatchesList batches={this.state.bottledBatches} />
         </div>

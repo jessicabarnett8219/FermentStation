@@ -9,18 +9,27 @@ class MainMenu extends Component {
 
     return (
       <div className="text-align-center">
-        <h1 className="padding-vertical-s">Welcome!</h1>
-        <div className="background-secondary margin-vertical-1-4 padding-vertical-s">
-          <Link to="/new-batch"><button className="button-text color-white">Start a New Batch</button></Link>
+        <h1 className="padding-vertical-s color-info">Welcome!</h1>
+
+        <Link to="/new-batch" className="link display-title">
+          <div className="background-info no-margin padding-vertical-l">
+            Start a New Batch</div>
+        </Link>
+
+        <Link to="/in-progress-list" className="link display-title">
+          <div className="background-info-600 no-margin padding-vertical-l flex-1-0-auto">
+            In-Progress
         </div>
-        <div className="background-secondary margin-vertical-1-4 padding-vertical-s">
-          <Link to="/in-progress-list"><button className="button-text color-white ">View In-Progress</button></Link>
-        </div>
-        <div className="background-secondary margin-vertical-1-4 padding-vertical-s">
-          <Link to="/completed-list"><button className="button-text color-white">View Completed</button></Link>
-        </div>
-        <div className="background-secondary margin-vertical-1-4 padding-vertical-s">
-          <button className="button-text color-white" onClick={
+        </Link>
+
+        <Link to="/completed-list" className="link display-title">
+          <div className="background-info-700 no-margin padding-vertical-l flex-1-0-auto">
+            Completed</div>
+        </Link>
+
+
+        <div className="background-info-800 no-margin padding-vertical-l color-white">
+          <button className="button-text display-title" onClick={
             () => {
               sessionStorage.clear() || localStorage.clear()
               this.props.history.push("/welcome")
@@ -28,7 +37,7 @@ class MainMenu extends Component {
           }>Logout</button>
         </div>
 
-      </div>
+      </div >
     )
   }
 }
