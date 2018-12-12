@@ -39,7 +39,7 @@ class CompletedEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label class="select" for="editMeasurement">
+          <label className="select" htmlFor="editMeasurement">
             <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
               (evt) => { this.props.handleFieldChange(evt) }
             } >

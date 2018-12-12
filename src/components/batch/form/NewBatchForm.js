@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
+import { Link } from "react-router-dom"
 // import NavBar from "../../navigation/NavBar"
-// TODO have radio buttons and amount options dynamically populate from the database
 
 class NewBatchForm extends Component {
 
@@ -15,11 +15,14 @@ class NewBatchForm extends Component {
     batchAmount: "",
     measurement: "",
     typeOptions: [],
+    dateToday: ""
   }
 
   componentDidMount() {
     let currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     this.setState({ currentUser: currentUserId })
+    let today = new Date()
+    this.setState({dateToday: today})
     APIManager.getAllEntries("types")
       .then((types) => {
         this.setState({
@@ -124,7 +127,7 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <div className="flex justify-content-center">
+          <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={
               () => {
                 this.props.history.push("/")
@@ -135,6 +138,7 @@ class NewBatchForm extends Component {
             }}>Save</button>
           </div>
         </div>
+        {/* <NavBar /> */}
       </div>
     )
   }

@@ -55,7 +55,6 @@ class EditBatch extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
-    console.log(evt.target.id)
   }
 
   handleFieldChangeRadio = (evt) => {
@@ -65,7 +64,6 @@ class EditBatch extends Component {
 
   handleFieldChangeRating = (evt) => {
     let targetValue = evt.target.value
-    console.log(targetValue)
     this.setState({ editRating: targetValue })
   }
 
