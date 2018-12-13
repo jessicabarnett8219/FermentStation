@@ -4,11 +4,11 @@ import MainMenu from "./navigation/MainMenu"
 import WelcomeScreen from "./authentication/WelcomeScreen"
 import InProgressBatchesList from "./batch/list/InProgressBatchesList"
 import CompletedBatchesList from "./batch/list/CompletedBatchesList"
-import NewBatchForm from "./batch/form/NewBatchForm"
+import NewBatchForm from "./batch/status-change/NewBatchForm"
 import BatchDetail from "./batch/detail/BatchDetail";
-import BottleForm from "./batch/form/BottleForm"
-import ReviewForm from "./batch/form/ReviewForm";
-import EditBatch from "./batch/detail/EditBatch"
+import BottleForm from "./batch/status-change/BottleForm"
+import ReviewForm from "./batch/status-change/ReviewForm";
+import EditBatch from "./batch/edit-form/EditBatch"
 
 
 

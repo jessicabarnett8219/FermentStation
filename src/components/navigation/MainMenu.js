@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-// import APIManager from "../../modules/APIManager"
-
 
 class MainMenu extends Component {
   render() {

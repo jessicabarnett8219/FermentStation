@@ -1,30 +1,32 @@
 import React, { Component } from "react"
-import BatchTypeEditForm from "../../BatchTypeEditForm";
+import BatchTypeEditForm from "./BatchTypeEditForm";
+import BatchRatingEditForm from "./BatchRatingEditForm"
 
-class BottledEdit extends Component {
+class CompletedEdit extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <div className="container">
         <h1 className="text-align-center">Edit Batch</h1>
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-          <BatchTypeEditForm batchType={this.props.batch.typeId} typeOptions={this.props.typeOptions} handleFieldChangeRadio={this.props.handleFieldChangeRadio}/>
+
+          <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio} typeOptions={this.props.typeOptions}/>
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label htmlFor="editBottleDate">Bottling Date</label>
+          <label htmlFor="editBottleDate">Bottled Date</label>
           <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label htmlFor="editCompleteDate">Expected Completion Date</label>
+          <label htmlFor="editCompleteDate">Completion Date</label>
           <input type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
@@ -44,30 +46,33 @@ class BottledEdit extends Component {
           </label>
 
           <label htmlFor="editStarterIngredients">Starter Ingredients</label>
-          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" onChange={
+          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <label htmlFor="editBottleIngredients">Bottle Ingredients</label>
-          <textarea id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} label="Bottle Ingredients" onChange={
+          <textarea id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info button-border margin-top-xxs" onClick={() => {
-              this.props.history.push(`/batches/${this.props.batch.id}`)
-            }}>
-              Cancel</button>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              if(this.props.bottleDate === "" || this.props.startDate === "" || this.props.completeDate === "") {
-                alert("Dates should not be left blank")
-              } else {
-                this.props.handleSave()
-              }
+          <BatchRatingEditForm rating={this.props.batch.rating} handleFieldChangeRating={this.props.handleFieldChangeRating} />
 
-            }}>Save</button>
+          <label htmlFor="editReview">Review</label>
+          <textarea id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
+            (evt) => { this.props.handleFieldChange(evt) }
+          } />
 
-
+          <div className="flex justify-content-center">
+          <button className="button info button-border margin-top-xxs" onClick={() => {
+            this.props.history.push(`/batches/${this.props.batch.id}`)
+          }}>Cancel</button>
+          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+            if(this.props.bottleDate === "" || this.props.startDate || this.props.completeDate === "") {
+              alert("Date fields should not be left blank")
+            } else {
+              this.props.handleSave()
+            }
+          }}>Save</button>
           </div>
         </div>
       </div>
@@ -76,4 +81,4 @@ class BottledEdit extends Component {
   }
 }
 
-export default BottledEdit
+export default CompletedEdit

@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import BrewingDetail from "./brewing/BrewingDetail"
-// import { Link } from "react-router-dom"
-import BottledDetail from "./bottled/BottledDetail";
-import CompletedDetail from "./completed/CompletedDetail"
+import BrewingDetail from "./BrewingDetail"
+import BottledDetail from "./BottledDetail";
+import CompletedDetail from "./CompletedDetail"
 import NavBar from "../../navigation/NavBar"
 
 
