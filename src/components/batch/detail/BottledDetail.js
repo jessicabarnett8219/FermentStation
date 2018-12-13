@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Moment from 'react-moment';
+import DeleteBatchButton from "./buttons/DeleteBatchButton"
+import EditBatchButton from "./buttons/EditBatchButton";
 
 class BottledDetail extends Component {
 
@@ -27,17 +29,17 @@ class BottledDetail extends Component {
           </dl>
 
           <div className="flex justify-content-center">
-            <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info margin-bottom-xs"
-            ><i className="fas fa-pen"></i></button></Link>
 
-            <button className="button button-square button-icon info margin-bottom-xs" onClick={() => {
-              this.props.handleDelete()
-            }}><i className="fas fa-trash"></i></button>
+            <EditBatchButton id={this.props.id} />
+
+            <DeleteBatchButton handleDelete={this.props.handleDelete} />
 
             <Link to={`/review/${this.props.id}`}><button className="button info margin-bottom-xs" >Review Batch</button></Link>
+
             <button className="button info margin-bottom-xs" onClick={() => {
               this.props.history.push("/in-progress-list")
             }}>Back to List</button>
+
           </div>
         </div>
       </div>
