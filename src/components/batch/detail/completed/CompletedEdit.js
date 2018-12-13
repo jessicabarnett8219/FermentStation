@@ -49,19 +49,19 @@ class CompletedEdit extends Component {
           </label>
 
           <label htmlFor="editStarterIngredients">Starter Ingredients</label>
-          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} type="text" onChange={
+          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <label htmlFor="editBottleIngredients">Bottle Ingredients</label>
-          <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} type="text" onChange={
+          <textarea id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <BatchRatingEditForm rating={this.props.batch.rating} handleFieldChangeRating={this.props.handleFieldChangeRating} />
 
           <label htmlFor="editReview">Review</label>
-          <input id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
+          <textarea id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 

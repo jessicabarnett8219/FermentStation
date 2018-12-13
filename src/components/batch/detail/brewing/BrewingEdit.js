@@ -40,7 +40,7 @@ class BrewingEdit extends Component {
           </label>
 
           <label htmlFor="editStarterIngredients">Starter Ingredients</label>
-          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
+          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 

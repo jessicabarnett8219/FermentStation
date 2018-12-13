@@ -11,7 +11,7 @@ class BottledBatchesList extends Component {
           this.props.batches.map(batch => {
             return <dl key={batch.id}>
               <dt>{batch.name}</dt>
-              <dd>Bottled: <Moment format="MM/DD/YY">{batch.bottleDate}</Moment></dd>
+              <dd>Bottled: <Moment format="MM/DD/YY">{batch.bottleDate}</Moment>, {batch.type.name} </dd>
               <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
               <hr></hr>
             </dl>
