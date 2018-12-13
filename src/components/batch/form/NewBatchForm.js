@@ -124,7 +124,7 @@ class NewBatchForm extends Component {
           </label>
 
           <label htmlFor="starterIngredients">Starter Ingredients</label>
-          <textarea id="starterIngredients" placeHolder="Starter Ingredients" onChange={
+          <textarea id="starterIngredients" placeholder="Starter Ingredients" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 

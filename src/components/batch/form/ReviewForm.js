@@ -9,7 +9,7 @@ class ReviewForm extends Component {
     batchId: "",
     completeDate: "",
     review: "",
-    rating: ""
+    rating: "positive"
   }
 
   componentDidMount() {
@@ -67,10 +67,10 @@ class ReviewForm extends Component {
           }} />
 
           <div className="margin-vertical-m text-align-center">
-            <input type="radio" name="rating" value="negative" onChange={(evt) => {
+            <input type="radio" name="rating" value="positive" onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
             }} /><i className="fas fa-thumbs-down fa-2x margin-right-m"></i>
-            <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
+            <input type="radio" name="rating" value="negative" defaultChecked onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
             }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
           </div>
