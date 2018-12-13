@@ -10,8 +10,8 @@ class BottledEdit extends Component {
   render() {
     return (
       <div >
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Edit Batch</h1>
         <div className="container color-info">
+        <h1 className="text-align-center">Edit Batch</h1>
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }

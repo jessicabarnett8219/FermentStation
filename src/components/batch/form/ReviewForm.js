@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
+import Moment from "react-moment"
 
 class ReviewForm extends Component {
   state = {
@@ -59,7 +60,7 @@ class ReviewForm extends Component {
         <div className="container color-info">
         <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
-          <p className="text-align-center">Bottled Since: {this.state.bottleDate}</p>
+          <p className="text-align-center">Bottled On: <Moment format="dddd, MMMM Do YYYY">{this.state.bottleDate}</Moment></p>
           <label htmlFor="completeDate">Completion Date</label>
           <input type="date" id="completeDate" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -76,7 +77,7 @@ class ReviewForm extends Component {
 
 
           <label htmlFor="review">Review</label>
-          <input type="text" id="review" onChange={(evt) => {
+          <textarea type="text" placeholder="review" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
           <div className="flex justify-content-center">

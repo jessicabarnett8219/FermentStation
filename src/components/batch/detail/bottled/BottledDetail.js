@@ -14,7 +14,7 @@ class BottledDetail extends Component {
             <dd>{this.props.type.name}</dd>
             <dt>Started On</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
-            <dt>Bottled Since</dt>
+            <dt>Bottled On</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
             <dt>Expected Completion Date</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>

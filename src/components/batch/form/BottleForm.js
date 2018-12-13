@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
+import Moment from "react-moment"
+
 
 class BottleForm extends Component {
 
@@ -56,7 +58,7 @@ class BottleForm extends Component {
         <div className="container color-info">
         <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
-          <h4 className="text-align-center">Brewing Since: {this.state.batch.startDate}</h4>
+          <h4 className="text-align-center">Started On: <Moment format="dddd, MMMM Do YYYY">{this.state.batch.startDate}</Moment></h4>
           <label htmlFor="bottleDate">Bottle Date</label>
           <input type="date" id="bottleDate" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -66,7 +68,7 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <input type="text" placeholder="ex. orange juice, vanilla beans" id="bottleIngredients" onChange={(evt) => {
+          <textArea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 

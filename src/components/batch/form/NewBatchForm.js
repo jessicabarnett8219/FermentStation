@@ -86,7 +86,7 @@ class NewBatchForm extends Component {
         <div className="container color-info">
           <h1 className="text-align-center">Start a New Batch</h1>
           <label htmlFor="name">Name</label>
-          <input id="name" type="text" onChange={
+          <input id="name" type="text" placeholder="name" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -111,7 +111,7 @@ class NewBatchForm extends Component {
           }
 
           <label htmlFor="batchAmount">Amount</label>
-          <input id="batchAmount" type="text" placeholder="enter a number" onClick={
+          <input id="batchAmount" type="text" placeholder="Amount (number)" onClick={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -124,7 +124,7 @@ class NewBatchForm extends Component {
           </label>
 
           <label htmlFor="starterIngredients">Starter Ingredients</label>
-          <input id="starterIngredients" type="text" onChange={
+          <textarea id="starterIngredients" placeHolder="Starter Ingredients" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -139,7 +139,6 @@ class NewBatchForm extends Component {
             }}>Save</button>
           </div>
         </div>
-        {/* <NavBar /> */}
       </div>
     )
   }
