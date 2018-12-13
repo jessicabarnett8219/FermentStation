@@ -13,11 +13,11 @@ class InProgressBatchesList extends Component {
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1&_sort=startDate&_order=asc`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1&_sort=startDate&_order=asc&_expand=type`)
       .then(usersBatches => {
         this.setState({ brewingBatches: usersBatches })
       })
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2&_sort=startDate&_order=asc`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2&_sort=startDate&_order=asc&_expand=type`)
       .then(usersBatches => {
         this.setState({ bottledBatches: usersBatches })
       })

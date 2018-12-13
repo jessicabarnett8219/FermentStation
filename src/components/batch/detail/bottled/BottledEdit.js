@@ -1,10 +1,6 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "../../BatchTypeEditForm";
 
-// import { Link } from "react-router-dom"
-
-// TODO fix radio pre-population
-
 class BottledEdit extends Component {
 
   render() {
@@ -16,7 +12,7 @@ class BottledEdit extends Component {
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-          <BatchTypeEditForm batchType={this.props.batch.typeId} typeOptions={this.props.typeOptions}/>
+          <BatchTypeEditForm batchType={this.props.batch.typeId} typeOptions={this.props.typeOptions} handleFieldChangeRadio={this.props.handleFieldChangeRadio}/>
 
           <label htmlFor="editStartDate">Start Date</label>
           <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -48,12 +44,12 @@ class BottledEdit extends Component {
           </label>
 
           <label htmlFor="editStarterIngredients">Starter Ingredients</label>
-          <input id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" type="text" onChange={
+          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
           <label htmlFor="editBottleIngredients">Bottle Ingredients</label>
-          <input id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} label="Bottle Ingredients" type="text" onChange={
+          <textarea id="editBottleIngredients" defaultValue={this.props.batch.bottleIngredients} label="Bottle Ingredients" onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 

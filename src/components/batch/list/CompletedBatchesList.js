@@ -14,7 +14,7 @@ class PastBatchesList extends Component {
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=3&_sort=completeDate&_order=desc`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=3&_sort=completeDate&_order=desc&_expand=type`)
       .then(batches =>
         this.setState({ batches: batches }))
   }
@@ -29,7 +29,7 @@ class PastBatchesList extends Component {
             this.state.batches.map(batch => {
               return <dl key={batch.id}>
                 <dt>{batch.name}</dt>
-                <dd>Completed: <Moment format="MM/DD/YY">{batch.completeDate}</Moment></dd>
+                <dd>Completed: <Moment format="MM/DD/YY">{batch.completeDate}</Moment>, {batch.type.name}</dd>
                 <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
                 <hr></hr>
               </dl>

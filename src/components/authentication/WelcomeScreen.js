@@ -14,7 +14,6 @@ class WelcomeScreen extends Component {
     firstName: "",
     lastName: "",
     hideForm: true,
-    hideButton: false
   }
 
 
@@ -99,7 +98,7 @@ class WelcomeScreen extends Component {
     return (
       <div className="flex-column align-items-center">
         <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">FermentStation</h1>
-        <div class="container flex-column align-items-center">
+        <div className="container flex-column align-items-center">
           <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
 
           <h5 className="text-align-center">New here?</h5>
@@ -107,7 +106,6 @@ class WelcomeScreen extends Component {
             <button className="button info showButton" onClick={
               () => {
                 this.toggleNewForm()
-                this.toggleRegisterBtn()
               }
             }>Create an Account</button>
           </div>
