@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import BatchTypeEditForm from "../../BatchTypeEditForm";
+import BatchTypeEditForm from "./BatchTypeEditForm";
 
 class BrewingEdit extends Component {
 
