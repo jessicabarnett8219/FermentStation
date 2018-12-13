@@ -8,7 +8,7 @@ class BottledDetail extends Component {
     return (
       <div>
         <div className="container">
-        <h1 className="text-align-center">{this.props.name}</h1>
+          <h1 className="text-align-center">{this.props.name}</h1>
           <dl key={this.props.id}>
             <dt>Type</dt>
             <dd>{this.props.type.name}</dd>
@@ -30,11 +30,14 @@ class BottledDetail extends Component {
             <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info margin-bottom-xs"
             ><i className="fas fa-pen"></i></button></Link>
 
-            <button className="button button-square button-icon info margin-left-s margin-bottom-xs" onClick={() => {
+            <button className="button button-square button-icon info margin-bottom-xs" onClick={() => {
               this.props.handleDelete()
             }}><i className="fas fa-trash"></i></button>
 
-            <Link to={`/review/${this.props.id}`}><button className="button info margin-left-s margin-bottom-xs" >Review Batch</button></Link>
+            <Link to={`/review/${this.props.id}`}><button className="button info margin-bottom-xs" >Review Batch</button></Link>
+            <button className="button info margin-bottom-xs" onClick={() => {
+              this.props.history.push("/in-progress-list")
+            }}>Back to List</button>
           </div>
         </div>
       </div>

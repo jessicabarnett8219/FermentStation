@@ -33,18 +33,12 @@ class CompletedDetail extends Component {
         <Link to={`/batches/edit/${this.props.id}`}><button
         className="button button-square button-icon info margin-bottom-xs"><i className="fas fa-pen"></i></button></Link>
 
-        <button className="button button-square button-icon info margin-left-s margin-bottom-xs" onClick={() => {
+        <button className="button button-square button-icon info margin-bottom-xs" onClick={() => {
           this.props.handleDelete()
         }}><i className="fas fa-trash"></i></button>
 
-        <button className="button info margin-left-s margin-bottom-xs" onClick={() => {
-          if (this.props.status === 1) {
-            this.props.history.push("/in-progress-list")
-          } else if (this.props.status === 2) {
-            this.props.history.push("/in-progress-list")
-          } else {
+        <button className="button info margin-bottom-xs" onClick={() => {
             this.props.history.push("/completed-list")
-          }
         }}>Back to List</button>
         </div>
       </div>
