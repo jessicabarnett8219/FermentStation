@@ -41,6 +41,7 @@ class NewBatchForm extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+    console.log(this.state.batchAmount)
   }
 
   handleFieldChangeRadio = (evt) => {
@@ -111,7 +112,7 @@ class NewBatchForm extends Component {
           }
 
           <label htmlFor="batchAmount">Amount</label>
-          <input id="batchAmount" type="text" placeholder="Amount (number)" onClick={
+          <input id="batchAmount" type="text" placeholder="Amount (number)" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
