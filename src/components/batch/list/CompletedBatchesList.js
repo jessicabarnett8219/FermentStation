@@ -10,7 +10,7 @@ class PastBatchesList extends Component {
 
   state = {
     batches: [],
-    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
+    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
   }
 
   componentDidMount() {
