@@ -4,7 +4,7 @@ class RegistrationForm extends Component {
 
   render() {
     return (
-      <div className="color-info">
+      <div>
         <div className={this.props.hideForm ? "hideForm" : null}>
           <input id="firstName" placeholder="First Name" type="text" onChange={(evt) => {
             this.props.handleFieldChange(evt)

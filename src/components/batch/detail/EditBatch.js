@@ -99,14 +99,14 @@ class EditBatch extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-          <NavBar />
+          <NavBar {...this.props}/>
           <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-          <NavBar />
+          <NavBar {...this.props}/>
           <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
           </div>
         )
@@ -114,7 +114,7 @@ class EditBatch extends Component {
       else if (this.state.batch.status === 3) {
         return (
           <div>
-          <NavBar />
+          <NavBar {...this.props}/>
           <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props}/>
           </div>
         )

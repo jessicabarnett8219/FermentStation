@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
+import Moment from "react-moment"
+
 
 class BottleForm extends Component {
 
@@ -52,11 +54,11 @@ class BottleForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props}/>
+        <div className="container">
         <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
-          <h4 className="text-align-center">Brewing Since: {this.state.batch.startDate}</h4>
+          <h4 className="text-align-center">Started On: <Moment format="dddd, MMMM Do YYYY">{this.state.batch.startDate}</Moment></h4>
           <label htmlFor="bottleDate">Bottle Date</label>
           <input type="date" id="bottleDate" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -66,7 +68,7 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <input type="text" placeholder="ex. orange juice, vanilla beans" id="bottleIngredients" onChange={(evt) => {
+          <textarea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
@@ -78,7 +80,12 @@ class BottleForm extends Component {
             }>Cancel</button>
 
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.handleSave()
+              if(this.props.bottleDate === "" || this.props.completeDate === "") {
+                alert("Date fields should not be left blank")
+              } else {
+                this.handleSave()
+              }
+
             }}>Save</button>
           </div>
         </div>

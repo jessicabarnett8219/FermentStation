@@ -6,8 +6,8 @@ class BrewingEdit extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Edit Batch</h1>
-        <div className="container color-info">
+        <div className="container">
+        <h1 className="text-align-center">Edit Batch</h1>
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
@@ -49,7 +49,11 @@ class BrewingEdit extends Component {
               this.props.history.push(`/batches/${this.props.batch.id}`)
             }}>Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.props.handleSave()
+              if (this.props.startDate === "" || this.props.bottleDate === "") {
+                alert("Date fields should not be left blank")
+              } else {
+                this.props.handleSave()
+              }
             }}>Save</button>
           </div>
         </div>

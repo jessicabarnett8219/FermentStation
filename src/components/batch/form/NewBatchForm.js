@@ -41,6 +41,7 @@ class NewBatchForm extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+    console.log(this.state.batchAmount)
   }
 
   handleFieldChangeRadio = (evt) => {
@@ -82,11 +83,11 @@ class NewBatchForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props}/>
+        <div className="container">
           <h1 className="text-align-center">Start a New Batch</h1>
           <label htmlFor="name">Name</label>
-          <input id="name" type="text" onChange={
+          <input id="name" type="text" placeholder="name" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -111,7 +112,7 @@ class NewBatchForm extends Component {
           }
 
           <label htmlFor="batchAmount">Amount</label>
-          <input id="batchAmount" type="text" placeholder="enter a number" onClick={
+          <input id="batchAmount" type="text" placeholder="Amount (number)" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -124,7 +125,7 @@ class NewBatchForm extends Component {
           </label>
 
           <label htmlFor="starterIngredients">Starter Ingredients</label>
-          <input id="starterIngredients" type="text" onChange={
+          <textarea id="starterIngredients" placeholder="Starter Ingredients" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -135,11 +136,15 @@ class NewBatchForm extends Component {
               }
             }>Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.handleSave()
+              if(this.state.startDate === "" || this.state.expBottlingDate === "") {
+                alert("Date fields should not be blank")
+              } else {
+                this.handleSave()
+              }
+
             }}>Save</button>
           </div>
         </div>
-        {/* <NavBar /> */}
       </div>
     )
   }

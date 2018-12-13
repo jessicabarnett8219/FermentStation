@@ -99,7 +99,7 @@ class WelcomeScreen extends Component {
     return (
       <div className="flex-column align-items-center">
         <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">FermentStation</h1>
-        <div class="container color-info flex-column align-items-center">
+        <div class="container flex-column align-items-center">
           <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
 
           <h5 className="text-align-center">New here?</h5>
