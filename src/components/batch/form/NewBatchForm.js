@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import { Link } from "react-router-dom"
-// import NavBar from "../../navigation/NavBar"
+import NavBar from "../../navigation/NavBar"
 
 class NewBatchForm extends Component {
 
@@ -22,7 +22,7 @@ class NewBatchForm extends Component {
     let currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     this.setState({ currentUser: currentUserId })
     let today = new Date()
-    this.setState({dateToday: today})
+    this.setState({ dateToday: today })
     APIManager.getAllEntries("types")
       .then((types) => {
         this.setState({
@@ -82,8 +82,9 @@ class NewBatchForm extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Start a New Batch</h1>
+        <NavBar />
         <div className="container color-info">
+          <h1 className="text-align-center">Start a New Batch</h1>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" onChange={
             (evt) => { this.handleFieldChange(evt) }
@@ -118,7 +119,7 @@ class NewBatchForm extends Component {
             <select id="measurement" name="measurement" onChange={
               (evt) => { this.handleFieldChange(evt) }
             }><option value="cups">cups</option>
-            <option value="ounces">ounces</option>
+              <option value="ounces">ounces</option>
             </select>
           </label>
 

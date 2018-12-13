@@ -3,6 +3,7 @@ import APIManager from "../../../modules/APIManager"
 import BrewingEdit from "./brewing/BrewingEdit";
 import BottledEdit from "./bottled/BottledEdit";
 import CompletedEdit from "./completed/CompletedEdit"
+import NavBar from "../../navigation/NavBar"
 
 // TODO fix date input value issue - prepopulating and saving
 
@@ -97,16 +98,25 @@ class EditBatch extends Component {
     if (this.state.initialized === true) {
       if (this.state.batch.status === 1) {
         return (
+          <div>
+          <NavBar />
           <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+          </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
+          <div>
+          <NavBar />
           <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+          </div>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
+          <div>
+          <NavBar />
           <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props}/>
+          </div>
         )
       }
     }
