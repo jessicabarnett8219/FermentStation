@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import BrewingBatchesList from "./BrewingBatchesList"
 import BottledBatchesList from "./BottledBatchesList"
-// import NavBar from "./../../navigation/NavBar"
+import NavBar from "./../../navigation/NavBar"
 
 class InProgressBatchesList extends Component {
   state = {
@@ -27,8 +27,9 @@ class InProgressBatchesList extends Component {
     return (
 
         <div>
-          <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">In-Progress Batches</h1>
+          <NavBar />
           <div className="container color-info">
+          <h1 className="text-align-center">Batches In-Progress</h1>
           <BrewingBatchesList batches={this.state.brewingBatches} />
           <BottledBatchesList batches={this.state.bottledBatches} />
         </div>

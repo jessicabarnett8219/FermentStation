@@ -7,11 +7,9 @@ class BottledDetail extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Batch Details</h1>
         <div className="container color-info">
+        <h1 className="text-align-center">{this.props.name}</h1>
           <dl key={this.props.id}>
-            <dt>Name </dt>
-            <dd>{this.props.name}</dd>
             <dt>Type</dt>
             <dd>{this.props.type.name}</dd>
             <dt>Started On</dt>

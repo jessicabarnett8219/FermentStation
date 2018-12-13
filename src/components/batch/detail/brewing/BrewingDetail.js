@@ -7,12 +7,9 @@ class BrewingDetail extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Batch Details</h1>
         <div className="container color-info">
+        <h1 className="text-align-center">{this.props.name}</h1>
           <dl>
-            <dt>Name </dt>
-            <dd>{this.props.name}</dd>
             <dt>Type</dt>
             <dd>{this.props.type.name}</dd>
             <dt>Started On</dt>
@@ -36,7 +33,6 @@ class BrewingDetail extends Component {
               <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
             </div>
         </div>
-      </div>
     )
 
   }

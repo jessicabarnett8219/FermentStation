@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
+import NavBar from "../../navigation/NavBar"
 
 class ReviewForm extends Component {
   state = {
@@ -54,8 +55,9 @@ class ReviewForm extends Component {
   render() {
     return (
       <div >
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Review Batch</h1>
+        <NavBar />
         <div className="container color-info">
+        <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <p className="text-align-center">Bottled Since: {this.state.bottleDate}</p>
           <label htmlFor="completeDate">Completion Date</label>

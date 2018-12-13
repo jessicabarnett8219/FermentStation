@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
+import NavBar from "../../navigation/NavBar"
 
 class BottleForm extends Component {
 
@@ -51,8 +52,9 @@ class BottleForm extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">Bottle a Batch</h1>
+        <NavBar />
         <div className="container color-info">
+        <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <h4 className="text-align-center">Brewing Since: {this.state.batch.startDate}</h4>
           <label htmlFor="bottleDate">Bottle Date</label>
