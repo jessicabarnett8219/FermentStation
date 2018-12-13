@@ -54,7 +54,7 @@ class BottleForm extends Component {
       <div>
         <NavBar />
         <div className="container color-info">
-        <h1 className="text-align-center">Bottle a Batch</h1>
+        <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <h4 className="text-align-center">Brewing Since: {this.state.batch.startDate}</h4>
           <label htmlFor="bottleDate">Bottle Date</label>

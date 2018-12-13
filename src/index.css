@@ -33,6 +33,11 @@ code {
   color: white;
 }
 
+.menu-item {
+  width: 100%;
+  background-color: hsl(200, 100%, 40%);
+}
+
 
 
 

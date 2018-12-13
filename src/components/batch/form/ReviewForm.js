@@ -57,7 +57,7 @@ class ReviewForm extends Component {
       <div >
         <NavBar />
         <div className="container color-info">
-        <h1 className="text-align-center">Review a Batch</h1>
+        <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <p className="text-align-center">Bottled Since: {this.state.bottleDate}</p>
           <label htmlFor="completeDate">Completion Date</label>
