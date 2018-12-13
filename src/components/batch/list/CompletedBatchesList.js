@@ -22,8 +22,8 @@ class PastBatchesList extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props}/>
+        <div className="container">
         <h1 className="text-align-center margin-bottom-m">Completed Batches</h1>
           {
             this.state.batches.map(batch => {

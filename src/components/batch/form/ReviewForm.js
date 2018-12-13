@@ -56,8 +56,8 @@ class ReviewForm extends Component {
   render() {
     return (
       <div >
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props} />
+        <div className="container">
         <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <p className="text-align-center">Bottled On: <Moment format="dddd, MMMM Do YYYY">{this.state.bottleDate}</Moment></p>

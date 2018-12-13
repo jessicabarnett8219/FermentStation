@@ -45,14 +45,14 @@ class BatchDetail extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-            <NavBar />
+            <NavBar {...this.props}/>
             <BrewingDetail {...this.state.batch} handleDelete={this.handleDelete} {...this.props} />
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-            <NavBar />
+            <NavBar {...this.props}/>
             <BottledDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props} />
           </div>
         )
@@ -60,7 +60,7 @@ class BatchDetail extends Component {
       else if (this.state.batch.status === 3) {
         return (
           <div>
-            <NavBar />
+            <NavBar {...this.props}/>
             <CompletedDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props} />
           </div>
         )

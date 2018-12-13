@@ -6,7 +6,7 @@ class BrewingEdit extends Component {
   render() {
     return (
       <div>
-        <div className="container color-info">
+        <div className="container">
         <h1 className="text-align-center">Edit Batch</h1>
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={

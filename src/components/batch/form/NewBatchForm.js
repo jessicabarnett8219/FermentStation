@@ -82,8 +82,8 @@ class NewBatchForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props}/>
+        <div className="container">
           <h1 className="text-align-center">Start a New Batch</h1>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" placeholder="name" onChange={

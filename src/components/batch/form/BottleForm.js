@@ -54,8 +54,8 @@ class BottleForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="container color-info">
+        <NavBar {...this.props}/>
+        <div className="container">
         <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <h4 className="text-align-center">Started On: <Moment format="dddd, MMMM Do YYYY">{this.state.batch.startDate}</Moment></h4>

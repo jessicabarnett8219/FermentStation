@@ -7,7 +7,7 @@ class BrewingDetail extends Component {
 
   render() {
     return (
-        <div className="container color-info">
+        <div className="container">
         <h1 className="text-align-center">{this.props.name}</h1>
           <dl>
             <dt>Type</dt>
@@ -23,14 +23,14 @@ class BrewingDetail extends Component {
             </dl>
             <div className="flex justify-content-center">
 
-              <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info"
+              <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info margin-bottom-xs"
               ><i className="fas fa-pen"></i></button></Link>
 
-              <button className="button info button-square button-icon" onClick={() => {
+              <button className="button info button-square button-icon margin-left-s" onClick={() => {
                 this.props.handleDelete()
               }}><i className="fas fa-trash"></i></button>
 
-              <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
+              <Link to={`/bottle/${this.props.id}`}><button className="button info margin-left-s">Bottle Batch</button></Link>
             </div>
         </div>
     )
