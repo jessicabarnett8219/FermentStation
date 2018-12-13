@@ -29,8 +29,9 @@ class InProgressBatchesList extends Component {
         <div>
           <NavBar />
           <div className="container color-info">
-          <h1 className="text-align-center">Batches In-Progress</h1>
+          <h2 className="text-align-center margin-bottom-m">Now Brewing</h2>
           <BrewingBatchesList batches={this.state.brewingBatches} />
+          <h2 className="text-align-center margin-bottom-m">Bottled</h2>
           <BottledBatchesList batches={this.state.bottledBatches} />
         </div>
         </div>
