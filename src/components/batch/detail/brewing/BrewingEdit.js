@@ -31,7 +31,7 @@ class BrewingEdit extends Component {
           } />
 
           <label className="select" htmlFor="editMeasurement">
-            <select id="editMeasurement" defaultValue={this.props.batch.measurement} onChange={
+            <select id="editMeasurement" defaultValue={this.props.batch.editMeasurement} onChange={
               (evt) => { this.props.handleFieldChange(evt) }
             } >
               <option value="cups">Cups</option>

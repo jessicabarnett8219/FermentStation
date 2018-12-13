@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import NavBar from "../../navigation/NavBar"
 
 class NewBatchForm extends Component {
@@ -41,7 +41,6 @@ class NewBatchForm extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
-    console.log(this.state.batchAmount)
   }
 
   handleFieldChangeRadio = (evt) => {
