@@ -87,7 +87,12 @@ class ReviewForm extends Component {
             }
           }>Cancel</button>
           <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-            this.handleSave()
+            if(this.props.completeDate === "") {
+              alert("Date fields should not be left blank")
+            } else {
+              this.handleSave()
+            }
+
           }}>Save</button>
           </div>
         </div>

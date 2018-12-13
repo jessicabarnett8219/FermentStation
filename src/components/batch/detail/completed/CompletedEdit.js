@@ -70,7 +70,11 @@ class CompletedEdit extends Component {
             this.props.history.push(`/batches/${this.props.batch.id}`)
           }}>Cancel</button>
           <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-            this.props.handleSave()
+            if(this.props.bottleDate === "" || this.props.startDate || this.props.completeDate === "") {
+              alert("Date fields should not be left blank")
+            } else {
+              this.props.handleSave()
+            }
           }}>Save</button>
           </div>
 

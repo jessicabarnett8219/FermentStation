@@ -136,7 +136,12 @@ class NewBatchForm extends Component {
               }
             }>Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.handleSave()
+              if(this.state.startDate === "" || this.state.expBottlingDate === "") {
+                alert("Date fields should not be blank")
+              } else {
+                this.handleSave()
+              }
+
             }}>Save</button>
           </div>
         </div>

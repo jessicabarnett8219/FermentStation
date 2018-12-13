@@ -68,7 +68,7 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <textArea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
+          <textarea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
@@ -80,7 +80,12 @@ class BottleForm extends Component {
             }>Cancel</button>
 
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.handleSave()
+              if(this.props.bottleDate === "" || this.props.completeDate === "") {
+                alert("Date fields should not be left blank")
+              } else {
+                this.handleSave()
+              }
+
             }}>Save</button>
           </div>
         </div>

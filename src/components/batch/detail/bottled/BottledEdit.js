@@ -63,7 +63,12 @@ class BottledEdit extends Component {
             }}>
               Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.props.handleSave()
+              if(this.props.bottleDate === "" || this.props.startDate === "" || this.props.completeDate === "") {
+                alert("Dates should not be left blank")
+              } else {
+                this.props.handleSave()
+              }
+
             }}>Save</button>
 
 
