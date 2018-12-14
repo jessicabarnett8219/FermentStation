@@ -30,7 +30,7 @@ class MainMenu extends Component {
           </Link>
           <Link to="/in-progress-list" className="link">
             <div className="menu-item border-radius margin-bottom-s padding-vertical-l color-white">
-              <span>In-Progress Batches</span>
+              <span>In Progress Batches</span>
             </div>
           </Link>
 
