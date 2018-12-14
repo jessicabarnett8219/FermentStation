@@ -21,6 +21,7 @@ class BatchRatingEditForm extends Component {
           <input type="radio" name="editRating" defaultChecked value="negative" onChange={(evt) => {
             this.props.handleFieldChangeRating(evt)
           }} /><i className="fas fa-thumbs-down fa-2x"></i>
+
           <input type="radio" name="editRating" value="positive" onChange={(evt) => {
             this.props.handleFieldChangeRating(evt)
           }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
