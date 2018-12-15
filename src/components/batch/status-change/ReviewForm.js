@@ -9,7 +9,7 @@ class ReviewForm extends Component {
     batchId: "",
     completeDate: "",
     review: "",
-    rating: "positive"
+    rating: ""
   }
 
   componentDidMount() {
@@ -58,7 +58,7 @@ class ReviewForm extends Component {
       <div >
         <NavBar {...this.props} />
         <div className="container">
-        <h1 className="text-align-center">Review Batch</h1>
+          <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <p className="text-align-center">Bottled On: <Moment format="dddd, MMMM Do YYYY">{this.state.bottleDate}</Moment></p>
           <label htmlFor="completeDate">Completion Date</label>
@@ -67,10 +67,11 @@ class ReviewForm extends Component {
           }} />
 
           <div className="margin-vertical-m text-align-center">
-            <input type="radio" name="rating" value="positive" onChange={(evt) => {
+            <input type="radio" name="rating" value="negative" onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
             }} /><i className="fas fa-thumbs-down fa-2x margin-right-m"></i>
-            <input type="radio" name="rating" value="negative" defaultChecked onChange={(evt) => {
+
+            <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
             }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
           </div>
@@ -81,19 +82,19 @@ class ReviewForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <div className="flex justify-content-center">
-          <button className="button button-border info margin-top-xxs" onClick={
-            () => {
-              this.props.history.push(`/batches/${this.state.batchId}`)
-            }
-          }>Cancel</button>
-          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-            if(this.props.completeDate === "") {
-              alert("Date fields should not be left blank")
-            } else {
-              this.handleSave()
-            }
+            <button className="button button-border info margin-top-xxs" onClick={
+              () => {
+                this.props.history.push(`/batches/${this.state.batchId}`)
+              }
+            }>Cancel</button>
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              if (this.props.completeDate === "") {
+                alert("Date fields should not be left blank")
+              } else {
+                this.handleSave()
+              }
 
-          }}>Save</button>
+            }}>Save</button>
           </div>
         </div>
       </div>

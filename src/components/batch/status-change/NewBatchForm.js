@@ -12,7 +12,7 @@ class NewBatchForm extends Component {
     type: 2,
     starterIngredients: "",
     batchAmount: "",
-    measurement: "",
+    measurement: "cups",
     typeOptions: [],
     dateToday: ""
   }
