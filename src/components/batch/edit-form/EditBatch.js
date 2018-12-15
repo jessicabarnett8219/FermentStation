@@ -1,12 +1,9 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import BrewingEdit from "./brewing/BrewingEdit";
-import BottledEdit from "./bottled/BottledEdit";
-import CompletedEdit from "./completed/CompletedEdit"
+import BrewingEdit from "./BrewingEdit"
+import BottledEdit from "./BottledEdit";
+import CompletedEdit from "./CompletedEdit"
 import NavBar from "../../navigation/NavBar"
-
-// TODO fix date input value issue - prepopulating and saving
-
 
 class EditBatch extends Component {
 
