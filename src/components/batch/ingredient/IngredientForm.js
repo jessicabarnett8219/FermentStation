@@ -11,7 +11,6 @@ class IngredientForm extends Component {
     batchId: "",
     currentIngredient: 1,
     allIngredients: [],
-    initialized: false
   }
 
   componentDidMount() {
@@ -56,11 +55,12 @@ class IngredientForm extends Component {
           <div className="container">
           <h1 className="text-align-center">Add Ingredients</h1>
           <h3>Sugar</h3>
-          <IngredientSelection handleIngredientSelection={this.handleIngredientSelection} constructbatchIngredient={this.constructbatchIngredient} />
+          <IngredientSelection handleIngredientSelection={this.handleIngredientSelection} />
           <button onClick={() => {
               this.handleSaveIngredient()
             }}>Add</button>
               <div>
+                <ul>
                 {
                   this.state.allIngredients.map(ingredientObj => {
                     return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
@@ -70,6 +70,7 @@ class IngredientForm extends Component {
                     </li>
                   })
                 }
+                </ul>
               </div>
               <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
               }}>Save</button>
