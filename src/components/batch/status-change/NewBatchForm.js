@@ -14,7 +14,8 @@ class NewBatchForm extends Component {
     batchAmount: "",
     measurement: "cups",
     dateToday: "",
-    ingredientId: ""
+    ingredientId: "",
+    batchId: ""
   }
 
   componentDidMount() {
@@ -47,10 +48,25 @@ class NewBatchForm extends Component {
       completeDate: "",
       batchAmount: this.state.batchAmount,
       measurement: this.state.measurement,
-      ingredientId: +this.state.ingredientId,
       status: 1
     }
     return newBatch
+  }
+
+  constructbatchIngredient = (id) => {
+    let batchIngredient = {
+      ingredientId: this.state.ingredientId,
+      batchId: id
+    }
+    return batchIngredient
+  }
+
+  handleSaveIngredient = (batchId) => {
+    let newbatchIngredient = this.constructbatchIngredient(batchId)
+    APIManager.addEntry("batches-ingredients", newbatchIngredient)
+    this.setState({
+      batchId: batchId
+    })
   }
 
   handleSave = () => {
@@ -59,8 +75,11 @@ class NewBatchForm extends Component {
       .then((newBatch) => {
         return newBatch.id
       })
-      .then((batchId) => {
-        this.props.history.push(`/batches/${batchId}`)
+      .then(batchId => {
+        this.handleSaveIngredient(batchId)
+      })
+      .then(() => {
+        this.props.history.push(`/batches/${this.state.batchId}`)
       })
 
   }
