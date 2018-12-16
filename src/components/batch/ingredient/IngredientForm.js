@@ -21,6 +21,11 @@ class IngredientForm extends Component {
     // fetch the database for all ingredients that match this batch ID and print to the DOM
   }
 
+  getAllIngredients = () => {
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    .then(ingredients => this.setState({allIngredients: ingredients}))
+  }
+
   handleIngredientSelection = (evt) => {
     this.setState({currentIngredient: parseInt(evt.target.value)})
   }
@@ -36,8 +41,12 @@ class IngredientForm extends Component {
   handleSaveIngredient = () => {
     let newbatchIngredient = this.constructbatchIngredient()
     APIManager.addEntry("batches-ingredients", newbatchIngredient)
-    .then(() => APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`))
-    .then(ingredients => this.setState({allIngredients: ingredients}))
+    .then(() => this.getAllIngredients())
+  }
+
+  deleteIngredient = (id) => {
+    APIManager.deleteEntry("batches-ingredients", id)
+    .then(() => this.getAllIngredients())
   }
 
   render() {
@@ -54,7 +63,11 @@ class IngredientForm extends Component {
               <div>
                 {
                   this.state.allIngredients.map(ingredientObj => {
-                    return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}</li>
+                    return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
+                    <button className="button-xs" onClick={() => {
+                      this.deleteIngredient(ingredientObj.id)
+                    }}>Delete</button>
+                    </li>
                   })
                 }
               </div>
