@@ -9,20 +9,20 @@ class IngredientForm extends Component {
 
   state = {
     batchId: "",
-    currentIngredient: "",
-    allIngredients: []
+    currentIngredient: 1,
+    allIngredients: [],
+    initialized: false
   }
 
   componentDidMount() {
     const { batchId } = this.props.match.params
-    this.setState({batchId: batchId})
+    this.setState({batchId: +batchId})
+
     // fetch the database for all ingredients that match this batch ID and print to the DOM
   }
 
   handleIngredientSelection = (evt) => {
-    const stateToChange = {}
-    stateToChange["currentIngredient"] = evt.target.value
-    this.setState(stateToChange)
+    this.setState({currentIngredient: parseInt(evt.target.value)})
   }
 
   constructbatchIngredient = () => {
@@ -36,28 +36,35 @@ class IngredientForm extends Component {
   handleSaveIngredient = () => {
     let newbatchIngredient = this.constructbatchIngredient()
     APIManager.addEntry("batches-ingredients", newbatchIngredient)
+    .then(() => APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`))
+    .then(ingredients => this.setState({allIngredients: ingredients}))
   }
 
-
   render() {
-    return (
-      <div>
-        <NavBar {...this.props}/>
-        <div className="container">
-        <h1 className="text-align-center">Add Ingredients</h1>
-        <h3>Sugar</h3>
-        <IngredientSelection handleIngredientSelection={this.handleIngredientSelection} constructbatchIngredient={this.constructbatchIngredient} />
-        <button onClick={() => {
-            this.handleSaveIngredient()
-          }}>Add</button>
-            <div>
-              {/* ingredients output here */}
+      return (
+        <div>
+          <NavBar {...this.props}/>
+          <div className="container">
+          <h1 className="text-align-center">Add Ingredients</h1>
+          <h3>Sugar</h3>
+          <IngredientSelection handleIngredientSelection={this.handleIngredientSelection} constructbatchIngredient={this.constructbatchIngredient} />
+          <button onClick={() => {
+              this.handleSaveIngredient()
+            }}>Add</button>
+              <div>
+                {
+                  this.state.allIngredients.map(ingredientObj => {
+                    return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}</li>
+                  })
+                }
+              </div>
+              <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              }}>Save</button>
             </div>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-            }}>Save</button>
           </div>
-        </div>
-    )
+      )
+
+
   }
 }
 export default IngredientForm
