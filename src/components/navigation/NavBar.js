@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 
+
 class NavBar extends Component {
   render() {
     return (
+
       <nav className="nav-inline no-margin-top margin-bottom-s padding-vertical-s background-info color-white">
         <ul className="flex align-items-center justify-content-space-between">
           <li>

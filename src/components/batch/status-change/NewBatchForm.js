@@ -10,11 +10,11 @@ class NewBatchForm extends Component {
     startDate: "",
     expBottlingDate: "",
     type: 2,
-    starterIngredients: "",
     batchAmount: "",
     measurement: "cups",
-    typeOptions: [],
-    dateToday: ""
+    dateToday: "",
+    ingredients: "",
+    batchId: ""
   }
 
   componentDidMount() {
@@ -22,18 +22,6 @@ class NewBatchForm extends Component {
     this.setState({ currentUser: currentUserId })
     let today = new Date()
     this.setState({ dateToday: today })
-    APIManager.getAllEntries("types")
-      .then((types) => {
-        this.setState({
-          typeOptions: types
-        })
-      })
-    APIManager.getAllEntries("measurements")
-      .then((measurements) => {
-        this.setState({
-          measurementOptions: measurements
-        })
-      })
   }
 
   handleFieldChange = (evt) => {
@@ -59,9 +47,7 @@ class NewBatchForm extends Component {
       completeDate: "",
       batchAmount: this.state.batchAmount,
       measurement: this.state.measurement,
-      status: 1,
-      starterIngredients: this.state.starterIngredients,
-      bottleIngredients: ""
+      status: 1
     }
     return newBatch
   }
@@ -73,7 +59,7 @@ class NewBatchForm extends Component {
         return newBatch.id
       })
       .then((batchId) => {
-        this.props.history.push(`/batches/${batchId}`)
+        this.props.history.push(`/ingredients/${batchId}`)
       })
 
   }
@@ -81,9 +67,10 @@ class NewBatchForm extends Component {
   render() {
     return (
       <div>
-        <NavBar {...this.props}/>
+        <NavBar {...this.props} />
         <div className="container">
           <h1 className="text-align-center">Start a New Batch</h1>
+
           <label htmlFor="name">Name</label>
           <input id="name" type="text" placeholder="name" onChange={
             (evt) => { this.handleFieldChange(evt) }
@@ -99,15 +86,14 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          {
-            this.state.typeOptions.map(option => {
-              return <div key={option.id}>
-                <input type="radio" name="type" value={option.id} onChange={(evt) => {
+
+          <input type="radio" name="type" value={2} onChange={(evt) => {
                   this.handleFieldChangeRadio(evt)
-                }} />{option.name}<br></br>
-              </div>
-            })
-          }
+                }}/> Water Kefir <br></br>
+            <input type="radio" name="type" value={1} onChange={(evt) => {
+                  this.handleFieldChangeRadio(evt)
+                }}/> Kombucha <br></br>
+
 
           <label htmlFor="batchAmount">Amount</label>
           <input id="batchAmount" type="text" placeholder="Amount (number)" onChange={
@@ -122,11 +108,6 @@ class NewBatchForm extends Component {
             </select>
           </label>
 
-          <label htmlFor="starterIngredients">Starter Ingredients</label>
-          <textarea id="starterIngredients" placeholder="Starter Ingredients" onChange={
-            (evt) => { this.handleFieldChange(evt) }
-          } />
-
           <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={
               () => {
@@ -134,13 +115,13 @@ class NewBatchForm extends Component {
               }
             }>Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              if(this.state.startDate === "" || this.state.expBottlingDate === "") {
+              if (this.state.startDate === "" || this.state.expBottlingDate === "") {
                 alert("Date fields should not be blank")
               } else {
                 this.handleSave()
               }
 
-            }}>Save</button>
+            }}>Continue</button>
           </div>
         </div>
       </div>

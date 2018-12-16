@@ -1,0 +1,310 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jessica",
+      "lastName": "Barnett",
+      "email": "jessicab5128@gmail.com",
+      "password": "Wally"
+    },
+    {
+      "firstName": "Wally",
+      "lastName": "Beam",
+      "email": "wally@wally.com",
+      "password": "peanutbutter",
+      "id": 2
+    },
+    {
+      "firstName": "Jerry",
+      "lastName": "Seinfeld",
+      "email": "jerry@jerry.com",
+      "password": "jerry",
+      "id": 3
+    },
+    {
+      "firstName": "Elaine",
+      "lastName": "Benes",
+      "email": "elaine@elaine.com",
+      "password": "elaine",
+      "id": 4
+    },
+    {
+      "firstName": "Jonathan",
+      "lastName": "Beam",
+      "email": "jonathan@jonathan.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "firstName": "Stephanie",
+      "lastName": "Barnett",
+      "email": "stephanie@stephanie.com",
+      "password": "stephanie",
+      "id": 6
+    },
+    {
+      "firstName": "Stephanie",
+      "lastName": "Yates",
+      "email": "iamawesome@gmail.com",
+      "password": "stephanie",
+      "id": 7
+    }
+  ],
+  "batches": [
+    {
+      "name": "Watermelon Power",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "negative",
+      "review": "Couldn't get it to carbonate",
+      "startDate": "2018-10-22",
+      "bottleDate": "2018-10-24",
+      "completeDate": "2018-10-26",
+      "batchAmount": "32",
+      "measurement": "ounces",
+      "status": 3,
+      "starterIngredients": "4 tbsp palm sugar, 2 pieces dried fruit",
+      "bottleIngredients": "1/4 cup watermelon Juice, 5 cherries",
+      "id": 11
+    },
+    {
+      "name": "Triple Berry",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-11-29",
+      "bottleDate": "2018-12-11",
+      "completeDate": "2018-12-14",
+      "batchAmount": "64 ",
+      "measurement": "ounces",
+      "status": 2,
+      "starterIngredients": "",
+      "bottleIngredients": "",
+      "id": 15
+    },
+    {
+      "name": "Orange Dream",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "positive",
+      "review": "Yum!",
+      "startDate": "2018-10-01",
+      "bottleDate": "2018-10-15",
+      "completeDate": "2018-10-18",
+      "batchAmount": "32",
+      "measurement": "ounces",
+      "status": 3,
+      "starterIngredients": "1.5 tsps green tea, 1/4 cup white sugar, 1/2 cup starter tea",
+      "bottleIngredients": "1/5 cup orange juice, 2 vanilla beans",
+      "id": 18
+    },
+    {
+      "name": "Coconut Lime",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "negative",
+      "review": "gross",
+      "startDate": "2018-12-01",
+      "bottleDate": "2018-12-14",
+      "completeDate": "2018-12-14",
+      "batchAmount": "8",
+      "measurement": "cups",
+      "status": 3,
+      "starterIngredients": "1 tbsp black tea, 1/2 cup cane sugar, 1 cup vinegar",
+      "bottleIngredients": "Limejuice coconut water ",
+      "id": 23
+    },
+    {
+      "name": "Cream Soda",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "positive",
+      "review": "Pretty good but I might need to let it ferment longer next time. A little sweet.",
+      "startDate": "2018-12-04",
+      "bottleDate": "2018-12-11",
+      "completeDate": "2018-12-13",
+      "batchAmount": "4",
+      "measurement": "cups",
+      "status": 3,
+      "starterIngredients": "2 tbsp brown sugar, 1tbsp white sugar, 1 lemon",
+      "bottleIngredients": "3 Vanilla beans",
+      "id": 30
+    },
+    {
+      "name": "Mango Pineapple",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "positive",
+      "review": "Turned out really good. Would repeat",
+      "startDate": "2018-12-02",
+      "bottleDate": "2018-12-04",
+      "completeDate": "2018-12-06",
+      "batchAmount": "4 ",
+      "measurement": "cups",
+      "status": 3,
+      "starterIngredients": "2 tbsp white sugar, 1 lemon",
+      "bottleIngredients": "2 tbsp mango juice, 2 pineapple slices",
+      "id": 38
+    },
+    {
+      "name": "Cherry Limeade",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-13",
+      "bottleDate": "2018-12-15",
+      "completeDate": "",
+      "batchAmount": "4",
+      "measurement": "cups",
+      "status": 1,
+      "starterIngredients": "",
+      "bottleIngredients": "",
+      "id": 39
+    },
+    {
+      "name": "Grape Soda",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-14",
+      "bottleDate": "2018-12-16",
+      "completeDate": "",
+      "batchAmount": "4",
+      "measurement": "cups",
+      "status": 1,
+      "starterIngredients": "",
+      "bottleIngredients": "",
+      "id": 40
+    },
+    {
+      "name": "Coconut Lime",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-15",
+      "bottleDate": "2018-12-17",
+      "completeDate": "",
+      "batchAmount": "4",
+      "measurement": "cups",
+      "status": 1,
+      "starterIngredients": "",
+      "bottleIngredients": "",
+      "id": 41
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "kombucha"
+    },
+    {
+      "id": 2,
+      "name": "water kefir"
+    }
+  ],
+  "statuses": [
+    {
+      "id": 1,
+      "name": "brewing"
+    },
+    {
+      "id": 2,
+      "name": "bottled"
+    },
+    {
+      "id": 3,
+      "name": "completed"
+    }
+  ],
+  "ingredient-categories": [
+    {
+      "id": 1,
+      "name": "sugar"
+    },
+    {
+      "id": 2,
+      "name": "supplements"
+    },
+    {
+      "id": 3,
+      "name": "tea"
+    },
+    {
+      "id": 4,
+      "name": "kefir starter"
+    },
+    {
+      "id": 5,
+      "name": "flavoring"
+    },
+    {
+      "id": 6,
+      "name": "kombucha starter"
+    },
+    {
+      "id": 7,
+      "name": "water"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "white sugar",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "baking soda",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "black tea",
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "name": "white sugar",
+      "categoryId": 4
+    },
+    {
+      "id": 5,
+      "name": "kefir grains",
+      "categoryId": 5
+    },
+    {
+      "id": 6,
+      "name": "grape juice",
+      "categoryId": 6
+    },
+    {
+      "id": 7,
+      "name": "vinegar",
+      "categoryId": 7
+    },
+    {
+      "id": 8,
+      "name": "spring water",
+      "categoryId": 8
+    },
+    {
+      "id": 9,
+      "name": "coconut sugar",
+      "categoryId": 1
+    },
+    {
+      "id": 10,
+      "name": "molassess",
+      "categoryId": 1
+    },
+    {
+      "id": 11,
+      "name": "unrefined cane sugar",
+      "categoryId": 1
+    }
+  ]
+}
