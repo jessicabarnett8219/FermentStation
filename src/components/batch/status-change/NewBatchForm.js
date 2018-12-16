@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
-import IngredientSelection from "../ingredient/IngredientSelection"
 
 class NewBatchForm extends Component {
 
@@ -14,7 +13,7 @@ class NewBatchForm extends Component {
     batchAmount: "",
     measurement: "cups",
     dateToday: "",
-    ingredientId: "",
+    ingredients: "",
     batchId: ""
   }
 
@@ -53,33 +52,14 @@ class NewBatchForm extends Component {
     return newBatch
   }
 
-  constructbatchIngredient = (id) => {
-    let batchIngredient = {
-      ingredientId: this.state.ingredientId,
-      batchId: id
-    }
-    return batchIngredient
-  }
-
-  handleSaveIngredient = (batchId) => {
-    let newbatchIngredient = this.constructbatchIngredient(batchId)
-    APIManager.addEntry("batches-ingredients", newbatchIngredient)
-    this.setState({
-      batchId: batchId
-    })
-  }
-
   handleSave = () => {
     let newBatch = this.constructNewBatch()
     APIManager.addEntry("batches", newBatch)
       .then((newBatch) => {
         return newBatch.id
       })
-      .then(batchId => {
-        this.handleSaveIngredient(batchId)
-      })
-      .then(() => {
-        this.props.history.push(`/batches/${this.state.batchId}`)
+      .then((batchId) => {
+        this.props.history.push(`/ingredients/${batchId}`)
       })
 
   }
@@ -128,8 +108,6 @@ class NewBatchForm extends Component {
             </select>
           </label>
 
-          <IngredientSelection handleFieldChange={this.handleFieldChange}/>
-
           <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={
               () => {
@@ -143,7 +121,7 @@ class NewBatchForm extends Component {
                 this.handleSave()
               }
 
-            }}>Save</button>
+            }}>Continue</button>
           </div>
         </div>
       </div>

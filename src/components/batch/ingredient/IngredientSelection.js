@@ -8,6 +8,8 @@ class IngredientSelection extends Component {
     ingredientOptions: []
   }
 
+
+
   componentDidMount() {
     APIManager.getAllEntries("ingredients", "?categoryId=1")
       .then(options => this.setState({
@@ -21,7 +23,7 @@ class IngredientSelection extends Component {
         <label className="select" htmlFor="ingredientId">
           <select id="ingredientId" name="ingredientId" onChange={
                   (evt) => {
-                    this.props.handleFieldChange(evt)
+                    this.props.handleIngredientSelection(evt)
                   }
                 }>
             {
