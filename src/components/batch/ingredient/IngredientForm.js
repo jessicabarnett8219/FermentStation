@@ -12,7 +12,7 @@ class IngredientForm extends Component {
     batchId: "",
     currentIngredient: "",
     selectedSugars: [],
-    selectedTeas: [],
+    selectedTeas: []
   }
 
   componentDidMount() {
@@ -22,8 +22,12 @@ class IngredientForm extends Component {
 
   getAllIngredients = () => {
     APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
-      .then(sugars => this.setState({ selectedSugars: sugars }))
+      .then(ingredients => {
+        return ingredients.filter(i => i.ingredient.categoryId === 1)
+      })
+      .then(sugars => this.setState({selectedSugars: sugars}))
   }
+
 
   handleIngredientSelection = (evt) => {
     this.setState({ currentIngredient: parseInt(evt.target.value) })
@@ -80,16 +84,27 @@ class IngredientForm extends Component {
               <button onClick={() => {
                 this.handleSaveIngredient()
               }}>Add</button>
+              <div>
+                <ul>
+                  {
+                    this.state.selectedTeas.map(ingredientObj => {
+                      return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
+                        <button className="button-xs" onClick={() => {
+                          this.deleteIngredient(ingredientObj.id)
+                        }}>Delete</button>
+                      </li>
+                    })
+                  }
+                </ul>
+              </div>
 
             </div>
           </div>
-          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-          }}>Save</button>
+          <button className="button info margin-left-xxs margin-top-xxs">Save</button>
         </div>
       </div>
     )
-
-
   }
 }
+
 export default IngredientForm
