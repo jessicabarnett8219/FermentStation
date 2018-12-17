@@ -20,12 +20,20 @@ class IngredientForm extends Component {
     this.setState({ batchId: +batchId })
   }
 
-  getAllIngredients = () => {
+  getAllSugars = () => {
     APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 1)
       })
       .then(sugars => this.setState({selectedSugars: sugars}))
+  }
+
+  getAllTeas = () => {
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+      .then(ingredients => {
+        return ingredients.filter(i => i.ingredient.categoryId === 3)
+      })
+      .then(teas => this.setState({selectedTeas: teas}))
   }
 
 
@@ -43,13 +51,11 @@ class IngredientForm extends Component {
 
   handleSaveIngredient = () => {
     let newbatchIngredient = this.constructbatchIngredient()
-    APIManager.addEntry("batches-ingredients", newbatchIngredient)
-      .then(() => this.getAllIngredients())
+    return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
   deleteIngredient = (id) => {
-    APIManager.deleteEntry("batches-ingredients", id)
-      .then(() => this.getAllIngredients())
+    return APIManager.deleteEntry("batches-ingredients", id)
   }
 
   render() {
@@ -63,6 +69,8 @@ class IngredientForm extends Component {
             <SugarSelection handleIngredientSelection={this.handleIngredientSelection} />
             <button onClick={() => {
               this.handleSaveIngredient()
+              .then(() => this.getAllSugars())
+
             }}>Add</button>
             <div>
               <ul>
@@ -71,6 +79,7 @@ class IngredientForm extends Component {
                     return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
                       <button className="button-xs" onClick={() => {
                         this.deleteIngredient(ingredientObj.id)
+                        .then(() => this.getAllSugars())
                       }}>Delete</button>
                     </li>
                   })
@@ -83,6 +92,8 @@ class IngredientForm extends Component {
               <TeaSelection handleIngredientSelection={this.handleIngredientSelection} />
               <button onClick={() => {
                 this.handleSaveIngredient()
+                .then(() => this.getAllTeas())
+
               }}>Add</button>
               <div>
                 <ul>
@@ -91,6 +102,7 @@ class IngredientForm extends Component {
                       return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
                         <button className="button-xs" onClick={() => {
                           this.deleteIngredient(ingredientObj.id)
+                          .then(() => this.getAllTeas())
                         }}>Delete</button>
                       </li>
                     })
