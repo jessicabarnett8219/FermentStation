@@ -12,6 +12,7 @@ class BatchDetail extends Component {
     batch: {},
     initialized: false,
     currentUser: "",
+    starterIngredients: []
   }
 
   componentDidMount() {
@@ -23,6 +24,8 @@ class BatchDetail extends Component {
           this.setState({ batch: batchObj, initialized: true })
         })
     })
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+    .then(ingredients => this.setState({starterIngredients: ingredients}))
   }
 
   handleDelete = () => {
@@ -45,7 +48,7 @@ class BatchDetail extends Component {
         return (
           <div>
             <NavBar {...this.props}/>
-            <BrewingDetail {...this.state.batch} handleDelete={this.handleDelete} {...this.props} />
+            <BrewingDetail {...this.state.batch} handleDelete={this.handleDelete} {...this.props} starterIngredients={this.state.starterIngredients}/>
           </div>
         )
       } else if (this.state.batch.status === 2) {

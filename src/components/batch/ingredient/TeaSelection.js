@@ -6,7 +6,6 @@ class TeaSelection extends Component {
 
   state = {
     teaOptions: [],
-    currentTea: 3
   }
 
   componentDidMount() {
@@ -17,17 +16,14 @@ class TeaSelection extends Component {
 
   }
 
-  handleIngredientSelection = (evt) => {
-    this.setState({ currentTea: parseInt(evt.target.value) })
-  }
 
   render() {
     return (
       <div>
-        <label className="select" htmlFor="ingredientId">
-          <select id="ingredientId" name="ingredientId" onChange={
+        <label className="select" htmlFor="currentTea">
+          <select id="currentTea" name="currentTea" onChange={
                   (evt) => {
-                    this.handleIngredientSelection(evt)
+                    this.props.handleIngredientSelection(evt)
                   }
                 }>
             {
