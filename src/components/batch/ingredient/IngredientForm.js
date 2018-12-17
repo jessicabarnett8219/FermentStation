@@ -10,7 +10,8 @@ class IngredientForm extends Component {
 
   state = {
     batchId: "",
-    currentIngredient: "",
+    currentSugar: 1,
+    currentTea: 3,
     selectedSugars: [],
     selectedTeas: []
   }
@@ -36,21 +37,25 @@ class IngredientForm extends Component {
       .then(teas => this.setState({selectedTeas: teas}))
   }
 
-
   handleIngredientSelection = (evt) => {
-    this.setState({ currentIngredient: parseInt(evt.target.value) })
+    const stateToChange = {}
+    stateToChange[evt.target.id] = parseInt(evt.target.value)
+    this.setState(stateToChange)
   }
 
-  constructbatchIngredient = () => {
-    let batchIngredient = {
-      ingredientId: this.state.currentIngredient,
+  handleSaveSugar = () => {
+    let newbatchIngredient = {
+      ingredientId: this.state.currentSugar,
       batchId: this.state.batchId
     }
-    return batchIngredient
+    return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
-  handleSaveIngredient = () => {
-    let newbatchIngredient = this.constructbatchIngredient()
+  handleSaveTea = () => {
+    let newbatchIngredient = {
+      ingredientId: this.state.currentTea,
+      batchId: this.state.batchId
+    }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
@@ -68,7 +73,7 @@ class IngredientForm extends Component {
             <h3>Sugar</h3>
             <SugarSelection handleIngredientSelection={this.handleIngredientSelection} />
             <button onClick={() => {
-              this.handleSaveIngredient()
+              this.handleSaveSugar()
               .then(() => this.getAllSugars())
 
             }}>Add</button>
@@ -91,7 +96,7 @@ class IngredientForm extends Component {
               <h3>Tea</h3>
               <TeaSelection handleIngredientSelection={this.handleIngredientSelection} />
               <button onClick={() => {
-                this.handleSaveIngredient()
+                this.handleSaveTea()
                 .then(() => this.getAllTeas())
 
               }}>Add</button>

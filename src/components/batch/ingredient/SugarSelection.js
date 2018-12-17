@@ -18,8 +18,8 @@ class SugarSelection extends Component {
   render() {
     return (
       <div>
-        <label className="select" htmlFor="sugarId">
-          <select id="ingredientId" name="ingredientId" onChange={
+        <label className="select" htmlFor="currentSugar">
+          <select id="currentSugar" name="currentSugar" onChange={
                   (evt) => {
                     this.props.handleIngredientSelection(evt)
                   }

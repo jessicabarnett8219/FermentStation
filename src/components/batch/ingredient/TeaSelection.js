@@ -5,7 +5,8 @@ import APIManager from "../../../modules/APIManager"
 class TeaSelection extends Component {
 
   state = {
-    teaOptions: []
+    teaOptions: [],
+    currentTea: 3
   }
 
   componentDidMount() {
@@ -15,13 +16,18 @@ class TeaSelection extends Component {
       }))
 
   }
+
+  handleIngredientSelection = (evt) => {
+    this.setState({ currentTea: parseInt(evt.target.value) })
+  }
+
   render() {
     return (
       <div>
-        <label className="select" htmlFor="sugarId">
+        <label className="select" htmlFor="ingredientId">
           <select id="ingredientId" name="ingredientId" onChange={
                   (evt) => {
-                    this.props.handleIngredientSelection(evt)
+                    this.handleIngredientSelection(evt)
                   }
                 }>
             {
