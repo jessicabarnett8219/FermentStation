@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
-import IngredientSelection from "./IngredientSelection"
+import SugarSelection from "./SugarSelection"
 
-// first set state of batchId based on params. on click of "add" for a particular ingredient selection, push that to the array and set state and print to the DOM, on save of all ingredients create an object for each ingredient paired with the batch id. "
+// TODO break out selected ingredient list into a separate component so that it can be used for all categories. pass category ids to ingredient selection so that it can be used for all categories. Repeat for all categories. Send up conditional rendering based on kombucha vs kefir. deal with save button.
 
 class IngredientForm extends Component {
 
@@ -16,8 +16,6 @@ class IngredientForm extends Component {
   componentDidMount() {
     const { batchId } = this.props.match.params
     this.setState({batchId: +batchId})
-
-    // fetch the database for all ingredients that match this batch ID and print to the DOM
   }
 
   getAllIngredients = () => {
@@ -55,7 +53,7 @@ class IngredientForm extends Component {
           <div className="container">
           <h1 className="text-align-center">Add Ingredients</h1>
           <h3>Sugar</h3>
-          <IngredientSelection handleIngredientSelection={this.handleIngredientSelection} />
+          <SugarSelection handleIngredientSelection={this.handleIngredientSelection} />
           <button onClick={() => {
               this.handleSaveIngredient()
             }}>Add</button>
