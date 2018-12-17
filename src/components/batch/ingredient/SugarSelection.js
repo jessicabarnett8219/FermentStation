@@ -2,34 +2,32 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 
 
-class IngredientSelection extends Component {
+class SugarSelection extends Component {
 
   state = {
-    ingredientOptions: []
+    sugarOptions: []
   }
-
-
 
   componentDidMount() {
     APIManager.getAllEntries("ingredients", "?categoryId=1")
       .then(options => this.setState({
-        ingredientOptions: options
+        sugarOptions: options
       }))
 
   }
   render() {
     return (
       <div>
-        <label className="select" htmlFor="ingredientId">
+        <label className="select" htmlFor="sugarId">
           <select id="ingredientId" name="ingredientId" onChange={
                   (evt) => {
                     this.props.handleIngredientSelection(evt)
                   }
                 }>
             {
-              this.state.ingredientOptions.map(ingredient => {
-                return <option key={ingredient.id} value={ingredient.id} >
-                  {ingredient.name}
+              this.state.sugarOptions.map(sugar => {
+                return <option key={sugar.id} value={sugar.id} >
+                  {sugar.name}
                 </option>
               })
             }
@@ -41,4 +39,4 @@ class IngredientSelection extends Component {
   }
 }
 
-export default IngredientSelection
+export default SugarSelection
