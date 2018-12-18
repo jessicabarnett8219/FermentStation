@@ -13,7 +13,11 @@ class IngredientForm extends Component {
     currentSugar: 1,
     currentTea: 3,
     selectedSugars: [],
-    selectedTeas: []
+    selectedTeas: [],
+    sugarAmount: 0,
+    sugarMeasurement: "cups",
+    teaAmount: 0,
+    teaMeasurement: "cups"
   }
 
   componentDidMount() {
@@ -39,28 +43,36 @@ class IngredientForm extends Component {
 
   handleIngredientSelection = (evt) => {
     const stateToChange = {}
-    stateToChange[evt.target.id] = parseInt(evt.target.value)
+    stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
   }
 
   handleSaveSugar = () => {
     let newbatchIngredient = {
-      ingredientId: this.state.currentSugar,
-      batchId: this.state.batchId
+      ingredientId: parseInt(this.state.currentSugar),
+      batchId: this.state.batchId,
+      amount: parseInt(this.state.sugarAmount),
+      measurement: this.state.sugarMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
   handleSaveTea = () => {
     let newbatchIngredient = {
-      ingredientId: this.state.currentTea,
-      batchId: this.state.batchId
+      ingredientId: parseInt(this.state.currentTea),
+      batchId: this.state.batchId,
+      amount: parseInt(this.state.teaAmount),
+      measurement: this.state.teaMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
   deleteIngredient = (id) => {
     return APIManager.deleteEntry("batches-ingredients", id)
+  }
+
+  handleSaveAll = () => {
+    this.props.history.push(`/batches/${this.state.batchId}`)
   }
 
   render() {
@@ -71,17 +83,13 @@ class IngredientForm extends Component {
           <h1 className="text-align-center">Add Ingredients</h1>
           <div>
             <h3>Sugar</h3>
-            <SugarSelection handleIngredientSelection={this.handleIngredientSelection} />
-            <button onClick={() => {
-              this.handleSaveSugar()
-              .then(() => this.getAllSugars())
+            <SugarSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars}/>
 
-            }}>Add</button>
             <div>
               <ul>
                 {
                   this.state.selectedSugars.map(ingredientObj => {
-                    return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
+                    return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                       <button className="button-xs" onClick={() => {
                         this.deleteIngredient(ingredientObj.id)
                         .then(() => this.getAllSugars())
@@ -94,17 +102,12 @@ class IngredientForm extends Component {
 
             <div>
               <h3>Tea</h3>
-              <TeaSelection handleIngredientSelection={this.handleIngredientSelection} />
-              <button onClick={() => {
-                this.handleSaveTea()
-                .then(() => this.getAllTeas())
-
-              }}>Add</button>
+              <TeaSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveTea={this.handleSaveTea} getAllTeas={this.getAllTeas}/>
               <div>
                 <ul>
                   {
                     this.state.selectedTeas.map(ingredientObj => {
-                      return <li key={ingredientObj.id}>{ingredientObj.ingredient.name}
+                      return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                         <button className="button-xs" onClick={() => {
                           this.deleteIngredient(ingredientObj.id)
                           .then(() => this.getAllTeas())
@@ -117,7 +120,9 @@ class IngredientForm extends Component {
 
             </div>
           </div>
-          <button className="button info margin-left-xxs margin-top-xxs">Save</button>
+          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+            this.handleSaveAll()
+          }}>Save</button>
         </div>
       </div>
     )

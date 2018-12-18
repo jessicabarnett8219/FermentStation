@@ -17,9 +17,9 @@ class SugarSelection extends Component {
   }
   render() {
     return (
-      <div>
-        <label className="select" htmlFor="currentSugar">
-          <select id="currentSugar" name="currentSugar" onChange={
+      <div className="flex justify-content-flex-start align-items-baseline">
+        <label className="select flex-1-1-auto" htmlFor="currentSugar">
+          <select className="" id="currentSugar" name="currentSugar" onChange={
                   (evt) => {
                     this.props.handleIngredientSelection(evt)
                   }
@@ -33,6 +33,23 @@ class SugarSelection extends Component {
             }
           </select>
         </label>
+
+        <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="sugarAmount" onChange={
+              (evt) => { this.props.handleIngredientSelection(evt) }
+            }/>
+
+        <label className="select flex-1-1-auto" htmlFor="sugarMeasurement">
+            <select className="" id="sugarMeasurement" name="sugarMeasurement" onChange={
+              (evt) => { this.props.handleIngredientSelection(evt) }
+            }><option value="cups">cups</option>
+              <option value="oz">oz</option>
+            </select>
+          </label>
+          <button className="flex-0-1-auto" onClick={() => {
+              this.props.handleSaveSugar()
+              .then(() => this.props.getAllSugars())
+
+            }}>Add</button>
       </div>
 
     )

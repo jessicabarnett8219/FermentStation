@@ -23,7 +23,7 @@ class BrewingDetail extends Component {
             <ul>
               {
                 this.props.starterIngredients.map(i => {
-                  return <li>{i.ingredient.name}</li>
+                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
                 })
               }
             </ul>
