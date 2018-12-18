@@ -10,7 +10,7 @@ class ReviewForm extends Component {
     batchId: "",
     completeDate: "",
     review: "",
-    rating: ""
+    rating: "positive"
   }
 
   componentDidMount() {
