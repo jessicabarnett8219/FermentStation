@@ -16,33 +16,37 @@ class EditBatch extends Component {
     editStartDate: "",
     editBottleDate: "",
     editCompleteDate: "",
-    editStarterIngredients: "",
-    editBottleIngredients: "",
     editReview: "",
     editRating: "",
+    starterIngredients: [],
+    bottleIngredients: []
   }
 
   componentDidMount() {
     const { batchId } = this.props.match.params
-    const currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
-    this.setState({ currentUser: currentUserId }, () => {
-      APIManager.getEntry("batches", batchId, "?_expand=type")
-        .then(batchObj => {
-          this.setState({
-            batch: batchObj,
-            editName: batchObj.name,
-            editType: batchObj.typeId,
-            editStartDate: batchObj.startDate,
-            editBottleDate: batchObj.bottleDate,
-            editStarterIngredients: batchObj.starterIngredients,
-            editCompleteDate: batchObj.completeDate,
-            editBottleIngredients: batchObj.bottleIngredients,
-            editReview: batchObj.review,
-            editRating: batchObj.rating,
-            initialized: true
+    APIManager.getEntry("batches", batchId, "?_expand=type")
+      .then(batchObj => {
+        this.setState({
+          batch: batchObj,
+          editName: batchObj.name,
+          editType: batchObj.typeId,
+          editStartDate: batchObj.startDate,
+          editBottleDate: batchObj.bottleDate,
+          editCompleteDate: batchObj.completeDate,
+          editReview: batchObj.review,
+          editRating: batchObj.rating,
+        }, () => {
+          this.getStarterIngredients(this.state.batch.id)
+          .then(ingredients => {
+            this.setState({ starterIngredients: ingredients })
+          }, () => {
+            this.getBottleIngredients(this.state.batch.id)
+            .then(ingredients => {
+              this.setState({ bottleIngredients: ingredients, initialized: true })
+            })
           })
         })
-    })
+      })
   }
 
   handleFieldChange = (evt) => {
@@ -78,6 +82,24 @@ class EditBatch extends Component {
     return editedBatch
   }
 
+  getStarterIngredients = (batchId) => {
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+      .then(ingredients => {
+        return ingredients.filter(i => i.ingredient.categoryId !== 5)
+      })
+  }
+
+  getBottleIngredients = (batchId) => {
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+      .then(ingredients => {
+        return ingredients.filter(i => i.ingredient.categoryId === 5)
+      })
+  }
+
+  deleteIngredient = (id) => {
+    return APIManager.deleteEntry("batches-ingredients", id)
+  }
+
   handleSave = () => {
     let editedBatch = this.constructEditedBatch()
     APIManager.editEntry("batches", this.state.batch.id, editedBatch)
@@ -92,23 +114,23 @@ class EditBatch extends Component {
       if (this.state.batch.status === 1) {
         return (
           <div>
-          <NavBar {...this.props}/>
-          <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+            <NavBar {...this.props} />
+            <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} starterIngredients={this.state.starterIngredients}{...this.props} />
           </div>
         )
       } else if (this.state.batch.status === 2) {
         return (
           <div>
-          <NavBar {...this.props}/>
-          <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props}/>
+            <NavBar {...this.props} />
+            <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
           </div>
         )
       }
       else if (this.state.batch.status === 3) {
         return (
           <div>
-          <NavBar {...this.props}/>
-          <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props}/>
+            <NavBar {...this.props} />
+            <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
           </div>
         )
       }
