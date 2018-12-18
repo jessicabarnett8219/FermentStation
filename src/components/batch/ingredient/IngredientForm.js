@@ -17,15 +17,15 @@ class IngredientForm extends Component {
     waterAmount: 0,
     waterMeasurement: "cups",
     supplementAmount: 0,
-    supplementMeasurement: "cups",
+    supplementMeasurement: "tbsp",
     selectedSugars: [],
     selectedTeas: [],
     selectedWaters: [],
     selectedSupplements: [],
     sugarAmount: 0,
-    sugarMeasurement: "cups",
+    sugarMeasurement: "tbsp",
     teaAmount: 0,
-    teaMeasurement: "cups"
+    teaMeasurement: "tbsp"
   }
 
   componentDidMount() {

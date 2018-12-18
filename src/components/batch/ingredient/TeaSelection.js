@@ -42,8 +42,10 @@ class TeaSelection extends Component {
         <label className="select flex-1-1-auto" htmlFor="teaMeasurement">
             <select className="" id="teaMeasurement" name="teaMeasurement" onChange={
               (evt) => { this.props.handleIngredientSelection(evt) }
-            }><option value="cups">cups</option>
-              <option value="oz">oz</option>
+            }><option value="tbsp">tbsp</option>
+            <option value="tsp">tsp</option>
+            <option value="cups">cups</option>
+            <option value="oz">oz</option>
             </select>
           </label>
           <button className="flex-0-1-auto" onClick={() => {
