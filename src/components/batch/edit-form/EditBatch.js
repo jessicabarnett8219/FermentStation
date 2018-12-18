@@ -134,7 +134,7 @@ class EditBatch extends Component {
         return (
           <div>
             <NavBar {...this.props} />
-            <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
+            <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} bottleIngredients={this.state.bottleIngredients}starterIngredients={this.state.starterIngredients} deleteIngredient={this.deleteIngredient} getBottleIngredients={this.getBottleIngredients} getStarterIngredients={this.getStarterIngredients}{...this.props} />
           </div>
         )
       }
@@ -142,7 +142,7 @@ class EditBatch extends Component {
         return (
           <div>
             <NavBar {...this.props} />
-            <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+            <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} starterIngredients={this.state.starterIngredients} bottleIngredients={this.state.bottleIngredients} getStarterIngredients={this.getStarterIngredients} getBottleIngredients={this.getBottleIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
           </div>
         )
       }
