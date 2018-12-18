@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
 import Moment from "react-moment"
+import moment from "moment"
+import FlavorSelection from "../ingredient/FlavorSelection";
 
 
 class BottleForm extends Component {
@@ -10,19 +12,30 @@ class BottleForm extends Component {
     batch: "",
     bottleDate: "",
     completeDate: "",
-    bottleIngredients: "",
-    batchId: ""
+    batchId: "",
+    currentFlavor: 6,
+    flavorAmount: 0,
+    flavorMeasurement: "tbsp",
+    selectedFlavors: []
   }
 
   componentDidMount() {
+    const getToday = () => {
+      let today = new Date()
+      return moment(today, "YYYY-MM-DD")
+    }
+    let today = getToday()
     const { batchId } = this.props.match.params
-    this.setState({ batchId: batchId })
+    this.setState({ batchId: batchId, bottleDate: today })
     APIManager.getEntry("batches", batchId)
       .then(batch => {
         this.setState({
-          batch: batch
+          batch: batch,
+          bottleDate: today,
+          completeDate: today
         })
       })
+
   }
 
   handleFieldChange = (evt) => {
@@ -35,12 +48,10 @@ class BottleForm extends Component {
     const bottledBatch = {
       bottleDate: this.state.bottleDate,
       completeDate: this.state.completeDate,
-      bottleIngredients: this.state.bottleIngredients,
       status: 2
     }
     return bottledBatch
   }
-
 
   handleSave = () => {
     let bottledBatch = this.constructBottledBatch()
@@ -51,12 +62,40 @@ class BottleForm extends Component {
 
   }
 
+  getAllFlavors = () => {
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+      .then(ingredients => {
+        return ingredients.filter(i => i.ingredient.categoryId === 5)
+      })
+      .then(flavors => this.setState({ selectedFlavors: flavors }))
+  }
+
+  handleIngredientSelection = (evt) => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
+
+  handleSaveFlavor = () => {
+    let newbatchIngredient = {
+      ingredientId: parseInt(this.state.currentFlavor),
+      batchId: this.state.batchId,
+      amount: parseInt(this.state.flavorAmount),
+      measurement: this.state.flavorMeasurement
+    }
+    return APIManager.addEntry("batches-ingredients", newbatchIngredient)
+  }
+
+  deleteIngredient = (id) => {
+    return APIManager.deleteEntry("batches-ingredients", id)
+  }
+
   render() {
     return (
       <div>
-        <NavBar {...this.props}/>
+        <NavBar {...this.props} />
         <div className="container">
-        <h1 className="text-align-center">Bottle Batch</h1>
+          <h1 className="text-align-center">Bottle Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
           <h4 className="text-align-center">Started On: <Moment format="dddd, MMMM Do YYYY">{this.state.batch.startDate}</Moment></h4>
           <label htmlFor="bottleDate">Bottle Date</label>
@@ -68,9 +107,7 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <textarea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
-            this.handleFieldChange(evt)
-          }} />
+          <FlavorSelection handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} getAllFlavors={this.getAllFlavors}/>
 
           <div className="flex justify-content-center">
             <button className="button info button-border margin-top-xxs" onClick={
@@ -80,12 +117,7 @@ class BottleForm extends Component {
             }>Cancel</button>
 
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              if(this.props.bottleDate === "" || this.props.completeDate === "") {
-                alert("Date fields should not be left blank")
-              } else {
-                this.handleSave()
-              }
-
+              this.handleSave()
             }}>Save</button>
           </div>
         </div>
