@@ -2,66 +2,63 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 
 
-class TeaSelection extends Component {
+class StarterSelection extends Component {
 
   state = {
-    teaOptions: [],
+    starterOptions: [],
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("ingredients", "?categoryId=3")
+    APIManager.getAllEntries("ingredients", "?categoryId=6")
       .then(options => this.setState({
-        teaOptions: options
+        starterOptions: options
       }))
 
   }
-
 
   render() {
     return (
       <div>
         <div className="flex justify-content-flex-start align-items-baseline">
-          <label className="select flex-1-1-auto" htmlFor="currentTea">
-            <select className="" id="currentTea" name="currentTea" onChange={
+          <label className="select flex-1-1-auto" htmlFor="currentStarter">
+            <select className="" id="currentStarter" name="currentStarter" onChange={
               (evt) => {
                 this.props.handleIngredientSelection(evt)
               }
             }>
               {
-                this.state.teaOptions.map(tea => {
-                  return <option key={tea.id} value={tea.id} >
-                    {tea.name}
+                this.state.starterOptions.map(starter => {
+                  return <option key={starter.id} value={starter.id} >
+                    {starter.name}
                   </option>
                 })
               }
             </select>
           </label>
-          <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="teaAmount" onChange={
+          <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="starterAmount" onChange={
             (evt) => { this.props.handleIngredientSelection(evt) }
           } />
-
-          <label className="select flex-1-1-auto" htmlFor="teaMeasurement">
-            <select className="" id="teaMeasurement" name="teaMeasurement" onChange={
+          <label className="select flex-1-1-auto" htmlFor="starterMeasurement">
+            <select className="" id="starterMeasurement" name="starterMeasurement" onChange={
               (evt) => { this.props.handleIngredientSelection(evt) }
-            }><option value="tbsp">tbsp</option>
-              <option value="tsp">tsp</option>
-              <option value="cups">cups</option>
+            }><option value="cups">cups</option>
+              <option value="tbsp">tbsp</option>
               <option value="oz">oz</option>
             </select>
           </label>
           <button className="flex-0-1-auto" onClick={() => {
-            this.props.handleSaveTea()
-              .then(() => this.props.getAllTeas())
+            this.props.handleSaveStarter()
+              .then(() => this.props.getAllStarters())
           }}>Add</button>
         </div>
         <div>
           <ul>
             {
-              this.props.selectedTeas.map(ingredientObj => {
+              this.props.selectedStarters.map(ingredientObj => {
                 return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                   <button className="button-xs" onClick={() => {
                     this.props.deleteIngredient(ingredientObj.id)
-                      .then(() => this.props.getAllTeas())
+                      .then(() => this.props.getAllStarters())
                   }}>Delete</button>
                 </li>
               })
@@ -73,4 +70,4 @@ class TeaSelection extends Component {
   }
 }
 
-export default TeaSelection
+export default StarterSelection
