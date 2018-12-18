@@ -36,15 +36,21 @@ class EditBatch extends Component {
           editReview: batchObj.review,
           editRating: batchObj.rating,
         }, () => {
-          this.getStarterIngredients(this.state.batch.id)
-          .then(ingredients => {
-            this.setState({ starterIngredients: ingredients })
-          }, () => {
-            this.getBottleIngredients(this.state.batch.id)
+          APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
             .then(ingredients => {
-              this.setState({ bottleIngredients: ingredients, initialized: true })
+              return ingredients.filter(i => i.ingredient.categoryId !== 5)
             })
-          })
+            .then(ingredients => {
+              this.setState({ starterIngredients: ingredients }, () => {
+                APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+                  .then(ingredients => {
+                    return ingredients.filter(i => i.ingredient.categoryId === 5)
+                  })
+                  .then(ingredients => {
+                    this.setState({ bottleIngredients: ingredients, initialized: true })
+                  })
+              })
+            })
         })
       })
   }
@@ -87,12 +93,18 @@ class EditBatch extends Component {
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId !== 5)
       })
+      .then(ingredients => {
+        this.setState({ starterIngredients: ingredients })
+      })
   }
 
   getBottleIngredients = (batchId) => {
     APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 5)
+      })
+      .then(ingredients => {
+        this.setState({ bottleIngredients: ingredients })
       })
   }
 
@@ -115,7 +127,7 @@ class EditBatch extends Component {
         return (
           <div>
             <NavBar {...this.props} />
-            <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} starterIngredients={this.state.starterIngredients}{...this.props} />
+            <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} starterIngredients={this.state.starterIngredients} getStarterIngredients={this.getStarterIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
           </div>
         )
       } else if (this.state.batch.status === 2) {

@@ -25,24 +25,21 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <label>Amount</label>
-          <input id="editAmount" type="text" defaultValue={this.props.batch.batchAmount} onChange={
-            (evt) => { this.props.handleFieldChange(evt) }
-          } />
-
-          <label className="select" htmlFor="editMeasurement">
-            <select id="editMeasurement" defaultValue={this.props.batch.editMeasurement} onChange={
-              (evt) => { this.props.handleFieldChange(evt) }
-            } >
-              <option value="cups">Cups</option>
-              <option value="ounces">Ounces</option>
-            </select>
-          </label>
-
-          <label htmlFor="editStarterIngredients">Starter Ingredients</label>
-          <textarea id="editStarterIngredients" defaultValue={this.props.batch.starterIngredients} label="Starter Ingredients" onChange={
-            (evt) => { this.props.handleFieldChange(evt) }
-          } />
+          <label>Starter Ingredients</label>
+          <div>
+          <ul>
+            {
+              this.props.starterIngredients.map(ingredientObj => {
+                return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                  <button className="button-xs" onClick={() => {
+                    this.props.deleteIngredient(ingredientObj.id)
+                      .then(() => this.props.getStarterIngredients(this.props.batch.id))
+                  }}>Delete</button>
+                </li>
+              })
+            }
+          </ul>
+        </div>
 
           <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={() => {
