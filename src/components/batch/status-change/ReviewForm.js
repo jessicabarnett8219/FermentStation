@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
 import Moment from "react-moment"
+import moment from "moment"
 
 class ReviewForm extends Component {
   state = {
@@ -13,13 +14,18 @@ class ReviewForm extends Component {
   }
 
   componentDidMount() {
+    const getToday = () => {
+      let today = new Date()
+      return moment(today, "YYYY-MM-DD")
+    }
+    let today = getToday()
     const { batchId } = this.props.match.params
     this.setState({ batchId: batchId })
     APIManager.getEntry("batches", batchId)
       .then(batch => {
         this.setState({
           batch: batch,
-          bottleDate: batch.bottleDate
+          completeDate: today
         })
       })
   }
@@ -60,9 +66,9 @@ class ReviewForm extends Component {
         <div className="container">
           <h1 className="text-align-center">Review Batch</h1>
           <h3 className="text-align-center">{this.state.batch.name}</h3>
-          <p className="text-align-center">Bottled On: <Moment format="dddd, MMMM Do YYYY">{this.state.bottleDate}</Moment></p>
+          <p className="text-align-center">Bottled On: <Moment format="dddd, MMMM Do YYYY">{this.state.batch.bottleDate}</Moment></p>
           <label htmlFor="completeDate">Completion Date</label>
-          <input type="date" id="completeDate" onChange={(evt) => {
+          <input type="date" id="completeDate"onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 

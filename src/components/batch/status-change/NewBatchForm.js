@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
+import moment from "moment"
 
 class NewBatchForm extends Component {
 
@@ -15,10 +16,13 @@ class NewBatchForm extends Component {
   }
 
   componentDidMount() {
+    const getToday = () => {
+      let today = new Date()
+      return moment(today, "YYYY-MM-DD")
+    }
+    let today = getToday()
     let currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
-    this.setState({ currentUser: currentUserId })
-    let today = new Date()
-    this.setState({ startDate: today, expBottlingDate: today })
+    this.setState({ currentUser: currentUserId, startDate: today, expBottlingDate: today })
   }
 
   handleFieldChange = (evt) => {
