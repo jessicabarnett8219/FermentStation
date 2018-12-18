@@ -1,16 +1,14 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
-import SugarSelection from "./SugarSelection"
-import TeaSelection from "./TeaSelection"
-import SupplementSelection from "./SupplementSelection"
-import WaterSelection from "./WaterSelection"
-import StarterSelection from "./StarterSelection"
+import KombuchaIngredientForm from "./KombuchaIngredientForm";
+import WaterKefirIngredientForm from "./WaterKefirIngredientForm"
 
 class IngredientForm extends Component {
 
   state = {
     batchId: "",
+    batchType: "",
     currentSugar: 1,
     currentTea: 3,
     currentWater: 8,
@@ -31,12 +29,18 @@ class IngredientForm extends Component {
     teaMeasurement: "tbsp",
     selectedStarter: 7,
     starterAmount: 0,
-    starterMeasurement: "cups"
+    starterMeasurement: "cups",
+    isInitialized: false
   }
 
   componentDidMount() {
     const { batchId } = this.props.match.params
-    this.setState({ batchId: +batchId })
+    APIManager.getEntry("batches", batchId)
+      .then(batch => this.setState({
+        batchId: batch.id,
+        batchType: batch.typeId,
+        isInitialized: true
+      }))
   }
 
   getAllSugars = () => {
@@ -144,40 +148,40 @@ class IngredientForm extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <NavBar {...this.props} />
-        <div className="container">
-          <h1 className="text-align-center">Add Ingredients</h1>
+    if (this.state.isInitialized === true) {
+      if (this.state.batchType === 1) {
+        return (
           <div>
-            <h3>Water</h3>
-            <WaterSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveWater={this.handleSaveWater} getAllWaters={this.getAllWaters} selectedWaters={this.state.selectedWaters} deleteIngredient={this.deleteIngredient} />
-          </div>
+            <NavBar {...this.props} />
+            <div className="container">
+              <KombuchaIngredientForm handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveWater={this.handleSaveWater} getAllWaters={this.getAllWaters} selectedWaters={this.state.selectedWaters} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars} selectedSugars={this.state.selectedSugars} handleSaveTea={this.handleSaveTea} getAllTeas={this.getAllTeas} selectedTeas={this.state.selectedTeas} handleSaveStarter={this.handleSaveStarter} getAllStarters={this.getAllStarters} selectedStarters={this.state.selectedStarters} />
 
-          <div>
-            <h3>Sugar</h3>
-            <SugarSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars} selectedSugars={this.state.selectedSugars} deleteIngredient={this.deleteIngredient} />
+              <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+                this.handleSaveAll()
+              }}>Save</button>
+            </div>
           </div>
+        )
+      } else if (this.state.batchType === 2) {
+        return (
+          <div>
+            <NavBar {...this.props} />
+            <div className="container">
+              <WaterKefirIngredientForm handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveWater={this.handleSaveWater} getAllWaters={this.getAllWaters} selectedWaters={this.state.selectedWaters} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars} selectedSugars={this.state.selectedSugars} handleSaveSupplement={this.handleSaveSupplement} getAllSupplements={this.getAllSupplements} selectedSupplements={this.state.selectedSupplements} />
+            </div>
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+              this.handleSaveAll()
+            }}>Save</button>
+          </div>
+        )
+      }
+    } else {
+      return (
+        <div>loading</div>
+      )
+    }
 
-          <div>
-            <h3>Tea</h3>
-            <TeaSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveTea={this.handleSaveTea} getAllTeas={this.getAllTeas} selectedTeas={this.state.selectedTeas} deleteIngredient={this.deleteIngredient} />
-          </div>
-          <div>
-            <h3>Supplements</h3>
-            <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveSupplement={this.handleSaveSupplement} getAllSupplements={this.getAllSupplements} selectedSupplements={this.state.selectedSupplements} deleteIngredient={this.deleteIngredient} />
-          </div>
-          <div>
-            <h3>Starter</h3>
-            <StarterSelection handleIngredientSelection={this.handleIngredientSelection} handleSaveStarter={this.handleSaveStarter} getAllStarters={this.getAllStarters} selectedStarters={this.state.selectedStarters} deleteIngredient={this.deleteIngredient}/>
-          </div>
 
-          <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-            this.handleSaveAll()
-          }}>Save</button>
-        </div>
-      </div>
-    )
   }
 }
 
