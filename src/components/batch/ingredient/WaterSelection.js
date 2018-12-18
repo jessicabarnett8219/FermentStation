@@ -13,6 +13,7 @@ class WaterSelection extends Component {
       .then(options => this.setState({
         waterOptions: options
       }))
+    this.props.getAllWaters()
 
   }
 

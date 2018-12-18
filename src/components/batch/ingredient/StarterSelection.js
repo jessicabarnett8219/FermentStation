@@ -13,7 +13,7 @@ class StarterSelection extends Component {
       .then(options => this.setState({
         starterOptions: options
       }))
-
+      this.props.getAllStarters()
   }
 
   render() {

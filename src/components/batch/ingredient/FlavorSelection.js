@@ -13,7 +13,7 @@ class FlavorSelection extends Component {
       .then(options => this.setState({
         flavorOptions: options
       }))
-
+      this.props.getAllFlavors()
   }
   render() {
     return (

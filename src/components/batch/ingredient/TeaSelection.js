@@ -13,7 +13,7 @@ class TeaSelection extends Component {
       .then(options => this.setState({
         teaOptions: options
       }))
-
+      this.props.getAllTeas()
   }
 
 

@@ -13,7 +13,7 @@ class SupplementSelection extends Component {
       .then(options => this.setState({
         supplementOptions: options
       }))
-
+      this.props.getAllSupplements()
   }
 
   render() {
