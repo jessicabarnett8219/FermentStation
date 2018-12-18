@@ -21,9 +21,25 @@ class BottledDetail extends Component {
             <dt>Expected Completion Date</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
             <dt>Starter Ingredients </dt>
-            <dd>{this.props.starterIngredients}</dd>
+            <dd>
+              <ul>
+                {
+                  this.props.starterIngredients.map(i => {
+                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
+                  })
+                }
+              </ul>
+            </dd>
             <dt>Bottle Ingredients</dt>
-            <dd>{this.props.bottleIngredients}</dd>
+            <dd>
+              <ul>
+                {
+                  this.props.bottleIngredients.map(i => {
+                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
+                  })
+                }
+              </ul>
+            </dd>
           </dl>
 
           <div className="flex justify-content-center">

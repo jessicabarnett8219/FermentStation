@@ -80,8 +80,8 @@ class BottleForm extends Component {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentFlavor),
       batchId: this.state.batchId,
-      amount: parseInt(this.state.FlavorAmount),
-      measurement: this.state.FlavorMeasurement
+      amount: parseInt(this.state.flavorAmount),
+      measurement: this.state.flavorMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }

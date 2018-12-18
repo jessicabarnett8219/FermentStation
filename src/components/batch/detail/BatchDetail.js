@@ -12,7 +12,8 @@ class BatchDetail extends Component {
     batch: {},
     initialized: false,
     currentUser: "",
-    starterIngredients: []
+    starterIngredients: [],
+    bottleIngredients: []
   }
 
   componentDidMount() {
@@ -25,7 +26,20 @@ class BatchDetail extends Component {
         })
     })
     APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
-    .then(ingredients => this.setState({starterIngredients: ingredients}))
+    .then(ingredients => {
+      return ingredients.filter(i => i.ingredient.categoryId === 5)
+    })
+
+    .then(ingredients => {
+      this.setState({bottleIngredients: ingredients})
+    })
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+    .then(ingredients => {
+      return ingredients.filter(i => i.ingredient.categoryId !== 5)
+    })
+    .then(ingredients => {
+      this.setState({starterIngredients: ingredients})
+    })
   }
 
   handleDelete = () => {
@@ -55,7 +69,7 @@ class BatchDetail extends Component {
         return (
           <div>
             <NavBar {...this.props}/>
-            <BottledDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props} />
+            <BottledDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props} starterIngredients={this.state.starterIngredients} bottleIngredients={this.state.bottleIngredients}/>
           </div>
         )
       }
@@ -63,7 +77,7 @@ class BatchDetail extends Component {
         return (
           <div>
             <NavBar {...this.props}/>
-            <CompletedDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} {...this.props} />
+            <CompletedDetail {...this.state.batch} {...this.props} handleDelete={this.handleDelete} starterIngredients={this.state.starterIngredients} bottleIngredients={this.state.bottleIngredients} {...this.props} />
           </div>
         )
       }
