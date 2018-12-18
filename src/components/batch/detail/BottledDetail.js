@@ -20,8 +20,6 @@ class BottledDetail extends Component {
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
             <dt>Expected Completion Date</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
-            <dt>Amount</dt>
-            <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
             <dt>Starter Ingredients </dt>
             <dd>{this.props.starterIngredients}</dd>
             <dt>Bottle Ingredients</dt>

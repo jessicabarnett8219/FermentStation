@@ -16,8 +16,6 @@ class BrewingDetail extends Component {
           <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
           <dt>Expected Bottling Date</dt>
           <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
-          <dt>Amount</dt>
-          <dd>{`${this.props.batchAmount} ${this.props.measurement}`}</dd>
           <dt>Starter Ingredients </dt>
           <dd>
             <ul>

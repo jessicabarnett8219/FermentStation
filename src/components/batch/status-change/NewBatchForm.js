@@ -10,9 +10,6 @@ class NewBatchForm extends Component {
     startDate: "",
     expBottlingDate: "",
     type: 2,
-    batchAmount: "",
-    measurement: "cups",
-    dateToday: "",
     ingredients: "",
     batchId: ""
   }
@@ -21,7 +18,7 @@ class NewBatchForm extends Component {
     let currentUserId = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     this.setState({ currentUser: currentUserId })
     let today = new Date()
-    this.setState({ dateToday: today })
+    this.setState({ startDate: today, expBottlingDate: today })
   }
 
   handleFieldChange = (evt) => {
@@ -45,8 +42,6 @@ class NewBatchForm extends Component {
       startDate: this.state.startDate,
       bottleDate: this.state.expBottlingDate,
       completeDate: "",
-      batchAmount: this.state.batchAmount,
-      measurement: this.state.measurement,
       status: 1
     }
     return newBatch
@@ -77,7 +72,7 @@ class NewBatchForm extends Component {
           } />
 
           <label htmlFor="startDate">Start Date</label>
-          <input id="startDate" type="date" onChange={
+          <input id="startDate" type="date" defaultValue={this.state.startDate}onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -87,26 +82,12 @@ class NewBatchForm extends Component {
           } />
 
 
-          <input type="radio" name="type" value={2} onChange={(evt) => {
+          <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
                   this.handleFieldChangeRadio(evt)
                 }}/> Water Kefir <br></br>
             <input type="radio" name="type" value={1} onChange={(evt) => {
                   this.handleFieldChangeRadio(evt)
                 }}/> Kombucha <br></br>
-
-
-          <label htmlFor="batchAmount">Amount</label>
-          <input id="batchAmount" type="text" placeholder="Amount (number)" onChange={
-            (evt) => { this.handleFieldChange(evt) }
-          } />
-
-          <label className="select" htmlFor="measurement">
-            <select id="measurement" name="measurement" onChange={
-              (evt) => { this.handleFieldChange(evt) }
-            }><option value="cups">cups</option>
-              <option value="ounces">ounces</option>
-            </select>
-          </label>
 
           <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={
@@ -115,12 +96,7 @@ class NewBatchForm extends Component {
               }
             }>Cancel</button>
             <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              if (this.state.startDate === "" || this.state.expBottlingDate === "") {
-                alert("Date fields should not be blank")
-              } else {
                 this.handleSave()
-              }
-
             }}>Save & Continue</button>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import APIManager from "../../../modules/APIManager"
 import SugarSelection from "./SugarSelection"
 import WaterSelection from "./WaterSelection"
 import SupplementSelection from "./SupplementSelection"

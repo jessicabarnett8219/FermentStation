@@ -19,8 +19,6 @@ class EditBatch extends Component {
     editStarterIngredients: "",
     editBottleIngredients: "",
     editReview: "",
-    editAmount: "",
-    editMeasurement: "",
     editRating: "",
   }
 
@@ -40,8 +38,6 @@ class EditBatch extends Component {
             editCompleteDate: batchObj.completeDate,
             editBottleIngredients: batchObj.bottleIngredients,
             editReview: batchObj.review,
-            editAmount: batchObj.batchAmount,
-            editMeasurement: batchObj.measurement,
             editRating: batchObj.rating,
             initialized: true
           })

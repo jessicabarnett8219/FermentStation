@@ -68,7 +68,7 @@ class BottleForm extends Component {
             this.handleFieldChange(evt)
           }} />
           <label htmlFor="bottleIngredients">Bottle Ingredients</label>
-          <textarea type="text" placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
+          <textarea type="text" required placeholder="Bottle Ingredients" id="bottleIngredients" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
