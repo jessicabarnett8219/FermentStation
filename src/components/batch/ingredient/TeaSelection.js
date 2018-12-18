@@ -5,7 +5,7 @@ import APIManager from "../../../modules/APIManager"
 class TeaSelection extends Component {
 
   state = {
-    teaOptions: []
+    teaOptions: [],
   }
 
   componentDidMount() {
@@ -15,11 +15,13 @@ class TeaSelection extends Component {
       }))
 
   }
+
+
   render() {
     return (
-      <div>
-        <label className="select" htmlFor="sugarId">
-          <select id="ingredientId" name="ingredientId" onChange={
+      <div className="flex justify-content-flex-start align-items-baseline">
+        <label className="select flex-1-1-auto" htmlFor="currentTea">
+          <select className="" id="currentTea" name="currentTea" onChange={
                   (evt) => {
                     this.props.handleIngredientSelection(evt)
                   }
@@ -33,6 +35,24 @@ class TeaSelection extends Component {
             }
           </select>
         </label>
+        <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="teaAmount" onChange={
+              (evt) => { this.props.handleIngredientSelection(evt) }
+            }/>
+
+        <label className="select flex-1-1-auto" htmlFor="teaMeasurement">
+            <select className="" id="teaMeasurement" name="teaMeasurement" onChange={
+              (evt) => { this.props.handleIngredientSelection(evt) }
+            }><option value="tbsp">tbsp</option>
+            <option value="tsp">tsp</option>
+            <option value="cups">cups</option>
+            <option value="oz">oz</option>
+            </select>
+          </label>
+          <button className="flex-0-1-auto" onClick={() => {
+              this.props.handleSaveTea()
+              .then(() => this.props.getAllTeas())
+
+            }}>Add</button>
       </div>
 
     )

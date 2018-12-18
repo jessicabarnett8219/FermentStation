@@ -121,7 +121,7 @@ class NewBatchForm extends Component {
                 this.handleSave()
               }
 
-            }}>Continue</button>
+            }}>Save & Continue</button>
           </div>
         </div>
       </div>
