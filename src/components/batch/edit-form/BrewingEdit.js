@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "./BatchTypeEditForm";
-import IngredientForm from "../ingredient/IngredientForm"
+import IngredientForm from "../ingredient/IngredientForm";
 
 class BrewingEdit extends Component {
 
@@ -25,25 +25,6 @@ class BrewingEdit extends Component {
           <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-
-          <label>Starter Ingredients</label>
-          <button onClick={() => {
-            this.props.history.push(`/ingredients/${this.props.batch.id}`)
-          }}>Add More</button>
-          <div>
-          <ul>
-            {
-              this.props.starterIngredients.map(ingredientObj => {
-                return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                <button className="button-xs" onClick={() => {
-                    this.props.deleteIngredient(ingredientObj.id)
-                      .then(() => this.props.getStarterIngredients(this.props.batch.id))
-                  }}>Delete</button>
-                </li>
-              })
-            }
-          </ul>
-        </div>
 
           <div className="flex justify-content-center margin-bottom-s">
             <button className="button info button-border margin-top-xxs" onClick={() => {

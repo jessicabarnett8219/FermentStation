@@ -32,6 +32,9 @@ class CompletedEdit extends Component {
           } />
 
           <label>Starter Ingredients</label>
+          <button className="button button-xs" onClick={() => {
+            this.props.history.push(`/ingredients/${this.props.batch.id}`)
+          }}>Add More</button>
           <div>
             <ul>
               {
@@ -48,6 +51,9 @@ class CompletedEdit extends Component {
           </div>
 
           <label>Bottle Ingredients</label>
+          <button className="button button-xs" onClick={() => {
+            this.props.history.push(`/ingredients/${this.props.batch.id}`)
+          }}>Add More</button>
           <div>
             <ul>
               {
