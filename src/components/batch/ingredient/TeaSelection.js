@@ -20,6 +20,7 @@ class TeaSelection extends Component {
   render() {
     return (
       <div>
+        <h3>Tea</h3>
         <div className="flex justify-content-flex-start align-items-baseline">
           <label className="select flex-1-1-auto" htmlFor="currentTea">
             <select className="" id="currentTea" name="currentTea" onChange={

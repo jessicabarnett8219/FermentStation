@@ -1,8 +1,11 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import NavBar from "../../navigation/NavBar"
-import KombuchaIngredientForm from "./KombuchaIngredientForm";
-import WaterKefirIngredientForm from "./WaterKefirIngredientForm"
+import SugarSelection from "./SugarSelection";
+import WaterSelection from "./WaterSelection";
+import SupplementSelection from "./SupplementSelection";
+import TeaSelection from "./TeaSelection";
+import StarterSelection from "./StarterSelection";
 
 class IngredientForm extends Component {
 
@@ -149,35 +152,28 @@ class IngredientForm extends Component {
 
   render() {
     if (this.state.isInitialized === true) {
-      if (this.state.batchType === 1) {
-        return (
-          <div>
-            <NavBar {...this.props} />
-            <div className="container">
-              <KombuchaIngredientForm handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveWater={this.handleSaveWater} getAllWaters={this.getAllWaters} selectedWaters={this.state.selectedWaters} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars} selectedSugars={this.state.selectedSugars} handleSaveTea={this.handleSaveTea} getAllTeas={this.getAllTeas} selectedTeas={this.state.selectedTeas} handleSaveStarter={this.handleSaveStarter} getAllStarters={this.getAllStarters} selectedStarters={this.state.selectedStarters} />
+      return (
+        <React.Fragment>
+          <NavBar {...this.props} />
+          <div className="container">
+            <h1 className="text-align-center">Add Ingredients</h1>
+            <WaterSelection handleIngredientSelection={this.handleIngredientSelection} getAllWaters={this.getAllWaters} handleSaveWater={this.handleSaveWater} deleteIngredient={this.deleteIngredient} selectedWaters={this.state.selectedWaters} />
+            <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
 
-              <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-                this.handleSaveAll()
-              }}>Save</button>
-            </div>
+            {this.state.batchType === 2 ?
+              <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /> : this.state.batchType === 1 ?
+                <React.Fragment>
+                  <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} />
+                  <StarterSelection handleIngredientSelection={this.handleIngredientSelection} getAllStarters={this.getAllStarters} handleSaveStarter={this.handleSaveStarter} deleteIngredient={this.deleteIngredient} selectedStarters={this.state.selectedStarters} />
+                </React.Fragment> : null
+            }
+            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => { this.handleSaveAll() }}>Save</button>
           </div>
-        )
-      } else if (this.state.batchType === 2) {
-        return (
-          <div>
-            <NavBar {...this.props} />
-            <div className="container">
-              <WaterKefirIngredientForm handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveWater={this.handleSaveWater} getAllWaters={this.getAllWaters} selectedWaters={this.state.selectedWaters} handleSaveSugar={this.handleSaveSugar} getAllSugars={this.getAllSugars} selectedSugars={this.state.selectedSugars} handleSaveSupplement={this.handleSaveSupplement} getAllSupplements={this.getAllSupplements} selectedSupplements={this.state.selectedSupplements} />
-            </div>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              this.handleSaveAll()
-            }}>Save</button>
-          </div>
-        )
-      }
+        </React.Fragment>
+      )
     } else {
       return (
-        <div>loading</div>
+        <div></div>
       )
     }
 
