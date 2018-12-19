@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import BrewingEdit from "./BrewingEdit"
+import BasicEdit from "./BasicEdit"
 import BottledEdit from "./BottledEdit";
 import CompletedEdit from "./CompletedEdit"
 import NavBar from "../../navigation/NavBar"
+import CancelEditBtn from "./buttons/CancelEditBtn"
+import SaveEditBtn from "./buttons/SaveEditBtn"
 
 class EditBatch extends Component {
 
@@ -120,52 +122,30 @@ class EditBatch extends Component {
   }
 
   render() {
-    return this.state.initialized === true ?
+    if (this.state.initialized === true) {
+      return (
+        <React.Fragment>
+          <NavBar {...this.props} />
+          <div className="container">
+            <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
+            {this.state.batch.status === 2
+              ? <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
+              : this.state.batch.status === 3
+                ? <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+                : null}
+            <div className="flex justify-content-center margin-bottom-s">
+              <CancelEditBtn batch={this.state.batch} {...this.props}/>
+              <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave}/>
+            </div>
+          </div>
 
-      <React.Fragment>
-        <NavBar {...this.props} />
-        {this.state.batch.status === 1
-        ? <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} getStarterIngredients={this.getStarterIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
-        : this.state.batch.status === 2
-        ? <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} bottleIngredients={this.state.bottleIngredients}starterIngredients={this.state.starterIngredients} deleteIngredient={this.deleteIngredient} getBottleIngredients={this.getBottleIngredients} getStarterIngredients={this.getStarterIngredients}{...this.props} />
-        : this.state.batch.status === 3
-        ? <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} starterIngredients={this.state.starterIngredients} bottleIngredients={this.state.bottleIngredients} getStarterIngredients={this.getStarterIngredients} getBottleIngredients={this.getBottleIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
-        : null}
-
-      </React.Fragment>
-    : null
-    // if (this.state.initialized === true) {
-    //   if (this.state.batch.status === 1) {
-    //     return (
-    //       <div>
-    //         <NavBar {...this.props} />
-    //         <BrewingEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} getStarterIngredients={this.getStarterIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
-    //       </div>
-    //     )
-    //   } else if (this.state.batch.status === 2) {
-    //     return (
-    //       <div>
-    //         <NavBar {...this.props} />
-    //         <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} bottleIngredients={this.state.bottleIngredients}starterIngredients={this.state.starterIngredients} deleteIngredient={this.deleteIngredient} getBottleIngredients={this.getBottleIngredients} getStarterIngredients={this.getStarterIngredients}{...this.props} />
-    //       </div>
-    //     )
-    //   }
-    //   else if (this.state.batch.status === 3) {
-    //     return (
-    //       <div>
-    //         <NavBar {...this.props} />
-    //         <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} starterIngredients={this.state.starterIngredients} bottleIngredients={this.state.bottleIngredients} getStarterIngredients={this.getStarterIngredients} getBottleIngredients={this.getBottleIngredients} deleteIngredient={this.deleteIngredient} {...this.props} />
-    //       </div>
-    //     )
-    //   }
-    // }
-    // else {
-    //   return (
-    //     <div>
-    //     </div>
-    //   )
-    // }
-
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 
 

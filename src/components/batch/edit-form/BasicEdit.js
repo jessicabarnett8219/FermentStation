@@ -1,13 +1,11 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "./BatchTypeEditForm";
-import IngredientForm from "../ingredient/IngredientForm";
 
-class BrewingEdit extends Component {
+class BasicEdit extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
+      <React.Fragment>
         <h1 className="text-align-center">Edit Batch</h1>
           <label htmlFor="editName">Name</label>
           <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
@@ -26,23 +24,9 @@ class BrewingEdit extends Component {
             (evt) => { this.props.handleFieldChange(evt) }
           } />
 
-          <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info button-border margin-top-xxs" onClick={() => {
-              this.props.history.push(`/batches/${this.props.batch.id}`)
-            }}>Cancel</button>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-              if (this.props.startDate === "" || this.props.bottleDate === "") {
-                alert("Date fields should not be left blank")
-              } else {
-                this.props.handleSave()
-              }
-            }}>Save</button>
-          </div>
-        </div>
-      </div>
+    </React.Fragment>
     )
-
   }
 }
 
-export default BrewingEdit
+export default BasicEdit
