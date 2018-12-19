@@ -13,6 +13,7 @@ class SugarSelection extends Component {
       .then(options => this.setState({
         sugarOptions: options
       }))
+      this.props.getAllSugars()
 
   }
   render() {
