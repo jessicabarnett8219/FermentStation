@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import NavBar from "../../navigation/NavBar"
 import SugarSelection from "../ingredient/SugarSelection";
 import WaterSelection from "../ingredient/WaterSelection";
 import SupplementSelection from "../ingredient/SupplementSelection";
