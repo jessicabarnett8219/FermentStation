@@ -6,6 +6,7 @@ import CompletedEdit from "./CompletedEdit"
 import NavBar from "../../navigation/NavBar"
 import CancelEditBtn from "./buttons/CancelEditBtn"
 import SaveEditBtn from "./buttons/SaveEditBtn"
+import StarterIngredientEdit from "./StarterIngredientEdit"
 
 class EditBatch extends Component {
 
@@ -19,7 +20,7 @@ class EditBatch extends Component {
     editBottleDate: "",
     editCompleteDate: "",
     editReview: "",
-    editRating: "",
+    editRating: ""
   }
 
   componentDidMount() {
@@ -88,30 +89,6 @@ class EditBatch extends Component {
     return editedBatch
   }
 
-  getStarterIngredients = (batchId) => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
-      .then(ingredients => {
-        return ingredients.filter(i => i.ingredient.categoryId !== 5)
-      })
-      .then(ingredients => {
-        this.setState({ starterIngredients: ingredients })
-      })
-  }
-
-  getBottleIngredients = (batchId) => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
-      .then(ingredients => {
-        return ingredients.filter(i => i.ingredient.categoryId === 5)
-      })
-      .then(ingredients => {
-        this.setState({ bottleIngredients: ingredients })
-      })
-  }
-
-  deleteIngredient = (id) => {
-    return APIManager.deleteEntry("batches-ingredients", id)
-  }
-
   handleSave = () => {
     let editedBatch = this.constructEditedBatch()
     APIManager.editEntry("batches", this.state.batch.id, editedBatch)
@@ -121,6 +98,9 @@ class EditBatch extends Component {
 
   }
 
+
+
+
   render() {
     if (this.state.initialized === true) {
       return (
@@ -129,13 +109,17 @@ class EditBatch extends Component {
           <div className="container">
             <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
             {this.state.batch.status === 2
-              ? <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
+              ? <React.Fragment>
+                <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
+                 </React.Fragment>
               : this.state.batch.status === 3
-                ? <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+                ? <React.Fragment><CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+                  </React.Fragment>
                 : null}
+            <StarterIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
             <div className="flex justify-content-center margin-bottom-s">
-              <CancelEditBtn batch={this.state.batch} {...this.props}/>
-              <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave}/>
+              <CancelEditBtn batch={this.state.batch} {...this.props} />
+              <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
             </div>
           </div>
 
@@ -148,11 +132,6 @@ class EditBatch extends Component {
     }
   }
 
-
-
-
-
 }
-
 
 export default EditBatch

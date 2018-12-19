@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import BatchTypeEditForm from "./BatchTypeEditForm";
+import BatchTypeEditForm from "./BatchTypeEditForm"
 
 class BasicEdit extends Component {
 
@@ -26,7 +26,6 @@ class BasicEdit extends Component {
         <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
-
       </React.Fragment>
     )
   }
