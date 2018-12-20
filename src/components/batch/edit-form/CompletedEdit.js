@@ -1,19 +1,34 @@
 import React, { Component } from "react"
 import BatchRatingEditForm from "./BatchRatingEditForm"
-import BottledEdit from "./BottledEdit"
+import StarterIngredientEdit from "./StarterIngredientEdit"
+import BottleIngredientEdit from "./BottleIngredientEdit"
 
 class CompletedEdit extends Component {
 
   render() {
     return (
       <React.Fragment>
-        <BottledEdit handleFieldChange={this.props.handleFieldChange} handleSave={this.props.handleSave} handleFieldChangeRadio={this.props.handleFieldChangeRadio} batch={this.props.batch} {...this.props}/>
+        <label htmlFor="editCompleteDate">
+          {this.props.batch.status === 3 ? "Completed On" :
+            "Expected Completion Date"
+          }
+        </label>
+
+        <input type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
+          (evt) => { this.props.handleFieldChange(evt) }
+        } />
+
         <BatchRatingEditForm rating={this.props.batch.rating} handleFieldChangeRating={this.props.handleFieldChangeRating} />
+
         <label htmlFor="editReview">Review</label>
         <textarea id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
-        </React.Fragment >
+
+        <StarterIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
+        <BottleIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
+
+      </React.Fragment >
     )
   }
 }

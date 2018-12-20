@@ -18,7 +18,7 @@ class BatchDetail extends Component {
   componentDidMount() {
     // Get batch ID from dynamic route
     const { batchId } = this.props.match.params
-    // Use it to fetch that batch from the database and set that batch as the current batch in state and initialized so that the page will render with that batch's details instead of blank while waiting for state to be set
+    // Use it to fetch that batch from the database and set that batch as the current batch in state and initialized as true so that the page will render with that batch's details
     APIManager.getEntry("batches", batchId, "?_expand=type")
       .then(batchObj => {
         this.setState({ batch: batchObj, initialized: true })

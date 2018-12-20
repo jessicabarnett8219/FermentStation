@@ -11,7 +11,6 @@ class NewBatchForm extends Component {
     startDate: "",
     expBottlingDate: "",
     type: 2,
-    ingredients: "",
     batchId: ""
   }
 

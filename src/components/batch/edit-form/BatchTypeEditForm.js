@@ -7,10 +7,10 @@ class BatchTypeEditForm extends Component {
       return (
         <div>
           <input type="radio" name="editType" value={2}  onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
+            this.props.handleFieldChangeType(evt)
           }} />Water Kefir <br></br>
           <input type="radio" name="editType" value={1} defaultChecked onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
+            this.props.handleFieldChangeType(evt)
           }} />Kombucha <br></br>
         </div>
       )
@@ -18,10 +18,10 @@ class BatchTypeEditForm extends Component {
       return (
         <div>
           <input type="radio" name="editType" value={2} defaultChecked onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
+            this.props.handleFieldChangeType(evt)
           }} />Water Kefir <br></br>
           <input type="radio" name="editType" value={1} onChange={(evt) => {
-            this.props.handleFieldChangeRadio(evt)
+            this.props.handleFieldChangeType(evt)
           }} />Kombucha <br></br>
         </div>
       )

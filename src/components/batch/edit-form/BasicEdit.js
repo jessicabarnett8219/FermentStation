@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import BatchTypeEditForm from "./BatchTypeEditForm"
+import StarterIngredientEdit from "./StarterIngredientEdit";
 
 class BasicEdit extends Component {
 
@@ -12,7 +13,7 @@ class BasicEdit extends Component {
           (evt) => { this.props.handleFieldChange(evt) }
         } />
 
-        <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeRadio={this.props.handleFieldChangeRadio} typeOptions={this.props.typeOptions} />
+        <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeType={this.props.handleFieldChangeType} typeOptions={this.props.typeOptions} />
 
         <label htmlFor="editStartDate">Start Date</label>
         <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
@@ -26,6 +27,8 @@ class BasicEdit extends Component {
         <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
+
+        <StarterIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
       </React.Fragment>
     )
   }

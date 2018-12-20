@@ -4,7 +4,7 @@ import SugarSelection from "../ingredient/SugarSelection";
 import WaterSelection from "../ingredient/WaterSelection";
 import SupplementSelection from "../ingredient/SupplementSelection";
 import TeaSelection from "../ingredient/TeaSelection";
-import StarterSelection from "../ingredient/StarterSelection";
+import StarterSelection from "../ingredient/KombuchaStarterSelection";
 
 class StarterIngredientEdit extends Component {
   state = {

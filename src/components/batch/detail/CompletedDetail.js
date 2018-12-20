@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Moment from 'react-moment';
 
+// Component Renders on Batch Detail screen if the batch is status 3
 class CompletedDetail extends Component {
 
   render() {
@@ -18,7 +19,7 @@ class CompletedDetail extends Component {
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
             <dt>Completed On</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
-
+            {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
             <dt>Starter Ingredients </dt>
             <dd><ul>
               {
@@ -27,6 +28,7 @@ class CompletedDetail extends Component {
                 })
               }
             </ul></dd>
+            {/* Mapping over ingredients associated with this batch that categorized as starter (category 5) */}
             <dt>Bottle Ingredients</dt>
             <dd><ul>
               {

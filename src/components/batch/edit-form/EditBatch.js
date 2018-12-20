@@ -14,7 +14,7 @@ class EditBatch extends Component {
   state = {
     batch: "",
     initialized: false,
-    currentUser: "",
+    // states starting with "edit" correspond to values of input fields
     editName: "",
     editType: "",
     editStartDate: "",
@@ -25,7 +25,9 @@ class EditBatch extends Component {
   }
 
   componentDidMount() {
+    // Get batch ID from dynamic route
     const { batchId } = this.props.match.params
+    // Use it to fetch that batch from the database and set that batch as the current batch in state and initialized as true so that the page will render with that batch's details prepopulated in input fields
     APIManager.getEntry("batches", batchId, "?_expand=type")
       .then(batchObj => {
         this.setState({
@@ -38,7 +40,8 @@ class EditBatch extends Component {
           editReview: batchObj.review,
           editRating: batchObj.rating,
         }, () => {
-          APIManager.getAllEntries("batches-ingredients", `?batchId=${batchId}&_expand=ingredient`)
+          // get all ingredients associated with that batch and filter them based on category so they can display in the appropriate output area (starter or bottled)
+          APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batch.id}&_expand=ingredient`)
             .then(ingredients => {
               return ingredients.filter(i => i.ingredient.categoryId !== 5)
             })
@@ -57,22 +60,26 @@ class EditBatch extends Component {
       })
   }
 
+  // sets the state associated with input field as the user types or selects
   handleFieldChange = (evt) => {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
   }
 
-  handleFieldChangeRadio = (evt) => {
+  // sets the state of edit type as the user makes a radio button selection
+  handleFieldChangeType = (evt) => {
     let targetValue = evt.target.value
     this.setState({ editType: +targetValue })
   }
 
+  // sets the state of edit rating as the user makes a radio button selection
   handleFieldChangeRating = (evt) => {
     let targetValue = evt.target.value
     this.setState({ editRating: targetValue })
   }
 
+  // Make the object that will be passed into the patch fetch call in handleSave function
   constructEditedBatch = () => {
     let editedBatch = {
       name: this.state.editName,
@@ -90,6 +97,7 @@ class EditBatch extends Component {
     return editedBatch
   }
 
+  // Called on click of the save button at the bottom of edit form
   handleSave = () => {
     let editedBatch = this.constructEditedBatch()
     APIManager.editEntry("batches", this.state.batch.id, editedBatch)
@@ -105,17 +113,19 @@ class EditBatch extends Component {
         <React.Fragment>
           <NavBar {...this.props} />
           <div className="container">
-            <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} />
+            {/* First render the edit form that applies to all 3 stages (name, type, start date, bottle date, starter ingredients) */}
+            <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
+            {/* If status 2, also render the component that containes complete date and bottle ingredients*/}
             {this.state.batch.status === 2
               ? <React.Fragment>
-                <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} {...this.props} />
+                <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} {...this.props} />
               </React.Fragment>
+              // if status is 3, also render component that contains rating and review
               : this.state.batch.status === 3
-                ? <React.Fragment><CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeRadio={this.handleFieldChangeRadio} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+                ? <React.Fragment><CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
                 </React.Fragment>
                 : null}
-            <StarterIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
-            <BottleIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
+
             <div className="flex justify-content-center margin-bottom-s">
               <CancelEditBtn batch={this.state.batch} {...this.props} />
               <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />

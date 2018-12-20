@@ -11,5 +11,3 @@ ReactDOM.render(
         <FermentStation />
     </Router>
     , document.getElementById('root'))
-
-
