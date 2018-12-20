@@ -1,17 +1,13 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
-import NavBar from "../../navigation/NavBar"
-import SugarSelection from "./SugarSelection";
-import WaterSelection from "./WaterSelection";
-import SupplementSelection from "./SupplementSelection";
-import TeaSelection from "./TeaSelection";
-import StarterSelection from "./StarterSelection";
+import SugarSelection from "../ingredient/SugarSelection";
+import WaterSelection from "../ingredient/WaterSelection";
+import SupplementSelection from "../ingredient/SupplementSelection";
+import TeaSelection from "../ingredient/TeaSelection";
+import StarterSelection from "../ingredient/StarterSelection";
 
-class IngredientForm extends Component {
-
+class StarterIngredientEdit extends Component {
   state = {
-    batchId: "",
-    batchType: "",
     currentSugar: 1,
     currentTea: 3,
     currentWater: 8,
@@ -32,22 +28,15 @@ class IngredientForm extends Component {
     teaMeasurement: "tbsp",
     selectedStarter: 7,
     starterAmount: 0,
-    starterMeasurement: "cups",
-    isInitialized: false
+    starterMeasurement: "cups"
   }
 
-  componentDidMount() {
-    const { batchId } = this.props.match.params
-    APIManager.getEntry("batches", batchId)
-      .then(batch => this.setState({
-        batchId: batch.id,
-        batchType: batch.typeId,
-        isInitialized: true
-      }))
+  deleteIngredient = (id) => {
+    return APIManager.deleteEntry("batches-ingredients", id)
   }
 
   getAllSugars = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.props.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 1)
       })
@@ -55,7 +44,7 @@ class IngredientForm extends Component {
   }
 
   getAllTeas = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.props.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 3)
       })
@@ -63,7 +52,7 @@ class IngredientForm extends Component {
   }
 
   getAllWaters = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.props.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 7)
       })
@@ -71,7 +60,7 @@ class IngredientForm extends Component {
   }
 
   getAllSupplements = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.props.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 2)
       })
@@ -79,7 +68,7 @@ class IngredientForm extends Component {
   }
 
   getAllStarters = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
+    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.props.batchId}&_expand=ingredient`)
       .then(ingredients => {
         return ingredients.filter(i => i.ingredient.categoryId === 6)
       })
@@ -95,7 +84,7 @@ class IngredientForm extends Component {
   handleSaveSugar = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentSugar),
-      batchId: this.state.batchId,
+      batchId: this.props.batchId,
       amount: parseInt(this.state.sugarAmount),
       measurement: this.state.sugarMeasurement
     }
@@ -105,7 +94,7 @@ class IngredientForm extends Component {
   handleSaveTea = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentTea),
-      batchId: this.state.batchId,
+      batchId: this.props.batchId,
       amount: parseInt(this.state.teaAmount),
       measurement: this.state.teaMeasurement
     }
@@ -115,7 +104,7 @@ class IngredientForm extends Component {
   handleSaveSupplement = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentSupplement),
-      batchId: this.state.batchId,
+      batchId: this.props.batchId,
       amount: parseInt(this.state.supplementAmount),
       measurement: this.state.supplementMeasurement
     }
@@ -125,7 +114,7 @@ class IngredientForm extends Component {
   handleSaveWater = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentWater),
-      batchId: this.state.batchId,
+      batchId: this.props.batchId,
       amount: parseInt(this.state.waterAmount),
       measurement: this.state.waterMeasurement
     }
@@ -135,50 +124,34 @@ class IngredientForm extends Component {
   handleSaveStarter = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentStarter),
-      batchId: this.state.batchId,
+      batchId: this.props.batchId,
       amount: parseInt(this.state.starterAmount),
       measurement: this.state.starterMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
-  deleteIngredient = (id) => {
-    return APIManager.deleteEntry("batches-ingredients", id)
-  }
-
   handleSaveAll = () => {
-    this.props.history.push(`/batches/${this.state.batchId}`)
+    this.props.history.push(`/batches/edit/${this.props.batchId}`)
   }
 
   render() {
-    if (this.state.isInitialized === true) {
       return (
         <React.Fragment>
-          <NavBar {...this.props} />
-          <div className="container">
-            <h1 className="text-align-center">Add Ingredients</h1>
+            <label>Starter Ingredients</label>
             <WaterSelection handleIngredientSelection={this.handleIngredientSelection} getAllWaters={this.getAllWaters} handleSaveWater={this.handleSaveWater} deleteIngredient={this.deleteIngredient} selectedWaters={this.state.selectedWaters} />
             <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
 
-            {this.state.batchType === 2 ?
-              <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /> : this.state.batchType === 1 ?
+            {this.props.batchType === 2 ?
+              <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /> : this.props.batchType === 1 ?
                 <React.Fragment>
                   <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} />
                   <StarterSelection handleIngredientSelection={this.handleIngredientSelection} getAllStarters={this.getAllStarters} handleSaveStarter={this.handleSaveStarter} deleteIngredient={this.deleteIngredient} selectedStarters={this.state.selectedStarters} />
                 </React.Fragment> : null
             }
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => { this.handleSaveAll() }}>Save</button>
-          </div>
         </React.Fragment>
       )
-    } else {
-      return (
-        <div></div>
-      )
-    }
-
-
   }
 }
 
-export default IngredientForm
+export default StarterIngredientEdit

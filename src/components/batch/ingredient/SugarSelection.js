@@ -19,6 +19,7 @@ class SugarSelection extends Component {
   render() {
     return (
       <div>
+        <h3>Sugar</h3>
         <div className="flex justify-content-flex-start align-items-baseline">
           <label className="select flex-1-1-auto" htmlFor="currentSugar">
             <select className="" id="currentSugar" name="currentSugar" onChange={
