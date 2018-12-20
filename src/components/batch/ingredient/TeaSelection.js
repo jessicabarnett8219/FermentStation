@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 
-
 class TeaSelection extends Component {
 
   state = {
@@ -15,7 +14,6 @@ class TeaSelection extends Component {
       }))
       this.props.getAllTeas()
   }
-
 
   render() {
     return (

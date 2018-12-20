@@ -4,8 +4,6 @@ import APIManager from "../../../modules/APIManager"
 import Moment from 'react-moment';
 import NavBar from "./../../navigation/NavBar"
 
-
-
 class PastBatchesList extends Component {
 
   state = {
@@ -40,4 +38,5 @@ class PastBatchesList extends Component {
     )
   }
 }
+
 export default PastBatchesList

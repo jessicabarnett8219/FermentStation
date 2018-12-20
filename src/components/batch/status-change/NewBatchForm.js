@@ -11,7 +11,6 @@ class NewBatchForm extends Component {
     startDate: "",
     expBottlingDate: "",
     type: 2,
-    ingredients: "",
     batchId: ""
   }
 
@@ -85,7 +84,6 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-
           <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
                   this.handleFieldChangeRadio(evt)
                 }}/> Water Kefir <br></br>
@@ -108,4 +106,5 @@ class NewBatchForm extends Component {
     )
   }
 }
+
 export default NewBatchForm

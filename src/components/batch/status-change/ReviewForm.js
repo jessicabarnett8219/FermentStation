@@ -5,6 +5,7 @@ import Moment from "react-moment"
 import moment from "moment"
 
 class ReviewForm extends Component {
+
   state = {
     batch: "",
     batchId: "",
@@ -52,8 +53,8 @@ class ReviewForm extends Component {
       .then(() => {
         this.props.history.push(`/batches/${this.state.batchId}`)
       })
-
   }
+
   handleFieldChangeRadio = (evt) => {
     let targetValue = evt.target.value
     this.setState({ rating: targetValue })
@@ -82,7 +83,6 @@ class ReviewForm extends Component {
             }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
           </div>
 
-
           <label htmlFor="review">Review</label>
           <textarea type="text" placeholder="review" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -99,7 +99,6 @@ class ReviewForm extends Component {
               } else {
                 this.handleSave()
               }
-
             }}>Save</button>
           </div>
         </div>
@@ -107,4 +106,5 @@ class ReviewForm extends Component {
     )
   }
 }
+
 export default ReviewForm

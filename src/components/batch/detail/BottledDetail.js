@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import DeleteBatchButton from "./buttons/DeleteBatchButton"
 import EditBatchButton from "./buttons/EditBatchButton";
 
+// Component Renders on Batch Detail screen if the batch is status 2
 class BottledDetail extends Component {
 
   render() {
@@ -20,46 +21,37 @@ class BottledDetail extends Component {
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
             <dt>Expected Completion Date</dt>
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
+            {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
             <dt>Starter Ingredients </dt>
-            <dd>
-              <ul>
+            <dd><ul>
                 {
                   this.props.starterIngredients.map(i => {
                     return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
                   })
                 }
-              </ul>
-            </dd>
+              </ul></dd>
+              {/* Mapping over ingredients associated with this batch that categorized as bottle (category 5) */}
             <dt>Bottle Ingredients</dt>
-            <dd>
-              <ul>
+            <dd><ul>
                 {
                   this.props.bottleIngredients.map(i => {
                     return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
                   })
                 }
-              </ul>
-            </dd>
+              </ul></dd>
           </dl>
 
           <div className="flex justify-content-center">
-
             <EditBatchButton id={this.props.id} />
-
             <DeleteBatchButton handleDelete={this.props.handleDelete} />
-
             <Link to={`/review/${this.props.id}`}><button className="button info margin-bottom-xs" >Review Batch</button></Link>
-
             <button className="button info margin-bottom-xs" onClick={() => {
               this.props.history.push("/in-progress-list")
             }}>Back to List</button>
-
           </div>
         </div>
       </div>
     )
-
   }
-
 }
 export default BottledDetail

@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 
-
 class FlavorSelection extends Component {
 
   state = {
@@ -15,6 +14,7 @@ class FlavorSelection extends Component {
       }))
       this.props.getAllFlavors()
   }
+
   render() {
     return (
       <div>

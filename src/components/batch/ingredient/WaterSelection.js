@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 
-
 class WaterSelection extends Component {
 
   state = {
@@ -14,7 +13,6 @@ class WaterSelection extends Component {
         waterOptions: options
       }))
     this.props.getAllWaters()
-
   }
 
   render() {
@@ -70,7 +68,6 @@ class WaterSelection extends Component {
           </ul>
         </div>
       </div>
-
     )
   }
 }

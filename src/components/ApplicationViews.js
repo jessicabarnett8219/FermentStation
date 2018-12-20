@@ -11,9 +11,6 @@ import ReviewForm from "./batch/status-change/ReviewForm";
 import EditBatch from "./batch/edit-form/EditBatch"
 import IngredientForm from "./batch/ingredient/IngredientForm"
 
-
-
-
 class ApplicationViews extends Component {
 
   isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
@@ -58,9 +55,7 @@ class ApplicationViews extends Component {
         <Route path="/bottle/:batchId(\d+)" component={BottleForm} />
         <Route path="/review/:batchId(\d+)" component={ReviewForm} />
         <Route path="/ingredients/:batchId(\d+)" component={IngredientForm} />
-
      </div>
-
     )
   }
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Moment from 'react-moment';
 
 class BrewingBatchesList extends Component {
+
   render() {
     return (
       <div>
@@ -20,11 +21,6 @@ class BrewingBatchesList extends Component {
       </div>
     )
   }
-
-
-
-
-
 }
 
 export default BrewingBatchesList
