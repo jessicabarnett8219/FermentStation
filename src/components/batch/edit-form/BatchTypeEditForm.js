@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 
-
 class BatchTypeEditForm extends Component {
 
   render() {
@@ -27,7 +26,6 @@ class BatchTypeEditForm extends Component {
         </div>
       )
     }
-
   }
 }
 

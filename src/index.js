@@ -6,8 +6,6 @@ import "turretcss/dist/turretcss.min.css"
 import "./index.css"
 import FermentStation from './components/FermentStation'
 
-
-
 ReactDOM.render(
     <Router>
         <FermentStation />

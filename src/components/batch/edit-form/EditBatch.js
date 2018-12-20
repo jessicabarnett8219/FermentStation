@@ -99,9 +99,6 @@ class EditBatch extends Component {
 
   }
 
-
-
-
   render() {
     if (this.state.initialized === true) {
       return (
@@ -124,7 +121,6 @@ class EditBatch extends Component {
               <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
             </div>
           </div>
-
         </React.Fragment>
       )
     } else {

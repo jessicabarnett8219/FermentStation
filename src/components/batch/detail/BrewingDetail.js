@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Moment from 'react-moment';
 
-
 class BrewingDetail extends Component {
 
   render() {
@@ -17,16 +16,13 @@ class BrewingDetail extends Component {
           <dt>Expected Bottling Date</dt>
           <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
           <dt>Starter Ingredients </dt>
-          <dd>
-            <ul>
+          <dd><ul>
               {
                 this.props.starterIngredients.map(i => {
                   return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
                 })
               }
-            </ul>
-
-          </dd>
+            </ul></dd>
         </dl>
         <div className="flex justify-content-center">
 
@@ -45,8 +41,6 @@ class BrewingDetail extends Component {
         </div>
       </div>
     )
-
   }
-
 }
 export default BrewingDetail

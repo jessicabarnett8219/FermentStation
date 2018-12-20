@@ -176,8 +176,6 @@ class IngredientForm extends Component {
         <div></div>
       )
     }
-
-
   }
 }
 

@@ -2,7 +2,6 @@ const remoteURL = "http://localhost:5002"
 
 const APIManager = {
 
-
   getEntry(resource, id, ...search) {
     return fetch(`${remoteURL}/${resource}/${id}${search}`)
     .then(data => data.json())

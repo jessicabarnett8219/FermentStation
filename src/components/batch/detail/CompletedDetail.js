@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Moment from 'react-moment';
 
 class CompletedDetail extends Component {
+
   render() {
     return (
       <div>
@@ -19,40 +20,34 @@ class CompletedDetail extends Component {
             <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
 
             <dt>Starter Ingredients </dt>
-            <dd>
-              <ul>
-                {
-                  this.props.starterIngredients.map(i => {
-                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
-                  })
-                }
-              </ul>
-            </dd>
+            <dd><ul>
+              {
+                this.props.starterIngredients.map(i => {
+                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
+                })
+              }
+            </ul></dd>
             <dt>Bottle Ingredients</dt>
-            <dd>
-              <ul>
-                {
-                  this.props.bottleIngredients.map(i => {
-                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
-                  })
-                }
-              </ul>
-            </dd>
+            <dd><ul>
+              {
+                this.props.bottleIngredients.map(i => {
+                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
+                })
+              }
+            </ul></dd>
 
             <dt>Rating</dt>
             <dd>{this.props.rating}</dd>
             <dt>Review</dt>
             <dd>{this.props.review}</dd>
-
           </dl>
+
           <div className="flex justify-content-center">
             <Link to={`/batches/edit/${this.props.id}`}><button
               className="button button-square button-icon info margin-bottom-xs"><i className="fas fa-pen"></i></button></Link>
-
             <button className="button button-square button-icon info margin-bottom-xs" onClick={() => {
               this.props.handleDelete()
             }}><i className="fas fa-trash"></i></button>
-
             <button className="button info margin-bottom-xs" onClick={() => {
               this.props.history.push("/completed-list")
             }}>Back to List</button>
@@ -60,8 +55,7 @@ class CompletedDetail extends Component {
         </div>
       </div>
     )
-
   }
-
 }
+
 export default CompletedDetail

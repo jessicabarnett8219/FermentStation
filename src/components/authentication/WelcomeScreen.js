@@ -16,7 +16,6 @@ class WelcomeScreen extends Component {
     hideForm: true,
   }
 
-
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
     const stateToChange = {}

@@ -15,7 +15,6 @@ class BottledEdit extends Component {
           } />
       </React.Fragment>
     )
-
   }
 }
 

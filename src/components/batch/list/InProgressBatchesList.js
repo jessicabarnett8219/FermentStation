@@ -1,15 +1,15 @@
 import React, { Component } from "react"
-// import { Link } from "react-router-dom"
 import APIManager from "../../../modules/APIManager"
 import BrewingBatchesList from "./BrewingBatchesList"
 import BottledBatchesList from "./BottledBatchesList"
 import NavBar from "./../../navigation/NavBar"
 
 class InProgressBatchesList extends Component {
+
   state = {
     brewingBatches: [],
     bottledBatches: [],
-    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId"),
+    currentUser: +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
   }
 
   componentDidMount() {
@@ -25,7 +25,6 @@ class InProgressBatchesList extends Component {
 
   render() {
     return (
-
         <div>
           <NavBar {...this.props}/>
           <div className="container">
@@ -38,4 +37,5 @@ class InProgressBatchesList extends Component {
     )
   }
 }
+
 export default InProgressBatchesList

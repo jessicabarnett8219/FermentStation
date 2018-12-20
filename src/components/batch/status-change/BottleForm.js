@@ -5,7 +5,6 @@ import Moment from "react-moment"
 import moment from "moment"
 import FlavorSelection from "../ingredient/FlavorSelection";
 
-
 class BottleForm extends Component {
 
   state = {
@@ -35,7 +34,6 @@ class BottleForm extends Component {
           completeDate: today
         })
       })
-
   }
 
   handleFieldChange = (evt) => {
@@ -59,7 +57,6 @@ class BottleForm extends Component {
       .then(() => {
         this.props.history.push(`/batches/${this.state.batchId}`)
       })
-
   }
 
   getAllFlavors = () => {
@@ -125,4 +122,5 @@ class BottleForm extends Component {
     )
   }
 }
+
 export default BottleForm

@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 
 class MainMenu extends Component {
-  render() {
 
+  render() {
     return (
       <div>
         <nav className="nav-inline no-margin-top margin-bottom-s padding-vertical-s background-info color-white">
@@ -18,7 +18,6 @@ class MainMenu extends Component {
             </li>
           </ul>
         </nav>
-
 
         <div className="container text-align-center font-size-xxl font-weight-semibold">
           <Link to="/new-batch" className="link">
@@ -42,4 +41,5 @@ class MainMenu extends Component {
     )
   }
 }
+
 export default MainMenu
