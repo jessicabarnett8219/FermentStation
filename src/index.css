@@ -4,6 +4,17 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: hsl(221, 12%, 40%);
+}
+
+/* .blue-bg {
+  background-color: hsl(204, 55%, 56%);
+} */
+
+.white-outline-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
 code {
@@ -11,6 +22,13 @@ code {
     monospace;
 }
 
+.page-background {
+  background-color: hsl(43, 41%, 97%)
+}
+
+.heading-container {
+  font-family: 'Raleway', sans-serif;
+}
 .link {
   text-decoration: none;
   color: white;
@@ -38,6 +56,9 @@ code {
   background-color: hsl(200, 100%, 40%);
 }
 
-
+.page-container {
+  max-width: 600px;
+  margin: 0 auto 0 auto;
+}
 
 

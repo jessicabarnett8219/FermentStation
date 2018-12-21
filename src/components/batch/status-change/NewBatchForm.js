@@ -66,10 +66,10 @@ class NewBatchForm extends Component {
     return (
       <div>
         <NavBar {...this.props} />
-        <div className="container">
-          <h1 className="text-align-center">Start a New Batch</h1>
-
-          <label htmlFor="name">Name</label>
+        <div className="container padding-m">
+        <div className="heading-container ">
+        <h1 className="text-align-center">Start a New Batch</h1></div>
+          <label className="bold-label" htmlFor="name">Name</label>
           <input id="name" type="text" placeholder="name" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
@@ -92,12 +92,7 @@ class NewBatchForm extends Component {
                 }}/> Kombucha <br></br>
 
           <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info button-border margin-top-xxs" onClick={
-              () => {
-                this.props.history.push("/")
-              }
-            }>Cancel</button>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
+            <button className="button info color-white margin-left-xxs margin-top-xxs" onClick={() => {
                 this.handleSave()
             }}>Save & Continue</button>
           </div>
