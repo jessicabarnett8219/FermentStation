@@ -7,42 +7,46 @@ class BrewingDetail extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1 className="text-align-center">{this.props.name}</h1>
-        <dl>
-          <dt>Type</dt>
-          <dd>{this.props.type.name}</dd>
-          <dt>Started On</dt>
-          <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
-          <dt>Expected Bottling Date</dt>
-          <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
-          <dt>Starter Ingredients </dt>
-          {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
-          <dd><ul>
+      <React.Fragment>
+        <div className="container padding-horizontal-m sticky-footer-clear">
+
+          <h1 className="text-align-center no-margin-bottom">{this.props.name}</h1>
+          <p className="text-align-center font-size-l no-margin">{this.props.type.name}</p>
+
+
+          <dl className=" font-size-l">
+            <dt className="no-margin-bottom">Started On:</dt>
+            <dd><Moment format="MMMM Do, YYYY">{this.props.startDate}</Moment></dd>
+            <dt className="no-margin-bottom">Ready to Bottle On:</dt>
+            <dd><Moment format="MMMM Do, YYYY">{this.props.bottleDate}</Moment></dd>
+            <dt className="margin-bottom-xs">Starter Ingredients: </dt>
+            {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
+            <dd><ul className="font-size-l">
               {
                 this.props.starterIngredients.map(i => {
-                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
+                  return <li key={i.id} className="no-margin-vertical no-padding">{i.amount} {i.measurement} {i.ingredient.name} </li>
                 })
               }
-            </ul></dd>
-        </dl>
-        <div className="flex justify-content-center">
-
-          <Link to={`/batches/edit/${this.props.id}`}><button className="button button-square button-icon info margin-bottom-xs"
-          ><i className="fas fa-pen"></i></button></Link>
-
-          <button className="button info button-square button-icon" onClick={() => {
-            this.props.handleDelete()
-          }}><i className="fas fa-trash"></i></button>
-
-          <Link to={`/bottle/${this.props.id}`}><button className="button info">Bottle Batch</button></Link>
-
-          <button className="button info margin-bottom-xs" onClick={() => {
-            this.props.history.push("/in-progress-list")
-          }}>Back to List</button>
+            </ul>
+            </dd>
+          </dl>
+          <div className="flex flex-column align-items-center margin-top-m margin-bottom-s">
+            <Link to={`/bottle/${this.props.id}`}><button className="button button-l info color-white">Bottle Batch</button></Link>
+          </div>
         </div>
-      </div>
+        <div className="flex justify-content-space-around brand padding-vertical-xs">
+        <button className="button brand button-text color-white" onClick={() => {
+              this.props.handleDelete()
+            }}><i className="fas fa-trash"></i></button>
+            <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text color-white"
+            ><i className="fas fa-pen"></i></button></Link>
+            <button className="button button-text color-white" onClick={() => {
+              this.props.history.push("/in-progress-list")
+            }}>Back to List</button>
+          </div>
+      </React.Fragment>
     )
   }
 }
+
 export default BrewingDetail

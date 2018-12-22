@@ -5,11 +5,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsl(221, 12%, 40%);
-}
+  background-color: hsl(43, 41%, 97%)
 
-/* .blue-bg {
-  background-color: hsl(204, 55%, 56%);
-} */
+}
 
 .white-outline-btn {
   background-color: transparent;
@@ -22,13 +20,18 @@ code {
     monospace;
 }
 
-.page-background {
-  background-color: hsl(43, 41%, 97%)
+.brand {
+  background-color: hsl(221, 12%, 40%);
 }
 
-.heading-container {
+h1, h2, h3, h4, h5, .dt-title {
   font-family: 'Raleway', sans-serif;
 }
+
+.ul {
+  list-style-type: none;
+}
+
 .link {
   text-decoration: none;
   color: white;
@@ -43,11 +46,13 @@ code {
   display: none;
 }
 
-.fa-thumbs-up, .fa-thumbs-down {
-  color: hsl(200, 100%, 40%);
+.border-btn {
+  background-color: transparent;
+  border: 2px solid  hsl(221, 12%, 40%);
+  color:  hsl(221, 12%, 40%);
 }
 
-.fa-home {
+.fa-home, .fa-trash {
   color: white;
 }
 
@@ -57,8 +62,31 @@ code {
 }
 
 .page-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto 0 auto;
+  min-height: 100vh;
+display: flex;
+flex-direction: column;
+background-color: white;
+
+
 }
+
+.sticky-footer-clear {
+  flex-grow: 1;
+}
+
+.nav-bg {
+  background-color: hsl(356, 84%, 69%);
+}
+
+.button-bg {
+  background-color: hsl(176, 50%, 45%)
+}
+
+.header {
+  background-color: hsl(34, 90%, 70%);
+}
+
 
 

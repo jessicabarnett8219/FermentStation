@@ -92,7 +92,7 @@ class NewBatchForm extends Component {
                 }}/> Kombucha <br></br>
 
           <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info color-white margin-left-xxs margin-top-xxs" onClick={() => {
+            <button className="button brand color-white" onClick={() => {
                 this.handleSave()
             }}>Save & Continue</button>
           </div>
