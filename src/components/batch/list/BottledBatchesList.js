@@ -5,15 +5,14 @@ import Moment from 'react-moment';
 class BottledBatchesList extends Component {
   render() {
     return (
-      <div>
+      <div className="list-item-container margin-bottom-s">
         {
           this.props.batches.map(batch => {
-            return <dl key={batch.id}>
-              <dt>{batch.name}</dt>
+            return <dl className="text-align-center border border-radius padding-vertical-m padding-horizontal-l margin-bottom-s" key={batch.id}>
+              <dt><h3>{batch.name}</h3></dt>
               <dd>{batch.type.name}</dd>
-              <dd>Expected Completion: <Moment format="MM/DD/YY">{batch.completeDate}</Moment></dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
-              <hr></hr>
+              <dd>Ready to Drink On: <Moment format="MM/DD/YY">{batch.completeDate}</Moment></dd>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
             </dl>
           })
         }

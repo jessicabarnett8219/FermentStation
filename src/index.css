@@ -88,5 +88,13 @@ background-color: white;
   background-color: hsl(34, 90%, 70%);
 }
 
+.list-container {
+  width: 70%;
+  margin: 0 auto 0 auto;
+}
+
+.list-item-container {
+  width: 100%;
+}
 
 
