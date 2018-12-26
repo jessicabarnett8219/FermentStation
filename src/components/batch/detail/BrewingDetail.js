@@ -35,11 +35,11 @@ class BrewingDetail extends Component {
           </div>
         </div>
         <div className="flex justify-content-space-around brand padding-vertical-xs">
-        <button className="button brand button-text color-white" onClick={() => {
+        <button className="button info button-text" onClick={() => {
               this.props.handleDelete()
-            }}><i className="fas fa-trash"></i></button>
+            }}><i className="fas fa-trash white-icon"></i></button>
             <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text color-white"
-            ><i className="fas fa-pen"></i></button></Link>
+            ><i className="fas fa-pen white icon"></i></button></Link>
             <button className="button button-text color-white" onClick={() => {
               this.props.history.push("/in-progress-list")
             }}>Back to List</button>

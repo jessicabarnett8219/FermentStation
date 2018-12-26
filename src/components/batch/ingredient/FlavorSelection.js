@@ -12,14 +12,15 @@ class FlavorSelection extends Component {
       .then(options => this.setState({
         flavorOptions: options
       }))
-      this.props.getAllFlavors()
+    this.props.getAllFlavors()
   }
 
   render() {
     return (
-      <div>
-        <div className="flex justify-content-flex-start align-items-baseline">
-          <label className="select flex-1-1-auto" htmlFor="currentFlavor">
+      <div className="">
+      <strong><label htmlFor="bottleIngredients" className="">Bottle Ingredients</label></strong>
+        <div className="flex flex-column align-items-center margin-vertical-xs">
+          <label className="select ingredient-select" htmlFor="currentFlavor">
             <select className="" id="currentFlavor" name="currentFlavor" onChange={
               (evt) => {
                 this.props.handleIngredientSelection(evt)
@@ -35,33 +36,39 @@ class FlavorSelection extends Component {
             </select>
           </label>
 
-          <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="flavorAmount" onChange={
-            (evt) => { this.props.handleIngredientSelection(evt) }
-          } />
-
-          <label className="select flex-1-1-auto" htmlFor="flavorMeasurement">
-            <select className="" id="flavorMeasurement" name="flavorMeasurement" onChange={
+          <div className="flex align-items-baseline justify-content-space-between">
+            <input type="text" className="margin-right-xs ingredient-amount" placeholder="amount" id="flavorAmount" onChange={
               (evt) => { this.props.handleIngredientSelection(evt) }
-            }><option value="tbsp">tbsp</option>
-              <option value="tsp">tsp</option>
-              <option value="cups">cups</option>
-              <option value="oz">oz</option>
-            </select>
-          </label>
-          <button className="flex-0-1-auto" onClick={() => {
-            this.props.handleSaveFlavor()
-              .then(() => this.props.getAllFlavors())
-          }}>Add</button>
+            } />
+
+            <label className="select flex-1-0-auto" htmlFor="flavorMeasurement">
+              <select className="no-margin" id="flavorMeasurement" name="flavorMeasurement" onChange={
+                (evt) => { this.props.handleIngredientSelection(evt) }
+              }><option value="tbsp">tbsp</option>
+                <option value="tsp">tsp</option>
+                <option value="cups">cups</option>
+                <option value="oz">oz</option>
+              </select>
+            </label>
+            <button className="margin-left-xs button info button-border" onClick={() => {
+              this.props.handleSaveFlavor()
+                .then(() => this.props.getAllFlavors())
+            }}>Add</button>
+          </div>
         </div>
+
         <div>
           <ul>
             {
               this.props.selectedFlavors.map(ingredientObj => {
-                return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                  <button className="button-xs" onClick={() => {
+                return <li key={ingredientObj.id}>
+                <div className="flex justify-content-space-between align-items-center">
+                {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                  <button className="button button-text brand-icon" onClick={() => {
                     this.props.deleteIngredient(ingredientObj.id)
                       .then(() => this.props.getAllFlavors())
-                  }}>Delete</button>
+                  }}><i className="fas fa-trash"></i></button>
+                  </div>
                 </li>
               })
             }

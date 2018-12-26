@@ -52,8 +52,12 @@ h1, h2, h3, h4, h5, .dt-title {
   color:  hsl(221, 12%, 40%);
 }
 
-.fa-home, .fa-trash {
+.white-icon {
   color: white;
+}
+
+.brand-icon {
+  color: hsl(221, 12%, 40%);
 }
 
 .menu-item {
@@ -97,7 +101,11 @@ background-color: white;
   width: 100%;
 }
 
-:-moz-any-link:focus {
-  outline: none;
+.ingredient-select {
+  width: 100%;
+}
+
+.ingredient-amount {
+  flex-basis: 35%;
 }
 
