@@ -7,55 +7,50 @@ class CompletedDetail extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
-          <h1 className="text-align-center">{this.props.name}</h1>
-          <dl>
-            <dt>Type</dt>
-            <dd>{this.props.type.name}</dd>
-            <dt>Started On</dt>
-            <dd><Moment format="dddd, MMMM Do YYYY">{this.props.startDate}</Moment></dd>
-            <dt>Bottled On</dt>
-            <dd><Moment format="dddd, MMMM Do YYYY">{this.props.bottleDate}</Moment></dd>
-            <dt>Completed On</dt>
-            <dd><Moment format="dddd, MMMM Do YYYY">{this.props.completeDate}</Moment></dd>
+      <React.Fragment>
+        <div className="container padding-horizontal-m sticky-footer-clear">
+          <h1 className="text-align-center no-margin-bottom">{this.props.name}</h1>
+          <p className="text-align-center font-size-l no-margin">{this.props.type.name}</p>
+          <ul className="font-size-l ul">
+            <li className="no-margin-horizontal"><strong>Started: </strong><Moment format="MM/DD/YY">{this.props.startDate}</Moment></li>
+            <li className="no-margin-horizontal"><strong>Bottled: </strong><Moment format="MM/DD/YY">{this.props.bottleDate}</Moment></li>
+            <li className="no-margin-horizontal"><strong>Completed: </strong><Moment format="MM/DD/YY">{this.props.completeDate}</Moment></li>
             {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
-            <dt>Starter Ingredients </dt>
-            <dd><ul>
+            <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
+            <ul>
               {
                 this.props.starterIngredients.map(i => {
                   return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
                 })
               }
-            </ul></dd>
+            </ul></li>
             {/* Mapping over ingredients associated with this batch that categorized as starter (category 5) */}
-            <dt>Bottle Ingredients</dt>
-            <dd><ul>
+            <li className="margin-bottom-xs no-margin-horizontal"><strong>Bottle Ingredients</strong>
+            <ul>
               {
                 this.props.bottleIngredients.map(i => {
                   return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
                 })
               }
-            </ul></dd>
+            </ul></li>
 
-            <dt>Rating</dt>
-            <dd>{this.props.rating}</dd>
-            <dt>Review</dt>
-            <dd>{this.props.review}</dd>
-          </dl>
-
-          <div className="flex justify-content-center">
-            <Link to={`/batches/edit/${this.props.id}`}><button
-              className="button button-square button-icon info margin-bottom-xs"><i className="fas fa-pen"></i></button></Link>
-            <button className="button button-square button-icon info margin-bottom-xs" onClick={() => {
-              this.props.handleDelete()
-            }}><i className="fas fa-trash"></i></button>
-            <button className="button info margin-bottom-xs" onClick={() => {
-              this.props.history.push("/completed-list")
-            }}>Back to List</button>
+            <li className="no-margin-horizontal"><strong>Rating: </strong>{this.props.rating}</li>
+            <li className="no-margin-horizontal"><strong>Review: </strong>{this.props.review}</li>
+          </ul>
           </div>
+
+          <div className="flex justify-content-space-around brand padding-vertical-xs margin-top-s">
+          <button className="button button-text" onClick={() => {
+            this.props.handleDelete()
+          }}><i className="fas fa-trash white-icon"></i></button>
+          <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text"
+          ><i className="fas fa-pen white-icon"></i></button></Link>
+          <button className="button button-text color-white" onClick={() => {
+            this.props.history.push("/in-progress-list")
+          }}>Back to List</button>
         </div>
-      </div>
+
+      </React.Fragment>
     )
   }
 }
