@@ -14,7 +14,7 @@ class BrewingDetail extends Component {
           <p className="text-align-center font-size-l no-margin">{this.props.type.name}</p>
 
 
-          <dl className=" font-size-l">
+          <dl className="font-size-l">
             <dt className="no-margin-bottom">Started On:</dt>
             <dd><Moment format="MMMM Do, YYYY">{this.props.startDate}</Moment></dd>
             <dt className="no-margin-bottom">Ready to Bottle On:</dt>
@@ -35,11 +35,11 @@ class BrewingDetail extends Component {
           </div>
         </div>
         <div className="flex justify-content-space-around brand padding-vertical-xs">
-        <button className="button info button-text" onClick={() => {
+        <button className="button button-text" onClick={() => {
               this.props.handleDelete()
             }}><i className="fas fa-trash white-icon"></i></button>
-            <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text color-white"
-            ><i className="fas fa-pen white icon"></i></button></Link>
+            <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text"
+            ><i className="fas fa-pen white-icon"></i></button></Link>
             <button className="button button-text color-white" onClick={() => {
               this.props.history.push("/in-progress-list")
             }}>Back to List</button>
