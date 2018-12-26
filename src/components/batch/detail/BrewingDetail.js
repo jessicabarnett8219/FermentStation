@@ -31,7 +31,7 @@ class BrewingDetail extends Component {
             </dd>
           </dl>
           <div className="flex flex-column align-items-center margin-top-m margin-bottom-s">
-            <Link to={`/bottle/${this.props.id}`}><button className="button button-l info color-white">Bottle Batch</button></Link>
+            <Link to={`/bottle/${this.props.id}`}><button className="button button-xl info color-white">Bottle Batch</button></Link>
           </div>
         </div>
         <div className="flex justify-content-space-around brand padding-vertical-xs">

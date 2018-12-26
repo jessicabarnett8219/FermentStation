@@ -89,7 +89,7 @@ background-color: white;
 }
 
 .list-container {
-  width: 70%;
+  width: 80%;
   margin: 0 auto 0 auto;
 }
 
@@ -97,4 +97,7 @@ background-color: white;
   width: 100%;
 }
 
+:-moz-any-link:focus {
+  outline: none;
+}
 
