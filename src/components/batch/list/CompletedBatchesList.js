@@ -20,17 +20,20 @@ class PastBatchesList extends Component {
   render() {
     return (
       <div>
-        <NavBar {...this.props}/>
+        <NavBar {...this.props} />
         <div className="container">
-        <h1 className="text-align-center margin-bottom-m">Completed Batches</h1>
+          <h1 className="text-align-center margin-bottom-s">Completed</h1>
           {
             this.state.batches.map(batch => {
-              return <dl key={batch.id}>
-                <dt>{batch.name}</dt>
-                <dd>Completed: <Moment format="MM/DD/YY">{batch.completeDate}</Moment>, {batch.type.name}</dd>
-                <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
-                <hr></hr>
-              </dl>
+              return <div className="flex flex-row justify-content-space-between padding-vertical-s border-bottom" key={batch.id}>
+                <div>
+                  <h3 className="no-margin-bottom">{batch.name}</h3>
+                  <p className="no-margin-top">Completed: <Moment format="MM/DD/YY">{batch.completeDate}</Moment></p>
+                </div>
+                <div className="align-self-flex-end">
+                  <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
+                </div>
+              </div>
             })
           }
         </div>
