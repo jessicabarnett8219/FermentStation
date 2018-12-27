@@ -25,13 +25,16 @@ class InProgressBatchesList extends Component {
 
   render() {
     return (
-        <div>
+        <div className="">
           <NavBar {...this.props}/>
           <div className="container">
-          <h2 className="text-align-center margin-bottom-m">Now Brewing</h2>
+          <h1 className="text-align-center">In Progress</h1>
+          <div className="flex flex-column align-items-center list-container">
+          {/* <h2 className="text-align-center margin-bottom-m">Now Brewing</h2> */}
           <BrewingBatchesList batches={this.state.brewingBatches} />
-          <h2 className="text-align-center margin-bottom-m">Bottled</h2>
+          {/* <h2 className="text-align-center margin-bottom-m">Bottled</h2> */}
           <BottledBatchesList batches={this.state.bottledBatches} />
+          </div>
         </div>
         </div>
     )

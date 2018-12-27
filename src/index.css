@@ -4,11 +4,32 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: hsl(221, 12%, 40%);
+  background-color: hsl(43, 41%, 97%)
+
+}
+
+.white-outline-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.brand {
+  background-color: hsl(221, 12%, 40%);
+}
+
+h1, h2, h3, h4, h5, .dt-title {
+  font-family: 'Raleway', sans-serif;
+}
+
+.ul {
+  list-style-type: none;
 }
 
 .link {
@@ -25,12 +46,18 @@ code {
   display: none;
 }
 
-.fa-thumbs-up, .fa-thumbs-down {
-  color: hsl(200, 100%, 40%);
+.border-btn {
+  background-color: transparent;
+  border: 2px solid  hsl(221, 12%, 40%);
+  color:  hsl(221, 12%, 40%);
 }
 
-.fa-home {
+.white-icon {
   color: white;
+}
+
+.brand-icon {
+  color: hsl(221, 12%, 40%);
 }
 
 .menu-item {
@@ -38,6 +65,47 @@ code {
   background-color: hsl(200, 100%, 40%);
 }
 
+.page-container {
+  max-width: 500px;
+  margin: 0 auto 0 auto;
+  min-height: 100vh;
+display: flex;
+flex-direction: column;
+background-color: white;
 
 
+}
+
+.sticky-footer-clear {
+  flex-grow: 1;
+}
+
+.nav-bg {
+  background-color: hsl(356, 84%, 69%);
+}
+
+.button-bg {
+  background-color: hsl(176, 50%, 45%)
+}
+
+.header {
+  background-color: hsl(34, 90%, 70%);
+}
+
+.list-container {
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.list-item-container {
+  width: 100%;
+}
+
+.ingredient-select {
+  width: 100%;
+}
+
+.ingredient-amount {
+  flex-basis: 35%;
+}
 

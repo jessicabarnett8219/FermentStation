@@ -6,15 +6,14 @@ class BrewingBatchesList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="list-item-container margin-bottom-s">
         {
           this.props.batches.map(batch => {
-            return <dl key={batch.id}>
-              <dt>{batch.name}</dt>
-              <dd>{batch.type.name}</dd>
-              <dd>Expected Bottling Date: <Moment format="MM/DD/YY">{batch.bottleDate}</Moment></dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info button-xs">Details</button></Link>
-              <hr></hr>
+            return <dl className="text-align-center border border-radius padding-vertical-m padding-horizontal-l margin-bottom-s" key={batch.id}>
+              <dt className=""><h3>{batch.name}</h3></dt>
+              <dd className="margin-bottom-xs">{batch.type.name}</dd>
+              <dd className="">Ready to Bottle: <Moment format="MM/DD/YY">{batch.bottleDate}</Moment></dd>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
             </dl>
           })
         }

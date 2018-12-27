@@ -66,40 +66,44 @@ class NewBatchForm extends Component {
     return (
       <div>
         <NavBar {...this.props} />
-        <div className="container">
-          <h1 className="text-align-center">Start a New Batch</h1>
-
-          <label htmlFor="name">Name</label>
-          <input id="name" type="text" placeholder="name" onChange={
+        <div className="container padding-horizontal-m">
+          <div className="heading-container margin-bottom-s">
+            <h1 className="text-align-center">Start a New Batch</h1></div>
+          <strong><label className="" htmlFor="name">Name</label></strong>
+          <input id="name" type="text" placeholder="name" className="margin-bottom-s" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <label htmlFor="startDate">Start Date</label>
-          <input id="startDate" type="date" defaultValue={this.state.startDate}onChange={
+          <strong><label htmlFor="startDate">Start Date</label></strong>
+          <input id="startDate" type="date" defaultValue={this.state.startDate} className="margin-bottom-s" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <label htmlFor="expBottlingDate">Expected Bottling Date</label>
-          <input id="expBottlingDate" type="date" onChange={
+          <strong><label htmlFor="expBottlingDate">Ready to Bottle: </label></strong>
+          <input id="expBottlingDate" type="date" className="margin-bottom-s" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
-                  this.handleFieldChangeRadio(evt)
-                }}/> Water Kefir <br></br>
+          <label className="control control-inline radio info margin-bottom-l">
+            <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
+              this.handleFieldChangeRadio(evt)
+            }} />
+            <span class="control-indicator"></span>
+            <span class="control-label">Water Kefir</span>
+          </label>
+
+          <label className="control control-inline radio info">
             <input type="radio" name="type" value={1} onChange={(evt) => {
-                  this.handleFieldChangeRadio(evt)
-                }}/> Kombucha <br></br>
+              this.handleFieldChangeRadio(evt)
+            }} />
+            <span class="control-indicator"></span>
+            <span class="control-label">Kombucha</span>
+          </label>
 
           <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info button-border margin-top-xxs" onClick={
-              () => {
-                this.props.history.push("/")
-              }
-            }>Cancel</button>
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => {
-                this.handleSave()
-            }}>Save & Continue</button>
+            <button className="button info button-xl color-white" onClick={() => {
+              this.handleSave()
+            }}>Save and Continue</button>
           </div>
         </div>
       </div>
