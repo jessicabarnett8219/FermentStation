@@ -14,6 +14,7 @@ class WelcomeScreen extends Component {
     firstName: "",
     lastName: "",
     hideForm: true,
+    hideLogin: false
   }
 
   // Update state whenever an input field is edited
@@ -86,34 +87,37 @@ class WelcomeScreen extends Component {
     });
   }
 
-  toggleRegisterBtn = () => {
-    const currentState = this.state.showButton;
+  toggleLoginForm = () => {
+    const currentState = this.state.hideLogin;
     this.setState({
-      showButton: !currentState
+      hideLogin: !currentState
     })
   }
 
   render() {
     return (
-      <div className="flex-column align-items-center">
-        <h1 className="text-align-center no-margin-top padding-vertical-m background-info color-white">FermentStation</h1>
-        <div className="container flex-column align-items-center">
-          <LoginForm handleFieldChange={this.handleFieldChange} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
-
-          <h5 className="text-align-center">New here?</h5>
-          <div className="flex justify-content-center">
-            <button className="button info showButton" onClick={
-              () => {
-                this.toggleNewForm()
-              }
-            }>Create an Account</button>
+      <React.Fragment>
+        <h1 className="text-align-center no-margin-top padding-vertical-m nav-bg color-white">FermentStation</h1>
+        <div className="container padding-horizontal-m flex flex-column align-items-center">
+          <div className="flex flex-column justify-content-center list-container">
+            <LoginForm handleFieldChange={this.handleFieldChange} hideLogin={this.state.hideLogin} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
+            <div className={this.state.hideLogin ? "hideLogin" : null}>
+              <div className="flex flex-column align-items-center">
+                <h5 className="text-align-center">New here?</h5>
+                <button className="button info button-border" onClick={
+                  () => {
+                    this.toggleNewForm()
+                    this.toggleLoginForm()
+                  }
+                }>Create an Account</button>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-content-center">
+          <div className="flex flex-column justify-content-center list-container">
             <RegistrationForm hideForm={this.state.hideForm} handleFieldChange={this.handleFieldChange} handleRegistration={this.handleRegistration} {...this.props} />
           </div>
         </div>
-      </div>
-    )
+      </React.Fragment>)
   }
 }
 

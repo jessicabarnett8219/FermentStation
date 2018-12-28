@@ -38,11 +38,7 @@ h1, h2, h3, h4, h5, .dt-title {
 
 }
 
-.hideForm {
-  display: none;
-}
-
-.hideButton {
+.hideForm, .hideLogin {
   display: none;
 }
 
