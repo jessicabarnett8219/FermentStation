@@ -113,21 +113,27 @@ class EditBatch extends Component {
         <React.Fragment>
           <NavBar {...this.props} />
           <div className="container">
-            {/* First render the edit form that applies to all 3 stages (name, type, start date, bottle date, starter ingredients) */}
-            <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
-            {/* If status 2, also render the component that containes complete date and bottle ingredients*/}
-            {this.state.batch.status === 2
-              ? <React.Fragment>
-                <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} {...this.props} />
-              </React.Fragment>
-              // if status is 3, also render component that contains rating and review
-              : this.state.batch.status === 3
-                ? <React.Fragment><CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+            {this.state.batch.status === 1 ?
+              <React.Fragment>
+                <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
+                <StarterIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
+              </React.Fragment> : this.state.batch.status === 2
+                ? <React.Fragment>
+                  <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
+                  <BottledEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} {...this.props} />
+                  <StarterIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
+                  <BottleIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
                 </React.Fragment>
-                : null}
+                : this.state.batch.status === 3
+                  ? <React.Fragment>
+                    <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
+                    <CompletedEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} handleFieldChangeRating={this.handleFieldChangeRating} {...this.props} />
+                    <StarterIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
+                    <BottleIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
+                  </React.Fragment>
+                  : null}
 
             <div className="flex justify-content-center margin-bottom-s">
-              <CancelEditBtn batch={this.state.batch} {...this.props} />
               <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
             </div>
           </div>

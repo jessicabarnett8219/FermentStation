@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import BatchTypeEditForm from "./BatchTypeEditForm"
-import StarterIngredientEdit from "./StarterIngredientEdit";
 
 class BasicEdit extends Component {
 
@@ -8,27 +6,24 @@ class BasicEdit extends Component {
     return (
       <React.Fragment>
         <h1 className="text-align-center">Edit Batch</h1>
-        <label htmlFor="editName">Name</label>
+        <strong><label htmlFor="editName">Name</label></strong>
         <input id="editName" type="text" defaultValue={this.props.batch.name} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
 
-        <BatchTypeEditForm batchType={this.props.batch.typeId} handleFieldChangeType={this.props.handleFieldChangeType} typeOptions={this.props.typeOptions} />
-
-        <label htmlFor="editStartDate">Start Date</label>
+        <strong><label htmlFor="editStartDate">Started On</label></strong>
         <input type="date" id="editStartDate" defaultValue={this.props.batch.startDate} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
 
-        <label htmlFor="editBottleDate"> {
-          this.props.batch.status === 1 ? "Expected Bottling Date" : "Bottled On"
+        <strong><label htmlFor="editBottleDate"> {
+          this.props.batch.status === 1 ? "Ready to Bottle On" : "Bottled On"
         }
-        </label>
+        </label></strong>
         <input type="date" id="editBottleDate" defaultValue={this.props.batch.bottleDate} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
 
-        <StarterIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
       </React.Fragment>
     )
   }
