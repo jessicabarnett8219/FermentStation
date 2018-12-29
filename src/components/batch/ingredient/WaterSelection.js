@@ -17,10 +17,9 @@ class WaterSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s">
+      <div className="flex flex-column margin-bottom-s margin-top-xs">
         <div className="">
           <div>
-          <strong><label>Water</label></strong>
             <label className="select" htmlFor="currentWater">
               <select className="" id="currentWater" name="currentWater" onChange={
                 (evt) => {

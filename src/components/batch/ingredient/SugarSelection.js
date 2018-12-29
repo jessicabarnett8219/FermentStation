@@ -18,10 +18,9 @@ class SugarSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s">
+      <div className="flex flex-column margin-bottom-s margin-top-xs">
         <div className="">
           <div>
-            <strong><label>Sugar</label></strong>
             <label className="select" htmlFor="currentSugar">
               <select className="" id="currentSugar" name="currentSugar" onChange={
                 (evt) => {

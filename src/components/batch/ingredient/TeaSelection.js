@@ -17,10 +17,9 @@ class TeaSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s">
+      <div className="flex flex-column margin-bottom-s margin-top-xs">
         <div>
           <div className="">
-            <strong><label>Tea</label></strong>
             <label className="select" htmlFor="currentTea">
               <select className="" id="currentTea" name="currentTea" onChange={
                 (evt) => {

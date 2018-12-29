@@ -106,7 +106,7 @@ class BottleForm extends Component {
           }} />
 
 
-
+          <strong><label htmlFor="bottleIngredients" className="">Bottle Ingredients</label></strong>
           <FlavorSelection className="" handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} getAllFlavors={this.getAllFlavors} />
 
 
