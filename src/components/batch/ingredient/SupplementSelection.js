@@ -17,11 +17,11 @@ class SupplementSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column">
-        <h3>Supplements</h3>
+      <div className="flex flex-column margin-bottom-s">
         <div>
           <div className="">
-            <label className="select" htmlFor="currentTea">
+          <strong><label>Supplements</label></strong>
+            <label className="select" htmlFor="currentSupplement">
               <select className="" id="currentSupplement" name="currentSupplement" onChange={
                 (evt) => {
                   this.props.handleIngredientSelection(evt)

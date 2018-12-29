@@ -12,47 +12,52 @@ class TeaSelection extends Component {
       .then(options => this.setState({
         teaOptions: options
       }))
-      this.props.getAllTeas()
+    this.props.getAllTeas()
   }
 
   render() {
     return (
-      <div className="flex flex-column">
-        <h3>Tea</h3>
-        <div className="flex justify-content-flex-start align-items-baseline">
-          <label className="select flex-1-1-auto" htmlFor="currentTea">
-            <select className="" id="currentTea" name="currentTea" onChange={
-              (evt) => {
-                this.props.handleIngredientSelection(evt)
-              }
-            }>
-              {
-                this.state.teaOptions.map(tea => {
-                  return <option key={tea.id} value={tea.id} >
-                    {tea.name}
-                  </option>
-                })
-              }
-            </select>
-          </label>
-          <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="teaAmount" onChange={
-            (evt) => { this.props.handleIngredientSelection(evt) }
-          } />
+      <div className="flex flex-column margin-bottom-s">
+        <div>
+          <div className="">
+            <strong><label>Tea</label></strong>
+            <label className="select" htmlFor="currentTea">
+              <select className="" id="currentTea" name="currentTea" onChange={
+                (evt) => {
+                  this.props.handleIngredientSelection(evt)
+                }
+              }>
+                {
+                  this.state.teaOptions.map(tea => {
+                    return <option key={tea.id} value={tea.id} >
+                      {tea.name}
+                    </option>
+                  })
+                }
+              </select>
+            </label>
+          </div>
 
-          <label className="select flex-1-1-auto" htmlFor="teaMeasurement">
-            <select className="" id="teaMeasurement" name="teaMeasurement" onChange={
+          <div className="flex align-items-baseline justify-content-space-between">
+            <input type="text" className="margin-right-xs ingredient-amount" placeholder="amount" id="teaAmount" onChange={
               (evt) => { this.props.handleIngredientSelection(evt) }
-            }><option value="tbsp">tbsp</option>
-              <option value="tsp">tsp</option>
-              <option value="cups">cups</option>
-              <option value="oz">oz</option>
-            </select>
-          </label>
-          <button className="flex-0-1-auto" onClick={() => {
-            this.props.handleSaveTea()
-              .then(() => this.props.getAllTeas())
-          }}>Add</button>
+            } />
+            <label className="select flex-1-1-auto" htmlFor="teaMeasurement">
+              <select className="" id="teaMeasurement" name="teaMeasurement" onChange={
+                (evt) => { this.props.handleIngredientSelection(evt) }
+              }><option value="tbsp">tbsp</option>
+                <option value="tsp">tsp</option>
+                <option value="cups">cups</option>
+                <option value="oz">oz</option>
+              </select>
+            </label>
+            <button className="margin-left-xs button info button-border" onClick={() => {
+              this.props.handleSaveTea()
+                .then(() => this.props.getAllTeas())
+            }}>Add</button>
+          </div>
         </div>
+
         <div>
           <ul>
             {
