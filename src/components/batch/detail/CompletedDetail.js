@@ -17,35 +17,35 @@ class CompletedDetail extends Component {
             <li className="no-margin-horizontal"><strong>Completed: </strong><Moment format="MM/DD/YY">{this.props.completeDate}</Moment></li>
             {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
             <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
-            <ul>
-              {
-                this.props.starterIngredients.map(i => {
-                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
-                })
-              }
-            </ul></li>
+              <ul>
+                {
+                  this.props.starterIngredients.map(i => {
+                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name} </li>
+                  })
+                }
+              </ul></li>
             {/* Mapping over ingredients associated with this batch that categorized as starter (category 5) */}
             <li className="margin-bottom-xs no-margin-horizontal"><strong>Bottle Ingredients</strong>
-            <ul>
-              {
-                this.props.bottleIngredients.map(i => {
-                  return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
-                })
-              }
-            </ul></li>
+              <ul>
+                {
+                  this.props.bottleIngredients.map(i => {
+                    return <li key={i.id}>{i.amount} {i.measurement} {i.ingredient.name}</li>
+                  })
+                }
+              </ul></li>
 
             <li className="no-margin-horizontal"><strong>Rating: </strong>{this.props.rating}</li>
             <li className="no-margin-horizontal"><strong>Review: </strong>{this.props.review}</li>
           </ul>
-          </div>
+        </div>
 
-          <div className="flex justify-content-space-around brand padding-vertical-xs margin-top-s">
-          <button className="button button-text" onClick={() => {
+        <div className="flex justify-content-space-around brand padding-vertical-xs margin-top-s">
+          <button className="button button-text button-xl" onClick={() => {
             this.props.handleDelete()
           }}><i className="fas fa-trash white-icon"></i></button>
-          <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text"
+          <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text button-xl"
           ><i className="fas fa-pen white-icon"></i></button></Link>
-          <button className="button button-text color-white" onClick={() => {
+          <button className="button button-text color-white button-xl" onClick={() => {
             this.props.history.push("/in-progress-list")
           }}>Back to List</button>
         </div>

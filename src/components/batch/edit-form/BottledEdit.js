@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import StarterIngredientEdit from "./StarterIngredientEdit"
-import BottleIngredientEdit from "./BottleIngredientEdit"
 
 class BottledEdit extends Component {
 
@@ -15,7 +13,6 @@ class BottledEdit extends Component {
           <input type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-
       </React.Fragment>
     )
   }
