@@ -1,18 +1,16 @@
 import React, { Component } from "react"
 import BatchRatingEditForm from "./BatchRatingEditForm"
-import StarterIngredientEdit from "./StarterIngredientEdit"
-import BottleIngredientEdit from "./BottleIngredientEdit"
 
 class CompletedEdit extends Component {
 
   render() {
     return (
       <React.Fragment>
-        <label htmlFor="editCompleteDate">
+        <strong><label htmlFor="editCompleteDate">
           {this.props.batch.status === 3 ? "Completed On" :
             "Expected Completion Date"
           }
-        </label>
+        </label></strong>
 
         <input type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
           (evt) => { this.props.handleFieldChange(evt) }
@@ -24,9 +22,6 @@ class CompletedEdit extends Component {
         <textarea id="editReview" defaultValue={this.props.batch.review} type="text" onChange={
           (evt) => { this.props.handleFieldChange(evt) }
         } />
-
-        <StarterIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
-        <BottleIngredientEdit batchId={this.props.batch.id} batchType={this.props.batch.typeId}/>
 
       </React.Fragment >
     )

@@ -5,7 +5,6 @@ import SugarSelection from "./SugarSelection";
 import WaterSelection from "./WaterSelection";
 import SupplementSelection from "./SupplementSelection";
 import TeaSelection from "./TeaSelection";
-import KombuchaStarterSelection from "./KombuchaStarterSelection";
 
 class IngredientForm extends Component {
 
@@ -16,7 +15,6 @@ class IngredientForm extends Component {
     currentTea: 3,
     currentWater: 8,
     currentSupplement: 2,
-    currentKombuchaStarter: 18,
     waterAmount: 0,
     waterMeasurement: "cups",
     supplementAmount: 0,
@@ -25,14 +23,10 @@ class IngredientForm extends Component {
     selectedTeas: [],
     selectedWaters: [],
     selectedSupplements: [],
-    selectedKombuchaStarters: [],
     sugarAmount: 0,
     sugarMeasurement: "tbsp",
     teaAmount: 0,
     teaMeasurement: "tbsp",
-    selectedKombuchaStarter: 7,
-    kombuchaStarterAmount: 0,
-    kombuchaStarterMeasurement: "cups",
     isInitialized: false
   }
 
@@ -76,14 +70,6 @@ class IngredientForm extends Component {
         return ingredients.filter(i => i.ingredient.categoryId === 2)
       })
       .then(supplements => this.setState({ selectedSupplements: supplements }))
-  }
-
-  getAllKombuchaStarters = () => {
-    APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
-      .then(ingredients => {
-        return ingredients.filter(i => i.ingredient.categoryId === 6)
-      })
-      .then(starters => this.setState({ selectedKombuchaStarters: starters }))
   }
 
   handleIngredientSelection = (evt) => {
@@ -132,16 +118,6 @@ class IngredientForm extends Component {
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
   }
 
-  handleSaveKombuchaStarter = () => {
-    let newbatchIngredient = {
-      ingredientId: parseInt(this.state.currentKombuchaStarter),
-      batchId: this.state.batchId,
-      amount: parseInt(this.state.kombuchaStarterAmount),
-      measurement: this.state.kombuchaStarterMeasurement
-    }
-    return APIManager.addEntry("batches-ingredients", newbatchIngredient)
-  }
-
   deleteIngredient = (id) => {
     return APIManager.deleteEntry("batches-ingredients", id)
   }
@@ -155,7 +131,7 @@ class IngredientForm extends Component {
       return (
         <React.Fragment>
           <NavBar {...this.props} />
-          <div className="container">
+          <div className="container padding-horizontal-m sticky-footer-clear">
             <h1 className="text-align-center">Add Ingredients</h1>
             <WaterSelection handleIngredientSelection={this.handleIngredientSelection} getAllWaters={this.getAllWaters} handleSaveWater={this.handleSaveWater} deleteIngredient={this.deleteIngredient} selectedWaters={this.state.selectedWaters} />
             <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
@@ -164,10 +140,12 @@ class IngredientForm extends Component {
               <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /> : this.state.batchType === 1 ?
                 <React.Fragment>
                   <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} />
-                  <KombuchaStarterSelection handleIngredientSelection={this.handleIngredientSelection} getAllKombuchaStarters={this.getAllKombuchaStarters} handleSaveKombuchaStarter={this.handleSaveKombuchaStarter} deleteIngredient={this.deleteIngredient} selectedKombuchaStarters={this.state.selectedKombuchaStarters} />
                 </React.Fragment> : null
             }
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => { this.handleSaveAll() }}>Save</button>
+          </div>
+
+          <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+            <button className="button info button-xxl color-white sticky-button" onClick={() => { this.handleSaveAll() }}>Save</button>
           </div>
         </React.Fragment>
       )

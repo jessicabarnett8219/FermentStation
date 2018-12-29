@@ -17,51 +17,59 @@ class WaterSelection extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Water</h3>
-        <div className="flex justify-content-flex-start align-items-baseline">
-          <label className="select flex-1-1-auto" htmlFor="currentWater">
-            <select className="" id="currentWater" name="currentWater" onChange={
-              (evt) => {
-                this.props.handleIngredientSelection(evt)
-              }
-            }>
-              {
-                this.state.waterOptions.map(water => {
-                  return <option key={water.id} value={water.id} >
-                    {water.name}
-                  </option>
-                })
-              }
-            </select>
-          </label>
-          <input type="text" className="no-margin max-width-xxs flex-0-1-auto" placeholder="amount" id="waterAmount" onChange={
-            (evt) => { this.props.handleIngredientSelection(evt) }
-          } />
+      <div className="flex flex-column margin-bottom-s">
+        <div className="">
+          <div>
+          <strong><label>Water</label></strong>
+            <label className="select" htmlFor="currentWater">
+              <select className="" id="currentWater" name="currentWater" onChange={
+                (evt) => {
+                  this.props.handleIngredientSelection(evt)
+                }
+              }>
+                {
+                  this.state.waterOptions.map(water => {
+                    return <option key={water.id} value={water.id} >
+                      {water.name}
+                    </option>
+                  })
+                }
+              </select>
+            </label>
+          </div>
 
-          <label className="select flex-1-1-auto" htmlFor="waterMeasurement">
-            <select className="" id="waterMeasurement" name="waterMeasurement" onChange={
+          <div className="flex align-items-baseline justify-content-space-between">
+            <input type="text" className="margin-right-xs ingredient-amount" placeholder="amount" id="waterAmount" onChange={
               (evt) => { this.props.handleIngredientSelection(evt) }
-            }>
-              <option value="cups">cups</option>
-              <option value="oz">oz</option>
-            </select>
-          </label>
-          <button className="flex-0-1-auto" onClick={() => {
-            this.props.handleSaveWater()
-              .then(() => this.props.getAllWaters())
+            } />
+            <label className="select flex-1-0-auto" htmlFor="waterMeasurement">
+              <select className="no-margin" id="waterMeasurement" name="waterMeasurement" onChange={
+                (evt) => { this.props.handleIngredientSelection(evt) }
+              }>
+                <option value="cups">cups</option>
+                <option value="oz">oz</option>
+              </select>
+            </label>
+            <button className="margin-left-xs button info button-border" onClick={() => {
+              this.props.handleSaveWater()
+                .then(() => this.props.getAllWaters())
 
-          }}>Add</button>
+            }}>Add</button>
+          </div>
         </div>
+
         <div>
           <ul>
             {
               this.props.selectedWaters.map(ingredientObj => {
-                return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                  <button className="button-xs" onClick={() => {
+                return <li key={ingredientObj.id} className="no-margin-vertical">
+                <div className="flex justify-content-space-between align-items-baseline">
+                {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                  <button className="button button-text brand-icon" onClick={() => {
                     this.props.deleteIngredient(ingredientObj.id)
                       .then(() => this.props.getAllWaters())
-                  }}>Delete</button>
+                  }}><i className="fas fa-trash"></i></button>
+                  </div>
                 </li>
               })
             }

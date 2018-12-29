@@ -41,7 +41,6 @@ class BottleIngredientEdit extends Component {
   render() {
       return (
         <React.Fragment>
-            <label>Bottle Ingredients</label>
             <FlavorSelection deleteIngredient={this.deleteIngredient} getAllFlavors={this.getAllFlavors} handleIngredientSelection={this.handleIngredientSelection} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors}/>
         </React.Fragment>
       )

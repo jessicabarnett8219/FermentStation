@@ -64,9 +64,10 @@ class NewBatchForm extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <NavBar {...this.props} />
-        <div className="container padding-horizontal-m">
+        <div className="container padding-horizontal-m sticky-footer-clear">
+
           <div className="heading-container margin-bottom-s">
             <h1 className="text-align-center">Start a New Batch</h1></div>
           <strong><label className="" htmlFor="name">Name</label></strong>
@@ -75,7 +76,7 @@ class NewBatchForm extends Component {
           } />
 
           <strong><label htmlFor="startDate">Start Date</label></strong>
-          <input id="startDate" type="date" defaultValue={this.state.startDate} className="margin-bottom-s" onChange={
+          <input id="startDate" type="date" defaultValue={this.state.startDate} className="margin-bottom-" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -84,29 +85,30 @@ class NewBatchForm extends Component {
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <label className="control control-inline radio info margin-bottom-l">
-            <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />
-            <span class="control-indicator"></span>
-            <span class="control-label">Water Kefir</span>
-          </label>
-
-          <label className="control control-inline radio info">
-            <input type="radio" name="type" value={1} onChange={(evt) => {
-              this.handleFieldChangeRadio(evt)
-            }} />
-            <span class="control-indicator"></span>
-            <span class="control-label">Kombucha</span>
-          </label>
-
-          <div className="flex justify-content-center margin-bottom-s">
-            <button className="button info button-xl color-white" onClick={() => {
-              this.handleSave()
-            }}>Save and Continue</button>
+          <div>
+            <label className="control control-inline radio info margin-bottom-l">
+              <input type="radio" name="type" defaultChecked value={2} onChange={(evt) => {
+                this.handleFieldChangeRadio(evt)
+              }} />
+              <span className="control-indicator"></span>
+              <span className="control-label">Water Kefir</span>
+            </label>
+            <label className="control control-inline radio info">
+              <input type="radio" name="type" value={1} onChange={(evt) => {
+                this.handleFieldChangeRadio(evt)
+              }} />
+              <span className="control-indicator"></span>
+              <span className="control-label">Kombucha</span>
+            </label>
           </div>
         </div>
-      </div>
+
+        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+            this.handleSave()
+          }}>Save and Continue</button>
+        </div>
+      </React.Fragment>
     )
   }
 }
