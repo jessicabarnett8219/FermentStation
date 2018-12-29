@@ -62,11 +62,14 @@ class TeaSelection extends Component {
           <ul>
             {
               this.props.selectedTeas.map(ingredientObj => {
-                return <li key={ingredientObj.id}>{ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                  <button className="button-xs" onClick={() => {
+                return <li key={ingredientObj.id} className="no-margin-vertical">
+                <div className="flex justify-content-space-between align-items-baseline">
+                {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                  <button className="button button-text brand-icon" onClick={() => {
                     this.props.deleteIngredient(ingredientObj.id)
                       .then(() => this.props.getAllTeas())
-                  }}>Delete</button>
+                  }}><i className="fas fa-trash"></i></button>
+                  </div>
                 </li>
               })
             }
