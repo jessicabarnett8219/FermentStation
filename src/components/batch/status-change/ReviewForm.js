@@ -62,14 +62,14 @@ class ReviewForm extends Component {
 
   render() {
     return (
-      <div >
+      <React.Fragment>
         <NavBar {...this.props} />
-        <div className="container">
+        <div className="container padding-horizontal-m sticky-footer-clear">
           <h1 className="text-align-center no-margin-bottom">Review Batch</h1>
           <h3 className="text-align-center margin-top-xs no-margin-bottom">{this.state.batch.name}</h3>
           <p className="text-align-center no-margin-top">Bottled: <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
           <strong><label htmlFor="completeDate">Completion Date</label></strong>
-          <input type="date" id="completeDate"onChange={(evt) => {
+          <input type="date" id="completeDate" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
@@ -87,17 +87,18 @@ class ReviewForm extends Component {
           <textarea type="text" placeholder="review" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
-          <div className="flex justify-content-center">
-            <button className="button info button-xl margin-left-xxs margin-top-xxs" onClick={() => {
-              if (this.props.completeDate === "") {
-                alert("Date fields should not be left blank")
-              } else {
-                this.handleSave()
-              }
-            }}>Save</button>
-          </div>
+
         </div>
-      </div>
+        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+            if (this.props.completeDate === "") {
+              alert("Date fields should not be left blank")
+            } else {
+              this.handleSave()
+            }
+          }}>Save</button>
+        </div>
+      </React.Fragment>
     )
   }
 }

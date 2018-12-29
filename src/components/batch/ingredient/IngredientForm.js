@@ -131,7 +131,7 @@ class IngredientForm extends Component {
       return (
         <React.Fragment>
           <NavBar {...this.props} />
-          <div className="container">
+          <div className="container padding-horizontal-m sticky-footer-clear">
             <h1 className="text-align-center">Add Ingredients</h1>
             <WaterSelection handleIngredientSelection={this.handleIngredientSelection} getAllWaters={this.getAllWaters} handleSaveWater={this.handleSaveWater} deleteIngredient={this.deleteIngredient} selectedWaters={this.state.selectedWaters} />
             <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
@@ -142,7 +142,10 @@ class IngredientForm extends Component {
                   <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} />
                 </React.Fragment> : null
             }
-            <button className="button info margin-left-xxs margin-top-xxs" onClick={() => { this.handleSaveAll() }}>Save</button>
+          </div>
+
+          <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+            <button className="button info button-xxl color-white sticky-button" onClick={() => { this.handleSaveAll() }}>Save</button>
           </div>
         </React.Fragment>
       )

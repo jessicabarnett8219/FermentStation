@@ -4,7 +4,6 @@ import BasicEdit from "./BasicEdit"
 import BottledEdit from "./BottledEdit";
 import CompletedEdit from "./CompletedEdit"
 import NavBar from "../../navigation/NavBar"
-import CancelEditBtn from "./buttons/CancelEditBtn"
 import SaveEditBtn from "./buttons/SaveEditBtn"
 import StarterIngredientEdit from "./StarterIngredientEdit"
 import BottleIngredientEdit from "./BottleIngredientEdit";
@@ -112,7 +111,7 @@ class EditBatch extends Component {
       return (
         <React.Fragment>
           <NavBar {...this.props} />
-          <div className="container">
+          <div className="container padding-horizontal-m sticky-footer-clear">
             {this.state.batch.status === 1 ?
               <React.Fragment>
                 <BasicEdit handleFieldChange={this.handleFieldChange} handleSave={this.handleSave} handleFieldChangeType={this.handleFieldChangeType} batch={this.state.batch} />
@@ -133,7 +132,7 @@ class EditBatch extends Component {
                   </React.Fragment>
                   : null}
 
-            <div className="flex justify-content-center margin-bottom-s">
+            <div className="flex justify-content-center margin-bottom-l margin-top-m">
               <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
             </div>
           </div>

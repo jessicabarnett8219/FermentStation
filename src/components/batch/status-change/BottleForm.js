@@ -89,9 +89,9 @@ class BottleForm extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <NavBar {...this.props} />
-        <div className="container">
+        <div className="container padding-horizontal-m sticky-footer-clear">
           <h1 className="text-align-center no-margin-bottom">Bottle Batch</h1>
           <h3 className="text-align-center margin-top-xs no-margin-bottom">{this.state.batch.name}</h3>
           <p className="text-align-center no-margin-top">Started: <Moment format="MMM DD, YYYY">{this.state.batch.startDate}</Moment></p>
@@ -110,13 +110,14 @@ class BottleForm extends Component {
           <FlavorSelection className="" handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} getAllFlavors={this.getAllFlavors} />
 
 
-          <div className="flex justify-content-center">
-            <button className="button info button-xl margin-vertical-s" onClick={() => {
-              this.handleSave()
-            }}>Save</button>
-          </div>
+
         </div>
-      </div>
+        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+            this.handleSave()
+          }}>Save</button>
+        </div>
+      </React.Fragment>
     )
   }
 }

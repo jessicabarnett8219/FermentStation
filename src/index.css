@@ -105,3 +105,7 @@ background-color: white;
   flex-basis: 35%;
 }
 
+.sticky-button {
+  flex-basis: 100%;
+}
+
