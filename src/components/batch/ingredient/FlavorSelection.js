@@ -61,7 +61,7 @@ class FlavorSelection extends Component {
           <ul>
             {
               this.props.selectedFlavors.map(ingredientObj => {
-                return <li key={ingredientObj.id}>
+                return <li key={ingredientObj.id} className="no-margin-vertical">
                 <div className="flex justify-content-space-between align-items-center">
                 {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                   <button className="button button-text brand-icon" onClick={() => {
