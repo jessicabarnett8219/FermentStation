@@ -27,7 +27,7 @@ class LoginForm extends Component {
           <span className="control-label">Remember Me</span>
         </label>
         <div className="flex justify-content-center">
-          <button className="button info button-l margin-bottom-xs" onClick={
+          <button className="button info button-xl margin-bottom-xs sticky-button" onClick={
             (evt) => {
               this.props.handleLogin(evt)
             }

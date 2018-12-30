@@ -98,13 +98,13 @@ class WelcomeScreen extends Component {
     return (
       <React.Fragment>
         <h1 className="text-align-center no-margin-top padding-vertical-m nav-bg color-white">FermentStation</h1>
-        <div className="container padding-horizontal-m flex flex-column align-items-center">
+        <div className="container padding-horizontal-m padding-top-l flex flex-column align-items-center">
           <div className="flex flex-column justify-content-center list-container">
             <LoginForm handleFieldChange={this.handleFieldChange} hideLogin={this.state.hideLogin} handleLogin={this.handleLogin} loginEmail={this.state.loginEmail} loginPassword={this.state.loginPassword} {...this.props} />
             <div className={this.state.hideLogin ? "hideLogin" : null}>
-              <div className="flex flex-column align-items-center">
-                <h5 className="text-align-center">New here?</h5>
-                <button className="button info button-border" onClick={
+            <h5 className="text-align-center">New here?</h5>
+              <div className="flex justify-content-center">
+                <button className="button button-xl info button-border sticky-button" onClick={
                   () => {
                     this.toggleNewForm()
                     this.toggleLoginForm()

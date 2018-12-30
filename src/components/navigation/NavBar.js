@@ -11,11 +11,12 @@ class NavBar extends Component {
             <Link to="/" className="link font-weight-semibold">FermentStation</Link>
           </li>
           <div className="flex align-items-center">
-            <li>
-              <button className="button button-text color-white button-l" onClick={() => {
+            {/* <li>
+              <button className="button button-text color-white button-l" onClick={
+                () => {
                 this.props.history.push("/")
               }}><i className="fas fa-home fa-2x"></i></button>
-            </li>
+            </li> */}
             <li className="margin-left-s">
               <button className="button white-outline-btn button-l" onClick={
                 () => {
