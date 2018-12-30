@@ -132,9 +132,8 @@ class EditBatch extends Component {
                   </React.Fragment>
                   : null}
           </div>
-          <div className="flex justify-content-center margin-bottom-l margin-top-m margin-horizontal-m">
+
             <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
-          </div>
         </React.Fragment>
       )
     } else {

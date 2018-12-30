@@ -103,7 +103,7 @@ class NewBatchForm extends Component {
           </div>
         </div>
 
-        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+        <div className="flex margin-vertical-s margin-horizontal-m">
           <button className="button info button-xxl color-white sticky-button" onClick={() => {
             this.handleSave()
           }}>Save and Continue</button>

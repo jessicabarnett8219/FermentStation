@@ -30,7 +30,7 @@ class BrewingDetail extends Component {
             </ul>
           </div>
 
-          <div className="flex justify-content-center margin-bottom-l">
+          <div className="flex margin-vertical-s">
             <button className="button info button-xxl color-white sticky-button" onClick={() => {
               this.props.history.push(`/bottle/${this.props.id}`)
             }}>Bottle Batch</button>

@@ -38,7 +38,7 @@ class BottledDetail extends Component {
             </ul>
           </div>
         </div>
-        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+        <div className="flex margin-vertical-s margin-horizontal-m">
           <button className="button info button-xxl color-white sticky-button" onClick={() => {
             this.props.history.push(`/review/${this.props.id}`)
           }}>Review Batch</button>

@@ -149,7 +149,7 @@ class IngredientForm extends Component {
             }
           </div>
 
-          <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+          <div className="flex margin-vertical-s margin-horizontal-m">
             <button className="button info button-xxl color-white sticky-button" onClick={() => { this.handleSaveAll() }}>Save</button>
           </div>
         </React.Fragment>
