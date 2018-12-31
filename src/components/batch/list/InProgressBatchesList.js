@@ -45,7 +45,7 @@ class InProgressBatchesList extends Component {
           {/* <h2 className="text-align-center margin-bottom-m">Now Brewing</h2> */}
           <BrewingBatchesList batches={this.state.brewingBatches} today={this.state.today}/>
           {/* <h2 className="text-align-center margin-bottom-m">Bottled</h2> */}
-          <BottledBatchesList batches={this.state.bottledBatches} />
+          <BottledBatchesList batches={this.state.bottledBatches} today={this.state.today}/>
           </div>
         </div>
         </div>
