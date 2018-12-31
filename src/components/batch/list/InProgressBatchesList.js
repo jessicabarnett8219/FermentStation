@@ -15,11 +15,11 @@ class InProgressBatchesList extends Component {
   }
 
   componentDidMount() {
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1&_sort=startDate&_order=asc&_expand=type`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=1&_sort=bottleDate&_order=asc&_expand=type`)
       .then(usersBatches => {
         this.setState({ brewingBatches: usersBatches })
       })
-    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2&_sort=startDate&_order=asc&_expand=type`)
+    APIManager.getAllEntries("batches", `?userId=${this.state.currentUser}&status=2&_sort=completeDate&_order=asc&_expand=type`)
       .then(usersBatches => {
         this.setState({ bottledBatches: usersBatches })
       })
@@ -29,7 +29,6 @@ class InProgressBatchesList extends Component {
       }
       let today = getToday()
       this.setState({today: today}, () => {
-        console.log(this.state.today)
       })
 
 

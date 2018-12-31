@@ -10,9 +10,9 @@ class BottledBatchesList extends Component {
           this.props.batches.map(batch => {
             return <dl className="text-align-center border border-radius padding-vertical-m padding-horizontal-l margin-bottom-s" key={batch.id}>
               <dt><h3>{batch.name}</h3></dt>
-              <dd>{batch.type.name}</dd>
+              <dd className="no-margin-bottom">{batch.type.name}</dd>
               <dd><span>Ready to Drink </span>
-              { batch.completeDate === this.props.today ? "Today" :
+              { batch.completeDate === this.props.today ? <p><i className="fas fa-clock fa-2x"></i></p> :
                 <Moment fromNow>{batch.completeDate}</Moment>
               }
               </dd>
