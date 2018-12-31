@@ -67,21 +67,19 @@ class NewBatchForm extends Component {
       <React.Fragment>
         <NavBar {...this.props} />
         <div className="container padding-horizontal-m sticky-footer-clear">
-
-          <div className="heading-container margin-bottom-s">
-            <h1 className="text-align-center">Start a New Batch</h1></div>
-          <strong><label className="" htmlFor="name">Name</label></strong>
-          <input id="name" type="text" placeholder="name" className="margin-bottom-s" onChange={
+          <h1 className="text-align-center">Start a New Batch</h1>
+          <strong><label className="font-size-l" htmlFor="name">Name</label></strong>
+          <input id="name" type="text" placeholder="name" className="margin-bottom-s input-xl" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <strong><label htmlFor="startDate">Start Date</label></strong>
-          <input id="startDate" type="date" defaultValue={this.state.startDate} className="margin-bottom-" onChange={
+          <strong><label htmlFor="startDate" className="font-size-l">Start Date</label></strong>
+          <input id="startDate" type="date" defaultValue={this.state.startDate} className="margin-bottom-s input-xl" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
-          <strong><label htmlFor="expBottlingDate">Ready to Bottle: </label></strong>
-          <input id="expBottlingDate" type="date" className="margin-bottom-s" onChange={
+          <strong><label htmlFor="expBottlingDate" className="font-size-l">Ready to Bottle On </label></strong>
+          <input id="expBottlingDate" type="date" className="margin-bottom-s input-xl" onChange={
             (evt) => { this.handleFieldChange(evt) }
           } />
 
@@ -91,14 +89,14 @@ class NewBatchForm extends Component {
                 this.handleFieldChangeRadio(evt)
               }} />
               <span className="control-indicator"></span>
-              <span className="control-label">Water Kefir</span>
+              <span className="control-label font-size-l">Water Kefir</span>
             </label>
             <label className="control control-inline radio info">
               <input type="radio" name="type" value={1} onChange={(evt) => {
                 this.handleFieldChangeRadio(evt)
               }} />
               <span className="control-indicator"></span>
-              <span className="control-label">Kombucha</span>
+              <span className="control-label font-size-l">Kombucha</span>
             </label>
           </div>
         </div>
@@ -106,7 +104,7 @@ class NewBatchForm extends Component {
         <div className="flex margin-vertical-s margin-horizontal-m">
           <button className="button info button-xxl color-white sticky-button" onClick={() => {
             this.handleSave()
-          }}>Save and Continue</button>
+          }}>Next</button>
         </div>
       </React.Fragment>
     )

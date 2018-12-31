@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Moment from 'react-moment';
+import moment from "moment"
 
 class BrewingBatchesList extends Component {
-
   render() {
+
+
     return (
       <div className="list-item-container margin-bottom-s">
         {
@@ -12,7 +14,12 @@ class BrewingBatchesList extends Component {
             return <dl className="text-align-center border border-radius padding-vertical-m padding-horizontal-l margin-bottom-s" key={batch.id}>
               <dt className=""><h3>{batch.name}</h3></dt>
               <dd className="margin-bottom-xs">{batch.type.name}</dd>
-              <dd className="">Ready to Bottle: <Moment format="MM/DD/YY">{batch.bottleDate}</Moment></dd>
+              <dd>
+                <span>Ready to Bottle </span>
+                {batch.bottleDate === this.props.today ? "Today" : <Moment fromNow>{batch.bottleDate}</Moment>
+                }
+              </dd>
+              {/* <dd className="">Ready to Bottle: <Moment fromNow>{batch.bottleDate}</Moment></dd> */}
               <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
             </dl>
           })
