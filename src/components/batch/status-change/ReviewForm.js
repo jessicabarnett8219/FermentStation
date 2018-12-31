@@ -67,9 +67,9 @@ class ReviewForm extends Component {
         <div className="container padding-horizontal-m sticky-footer-clear">
           <h1 className="text-align-center no-margin-bottom">Review Batch</h1>
           <h3 className="text-align-center margin-top-xs no-margin-bottom">{this.state.batch.name}</h3>
-          <p className="text-align-center no-margin-top">Bottled: <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
-          <strong><label htmlFor="completeDate">Completion Date</label></strong>
-          <input type="date" id="completeDate" onChange={(evt) => {
+          <p className="text-align-center no-margin-top">Bottled On <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
+          <strong><label htmlFor="completeDate" className="font-size-l">Completed On</label></strong>
+          <input type="date" id="completeDate" className="input-l" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
@@ -83,13 +83,13 @@ class ReviewForm extends Component {
             }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
           </div>
 
-          <strong><label htmlFor="review">Review</label></strong>
+          <strong><label htmlFor="review" className="font-size-l">Review</label></strong>
           <textarea type="text" placeholder="review" id="review" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
         </div>
-        <div className="flex justify-content-center margin-bottom-l margin-horizontal-m">
+        <div className="flex margin-vertical-s margin-horizontal-m">
           <button className="button info button-xxl color-white sticky-button" onClick={() => {
             if (this.props.completeDate === "") {
               alert("Date fields should not be left blank")

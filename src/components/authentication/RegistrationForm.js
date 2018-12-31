@@ -22,8 +22,8 @@ class RegistrationForm extends Component {
           <input id="registerPassword" placeholder="Password" type="text" onChange={(evt) => {
             this.props.handleFieldChange(evt)
           }} />
-          <div className="flex justify-content-center margin-top-xs">
-            <button className="button info margin-left-xs" onClick={(evt) => {
+          <div className="flex justify-content-center margin-top-s">
+            <button className="button button-xl info sticky-button" onClick={(evt) => {
               this.props.handleRegistration(evt)
             }}>Register</button>
           </div>

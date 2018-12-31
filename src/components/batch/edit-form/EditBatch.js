@@ -131,11 +131,9 @@ class EditBatch extends Component {
                     <BottleIngredientEdit batchId={this.state.batch.id} batchType={this.state.batch.typeId} />
                   </React.Fragment>
                   : null}
-
-            <div className="flex justify-content-center margin-bottom-l margin-top-m">
-              <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
-            </div>
           </div>
+
+            <SaveEditBtn startDate={this.state.startDate} bottleDate={this.state.bottleDate} completeDate={this.state.completeDate} handleSave={this.handleSave} />
         </React.Fragment>
       )
     } else {

@@ -65,11 +65,9 @@ h1, h2, h3, h4, h5, .dt-title {
   max-width: 500px;
   margin: 0 auto 0 auto;
   min-height: 100vh;
-display: flex;
-flex-direction: column;
-background-color: white;
-
-
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }
 
 .sticky-footer-clear {

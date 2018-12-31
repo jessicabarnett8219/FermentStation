@@ -17,10 +17,9 @@ class SupplementSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s">
+      <div className="flex flex-column margin-bottom-s margin-top-xs">
         <div>
           <div className="">
-          <strong><label>Supplements</label></strong>
             <label className="select" htmlFor="currentSupplement">
               <select className="" id="currentSupplement" name="currentSupplement" onChange={
                 (evt) => {

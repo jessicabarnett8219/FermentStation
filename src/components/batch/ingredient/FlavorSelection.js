@@ -17,24 +17,25 @@ class FlavorSelection extends Component {
 
   render() {
     return (
-      <div className="">
-      <strong><label htmlFor="bottleIngredients" className="">Bottle Ingredients</label></strong>
-        <div className="flex flex-column align-items-center margin-vertical-xs">
-          <label className="select ingredient-select" htmlFor="currentFlavor">
-            <select className="" id="currentFlavor" name="currentFlavor" onChange={
-              (evt) => {
-                this.props.handleIngredientSelection(evt)
-              }
-            }>
-              {
-                this.state.flavorOptions.map(flavor => {
-                  return <option key={flavor.id} value={flavor.id} >
-                    {flavor.name}
-                  </option>
-                })
-              }
-            </select>
-          </label>
+      <div className="flex flex-column margin-bottom-s margin-top-xs">
+        <div className="">
+          <div>
+            <label className="select ingredient-select" htmlFor="currentFlavor">
+              <select className="" id="currentFlavor" name="currentFlavor" onChange={
+                (evt) => {
+                  this.props.handleIngredientSelection(evt)
+                }
+              }>
+                {
+                  this.state.flavorOptions.map(flavor => {
+                    return <option key={flavor.id} value={flavor.id} >
+                      {flavor.name}
+                    </option>
+                  })
+                }
+              </select>
+            </label>
+          </div>
 
           <div className="flex align-items-baseline justify-content-space-between">
             <input type="text" className="margin-right-xs ingredient-amount" placeholder="amount" id="flavorAmount" onChange={
@@ -62,12 +63,12 @@ class FlavorSelection extends Component {
             {
               this.props.selectedFlavors.map(ingredientObj => {
                 return <li key={ingredientObj.id} className="no-margin-vertical">
-                <div className="flex justify-content-space-between align-items-center">
-                {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                  <button className="button button-text brand-icon" onClick={() => {
-                    this.props.deleteIngredient(ingredientObj.id)
-                      .then(() => this.props.getAllFlavors())
-                  }}><i className="fas fa-trash"></i></button>
+                  <div className="flex justify-content-space-between align-items-center">
+                    {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                    <button className="button button-text brand-icon" onClick={() => {
+                      this.props.deleteIngredient(ingredientObj.id)
+                        .then(() => this.props.getAllFlavors())
+                    }}><i className="fas fa-trash"></i></button>
                   </div>
                 </li>
               })
