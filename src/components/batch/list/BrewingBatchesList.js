@@ -1,12 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Moment from 'react-moment';
-import moment from "moment"
 
 class BrewingBatchesList extends Component {
   render() {
-
-
     return (
       <div className="list-item-container margin-bottom-s">
         {

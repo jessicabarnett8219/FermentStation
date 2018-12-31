@@ -23,31 +23,29 @@ class InProgressBatchesList extends Component {
       .then(usersBatches => {
         this.setState({ bottledBatches: usersBatches })
       })
-      const getToday = () => {
-        let today = new Date()
-        return moment(today).format("YYYY-MM-DD")
-      }
-      let today = getToday()
-      this.setState({today: today}, () => {
-      })
-
-
+    const getToday = () => {
+      let today = new Date()
+      return moment(today).format("YYYY-MM-DD")
+    }
+    let today = getToday()
+    this.setState({ today: today }, () => {
+    })
   }
 
   render() {
     return (
-        <div className="">
-          <NavBar {...this.props}/>
-          <div className="container">
+      <div className="">
+        <NavBar {...this.props} />
+        <div className="container">
           <h1 className="text-align-center">In Progress</h1>
           <div className="flex flex-column align-items-center list-container">
-          {/* <h2 className="text-align-center margin-bottom-m">Now Brewing</h2> */}
-          <BrewingBatchesList batches={this.state.brewingBatches} today={this.state.today}/>
-          {/* <h2 className="text-align-center margin-bottom-m">Bottled</h2> */}
-          <BottledBatchesList batches={this.state.bottledBatches} today={this.state.today}/>
+            {/* <h2 className="text-align-center margin-bottom-m">Now Brewing</h2> */}
+            <BrewingBatchesList batches={this.state.brewingBatches} today={this.state.today} />
+            {/* <h2 className="text-align-center margin-bottom-m">Bottled</h2> */}
+            <BottledBatchesList batches={this.state.bottledBatches} today={this.state.today} />
           </div>
         </div>
-        </div>
+      </div>
     )
   }
 }

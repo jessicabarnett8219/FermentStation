@@ -12,9 +12,9 @@ class BottledBatchesList extends Component {
               <dt><h3>{batch.name}</h3></dt>
               <dd className="no-margin-bottom">{batch.type.name}</dd>
               <dd><span>Ready to Drink </span>
-              { batch.completeDate === this.props.today ? <p><i className="fas fa-clock fa-2x"></i></p> :
-                <Moment fromNow>{batch.completeDate}</Moment>
-              }
+                {batch.completeDate === this.props.today ? <p><i className="fas fa-clock fa-2x"></i></p> :
+                  <Moment fromNow>{batch.completeDate}</Moment>
+                }
               </dd>
               <Link to={`/batches/${batch.id}`} {...this.props}><button className="button info">Details</button></Link>
             </dl>
