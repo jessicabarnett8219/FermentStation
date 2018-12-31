@@ -17,7 +17,7 @@ class TeaSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s margin-top-xs">
+      <div className="flex flex-column margin-top-xs">
         <div>
           <div className="">
             <label className="select" htmlFor="currentTea">
@@ -58,7 +58,7 @@ class TeaSelection extends Component {
         </div>
 
         <div>
-          <ul>
+          <ul className="no-bullets">
             {
               this.props.selectedTeas.map(ingredientObj => {
                 return <li key={ingredientObj.id} className="no-margin-vertical">

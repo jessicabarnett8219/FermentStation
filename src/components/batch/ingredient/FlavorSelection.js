@@ -59,11 +59,11 @@ class FlavorSelection extends Component {
         </div>
 
         <div>
-          <ul>
+          <ul className="no-bullets">
             {
               this.props.selectedFlavors.map(ingredientObj => {
-                return <li key={ingredientObj.id} className="no-margin-vertical">
-                  <div className="flex justify-content-space-between align-items-center">
+                return <li key={ingredientObj.id} className="no-margin">
+                  <div className="flex justify-content-space-between align-items-center font-size-l">
                     {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                     <button className="button button-text brand-icon" onClick={() => {
                       this.props.deleteIngredient(ingredientObj.id)

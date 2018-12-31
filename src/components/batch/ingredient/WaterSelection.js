@@ -17,7 +17,7 @@ class WaterSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s margin-top-xs">
+      <div className="flex flex-column margin-top-xs">
         <div className="">
           <div>
             <label className="select" htmlFor="currentWater">
@@ -58,10 +58,10 @@ class WaterSelection extends Component {
         </div>
 
         <div>
-          <ul>
+          <ul className="no-bullets">
             {
               this.props.selectedWaters.map(ingredientObj => {
-                return <li key={ingredientObj.id} className="no-margin-vertical">
+                return <li key={ingredientObj.id} className="no-margin">
                 <div className="flex justify-content-space-between align-items-baseline">
                 {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                   <button className="button button-text brand-icon" onClick={() => {
