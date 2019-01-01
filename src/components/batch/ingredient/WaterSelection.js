@@ -49,7 +49,7 @@ class WaterSelection extends Component {
                 <option value="oz">oz</option>
               </select>
             </label>
-            <button className="margin-left-xs button info button-border" onClick={() => {
+            <button className="margin-left-xs button info" onClick={() => {
               this.props.handleSaveWater()
                 .then(() => this.props.getAllWaters())
 

@@ -22,10 +22,13 @@ class PastBatchesList extends Component {
       <div>
         <NavBar {...this.props} />
         <div className="container">
-          <h1 className="text-align-center margin-bottom-s">Completed</h1>
+          <div className="flex flex-column align-items-center">
+            <h1 className="text-align-center no-margin-bottom">Completed</h1>
+            <div className="title-divider margin-bottom-m"></div>
+          </div>
           {
             this.state.batches.map(batch => {
-              return <div className="flex flex-row justify-content-space-between padding-vertical-m padding-horizontal-s border box-shadow-m margin-bottom-xs" key={batch.id}>
+              return <div className="flex flex-row justify-content-space-between padding-vertical-m padding-horizontal-s border border-radius box-shadow-m margin-bottom-xs" key={batch.id}>
                 <div>
                   <h2 className="no-margin-bottom">{batch.name}</h2>
                   <p className="no-margin-top font-size-l">Completed <Moment format="MM/DD/YY">{batch.completeDate}</Moment></p>

@@ -159,73 +159,84 @@ class StarterIngredientEdit extends Component {
   render() {
     return (
       <React.Fragment>
-
         <div className={this.state.hideWaterButton ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Water</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center border-bottom margin-vertical-s">
+            <strong><label className="font-size-l">Edit Water</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleWater()
-            }}><i className="fas fa-angle-down"></i></button>
+            }}><i className="fas fa-angle-down fa-lg color-info"></i></button>
           </div>
         </div>
         <div className={this.state.hideWaterForm ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Water</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center">
+            <strong><label className="font-size-l">Edit Water</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleWater()
-            }}><i className="fas fa-angle-up"></i></button>
+            }}><i className="fas fa-angle-up fa-lg color-info"></i></button>
           </div>
+          <div className="margin-bottom-s padding-bottom-xs border-bottom">
           <WaterSelection handleIngredientSelection={this.handleIngredientSelection} getAllWaters={this.getAllWaters} handleSaveWater={this.handleSaveWater} deleteIngredient={this.deleteIngredient} selectedWaters={this.state.selectedWaters} />
+          </div>
         </div>
 
         <div className={this.state.hideSugarButton ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Sugar</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center border-bottom margin-vertical-s">
+            <strong><label className="font-size-l">Edit Sugar</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleSugar()
-            }}><i className="fas fa-angle-down"></i></button>
+            }}><i className="fas fa-angle-down fa-lg color-info"></i></button>
           </div>
         </div>
 
         <div className={this.state.hideSugarForm ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Sugar</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center">
+            <strong><label className="font-size-l">Edit Sugar</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleSugar()
-            }}><i className="fas fa-angle-up"></i></button>
+            }}><i className="fas fa-angle-up fa-lg color-info"></i></button>
           </div>
-          <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
+
+          <div className="margin-bottom-s padding-bottom-xs border-bottom">
+            <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
+          </div>
+
         </div>
 
         {this.props.batchType === 2 ?
           <React.Fragment>
             <div className={this.state.hideSupplementsButton ? "hideForm" : null}>
-              <div className="flex justify-content-flex-start align-items-center">
-                <strong><label>Edit Supplements</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+              <div className="flex justify-content-space-between align-items-center border-bottom margin-vertical-s">
+                <strong><label className="font-size-l">Edit Supplements</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
                   this.toggleSupplements()
-                }}><i className="fas fa-angle-down"></i></button>
+                }}><i className="fas fa-angle-down fa-lg color-info"></i></button>
               </div>
             </div>
             <div className={this.state.hideSupplementsForm ? "hideForm" : null}>
-              <div className="flex justify-content-flex-start align-items-center">
-                <strong><label>Edit Supplements</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+              <div className="flex justify-content-space-between align-items-center">
+                <strong><label className="font-size-l">Edit Supplements</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
                   this.toggleSupplements()
-                }}><i className="fas fa-angle-up"></i></button>
+                }}><i className="fas fa-angle-up fa-lg color-info"></i></button>
               </div>
-              <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /></div></React.Fragment>
+              <div className="margin-bottom-s padding-bottom-xs border-bottom">
+                <SupplementSelection handleIngredientSelection={this.handleIngredientSelection} getAllSupplements={this.getAllSupplements} handleSaveSupplement={this.handleSaveSupplement} deleteIngredient={this.deleteIngredient} selectedSupplements={this.state.selectedSupplements} /></div>
+                </div>
+          </React.Fragment>
 
           : this.props.batchType === 1 ?
             <React.Fragment>
               <div className={this.state.hideTeaButton ? "hideForm" : null}>
-                <div className="flex justify-content-flex-start align-items-center">
-                  <strong><label>Edit Tea</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+                <div className="flex justify-content-space-between align-items-center border-bottom margin-vertical-s">
+                  <strong><label className="font-size-l">Edit Tea</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
                     this.toggleTea()
-                  }}><i className="fas fa-angle-down"></i></button>
+                  }}><i className="fas fa-angle-down fa-lg color-info"></i></button>
                 </div>
               </div>
               <div className={this.state.hideTeaForm ? "hideForm" : null}>
-                <div className="flex justify-content-flex-start align-items-center">
-                  <strong><label>Edit Tea</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+                <div className="flex justify-content-space-between align-items-center">
+                  <strong><label className="font-size-l">Edit Tea</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
                     this.toggleTea()
-                  }}><i className="fas fa-angle-up"></i></button>
+                  }}><i className="fas fa-angle-up fa-lg color-info"></i></button>
                 </div>
-                <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} /></div>
+                <div className="margin-bottom-s padding-bottom-xs border-bottom">
+                <TeaSelection handleIngredientSelection={this.handleIngredientSelection} getAllTeas={this.getAllTeas} handleSaveTea={this.handleSaveTea} deleteIngredient={this.deleteIngredient} selectedTeas={this.state.selectedTeas} />
+                </div>
+                </div>
             </React.Fragment> : null
         }
       </React.Fragment>

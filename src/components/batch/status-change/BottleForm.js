@@ -92,34 +92,37 @@ class BottleForm extends Component {
       <React.Fragment>
         <NavBar {...this.props} />
         <div className="container padding-horizontal-m sticky-footer-clear">
-          <h1 className="text-align-center no-margin-bottom">Bottle Batch</h1>
-          <h3 className="text-align-center margin-top-xs no-margin-bottom">{this.state.batch.name}</h3>
-          <p className="text-align-center no-margin-top">Started: <Moment format="MMM DD, YYYY">{this.state.batch.startDate}</Moment></p>
-          <strong><label htmlFor="bottleDate" className="font-size-l">Bottle Date</label></strong>
-          <input type="date" id="bottleDate" className="margin-bottom-s margin-top-xs input-l" onChange={(evt) => {
-            this.handleFieldChange(evt)
-          }} />
+            <div className="flex flex-column align-items-center">
+              <h1 className="text-align-center no-margin-bottom">Bottle a Batch</h1>
+              <div className="title-divider margin-bottom-m"></div>
+            </div>
+            <h3 className="text-align-center no-margin font-size-xxl">{this.state.batch.name}</h3>
+            <p className="text-align-center no-margin-top font-size-l">Started: <Moment format="MMM DD, YYYY">{this.state.batch.startDate}</Moment></p>
+            <strong><label htmlFor="bottleDate" className="font-size-l">Bottle Date</label></strong>
+            <input type="date" id="bottleDate" className="margin-bottom-s margin-top-xs input-l" onChange={(evt) => {
+              this.handleFieldChange(evt)
+            }} />
 
-          <strong><label htmlFor="completeDate" className="font-size-l">Ready to Drink On</label></strong>
-          <input type="date" id="completeDate" className="margin-bottom-s margin-top-xs input-l" onChange={(evt) => {
-            this.handleFieldChange(evt)
-          }} />
-
-
-          <strong><label htmlFor="bottleIngredients" className="font-size-l">Bottle Ingredients</label></strong>
-          <FlavorSelection className="" handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} getAllFlavors={this.getAllFlavors} />
-
+            <strong><label htmlFor="completeDate" className="font-size-l">Ready to Drink On</label></strong>
+            <input type="date" id="completeDate" className="margin-bottom-s margin-top-xs input-l" onChange={(evt) => {
+              this.handleFieldChange(evt)
+            }} />
 
 
-        </div>
-        <div className="flex margin-vertical-s margin-horizontal-m">
-          <button className="button info button-xxl color-white sticky-button" onClick={() => {
-            this.handleSave()
-          }}>Save</button>
-        </div>
+            <strong><label htmlFor="bottleIngredients" className="font-size-l">Bottle Ingredients</label></strong>
+            <FlavorSelection className="" handleIngredientSelection={this.handleIngredientSelection} deleteIngredient={this.deleteIngredient} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} getAllFlavors={this.getAllFlavors} />
+
+
+
+          </div>
+          <div className="flex margin-vertical-s margin-horizontal-m">
+            <button className="button info button-xxl color-white sticky-button" onClick={() => {
+              this.handleSave()
+            }}>Save</button>
+          </div>
       </React.Fragment>
-    )
-  }
-}
+        )
+      }
+    }
 
 export default BottleForm

@@ -52,7 +52,7 @@ class SugarSelection extends Component {
                 <option value="oz">oz</option>
               </select>
             </label>
-            <button className="margin-left-xs button info button-border" onClick={() => {
+            <button className="margin-left-xs button info" onClick={() => {
               this.props.handleSaveSugar()
                 .then(() => this.props.getAllSugars())
             }}>Add</button>
@@ -62,7 +62,7 @@ class SugarSelection extends Component {
           <ul className="no-bullets">
             {
               this.props.selectedSugars.map(ingredientObj => {
-                return <li key={ingredientObj.id} className="no-margin-vertical">
+                return <li key={ingredientObj.id} className="no-margin">
                 <div className="flex justify-content-space-between align-items-baseline">
                 {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                   <button className="button button-text brand-icon" onClick={() => {

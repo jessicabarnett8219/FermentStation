@@ -53,20 +53,22 @@ class BottleIngredientEdit extends Component {
     return (
       <React.Fragment>
         <div className={this.state.hideFlavorButton ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Bottle Ingredients</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center border-bottom margin-bottom-xs">
+            <strong><label className="font-size-l">Edit Bottle Ingredients</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleFlavors()
-            }}><i className="fas fa-angle-down"></i></button>
+            }}><i className="fas fa-angle-down fa-lg color-info"></i></button>
           </div>
         </div>
 
         <div className={this.state.hideFlavorForm ? "hideForm" : null}>
-          <div className="flex justify-content-flex-start align-items-center">
-            <strong><label>Edit Bottle Ingredients</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
+          <div className="flex justify-content-space-between align-items-center">
+            <strong><label className="font-size-l">Edit Bottle Ingredients</label></strong><button className="button button-icon button-text brand-icon" onClick={() => {
               this.toggleFlavors()
-            }}><i className="fas fa-angle-up"></i></button>
+            }}><i className="fas fa-angle-up fa-lg color-info"></i></button>
           </div>
-          <FlavorSelection deleteIngredient={this.deleteIngredient} getAllFlavors={this.getAllFlavors} handleIngredientSelection={this.handleIngredientSelection} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} />
+          <div className="margin-bottom-s padding-bottom-xs border-bottom">
+            <FlavorSelection deleteIngredient={this.deleteIngredient} getAllFlavors={this.getAllFlavors} handleIngredientSelection={this.handleIngredientSelection} handleSaveFlavor={this.handleSaveFlavor} selectedFlavors={this.state.selectedFlavors} />
+          </div>
         </div>
       </React.Fragment>
     )

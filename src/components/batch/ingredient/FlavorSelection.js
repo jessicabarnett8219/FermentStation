@@ -51,7 +51,7 @@ class FlavorSelection extends Component {
                 <option value="oz">oz</option>
               </select>
             </label>
-            <button className="margin-left-xs button info button-border" onClick={() => {
+            <button className="margin-left-xs button info" onClick={() => {
               this.props.handleSaveFlavor()
                 .then(() => this.props.getAllFlavors())
             }}>Add</button>
@@ -68,7 +68,7 @@ class FlavorSelection extends Component {
                     <button className="button button-text brand-icon" onClick={() => {
                       this.props.deleteIngredient(ingredientObj.id)
                         .then(() => this.props.getAllFlavors())
-                    }}><i className="fas fa-trash"></i></button>
+                    }}><i className="fas fa-trash fa-l"></i></button>
                   </div>
                 </li>
               })
