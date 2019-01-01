@@ -67,7 +67,10 @@ class NewBatchForm extends Component {
       <React.Fragment>
         <NavBar {...this.props} />
         <div className="container padding-horizontal-m sticky-footer-clear">
-          <h1 className="text-align-center">Start a New Batch</h1>
+          <div className="flex flex-column align-items-center">
+            <h1 className="text-align-center no-margin-bottom">Start a New Batch</h1>
+            <div className="title-divider margin-bottom-xs"></div>
+          </div>
           <strong><label className="font-size-l" htmlFor="name">Name</label></strong>
           <input id="name" type="text" placeholder="name" className="margin-bottom-s input-xl" onChange={
             (evt) => { this.handleFieldChange(evt) }

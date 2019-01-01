@@ -9,6 +9,16 @@ body {
 
 }
 
+.logo {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+}
+
+.logo-main-menu {
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
 .white-outline-btn {
   background-color: transparent;
   color: white;
@@ -56,6 +66,10 @@ h1, h2, h3, h4, h5, .dt-title {
   color: hsl(221, 12%, 40%);
 }
 
+.alert-icon {
+  color: hsl(356, 84%, 69%);
+}
+
 .menu-item {
   width: 100%;
   background-color: hsl(200, 100%, 40%);
@@ -78,16 +92,9 @@ h1, h2, h3, h4, h5, .dt-title {
   background-color: hsl(356, 84%, 69%);
 }
 
-.button-bg {
-  background-color: hsl(176, 50%, 45%)
-}
-
-.header {
-  background-color: hsl(34, 90%, 70%);
-}
 
 .list-container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto 0 auto;
 }
 
@@ -105,5 +112,23 @@ h1, h2, h3, h4, h5, .dt-title {
 
 .sticky-button {
   flex-basis: 100%;
+}
+
+.list-bg {
+  background-color: #BBDEFB;
+}
+
+.no-bullets {
+  list-style: none;
+}
+
+.break-word {
+word-wrap: break-word;
+}
+
+.title-divider {
+  width: 50px;
+  border-bottom: 5px solid hsl(200, 100%, 40%);
+  margin-top: 10px;
 }
 

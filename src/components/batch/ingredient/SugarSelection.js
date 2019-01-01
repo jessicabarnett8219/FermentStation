@@ -18,7 +18,7 @@ class SugarSelection extends Component {
 
   render() {
     return (
-      <div className="flex flex-column margin-bottom-s margin-top-xs">
+      <div className="flex flex-column margin-top-xs">
         <div className="">
           <div>
             <label className="select" htmlFor="currentSugar">
@@ -52,17 +52,17 @@ class SugarSelection extends Component {
                 <option value="oz">oz</option>
               </select>
             </label>
-            <button className="margin-left-xs button info button-border" onClick={() => {
+            <button className="margin-left-xs button info" onClick={() => {
               this.props.handleSaveSugar()
                 .then(() => this.props.getAllSugars())
             }}>Add</button>
           </div>
         </div>
         <div>
-          <ul>
+          <ul className="no-bullets">
             {
               this.props.selectedSugars.map(ingredientObj => {
-                return <li key={ingredientObj.id} className="no-margin-vertical">
+                return <li key={ingredientObj.id} className="no-margin">
                 <div className="flex justify-content-space-between align-items-baseline">
                 {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                   <button className="button button-text brand-icon" onClick={() => {

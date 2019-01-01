@@ -51,7 +51,7 @@ class FlavorSelection extends Component {
                 <option value="oz">oz</option>
               </select>
             </label>
-            <button className="margin-left-xs button info button-border" onClick={() => {
+            <button className="margin-left-xs button info" onClick={() => {
               this.props.handleSaveFlavor()
                 .then(() => this.props.getAllFlavors())
             }}>Add</button>
@@ -59,16 +59,16 @@ class FlavorSelection extends Component {
         </div>
 
         <div>
-          <ul>
+          <ul className="no-bullets">
             {
               this.props.selectedFlavors.map(ingredientObj => {
-                return <li key={ingredientObj.id} className="no-margin-vertical">
-                  <div className="flex justify-content-space-between align-items-center">
+                return <li key={ingredientObj.id} className="no-margin">
+                  <div className="flex justify-content-space-between align-items-center font-size-l">
                     {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
                     <button className="button button-text brand-icon" onClick={() => {
                       this.props.deleteIngredient(ingredientObj.id)
                         .then(() => this.props.getAllFlavors())
-                    }}><i className="fas fa-trash"></i></button>
+                    }}><i className="fas fa-trash fa-l"></i></button>
                   </div>
                 </li>
               })

@@ -65,22 +65,25 @@ class ReviewForm extends Component {
       <React.Fragment>
         <NavBar {...this.props} />
         <div className="container padding-horizontal-m sticky-footer-clear">
-          <h1 className="text-align-center no-margin-bottom">Review Batch</h1>
-          <h3 className="text-align-center margin-top-xs no-margin-bottom">{this.state.batch.name}</h3>
-          <p className="text-align-center no-margin-top">Bottled On <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
+          <div className="flex flex-column align-items-center">
+            <h1 className="text-align-center no-margin-bottom">Review a Batch</h1>
+            <div className="title-divider margin-bottom-m"></div>
+          </div>
+          <h3 className="text-align-center no-margin font-size-xxl">{this.state.batch.name}</h3>
+          <p className="text-align-center no-margin-top font-size-l">Bottled On <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
           <strong><label htmlFor="completeDate" className="font-size-l">Completed On</label></strong>
           <input type="date" id="completeDate" className="input-l" onChange={(evt) => {
             this.handleFieldChange(evt)
           }} />
 
-          <div className="margin-vertical-m text-align-center">
+          <div className="margin-vertical-m text-align-center border border-radius box-shadow-s padding-vertical-m">
             <input type="radio" name="rating" value="negative" onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
-            }} /><i className="fas fa-thumbs-down fa-2x margin-right-m"></i>
+            }} /><i className="fas fa-thumbs-down fa-2x margin-right-m color-info"></i>
 
             <input type="radio" name="rating" value="positive" defaultChecked onChange={(evt) => {
               this.handleFieldChangeRadio(evt)
-            }} /><i className="fas fa-thumbs-up fa-2x"></i><br></br>
+            }} /><i className="fas fa-thumbs-up fa-2x color-info"></i><br></br>
           </div>
 
           <strong><label htmlFor="review" className="font-size-l">Review</label></strong>

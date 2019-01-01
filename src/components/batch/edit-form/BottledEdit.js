@@ -4,16 +4,16 @@ class BottledEdit extends Component {
 
   render() {
     return (
-      <React.Fragment>
-          <label htmlFor="editCompleteDate">
+        <div className="margin-bottom-s">
+          <strong><label className="font-size-l" htmlFor="editCompleteDate">
           {this.props.batch.status === 3 ? "Completed On" :
-          "Expected Completion Date"
+          "Ready to Drink"
           }
-          </label>
-          <input type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
+          </label></strong>
+          <input className="input-l" type="date" id="editCompleteDate" defaultValue={this.props.batch.completeDate} onChange={
             (evt) => { this.props.handleFieldChange(evt) }
           } />
-      </React.Fragment>
+          </div>
     )
   }
 }
