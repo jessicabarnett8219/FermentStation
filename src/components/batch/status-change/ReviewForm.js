@@ -70,7 +70,7 @@ class ReviewForm extends Component {
             <div className="title-divider margin-bottom-m"></div>
           </div>
           <h3 className="text-align-center no-margin font-size-xxl">{this.state.batch.name}</h3>
-          <p className="text-align-center no-margin-top font-size-l">Bottled On <Moment format="MMM Do, YYYY">{this.state.batch.bottleDate}</Moment></p>
+          <p className="text-align-center no-margin-top font-size-xl">Bottled <Moment fromNow>{this.state.batch.bottleDate}</Moment></p>
           <strong><label htmlFor="completeDate" className="font-size-l">Completed On</label></strong>
           <input type="date" id="completeDate" className="input-l" onChange={(evt) => {
             this.handleFieldChange(evt)
@@ -93,7 +93,7 @@ class ReviewForm extends Component {
 
         </div>
         <div className="flex margin-vertical-s margin-horizontal-m">
-          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+          <button className="button info button-xxl color-white sticky-button box-shadow-xxl" onClick={() => {
             if (this.props.completeDate === "") {
               alert("Date fields should not be left blank")
             } else {

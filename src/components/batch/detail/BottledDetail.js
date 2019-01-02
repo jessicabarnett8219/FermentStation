@@ -48,7 +48,7 @@ class BottledDetail extends Component {
           </div>
         </div>
         <div className="flex margin-vertical-s margin-horizontal-m">
-          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+          <button className="button info button-xxl color-white sticky-button box-shadow-xxl" onClick={() => {
             this.props.history.push(`/review/${this.props.id}`)
           }}>Review Batch</button>
         </div>

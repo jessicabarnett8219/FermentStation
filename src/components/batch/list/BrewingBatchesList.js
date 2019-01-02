@@ -11,10 +11,10 @@ class BrewingBatchesList extends Component {
             return <dl className="text-align-center border box-shadow-m border-radius padding-m margin-bottom-s" key={batch.id}>
               <dt className=""><h2>{batch.name}</h2></dt>
               <dd className="font-size-xl">
-                {batch.bottleDate === this.props.today ? <span><i className="fas fa-bell fa-lg margin-right-xs"></i>Ready to Bottle Today</span> : <span>Ready to ottle <Moment fromNow>{batch.bottleDate}</Moment></span>
+                {batch.bottleDate === this.props.today ? <span><i className="fas fa-bell fa-lg margin-right-xs"></i>Ready to bottle today</span> : <span>Ready to bottle <Moment fromNow>{batch.bottleDate}</Moment></span>
                 }
               </dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-l info">Details</button></Link>
+              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-l info box-shadow-xxl">Details</button></Link>
             </dl>
           })
         }
