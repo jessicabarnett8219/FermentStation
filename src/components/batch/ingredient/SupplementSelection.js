@@ -62,12 +62,12 @@ class SupplementSelection extends Component {
             {
               this.props.selectedSupplements.map(ingredientObj => {
                 return <li key={ingredientObj.id} className="no-margin">
-                <div className="flex justify-content-space-between align-items-baseline">
-                {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
-                  <button className="button button-text brand-icon" onClick={() => {
-                    this.props.deleteIngredient(ingredientObj.id)
-                      .then(() => this.props.getAllSupplements())
-                  }}><i className="fas fa-trash"></i></button>
+                  <div className="flex justify-content-space-between align-items-baseline">
+                    {ingredientObj.amount} {ingredientObj.measurement} {ingredientObj.ingredient.name}
+                    <button className="button button-text brand-icon" onClick={() => {
+                      this.props.deleteIngredient(ingredientObj.id)
+                        .then(() => this.props.getAllSupplements())
+                    }}><i className="fas fa-trash"></i></button>
                   </div>
                 </li>
               })

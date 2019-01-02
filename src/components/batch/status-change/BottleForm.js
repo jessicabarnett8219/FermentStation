@@ -97,7 +97,7 @@ class BottleForm extends Component {
               <div className="title-divider margin-bottom-m"></div>
             </div>
             <h3 className="text-align-center no-margin font-size-xxl">{this.state.batch.name}</h3>
-            <p className="text-align-center no-margin-top font-size-l">Started: <Moment format="MMM DD, YYYY">{this.state.batch.startDate}</Moment></p>
+            <p className="text-align-center no-margin-top font-size-xl">Started <Moment fromNow>{this.state.batch.startDate}</Moment></p>
             <strong><label htmlFor="bottleDate" className="font-size-l">Bottle Date</label></strong>
             <input type="date" id="bottleDate" className="margin-bottom-s margin-top-xs input-l" onChange={(evt) => {
               this.handleFieldChange(evt)
@@ -116,7 +116,7 @@ class BottleForm extends Component {
 
           </div>
           <div className="flex margin-vertical-s margin-horizontal-m">
-            <button className="button info button-xxl color-white sticky-button" onClick={() => {
+            <button className="button info button-xxl color-white sticky-button box-shadow-xxl" onClick={() => {
               this.handleSave()
             }}>Save</button>
           </div>

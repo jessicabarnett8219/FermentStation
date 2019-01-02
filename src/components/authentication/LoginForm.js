@@ -5,14 +5,14 @@ class LoginForm extends Component {
   render() {
     return (
       <div className={this.props.hideLogin ? "hideLogin" : null}>
-        <strong><label htmlFor="loginEmail">Email/Username</label></strong>
-        <input id="loginEmail" placeholder="Email" type="text" className="" onChange={
+        <strong><label className="font-size-l" htmlFor="loginEmail">Email/Username</label></strong>
+        <input id="loginEmail" placeholder="Email" type="text" className="input-l" onChange={
           (evt) => {
             this.props.handleFieldChange(evt)
           }
         } />
-        <strong><label htmlFor="loginPassword">Password</label></strong>
-        <input id="loginPassword" placeholder="Password" className="margin-bottom-s" type="text" onChange={
+        <strong><label className="font-size-l" htmlFor="loginPassword">Password</label></strong>
+        <input id="loginPassword" placeholder="Password" className="margin-bottom-s input-l" type="text" onChange={
           (evt) => {
             this.props.handleFieldChange(evt)
           }

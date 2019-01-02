@@ -9,14 +9,19 @@ body {
 
 }
 
+h1 {
+  font-weight: 700;
+}
+
 .logo {
   font-family: "Raleway", sans-serif;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .logo-main-menu {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
   font-size: 2.5em;
-  font-weight: 800;
 }
 
 .white-outline-btn {
@@ -32,10 +37,6 @@ code {
 
 .brand {
   background-color: hsl(221, 12%, 40%);
-}
-
-h1, h2, h3, h4, h5, .dt-title {
-  font-family: 'Raleway', sans-serif;
 }
 
 .ul {
@@ -132,3 +133,12 @@ word-wrap: break-word;
   margin-top: 10px;
 }
 
+.main-menu-item {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-menu-container {
+  align-self: center;
+}

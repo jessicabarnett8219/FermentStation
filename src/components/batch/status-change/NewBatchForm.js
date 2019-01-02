@@ -105,7 +105,7 @@ class NewBatchForm extends Component {
         </div>
 
         <div className="flex margin-vertical-s margin-horizontal-m">
-          <button className="button info button-xxl color-white sticky-button" onClick={() => {
+          <button className="button info button-xxl color-white sticky-button box-shadow-xxl" onClick={() => {
             this.handleSave()
           }}>Next</button>
         </div>

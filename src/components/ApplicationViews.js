@@ -10,8 +10,10 @@ import BottleForm from "./batch/status-change/BottleForm"
 import ReviewForm from "./batch/status-change/ReviewForm";
 import EditBatch from "./batch/edit-form/EditBatch"
 import IngredientForm from "./batch/ingredient/IngredientForm"
+import APIManager from "../modules/APIManager";
 
 class ApplicationViews extends Component {
+
 
   isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
 

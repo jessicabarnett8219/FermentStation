@@ -5,7 +5,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="nav-inline no-margin-top margin-bottom-m padding-vertical-s nav-bg color-white">
+      <nav className="nav-inline no-margin-top margin-bottom-m padding-vertical-s nav-bg color-white box-shadow-xl">
         <ul className="flex align-items-center justify-content-space-between">
           <li>
            <Link to="/" className="link logo font-size-xxl">FermentStation</Link>

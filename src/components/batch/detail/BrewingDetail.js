@@ -21,24 +21,24 @@ class BrewingDetail extends Component {
                 <li className="no-margin"><strong>Ready to Bottle </strong><Moment format="MM/DD/YY">{this.props.bottleDate}</Moment></li>
               </div>
               <div className="border border-radius box-shadow-s padding-s margin-bottom-s">
-              <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
+                <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
 
-                {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
-                <ul className="font-size-xl no-bullets">
-                  {
-                    this.props.starterIngredients.map(i => {
-                      return <li key={i.id} className="no-margin no-padding-horizontal">{i.amount} {i.measurement} {i.ingredient.name} </li>
-                    })
-                  }
-                </ul>
-              </li>
+                  {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
+                  <ul className="font-size-xl no-bullets">
+                    {
+                      this.props.starterIngredients.map(i => {
+                        return <li key={i.id} className="no-margin no-padding-horizontal">{i.amount} {i.measurement} {i.ingredient.name} </li>
+                      })
+                    }
+                  </ul>
+                </li>
               </div>
 
             </ul>
           </div>
 
           <div className="flex margin-vertical-s">
-            <button className="button info button-xxl color-white sticky-button" onClick={() => {
+            <button className="button info button-xxl color-white sticky-button box-shadow-xxl" onClick={() => {
               this.props.history.push(`/bottle/${this.props.id}`)
             }}>Bottle Batch</button>
           </div>
