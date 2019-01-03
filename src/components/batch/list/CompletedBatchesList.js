@@ -30,7 +30,7 @@ class PastBatchesList extends Component {
             this.state.batches.map(batch => {
               return <div className="flex flex-row justify-content-space-between padding-vertical-m padding-horizontal-s border border-radius box-shadow-m margin-bottom-xs" key={batch.id}>
                 <div>
-                  <h2 className="no-margin-bottom">{batch.name}</h2>
+                  <h3 className="no-margin-bottom">{batch.name}</h3>
                   <p className="no-margin-top font-size-l">Completed <Moment format="MM/DD/YY">{batch.completeDate}</Moment></p>
                 </div>
                 <div className="align-self-flex-end">

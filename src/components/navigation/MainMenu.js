@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 
 class MainMenu extends Component {
 
-
-
   render() {
     return (
       <React.Fragment>

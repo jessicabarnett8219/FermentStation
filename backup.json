@@ -52,116 +52,78 @@
   ],
   "batches": [
     {
-      "name": "Watermelon Power",
+      "name": "Cherry",
       "userId": 2,
       "typeId": 2,
-      "rating": "negative",
-      "review": "Couldn't get it to carbonate",
-      "startDate": "2018-10-22",
-      "bottleDate": "2018-10-24",
-      "completeDate": "2018-10-26",
-      "batchAmount": "32",
-      "measurement": "ounces",
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-15",
+      "bottleDate": "2019-01-27",
+      "completeDate": "2018-12-27",
+      "batchAmount": "2",
+      "measurement": "cups",
+      "ingredientId": "10",
       "status": 3,
-      "starterIngredients": "4 tbsp palm sugar, 2 pieces dried fruit",
-      "bottleIngredients": "1/4 cup watermelon Juice, 5 cherries",
-      "id": 11
+      "id": 43,
+      "bottleIngredients": ""
     },
     {
-      "name": "Triple Berry",
+      "name": "Melon",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "positive",
+      "review": "bmnbnmb",
+      "startDate": "2018-12-15",
+      "bottleDate": "2018-12-17",
+      "completeDate": "2018-12-18",
+      "batchAmount": "4",
+      "measurement": "cups",
+      "ingredientId": 11,
+      "status": 3,
+      "id": 44,
+      "bottleIngredients": "bmnmnb"
+    },
+    {
+      "name": "Lemonade",
       "userId": 2,
       "typeId": 1,
       "rating": "",
       "review": "",
-      "startDate": "2018-11-29",
-      "bottleDate": "2018-12-11",
-      "completeDate": "2018-12-14",
-      "batchAmount": "64 ",
-      "measurement": "ounces",
+      "startDate": "2018-12-15",
+      "bottleDate": "2018-12-29",
+      "completeDate": "2019-01-01",
+      "batchAmount": "4",
+      "measurement": "cups",
       "status": 2,
-      "starterIngredients": "",
-      "bottleIngredients": "",
-      "id": 15
+      "id": 46,
+      "bottleIngredients": ""
     },
     {
-      "name": "Orange Dream",
+      "name": "Orange Soda",
       "userId": 2,
-      "typeId": 1,
+      "typeId": 2,
       "rating": "positive",
-      "review": "Yum!",
-      "startDate": "2018-10-01",
-      "bottleDate": "2018-10-15",
-      "completeDate": "2018-10-18",
-      "batchAmount": "32",
-      "measurement": "ounces",
+      "review": "Pretty good but wouldn't make it again.",
+      "startDate": "2018-12-17",
+      "bottleDate": "2019-01-02",
+      "completeDate": "2019-01-02",
+      "batchAmount": "4",
+      "measurement": "cups",
       "status": 3,
-      "starterIngredients": "1.5 tsps green tea, 1/4 cup white sugar, 1/2 cup starter tea",
-      "bottleIngredients": "1/5 cup orange juice, 2 vanilla beans",
-      "id": 18
+      "id": 49,
+      "bottleIngredients": ""
     },
     {
-      "name": "Coconut Lime",
+      "name": "grape",
       "userId": 2,
-      "typeId": 1,
+      "typeId": 2,
       "rating": "negative",
-      "review": "gross",
-      "startDate": "2018-12-01",
-      "bottleDate": "2018-12-14",
-      "completeDate": "2018-12-14",
-      "batchAmount": "8",
-      "measurement": "cups",
+      "review": "terrible",
+      "startDate": "2018-12-19",
+      "bottleDate": "2018-12-19",
+      "completeDate": "2018-12-20",
       "status": 3,
-      "starterIngredients": "1 tbsp black tea, 1/2 cup cane sugar, 1 cup vinegar",
-      "bottleIngredients": "Limejuice coconut water ",
-      "id": 23
-    },
-    {
-      "name": "Cream Soda",
-      "userId": 2,
-      "typeId": 1,
-      "rating": "positive",
-      "review": "Pretty good but I might need to let it ferment longer next time. A little sweet.",
-      "startDate": "2018-12-04",
-      "bottleDate": "2018-12-11",
-      "completeDate": "2018-12-13",
-      "batchAmount": "4",
-      "measurement": "cups",
-      "status": 3,
-      "starterIngredients": "2 tbsp brown sugar, 1tbsp white sugar, 1 lemon",
-      "bottleIngredients": "3 Vanilla beans",
-      "id": 30
-    },
-    {
-      "name": "Mango Pineapple",
-      "userId": 2,
-      "typeId": 2,
-      "rating": "positive",
-      "review": "Turned out really good. Would repeat",
-      "startDate": "2018-12-02",
-      "bottleDate": "2018-12-04",
-      "completeDate": "2018-12-06",
-      "batchAmount": "4 ",
-      "measurement": "cups",
-      "status": 3,
-      "starterIngredients": "2 tbsp white sugar, 1 lemon",
-      "bottleIngredients": "2 tbsp mango juice, 2 pineapple slices",
-      "id": 38
-    },
-    {
-      "name": "Cherry Limeade",
-      "userId": 2,
-      "typeId": 2,
-      "rating": "",
-      "review": "",
-      "startDate": "2018-12-13",
-      "bottleDate": "2018-12-15",
-      "completeDate": "",
-      "batchAmount": "4",
-      "measurement": "cups",
-      "status": 1,
-      "starterIngredients": "",
-      "bottleIngredients": "",
-      "id": 39
+      "id": 61
     },
     {
       "name": "Grape Soda",
@@ -169,41 +131,117 @@
       "typeId": 2,
       "rating": "",
       "review": "",
-      "startDate": "2018-12-14",
-      "bottleDate": "2018-12-16",
-      "completeDate": "",
-      "batchAmount": "4",
-      "measurement": "cups",
-      "status": 1,
-      "starterIngredients": "",
-      "bottleIngredients": "",
-      "id": 40
+      "startDate": "2018-12-19",
+      "bottleDate": "2018-12-26",
+      "completeDate": "2018-12-26",
+      "status": 3,
+      "id": 62
     },
     {
-      "name": "Coconut Lime",
+      "name": "Orange Soda",
       "userId": 2,
       "typeId": 2,
       "rating": "",
       "review": "",
-      "startDate": "2018-12-15",
-      "bottleDate": "2018-12-17",
+      "startDate": "2018-12-26",
+      "bottleDate": "2018-12-29",
+      "completeDate": "2018-12-29",
+      "status": 3,
+      "id": 65
+    },
+    {
+      "name": "Cream Soda",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "positive",
+      "review": "vnbvnbvn",
+      "startDate": "2018-12-28",
+      "bottleDate": "2018-12-29",
+      "completeDate": "2019-01-10",
+      "status": 2,
+      "id": 67
+    },
+    {
+      "name": "Root Beer",
+      "userId": 2,
+      "typeId": 1,
+      "rating": "positive",
+      "review": "",
+      "startDate": "2018-12-28",
+      "bottleDate": "2019-01-01",
+      "completeDate": "2019-01-01T22:08:06.539Z",
+      "status": 3,
+      "id": 68
+    },
+    {
+      "name": "Carrot Ginger",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "positive",
+      "review": "Great!",
+      "startDate": "2018-12-29",
+      "bottleDate": "2018-12-31",
+      "completeDate": "2018-12-31",
+      "status": 3,
+      "id": 69
+    },
+    {
+      "name": "Mango",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-30",
+      "bottleDate": "2018-12-30",
+      "completeDate": "2019-01-02",
+      "status": 3,
+      "id": 71
+    },
+    {
+      "name": "Grape",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2018-12-25",
+      "bottleDate": "2018-12-31",
+      "completeDate": "2018-12-31",
+      "status": 2,
+      "id": 72
+    },
+    {
+      "name": "Lemon Lime",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "positive",
+      "review": "bmnb",
+      "startDate": "2019-01-01T22:00:58.045Z",
+      "bottleDate": "2019-01-01",
+      "completeDate": "2019-01-01T23:48:56.306Z",
+      "status": 3,
+      "id": 73
+    },
+    {
+      "name": "Blueberry Ginger",
+      "userId": 2,
+      "typeId": 2,
+      "rating": "",
+      "review": "",
+      "startDate": "2019-01-01",
+      "bottleDate": "2019-01-01",
       "completeDate": "",
-      "batchAmount": "4",
-      "measurement": "cups",
       "status": 1,
-      "starterIngredients": "",
-      "bottleIngredients": "",
-      "id": 41
+      "id": 74
     }
   ],
   "types": [
     {
       "id": 1,
-      "name": "kombucha"
+      "name": "Kombucha"
     },
     {
       "id": 2,
-      "name": "water kefir"
+      "name": "Water Kefir"
     }
   ],
   "statuses": [
@@ -267,29 +305,24 @@
       "categoryId": 3
     },
     {
-      "id": 4,
-      "name": "white sugar",
-      "categoryId": 4
-    },
-    {
       "id": 5,
       "name": "kefir grains",
-      "categoryId": 5
+      "categoryId": 4
     },
     {
       "id": 6,
       "name": "grape juice",
-      "categoryId": 6
+      "categoryId": 5
     },
     {
       "id": 7,
       "name": "vinegar",
-      "categoryId": 7
+      "categoryId": 6
     },
     {
       "id": 8,
       "name": "spring water",
-      "categoryId": 8
+      "categoryId": 7
     },
     {
       "id": 9,
@@ -305,6 +338,395 @@
       "id": 11,
       "name": "unrefined cane sugar",
       "categoryId": 1
+    },
+    {
+      "id": 12,
+      "name": "green tea",
+      "categoryId": 3
+    },
+    {
+      "id": 13,
+      "name": "oolong tea",
+      "categoryId": 3
+    },
+    {
+      "id": 14,
+      "name": "filtered water",
+      "categoryId": 7
+    },
+    {
+      "id": 15,
+      "name": "lemon wedge",
+      "categoryId": 2
+    },
+    {
+      "id": 16,
+      "name": "dried fruit piece",
+      "categoryId": 2
+    },
+    {
+      "id": 17,
+      "name": "sea salt",
+      "categoryId": 2
+    },
+    {
+      "id": 18,
+      "name": "starter tea",
+      "categoryId": 6
+    },
+    {
+      "id": 19,
+      "name": "orange juice",
+      "categoryId": 5
+    },
+    {
+      "id": 20,
+      "name": "vanilla bean",
+      "categoryId": 5
+    }
+  ],
+  "batches-ingredients": [
+    {
+      "ingredientId": 1,
+      "batchId": 49,
+      "id": 49,
+      "amount": 3,
+      "measurement": "cups"
+    },
+    {
+      "ingredientId": 3,
+      "batchId": 49,
+      "id": 50,
+      "amount": 1,
+      "measurement": "tsp"
+    },
+    {
+      "ingredientId": 9,
+      "batchId": 49,
+      "id": 51,
+      "amount": 2,
+      "measurement": "tbsp"
+    },
+    {
+      "ingredientId": 3,
+      "batchId": 49,
+      "id": 52,
+      "amount": 4,
+      "measurement": "cups"
+    },
+    {
+      "ingredientId": 2,
+      "batchId": 43,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 77
+    },
+    {
+      "ingredientId": 9,
+      "batchId": 61,
+      "amount": 2,
+      "measurement": "tbsp",
+      "id": 80
+    },
+    {
+      "ingredientId": 15,
+      "batchId": 61,
+      "amount": 1,
+      "measurement": "",
+      "id": 81
+    },
+    {
+      "ingredientId": 19,
+      "batchId": "61",
+      "amount": 2,
+      "measurement": "cups",
+      "id": 82
+    },
+    {
+      "ingredientId": 15,
+      "batchId": 62,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 89
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 43,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 92
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 43,
+      "amount": 1,
+      "measurement": "cups",
+      "id": 93
+    },
+    {
+      "ingredientId": 14,
+      "amount": 4,
+      "measurement": "cups",
+      "id": 97
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 62,
+      "amount": 4,
+      "measurement": "cups",
+      "id": 103
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 62,
+      "amount": 2,
+      "measurement": "tbsp",
+      "id": 104
+    },
+    {
+      "ingredientId": 11,
+      "batchId": 62,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 105
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "62",
+      "amount": 4,
+      "measurement": "tbsp",
+      "id": 113
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "62",
+      "amount": 4,
+      "measurement": "tbsp",
+      "id": 114
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 65,
+      "amount": 2,
+      "measurement": "cups",
+      "id": 119
+    },
+    {
+      "ingredientId": 10,
+      "batchId": 65,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 120
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 67,
+      "amount": 5,
+      "measurement": "cups",
+      "id": 122
+    },
+    {
+      "ingredientId": 2,
+      "batchId": 67,
+      "amount": 0,
+      "measurement": "tbsp",
+      "id": 124
+    },
+    {
+      "ingredientId": 18,
+      "batchId": 68,
+      "amount": 0,
+      "measurement": "cups",
+      "id": 126
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 67,
+      "amount": 5,
+      "measurement": "tbsp",
+      "id": 128
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "67",
+      "amount": 6,
+      "measurement": "tbsp",
+      "id": 129
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "68",
+      "amount": 5,
+      "measurement": "tsp",
+      "id": 132
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 68,
+      "amount": 1,
+      "measurement": "cups",
+      "id": 133
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 68,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 134
+    },
+    {
+      "ingredientId": 3,
+      "batchId": 68,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 135
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 69,
+      "amount": 1,
+      "measurement": "cups",
+      "id": 136
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 69,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 137
+    },
+    {
+      "ingredientId": 2,
+      "batchId": 69,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 138
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "69",
+      "amount": 3,
+      "measurement": "tbsp",
+      "id": 139
+    },
+    {
+      "ingredientId": 14,
+      "batchId": 71,
+      "amount": 1,
+      "measurement": "cups",
+      "id": 144
+    },
+    {
+      "ingredientId": 9,
+      "batchId": 71,
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 145
+    },
+    {
+      "ingredientId": 15,
+      "batchId": 71,
+      "amount": 1,
+      "measurement": "",
+      "id": 146
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "71",
+      "amount": 1,
+      "measurement": "tbsp",
+      "id": 147
+    },
+    {
+      "ingredientId": 6,
+      "batchId": 49,
+      "amount": 2,
+      "measurement": "cups",
+      "id": 149
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 72,
+      "amount": 4,
+      "measurement": "cups",
+      "id": 150
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 72,
+      "amount": 4,
+      "measurement": "tbsp",
+      "id": 152
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 46,
+      "amount": 2,
+      "measurement": "cups",
+      "id": 153
+    },
+    {
+      "ingredientId": 3,
+      "batchId": 46,
+      "amount": 2,
+      "measurement": "tbsp",
+      "id": 154
+    },
+    {
+      "ingredientId": 6,
+      "batchId": 46,
+      "amount": 2,
+      "measurement": "cups",
+      "id": 155
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 68,
+      "amount": 5,
+      "measurement": "cups",
+      "id": 157
+    },
+    {
+      "ingredientId": 6,
+      "batchId": 69,
+      "amount": 5,
+      "measurement": "cups",
+      "id": 158
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 73,
+      "amount": 0,
+      "measurement": "cups",
+      "id": 159
+    },
+    {
+      "ingredientId": 1,
+      "batchId": 73,
+      "amount": 0,
+      "measurement": "tbsp",
+      "id": 160
+    },
+    {
+      "ingredientId": 2,
+      "batchId": 73,
+      "amount": 0,
+      "measurement": "tbsp",
+      "id": 161
+    },
+    {
+      "ingredientId": 6,
+      "batchId": "73",
+      "amount": 5,
+      "measurement": "tbsp",
+      "id": 162
+    },
+    {
+      "ingredientId": 8,
+      "batchId": 74,
+      "amount": 5,
+      "measurement": "cups",
+      "id": 163
     }
   ]
 }
