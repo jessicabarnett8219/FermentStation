@@ -16,8 +16,6 @@ Open fermentstation.json and copy the following into the file to create a databa
 <details><summary>Starter Data</summary>
 <p>
 ```
-  JSON
-{
   "users": [
     {
       "id": 1,
@@ -246,7 +244,6 @@ Open fermentstation.json and copy the following into the file to create a databa
       "id": 1
     }
   ]
-}
 ```
 </p>
 </details>
