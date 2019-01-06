@@ -12,7 +12,7 @@ class NavBar extends Component {
           </li>
           <div className="flex align-items-center">
             <li className="margin-left-s">
-              <button className="button white-outline-btn button-l" onClick={
+              <button className="button white-outline-btn button-l logout-button-nav" onClick={
                 () => {
                   sessionStorage.clear() || localStorage.clear()
                   this.props.history.push("/welcome")
