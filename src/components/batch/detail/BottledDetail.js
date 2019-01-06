@@ -58,7 +58,7 @@ class BottledDetail extends Component {
           }}><i className="fas fa-trash white-icon"></i></button>
           <Link to={`/batches/edit/${this.props.id}`}><button className="button button-text button-xl"
           ><i className="fas fa-pen white-icon"></i></button></Link>
-          <button className="button button-text color-white button-xl" onClick={() => {
+          <button className="button button-text color-white button-xl toolbar-button" onClick={() => {
             this.props.history.push("/in-progress-list")
           }}>Back to List</button>
         </div>

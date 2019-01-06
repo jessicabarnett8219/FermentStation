@@ -8,6 +8,6 @@ import FermentStation from './components/FermentStation'
 
 ReactDOM.render(
     <Router>
-        <FermentStation />
+        <FermentStation/>
     </Router>
     , document.getElementById('root'))

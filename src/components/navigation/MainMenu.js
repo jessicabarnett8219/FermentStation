@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 
 class MainMenu extends Component {
 
-
-
   render() {
     return (
       <React.Fragment>
@@ -31,7 +29,7 @@ class MainMenu extends Component {
           </div></Link>
           </div>
         <div className="flex justify-content-center brand padding-vertical-s">
-          <button className="button button-border color-white button-l" onClick={
+          <button className="button button-border color-white button-l logout-button-main" onClick={
             () => {
               sessionStorage.clear() || localStorage.clear()
               this.props.history.push("/welcome")
