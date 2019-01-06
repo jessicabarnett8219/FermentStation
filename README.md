@@ -252,17 +252,15 @@ Open fermentstation.json and copy the following sample data into the file to cre
 </p>
 </details>
 
-You can view an ERD of the data structure here
-
 Navigate back to the root directory and run: ``` npm install ``` This will install all libraries and their dependencies used by FermentStation. 
 
 To run the app in development mode run ``` npm start ``` and open [http://localhost:3000]( http://localhost:3000) to view it in the browser. To start the server open another window of your terminal, navigate to api and run: ``` json-server -p 5002 -w fermentstation.json ```
 
 ## Credits
 
-This project was built with React JS framework and bootstrapped with Create React App.
-It was styled using turretcss framework
-It also utilized React Moment and Moment Js for date display and manipulation
+This project was built with React and bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+It was styled using [turretcss framework](https://github.com/turretcss/turretcss)
+It also utilized [Moment.js](https://github.com/turretcss/turretcss) and [React Moment](https://github.com/headzoo/react-moment) for date display and manipulation
 
 
 
