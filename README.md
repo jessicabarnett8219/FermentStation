@@ -11,7 +11,7 @@ cd api
 touch fermentstation.json
 ```
 
-Open fermentstation.json and copy the following into the file to create a database skeleton and supply the neccessary data to populate the form options in the app. 
+Open fermentstation.json and copy the following sample data into the file to create a database skeleton and supply the neccessary data to populate the form options in the app. 
 
 <details><summary>Sample Data</summary>
 <p>
@@ -251,11 +251,12 @@ Open fermentstation.json and copy the following into the file to create a databa
 
 </p>
 </details>
+
 You can view an ERD of the data structure here
 
-Navigate back to the root directory and run: npm install This will install all libraries and their dependencies used by FermentStation. 
+Navigate back to the root directory and run: ``` npm install ``` This will install all libraries and their dependencies used by FermentStation. 
 
-To run the app in development mode run npm start and open localhost3000 to view it in the browser. To start the server open another window of your terminal, navigate to api and run: json-server -p 5002 -w fermentstation.json
+To run the app in development mode run ``` npm start ``` and open [http://localhost:3000]( http://localhost:3000) to view it in the browser. To start the server open another window of your terminal, navigate to api and run: ``` json-server -p 5002 -w fermentstation.json ```
 
 ## Credits
 
