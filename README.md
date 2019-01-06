@@ -14,8 +14,7 @@ touch fermentstation.json
 Open fermentstation.json and copy the following into the file to create a database skeleton and supply the neccessary data to populate the form options in the app. 
 
 <details><summary>Starter Data</summary>
-<p>
-```json
+```
   {
   "users": [
     {
@@ -247,7 +246,6 @@ Open fermentstation.json and copy the following into the file to create a databa
   ]
   }
 ```
-</p>
 </details>
 You can view an ERD of the data structure here
 
