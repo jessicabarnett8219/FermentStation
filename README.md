@@ -256,9 +256,12 @@ Navigate back to the root directory and run: ``` npm install ``` This will insta
 
 To run the app in development mode run ``` npm start ``` and open [http://localhost:3000]( http://localhost:3000) to view it in the browser. To start the server open another window of your terminal, navigate to api and run: ``` json-server -p 5002 -w fermentstation.json ```
 
-## Using the APP
+## Using the App
 
 To get started as a user, create a new account. When you reach the dashboard create your first batch by selecting “Start a New Batch” and filling out the forms. From there you will be able to change the status of the batch by selecting “bottle batch” or “review batch” on each batch’s detail screen. A batch can be edited or deleted at any time by using the toolbar at the bottom of the detail screen. To view a list of all batches in progress or completed, use the options on the home dashboard or select “back to list” from the batch detail screen. Enjoy!
+
+![](app-demo.gif)
+ 
 
 ## Credits
 
