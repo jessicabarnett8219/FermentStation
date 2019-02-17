@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import APIManager from "../../../modules/APIManager"
 import BrewingBatchesList from "./BrewingBatchesList"
 import BottledBatchesList from "./BottledBatchesList"
-import NavBar from "./../../navigation/NavBar"
+import NavBar from "../../navigation/NavBar"
 import moment from "moment"
 
 class InProgressBatchesList extends Component {
@@ -40,8 +40,8 @@ class InProgressBatchesList extends Component {
           <div className="flex flex-column align-items-center">
             <h1 className="text-align-center no-margin-bottom">In Progress</h1>
             <div className="title-divider margin-bottom-m"></div>
-            <BrewingBatchesList batches={this.state.brewingBatches} today={this.state.today} />
-            <BottledBatchesList batches={this.state.bottledBatches} today={this.state.today} />
+            <BrewingBatchesList batches={this.state.brewingBatches} today={this.state.today} {...this.props}/>
+            <BottledBatchesList batches={this.state.bottledBatches} today={this.state.today} {...this.props}/>
           </div>
         </div>
       </div>

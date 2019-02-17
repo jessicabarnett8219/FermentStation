@@ -38,14 +38,14 @@ class ApplicationViews extends Component {
         }} />
         <Route path="/completed-list" render={props => {
           if (this.isAuthenticated()) {
-            return <CompletedBatchesList />
+            return <CompletedBatchesList {...props}/>
           } else {
             return <Redirect to="/welcome" />
           }
         }} />
         <Route path="/in-progress-list" render={props => {
           if (this.isAuthenticated()) {
-            return <InProgressBatchesList />
+            return <InProgressBatchesList {...props} />
           } else {
             return <Redirect to="/welcome" />
           }
