@@ -82,7 +82,7 @@ class IngredientForm extends Component {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentSugar),
       batchId: this.state.batchId,
-      amount: parseInt(this.state.sugarAmount),
+      amount: this.state.sugarAmount,
       measurement: this.state.sugarMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
@@ -92,7 +92,7 @@ class IngredientForm extends Component {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentTea),
       batchId: this.state.batchId,
-      amount: parseInt(this.state.teaAmount),
+      amount: this.state.teaAmount,
       measurement: this.state.teaMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
@@ -102,7 +102,7 @@ class IngredientForm extends Component {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentSupplement),
       batchId: this.state.batchId,
-      amount: parseInt(this.state.supplementAmount),
+      amount: this.state.supplementAmount,
       measurement: this.state.supplementMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
@@ -112,7 +112,7 @@ class IngredientForm extends Component {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentWater),
       batchId: this.state.batchId,
-      amount: parseInt(this.state.waterAmount),
+      amount: this.state.waterAmount,
       measurement: this.state.waterMeasurement
     }
     return APIManager.addEntry("batches-ingredients", newbatchIngredient)
