@@ -6,6 +6,8 @@ import SupplementSelection from "../ingredient/SupplementSelection";
 import TeaSelection from "../ingredient/TeaSelection";
 
 class StarterIngredientEdit extends Component {
+    // This component contains the state of the input fields for editing the starter  ingredients as well as the methods for deleting an ingredient on a certain batch, loading the existing ingredients on that batch and addding a new ingredients. This component is rendered by the EditBatch component.
+
   state = {
     currentSugar: 1,
     currentTea: 3,

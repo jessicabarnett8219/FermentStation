@@ -20,7 +20,7 @@ class CompletedDetail extends Component {
               <li className="no-margin-horizontal"><strong>Bottled On </strong><Moment format="MM/DD/YY">{this.props.bottleDate}</Moment></li>
               <li className="no-margin"><strong>Completed On </strong><Moment format="MM/DD/YY">{this.props.completeDate}</Moment></li>
             </div>
-            {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
+            {/* Maps over ingredients associated with this batch that categorized as starter (any category id but 5) */}
             <div className="border border-radius box-shadow-s padding-s margin-bottom-s">
               <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
                 <ul className="font-size-xl no-bullets">
@@ -30,7 +30,7 @@ class CompletedDetail extends Component {
                     })
                   }
                 </ul></li></div>
-            {/* Mapping over ingredients associated with this batch that categorized as starter (category 5) */}
+            {/* Maps over ingredients associated with this batch that categorized as starter (category 5) */}
             <div className="border border-radius box-shadow-s padding-s margin-bottom-s">
               <li className="margin-bottom-xs no-margin-horizontal"><strong>Bottle Ingredients</strong>
                 <ul className="font-size-xl no-bullets">

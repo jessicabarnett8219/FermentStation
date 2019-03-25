@@ -3,6 +3,8 @@ import APIManager from "../../../modules/APIManager"
 import FlavorSelection from "../ingredient/FlavorSelection"
 
 class BottleIngredientEdit extends Component {
+    // This component contains the state of the input fields for editing the bottling ingredients as well as the methods for deleting an ingredient on a certain batch, loading the existing ingredients on that batch and addding a new ingredients. This component is rendered by the EditBatch component.
+
   state = {
     currentFlavor: 6,
     flavorAmount: 0,

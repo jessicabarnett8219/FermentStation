@@ -7,6 +7,7 @@ import SupplementSelection from "./SupplementSelection";
 import TeaSelection from "./TeaSelection";
 
 class IngredientForm extends Component {
+    // This is the parent component that renders each of the specific ingredient component depending on which type of ferment the batch is. State for the selection form (default selections and current selections) lives here. Contains all the methods for rendering dropdown options and save or delete selections.
 
   state = {
     batchId: "",
@@ -31,6 +32,7 @@ class IngredientForm extends Component {
   }
 
   componentDidMount() {
+    //   Get the batchId of the current batch from the URL and set that to a variable that can be used to query the database and set that batch as the batch in state
     const { batchId } = this.props.match.params
     APIManager.getEntry("batches", batchId)
       .then(batch => this.setState({
@@ -40,6 +42,7 @@ class IngredientForm extends Component {
       }))
   }
 
+// Functions to get all of each ingredient in a particular category for dropdown
   getAllSugars = () => {
     APIManager.getAllEntries("batches-ingredients", `?batchId=${this.state.batchId}&_expand=ingredient`)
       .then(ingredients => {
@@ -72,12 +75,14 @@ class IngredientForm extends Component {
       .then(supplements => this.setState({ selectedSupplements: supplements }))
   }
 
+//   Changes the state as a selection is made
   handleIngredientSelection = (evt) => {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
   }
 
+// Functions to create an object with the new ingredient and save to the database
   handleSaveSugar = () => {
     let newbatchIngredient = {
       ingredientId: parseInt(this.state.currentSugar),
@@ -146,6 +151,7 @@ class IngredientForm extends Component {
               <SugarSelection handleIngredientSelection={this.handleIngredientSelection} getAllSugars={this.getAllSugars} handleSaveSugar={this.handleSaveSugar} deleteIngredient={this.deleteIngredient} selectedSugars={this.state.selectedSugars} />
             </div>
 
+{/* Render the SupplementSelection if it's type2. Render the TeaSelection if it's type1 */}
             {this.state.batchType === 2 ?
               <div className="padding-horizontal-s padding-vertical-s no-margin">
                 <strong><label className="font-size-l">Supplements</label></strong>

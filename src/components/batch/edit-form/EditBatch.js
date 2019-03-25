@@ -9,11 +9,11 @@ import StarterIngredientEdit from "./StarterIngredientEdit"
 import BottleIngredientEdit from "./BottleIngredientEdit";
 
 class EditBatch extends Component {
+    // This component contains the methods for populating the edit fields with the existing values, and saving the changes. It also contains the state of each of the edit input fields. It conditionally renders a specific edit form component based on what stage the batch is in.
 
   state = {
     batch: "",
     initialized: false,
-    // states starting with "edit" correspond to values of input fields
     editName: "",
     editType: "",
     editStartDate: "",
