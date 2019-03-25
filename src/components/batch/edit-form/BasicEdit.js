@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 class BasicEdit extends Component {
+    // This is the edit component that is used by all stages
 
   render() {
     return (

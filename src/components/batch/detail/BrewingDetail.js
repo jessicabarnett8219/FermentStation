@@ -23,7 +23,7 @@ class BrewingDetail extends Component {
               <div className="border border-radius box-shadow-s padding-s margin-bottom-s">
                 <li className="margin-bottom-xs no-margin-horizontal"><strong>Starter Ingredients</strong>
 
-                  {/* Mapping over ingredients associated with this batch that categorized as starter (any category id but 5) */}
+                  {/* Maps over ingredients associated with this batch that are categorized as starter (any category id but 5) */}
                   <ul className="font-size-xl no-bullets">
                     {
                       this.props.starterIngredients.map(i => {

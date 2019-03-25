@@ -6,7 +6,7 @@ import CompletedDetail from "./CompletedDetail"
 import NavBar from "../../navigation/NavBar"
 
 class BatchDetail extends Component {
-
+// This component contains the logic for getting a batch's details from the API and displaying and the state of which batch is is and it's details. It also contains the methods for deleting and editing batches. It conditionally renders the specific type of detail component based on what status the batch is in
   state = {
     batch: {},
     initialized: false,

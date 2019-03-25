@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import BatchRatingEditForm from "./BatchRatingEditForm"
 
 class CompletedEdit extends Component {
+    // This is the edit component that is used only by completed batches
 
   render() {
     return (

@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 
 class BottledEdit extends Component {
-
-  render() {
+    // This is the edit component that is used only by bottled batches
+    render() {
     return (
         <div className="margin-bottom-s">
           <strong><label className="font-size-l" htmlFor="editCompleteDate">

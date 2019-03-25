@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 class BatchRatingEditForm extends Component {
+// This component is used only by completed batches. It is rendered by the CompletedEdit component
 
   render() {
     if (this.props.rating === "positive") {
