@@ -34,7 +34,7 @@ class PastBatchesList extends Component {
                   <p className="no-margin-top font-size-l">Completed <Moment format="MM/DD/YY">{batch.completeDate}</Moment></p>
                 </div>
                 <div className="align-self-flex-end">
-                  <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-l info box-shadow-xxl">Details</button></Link>
+                  <Link to={`/batches/${batch.id}`}><button className="button button-l info box-shadow-xxl">Details</button></Link>
                 </div>
               </div>
             })

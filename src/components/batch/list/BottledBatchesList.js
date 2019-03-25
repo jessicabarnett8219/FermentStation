@@ -15,7 +15,7 @@ class BottledBatchesList extends Component {
                   <span>Ready to drink <Moment fromNow>{batch.completeDate}</Moment></span>
                 }
               </dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-l info box-shadow-xxl">Details</button></Link>
+              <Link to={`/batches/${batch.id}`}><button className="button button-l info box-shadow-xxl">Details</button></Link>
             </dl>
           })
         }
