@@ -14,7 +14,7 @@ class BrewingBatchesList extends Component {
                 {batch.bottleDate === this.props.today ? <span><i className="fas fa-bell fa-lg margin-right-xs"></i>Ready to bottle today</span> : <span>Ready to bottle <Moment fromNow>{batch.bottleDate}</Moment></span>
                 }
               </dd>
-              <Link to={`/batches/${batch.id}`} {...this.props}><button className="button button-l info box-shadow-xxl">Details</button></Link>
+              <Link to={`/batches/${batch.id}`}><button className="button button-l info box-shadow-xxl">Details</button></Link>
             </dl>
           })
         }
